@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mention Cafe · Website concept by FirstGlance Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#14110F; --cream:#FBF4E8; --paper:#FFFDF8; --ink:#1E1A16; --muted:#6E655B;
+    --leaf:#2F6B4F; --leaf-deep:#1D4734; --chili:#E4572E; --chili-hi:#F26B41; --line:#E8DCC8;
+    --display:"Fraunces", Georgia, serif; --body:"Hanken Grotesk", system-ui, -apple-system, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .concept{position:sticky;top:0;z-index:50;background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center;line-height:1.35}
+  .concept b{color:#FFB81C}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;background:var(--night);color:var(--cream);padding:72px 0 88px}
+  .hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:620px;height:620px;border-radius:50%;
+    background:radial-gradient(circle,rgba(228,87,46,.55),rgba(228,87,46,0) 65%)}
+  .hero::after{content:"";position:absolute;left:-120px;bottom:-160px;width:460px;height:460px;border-radius:50%;
+    background:radial-gradient(circle,rgba(47,107,79,.55),rgba(47,107,79,0) 65%)}
+  .hero .wrap{position:relative;z-index:1;display:grid;gap:40px;align-items:center}
+  @media(min-width:860px){.hero .wrap{grid-template-columns:1.15fr .85fr}}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#F7C9A9}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--chili)}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,84px);line-height:1;margin:18px 0 20px;letter-spacing:-.01em}
+  h1 em{font-style:normal;color:var(--chili-hi)}
+  .lede{font-size:clamp(17px,2.2vw,20px);color:#E9DFD2;max-width:34ch}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 26px;font-weight:800;font-size:17px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s, box-shadow .15s}
+  .btn:active{transform:translateY(2px)}
+  .btn-main{background:var(--chili);color:#fff;box-shadow:0 10px 0 -2px #A83A19, 0 18px 30px -10px rgba(228,87,46,.6)}
+  .btn-main:hover{background:var(--chili-hi)}
+  .btn-ghost{background:transparent;color:var(--cream);border:2px solid rgba(251,244,232,.35)}
+  .btn-ghost:hover{border-color:var(--cream)}
+
+  /* pizza art */
+  .art{position:relative;aspect-ratio:1;max-width:420px;justify-self:center;width:100%}
+  .pizza{position:absolute;inset:6%;border-radius:50%;background:
+    radial-gradient(circle at 50% 50%, #F4B860 0 58%, #D9893B 59% 66%, #B8682A 67% 100%);
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.8), inset 0 0 0 10px rgba(0,0,0,.05);animation:spin 60s linear infinite}
+  .pizza i{position:absolute;width:13%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E8603C,#B33A1E)}
+  .pizza b{position:absolute;width:7%;aspect-ratio:1;border-radius:40% 60% 50% 50%;background:var(--leaf)}
+  .pizza .cut{position:absolute;left:50%;top:6%;bottom:6%;width:2px;background:rgba(120,60,20,.35);transform-origin:center}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.pizza{animation:none}}
+  .tag{position:absolute;background:var(--cream);color:var(--ink);border-radius:18px;padding:12px 16px;font-weight:800;font-size:15px;box-shadow:0 18px 30px -12px rgba(0,0,0,.6)}
+  .tag small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+  .tag.t1{left:-4%;top:12%;transform:rotate(-6deg)}
+  .tag.t2{right:-4%;bottom:12%;transform:rotate(5deg)}
+
+  /* facts */
+  .facts{background:var(--cream);border-bottom:1px solid var(--line)}
+  .facts ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+  @media(min-width:760px){.facts ul{grid-template-columns:repeat(4,1fr)}}
+  .facts li{background:var(--cream);padding:22px 18px;font-weight:600;font-size:15px}
+  .facts li span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+
+  section{padding:80px 0}
+  h2{font-family:var(--display);font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1.05;margin-bottom:14px}
+  .sub{color:var(--muted);font-size:18px;max-width:52ch}
+
+  /* reasons */
+  .cards{display:grid;gap:18px;margin-top:40px}
+  @media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:28px;position:relative;overflow:hidden}
+  .card .ico{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:28px;margin-bottom:18px}
+  .card h3{font-size:22px;margin-bottom:8px}
+  .card p{color:var(--muted)}
+  .c1 .ico{background:#FDE3D8}.c2 .ico{background:#E0EEE6}.c3 .ico{background:#F8EBC9}
+
+  /* planner */
+  .planner{background:var(--leaf-deep);color:var(--cream);border-radius:34px;padding:clamp(26px,5vw,56px);display:grid;gap:36px;position:relative;overflow:hidden}
+  .planner::after{content:"";position:absolute;right:-140px;top:-140px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(242,107,65,.45),transparent 65%)}
+  @media(min-width:900px){.planner{grid-template-columns:1fr 1fr}}
+  .planner h2{color:#fff}
+  .planner .sub{color:#CFE3D7}
+  .field{margin-bottom:22px;position:relative;z-index:1}
+  .field label,.field legend{display:block;font-weight:800;margin-bottom:10px;font-size:15px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;border:0}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip span{display:inline-block;padding:10px 16px;border-radius:999px;border:2px solid rgba(251,244,232,.3);font-weight:600;cursor:pointer;transition:.15s}
+  .chip input:checked + span{background:var(--cream);color:var(--leaf-deep);border-color:var(--cream)}
+  .chip input:focus-visible + span{outline:3px solid #F7C9A9;outline-offset:2px}
+  input[type=range]{width:100%;accent-color:var(--chili)}
+  .count{font-family:var(--display);font-size:44px;font-weight:800;color:#fff}
+  input[type=date]{font:inherit;padding:12px 14px;border-radius:14px;border:0;width:100%;max-width:260px}
+  .msg{background:var(--paper);color:var(--ink);border-radius:24px;padding:24px;position:relative;z-index:1;align-self:start}
+  .msg .from{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:10px}
+  .bubble{background:#E7F5EC;border-radius:20px 20px 20px 6px;padding:18px;font-size:17px;line-height:1.5;min-height:120px}
+  .msg .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-sm{padding:12px 18px;font-size:15px}
+  .note{font-size:13px;color:var(--muted);margin-top:12px}
+
+  /* menu */
+  .menu-box{margin-top:36px;background:#fff;border:2px dashed var(--line);border-radius:26px;padding:28px;display:grid;gap:18px}
+  @media(min-width:760px){.menu-box{grid-template-columns:1fr 1fr}}
+  .menu-cat{display:flex;flex-wrap:wrap;gap:8px}
+  .menu-cat span{background:var(--cream);border-radius:999px;padding:8px 14px;font-weight:600}
+  .skel{display:grid;gap:12px}
+  .skel div{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+  .skel i{height:12px;border-radius:6px;background:#EFE6D6;display:block}
+
+  /* visit */
+  .visit{display:grid;gap:24px;align-items:center}
+  @media(min-width:860px){.visit{grid-template-columns:1fr 1fr}}
+  .mapcard{background:var(--night);color:var(--cream);border-radius:30px;padding:30px;position:relative;overflow:hidden;min-height:280px}
+  .mapcard .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:34px 34px}
+  .mapcard .road{position:absolute;height:22px;background:#2A2521;left:-10%;right:-10%;top:58%;transform:rotate(-8deg)}
+  .mapcard .road2{position:absolute;width:22px;background:#2A2521;top:-10%;bottom:-10%;left:38%;transform:rotate(10deg)}
+  .pin{position:absolute;left:52%;top:30%;width:54px;height:54px;border-radius:50% 50% 50% 0;background:var(--chili);transform:rotate(-45deg);box-shadow:0 14px 26px -8px rgba(228,87,46,.8)}
+  .pin::after{content:"";position:absolute;inset:17px;border-radius:50%;background:var(--night)}
+  .mapcard .label{position:absolute;left:24px;bottom:24px;right:24px;background:var(--cream);color:var(--ink);border-radius:18px;padding:16px}
+  .mapcard .label b{display:block;font-size:18px}
+
+  footer{background:#0F0D0B;color:#BDB3A6;padding:46px 0;font-size:15px}
+  footer .fg{display:flex;gap:14px;align-items:center;margin-top:14px}
+  footer .dot{width:44px;height:44px;border-radius:50%;background:#1A33C9;color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+  footer a{color:#FFB81C}
+</style>
+</head>
+<body>
+
+<div class="concept" role="note">
+  <b>Concept design</b> made by FirstGlance Studio to show Mention Cafe what its website could look like. Not the official website.
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Sarkanda · Bilaspur</span>
+      <h1>Your new favourite <em>cafe</em> in Bilaspur.</h1>
+      <p class="lede">Pizza, good company and birthday parties done properly. Right opposite Jain Mandir, Seepat Chowk.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#plan">Plan a party →</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Mention+Cafe+Sarkanda+Bilaspur" target="_blank" rel="noopener">Get directions ↗</a>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="pizza">
+        <span class="cut" style="transform:rotate(0)"></span><span class="cut" style="transform:rotate(60deg)"></span><span class="cut" style="transform:rotate(120deg)"></span>
+        <i style="left:30%;top:24%"></i><i style="left:58%;top:30%"></i><i style="left:40%;top:56%"></i><i style="left:64%;top:58%"></i><i style="left:22%;top:48%"></i>
+        <b style="left:47%;top:38%"></b><b style="left:33%;top:70%"></b><b style="left:70%;top:44%"></b><b style="left:52%;top:72%"></b>
+      </div>
+      <div class="tag t1">🎂 Birthday setups<small>Decor ready when you arrive</small></div>
+      <div class="tag t2">🎧 DJ nights<small>Follow us for the next one</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <ul class="wrap" style="padding:0">
+    <li><span>Where</span>Opp. Jain Mandir, Seepat Chowk</li>
+    <li><span>Best for</span>Birthdays &amp; get-togethers</li>
+    <li><span>On the menu</span>Pizza &amp; cafe favourites</li>
+    <li><span>Open</span>Your hours go here</li>
+  </ul>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Three reasons people come back</h2>
+    <p class="sub">Every section of a real site would use your own photos from Instagram. This concept uses drawings in their place.</p>
+    <div class="cards">
+      <article class="card c1"><div class="ico">🎉</div><h3>Celebrations</h3><p>Birthdays and anniversaries with the decoration done for you. Just bring the guests.</p></article>
+      <article class="card c2"><div class="ico">🎶</div><h3>Nights out</h3><p>DJ nights and events. The next date, always on this page, so nobody misses it.</p></article>
+      <article class="card c3"><div class="ico">🍕</div><h3>Catch-ups</h3><p>The easy answer to "where should we meet?" Pizza, friends and no rush to leave.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="plan" style="padding-top:0">
+  <div class="wrap">
+    <div class="planner">
+      <div style="position:relative;z-index:1">
+        <h2>Plan your party in 30 seconds</h2>
+        <p class="sub" style="margin-bottom:30px">Pick a few options and we'll write the message for you. No forms, no waiting.</p>
+        <fieldset class="field" style="border:0">
+          <legend>What are we celebrating?</legend>
+          <div class="chips" id="occasion">
+            <label class="chip"><input type="radio" name="occ" value="a birthday" checked><span>Birthday</span></label>
+            <label class="chip"><input type="radio" name="occ" value="an anniversary"><span>Anniversary</span></label>
+            <label class="chip"><input type="radio" name="occ" value="a friends' night out"><span>Friends' night</span></label>
+            <label class="chip"><input type="radio" name="occ" value="an office get-together"><span>Office party</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="guests">How many guests?</label>
+          <div class="count" id="gcount">15</div>
+          <input id="guests" type="range" min="4" max="60" value="15">
+        </div>
+        <div class="field">
+          <label for="date">When?</label>
+          <input id="date" type="date">
+        </div>
+        <fieldset class="field" style="border:0">
+          <legend>Add-ons</legend>
+          <div class="chips" id="extras">
+            <label class="chip"><input type="checkbox" value="decoration" checked><span>Decoration</span></label>
+            <label class="chip"><input type="checkbox" value="a cake"><span>Cake</span></label>
+            <label class="chip"><input type="checkbox" value="music"><span>Music / DJ</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="msg" aria-live="polite">
+        <div class="from">Your message, ready to send</div>
+        <div class="bubble" id="bubble"></div>
+        <div class="row">
+          <button class="btn btn-main btn-sm" id="copy" type="button">Copy message</button>
+          <a class="btn btn-dark btn-sm" href="https://ig.me/m/mentioncafe2026" target="_blank" rel="noopener">Open Instagram DM ↗</a>
+        </div>
+        <p class="note">Nothing is sent or stored from this page. On the live site, this button would open WhatsApp with the message already typed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream)">
+  <div class="wrap">
+    <h2>The menu, as real text</h2>
+    <p class="sub">Not a blurry photo. Searchable, quick to load on a phone, and easy to update when prices change.</p>
+    <div class="menu-box">
+      <div>
+        <p style="font-weight:800;margin-bottom:12px">Sections we'd set up</p>
+        <div class="menu-cat"><span>Pizza</span><span>Starters</span><span>Mains</span><span>Shakes &amp; coffee</span><span>Desserts</span></div>
+        <p class="note" style="margin-top:16px">Placeholder sections. Your real dishes and prices go here.</p>
+      </div>
+      <div class="skel" aria-hidden="true">
+        <div><i style="width:55%"></i><i style="width:16%"></i></div>
+        <div><i style="width:42%"></i><i style="width:14%"></i></div>
+        <div><i style="width:60%"></i><i style="width:16%"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap visit">
+    <div>
+      <h2>Find us</h2>
+      <p class="sub" style="margin-bottom:26px">In front of Jain Mandir, Seepat Chowk, Sarkanda, Bilaspur, Chhattisgarh.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="https://www.google.com/maps/search/?api=1&query=Mention+Cafe+Sarkanda+Bilaspur" target="_blank" rel="noopener">Directions on Google Maps ↗</a>
+        <a class="btn btn-ghost" style="color:var(--ink);border-color:var(--line)" href="https://www.instagram.com/mentioncafe2026/" target="_blank" rel="noopener">@mentioncafe2026 ↗</a>
+      </div>
+    </div>
+    <div class="mapcard" aria-hidden="true">
+      <div class="grid"></div><div class="road"></div><div class="road2"></div><div class="pin"></div>
+      <div class="label"><b>Mention Cafe</b>Opp. Jain Mandir, Seepat Chowk</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>This is a free concept. It was designed by FirstGlance Studio to show what a website for Mention Cafe could look like. It is not the cafe's official website and isn't listed on Google.</p>
+    <div class="fg"><span class="dot">FG</span><span>Like it? Reply to our Instagram message, or see more at <a href="https://firstglancestudio.in" target="_blank" rel="noopener">firstglancestudio.in</a></span></div>
+  </div>
+</footer>
+
+<script>
+  const $ = s => document.querySelector(s);
+  const g = $('#guests'), gc = $('#gcount'), d = $('#date'), b = $('#bubble');
+  try { const t = new Date(Date.now() + 7*864e5); d.value = t.toISOString().slice(0,10); } catch(e) {}
+  function fmt(v){ if(!v) return 'soon'; const dt = new Date(v+'T12:00:00'); return dt.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'}); }
+  function update(){
+    gc.textContent = g.value;
+    const occ = document.querySelector('input[name=occ]:checked').value;
+    const ex = [...document.querySelectorAll('#extras input:checked')].map(i=>i.value);
+    const exTxt = ex.length ? ` We'd like ${ex.length>1 ? ex.slice(0,-1).join(', ')+' and '+ex.slice(-1) : ex[0]}.` : '';
+    b.textContent = `Hi Mention Cafe! I'd like to plan ${occ} for ${g.value} people on ${fmt(d.value)}.${exTxt} Could you share the options and pricing?`;
+  }
+  document.querySelectorAll('input').forEach(i => i.addEventListener('input', update));
+  update();
+  $('#copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.textContent); $('#copy').textContent = 'Copied ✓'; }
+    catch(e) { $('#copy').textContent = 'Select and copy above'; }
+    setTimeout(()=>$('#copy').textContent='Copy message', 2000);
+  });
+</script>
+</body>
+</html>
