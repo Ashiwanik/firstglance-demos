@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Focus &amp; Forever · Website concept by FirstGlance Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--night:#0F0D0C;--ink:#1C1816;--ivory:#FAF5EC;--sand:#EDE2CF;--gold:#C9A25E;--gold-hi:#E2C17F;--rose:#B8736A;--muted:#A99F92;--line:rgba(250,245,236,.14);
+    --display:"Cormorant Garamond",Georgia,serif;--body:"Hanken Grotesk",system-ui,-apple-system,Arial,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--night);color:var(--ivory);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .concept{position:sticky;top:0;z-index:50;background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center}
+  .concept b{color:#FFB81C}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+  .logo{font-family:var(--display);font-size:26px;letter-spacing:.02em}.logo i{color:var(--gold)}
+  .navbtn{border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:999px;padding:10px 18px;font-weight:800;font-size:14px}
+  .hero{position:relative;min-height:86vh;display:grid;align-items:center;overflow:hidden;padding:40px 0 80px}
+  .frames{position:absolute;inset:0;pointer-events:none}
+  .frame{position:absolute;border-radius:6px;background:linear-gradient(160deg,#3A2A22,#1A1412);box-shadow:0 40px 80px -30px rgba(0,0,0,.9);border:10px solid #F3EBDD}
+  .frame::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(226,193,127,.45),transparent 60%)}
+  .f1{width:240px;height:310px;right:5%;top:10%;transform:rotate(6deg)}
+  .f2{width:190px;height:240px;right:23%;top:50%;transform:rotate(-8deg)}
+  .f3{width:180px;height:230px;right:2%;bottom:6%;transform:rotate(-3deg)}
+  .frame span{position:absolute;left:0;right:0;bottom:-34px;text-align:center;color:#6E655B;font-size:12px;font-weight:600}
+  .f3{}@media(max-width:1150px){.f2{right:4%;top:58%}.f3{display:none}}@media(max-width:860px){.f1{width:150px;height:200px;right:-20px;top:auto;bottom:20px}.f2,.f3{display:none}}
+  .hero .wrap{width:100%}.hero .copy{position:relative;z-index:1;max-width:560px}
+  .eyebrow{color:var(--gold);font-weight:800;letter-spacing:.18em;font-size:13px;text-transform:uppercase}
+  h1{font-family:var(--display);font-weight:600;font-size:clamp(50px,7.4vw,86px);line-height:.95;margin:18px 0 22px}
+  h1 em{font-style:italic;color:var(--gold-hi);font-weight:500}
+  .lede{color:#D9CFC1;font-size:clamp(17px,2.2vw,20px);max-width:40ch}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:16px 26px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+  .btn-gold{background:var(--gold);color:#1B1409;box-shadow:0 10px 0 -2px #8D6E37}
+  .btn-gold:hover{background:var(--gold-hi)}
+  .btn-line{border:1px solid var(--line);color:var(--ivory)}
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .strip ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:760px){.strip ul{grid-template-columns:repeat(4,1fr)}}
+  .strip li{padding:22px 18px;border-right:1px solid var(--line);font-weight:600}
+  .strip li span{display:block;color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+  section{padding:90px 0}
+  h2{font-family:var(--display);font-weight:600;font-size:clamp(40px,6vw,64px);line-height:1}
+  .sub{color:#CFC5B8;font-size:18px;max-width:54ch;margin-top:14px}
+  .pk{display:grid;gap:18px;margin-top:44px}
+  @media(min-width:860px){.pk{grid-template-columns:repeat(3,1fr)}}
+  .card{border:1px solid var(--line);border-radius:28px;padding:30px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0))}
+  .card.hot{background:var(--ivory);color:var(--ink);border-color:var(--ivory);transform:translateY(-10px)}
+  .card .tier{font-weight:800;letter-spacing:.14em;font-size:13px;text-transform:uppercase;color:var(--gold)}
+  .card.hot .tier{color:var(--rose)}
+  .card .price{font-family:var(--display);font-size:44px;margin:10px 0 4px}
+  .card .for{color:var(--muted);margin-bottom:18px}.card.hot .for{color:#6E655B}
+  .card ul{list-style:none}.card li{padding:9px 0;border-top:1px solid var(--line)}.card.hot li{border-color:#E4D9C6}
+  .card li::before{content:"✦ ";color:var(--gold)}
+  .tag{display:inline-block;background:var(--rose);color:#fff;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:800;margin-left:8px;vertical-align:middle}
+  .tool{background:var(--ivory);color:var(--ink);border-radius:36px;padding:clamp(26px,5vw,56px);display:grid;gap:34px}
+  @media(min-width:900px){.tool{grid-template-columns:1fr 1fr}}
+  .tool .sub{color:#6E655B}
+  fieldset{border:0;margin-bottom:20px}legend,label.l{display:block;font-weight:800;margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip span{display:inline-block;padding:10px 16px;border-radius:999px;border:1.5px solid #D9CDB8;font-weight:600;cursor:pointer}
+  .chip input:checked+span{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+  .chip input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}
+  input[type=date],input[type=text]{font:inherit;padding:12px 14px;border-radius:14px;border:1.5px solid #D9CDB8;width:100%;max-width:300px;background:#fff}
+  .out{background:var(--night);color:var(--ivory);border-radius:26px;padding:24px;align-self:start}
+  .out .from{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:10px}
+  .bubble{background:#2A2320;border-radius:20px 20px 20px 6px;padding:18px;font-size:17px;min-height:130px}
+  .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .note{font-size:13px;color:var(--muted);margin-top:12px}
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:40px}
+  @media(min-width:760px){.gallery{grid-template-columns:repeat(4,1fr)}}
+  .g{aspect-ratio:3/4;border-radius:18px;border:1px dashed var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:14px;padding:12px;background:radial-gradient(circle at 50% 30%,rgba(201,162,94,.18),transparent 65%)}
+  .g:nth-child(2n){aspect-ratio:3/4.6}
+  .visit{display:grid;gap:20px;border:1px solid var(--line);border-radius:28px;padding:32px}
+  @media(min-width:760px){.visit{grid-template-columns:1fr auto;align-items:center}}
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:15px}
+  footer .fg{display:flex;gap:14px;align-items:center;margin-top:14px}
+  footer .dot{flex:0 0 44px;width:44px;height:44px;border-radius:50%;background:#1A33C9;color:#fff;display:grid;place-items:center;font-weight:800}
+  footer a{color:#FFB81C}
+</style>
+</head>
+<body>
+<div class="concept" role="note"><b>Concept design</b> made by FirstGlance Studio to show Focus &amp; Forever what its website could look like. Not the official website.</div>
+<div class="wrap"><nav><div class="logo">Focus <i>&amp;</i> Forever</div><a class="navbtn" href="#date">Check your date</a></nav></div>
+
+<header class="hero">
+  <div class="frames" aria-hidden="true">
+    <div class="frame f1"><span>Your best wedding photo</span></div>
+    <div class="frame f2"></div>
+    <div class="frame f3"></div>
+  </div>
+  <div class="wrap"><div class="copy">
+    <span class="eyebrow">Wedding photography &amp; cinematic films · Kathmandu</span>
+    <h1>Your wedding lasts a day. <em>Your memories, forever.</em></h1>
+    <p class="lede">Every emotion, every smile and every unforgettable moment, captured in timeless photographs and cinematic wedding films.</p>
+    <div class="ctas"><a class="btn btn-gold" href="#date">Check your date →</a><a class="btn btn-line" href="#packages">See packages</a></div>
+  </div></div>
+</header>
+
+<div class="strip"><ul class="wrap" style="padding:0">
+  <li><span>We capture</span>Photos &amp; cinematic films</li>
+  <li><span>Weddings</span>Intimate or grand</li>
+  <li><span>Packages from</span>NPR 75,000</li>
+  <li><span>Studio</span>Chhaya Center, Thamel</li>
+</ul></div>
+
+<section id="packages"><div class="wrap">
+  <h2>Choose your package</h2>
+  <p class="sub">Clear prices, so couples can plan with confidence. The full inclusions for each package would go here.</p>
+  <div class="pk">
+    <article class="card"><div class="tier">🥇 Gold</div><div class="price">NPR 75,000</div><p class="for">Essential wedding coverage</p><ul><li>Essential wedding photography</li><li>Cinematic wedding videography</li><li>Your main wedding celebration</li></ul></article>
+    <article class="card hot"><div class="tier">💎 Platinum <span class="tag">Multi-event</span></div><div class="price">NPR 2,50,000</div><p class="for">For celebrations across several events</p><ul><li>Multi-event photography</li><li>Cinematic wedding films</li><li>Special moments throughout your celebrations</li></ul></article>
+    <article class="card"><div class="tier">👑 Luxury</div><div class="price">NPR 5,00,000</div><p class="for">The complete experience</p><ul><li>Bride's and groom's sides covered</li><li>Cinematic wedding videography</li><li>Comprehensive coverage of every moment</li></ul></article>
+  </div>
+</div></section>
+
+<section id="date" style="padding-top:0"><div class="wrap">
+  <div class="tool">
+    <div>
+      <h2 style="color:var(--ink)">Check your date in 30 seconds</h2>
+      <p class="sub" style="margin-bottom:26px">The wedding season fills up fast. Pick your package and date, and we'll write the message for you.</p>
+      <fieldset><legend>Package</legend><div class="chips">
+        <label class="chip"><input type="radio" name="pk" value="Gold" checked><span>Gold</span></label>
+        <label class="chip"><input type="radio" name="pk" value="Platinum"><span>Platinum</span></label>
+        <label class="chip"><input type="radio" name="pk" value="Luxury"><span>Luxury</span></label>
+        <label class="chip"><input type="radio" name="pk" value="not sure yet"><span>Not sure yet</span></label>
+      </div></fieldset>
+      <fieldset><legend>How many events?</legend><div class="chips">
+        <label class="chip"><input type="radio" name="ev" value="just the wedding day" checked><span>Wedding day only</span></label>
+        <label class="chip"><input type="radio" name="ev" value="2 to 3 events"><span>2–3 events</span></label>
+        <label class="chip"><input type="radio" name="ev" value="4 or more events"><span>4+ events</span></label>
+      </div></fieldset>
+      <div style="display:grid;gap:16px"><div><label class="l" for="d">Wedding date</label><input id="d" type="date"></div>
+      <div><label class="l" for="v">Venue or city</label><input id="v" type="text" value="Kathmandu" maxlength="40"></div></div>
+    </div>
+    <div class="out" aria-live="polite">
+      <div class="from">Your message, ready to send</div>
+      <div class="bubble" id="b"></div>
+      <div class="row"><button class="btn btn-gold" id="copy" type="button">Copy message</button><a class="btn btn-line" href="https://ig.me/m/focusandforeverevents" target="_blank" rel="noopener">Open Instagram DM ↗</a></div>
+      <p class="note">Nothing is sent or stored from this page. On the live site, this would open WhatsApp with the message ready.</p>
+    </div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>Moments we've captured</h2>
+  <p class="sub">On the live site, your favourite photographs and film stills fill this gallery, with each wedding telling its own story.</p>
+  <div class="gallery" aria-hidden="true"><div class="g">Your photo</div><div class="g">Your film still</div><div class="g">Your photo</div><div class="g">Your photo</div></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="visit">
+    <div><h2 style="font-size:44px">Meet us at the studio</h2><p class="sub">Chhaya Center, Thamel, Kathmandu, Nepal · 9712093383 · focusandforeverevents@gmail.com</p></div>
+    <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=Chhaya+Center+Thamel+Kathmandu" target="_blank" rel="noopener">Directions ↗</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p>This is a free concept. It was designed by FirstGlance Studio to show what a website for Focus &amp; Forever could look like. It is not the official website and isn't listed on Google.</p>
+  <div class="fg"><span class="dot">FG</span><span>Like it? Reply to our Instagram message, or see more at <a href="https://firstglancestudio.in" target="_blank" rel="noopener">firstglancestudio.in</a></span></div>
+</div></footer>
+
+<script>
+  const b=document.getElementById('b'),d=document.getElementById('d'),v=document.getElementById('v');
+  try{d.value=new Date(Date.now()+60*864e5).toISOString().slice(0,10);}catch(e){}
+  const fmt=x=>{if(!x)return'our wedding date';return new Date(x+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});};
+  function u(){const pk=document.querySelector('input[name=pk]:checked').value,ev=document.querySelector('input[name=ev]:checked').value;
+    const p=pk==='not sure yet'?"We're not sure which package suits us yet":`We're interested in the ${pk} package`;
+    b.textContent=`Hi Focus & Forever! Are you available on ${fmt(d.value)}? ${p}, for ${ev} in ${v.value||'Kathmandu'}. Could you share the details?`;}
+  document.querySelectorAll('input').forEach(i=>i.addEventListener('input',u));u();
+  document.getElementById('copy').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(b.textContent);e.target.textContent='Copied ✓';}catch(err){e.target.textContent='Select and copy above';}setTimeout(()=>e.target.textContent='Copy message',2000);});
+</script>
+</body>
+</html>
