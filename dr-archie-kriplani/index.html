@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dr Archie Kriplani · Website concept by FirstGlance Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#7B4BD6; --sage-deep:#2B1B55; --sage-soft:#EEE7FB; --blush:#FFE4DA; --blush-deep:#FFB59C;
+    --cream:#FFFAF7; --paper:#FFFFFF; --ink:#1F2A24; --muted:#617066; --gold:#FF7A59; --line:#E5E0D6;
+    --display:"Cormorant Garamond", Georgia, serif; --body:"Hanken Grotesk", system-ui, -apple-system, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .concept{position:sticky;top:0;z-index:50;background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center;line-height:1.35}
+  .concept b{color:#FFB81C}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+  .mono{display:flex;align-items:center;gap:12px;font-weight:800}
+  .mono span{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-size:22px;color:var(--gold);background:#fff}
+  .mono small{display:block;font-weight:600;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .navbtn{background:var(--sage-deep);color:#fff;text-decoration:none;border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px}
+
+  .hero{padding:40px 0 80px;position:relative;overflow:hidden}
+  .hero .wrap{display:grid;gap:44px;align-items:center}
+  @media(min-width:880px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+  .kicker{display:inline-block;background:var(--sage-soft);color:var(--sage-deep);border-radius:999px;padding:7px 14px;font-weight:800;font-size:13px;letter-spacing:.04em}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(48px,8.5vw,92px);line-height:.98;margin:20px 0 22px;letter-spacing:-.01em}
+  h1 em{font-style:italic;color:var(--sage)}
+  .lede{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:38ch}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:16px 26px;font-weight:800;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s}
+  .btn:active{transform:translateY(2px)}
+  .btn-main{background:var(--sage-deep);color:#fff;box-shadow:0 10px 0 -2px #1A0F38,0 18px 30px -12px rgba(43,27,85,.6)}
+  .btn-main:hover{background:var(--sage)}
+  .btn-soft{background:#fff;color:var(--ink);border:2px solid var(--line)}
+  .btn-sm{padding:12px 18px;font-size:15px}
+
+  /* hero art: layered skin illustration */
+  .art{position:relative;aspect-ratio:1;max-width:440px;width:100%;justify-self:center}
+  .art .blob{position:absolute;border-radius:50%}
+  .b1{inset:4%;background:radial-gradient(circle at 35% 30%,#FFF3EE,var(--blush) 55%,var(--blush-deep));}
+  .b2{width:46%;height:46%;right:-2%;top:-2%;background:radial-gradient(circle at 40% 40%,#EEF4EE,var(--sage-soft) 60%,#C9DACB)}
+  .layers{position:absolute;left:14%;right:14%;top:30%;height:42%;border-radius:26px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(43,27,85,.55);background:#fff}
+  .layers div{height:33.33%;display:flex;align-items:center;padding:0 18px;font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+  .l1{background:#FFE9E1;color:#B4462A}.l2{background:#F2E8FF;color:#5B2FB3}.l3{background:#2B1B55;color:#FFD7C9}
+  .leaf{position:absolute;width:70px;height:34px;border-radius:70px 0;background:var(--sage)}
+  .lf1{left:4%;top:16%;transform:rotate(-25deg)}.lf2{right:8%;bottom:12%;transform:rotate(155deg);background:var(--sage-deep)}
+  .chip-float{position:absolute;background:#fff;border-radius:16px;padding:10px 14px;font-weight:800;font-size:14px;box-shadow:0 16px 30px -14px rgba(0,0,0,.35)}
+  .cf1{left:-2%;bottom:16%;transform:rotate(-4deg)}.cf2{right:-2%;top:22%;transform:rotate(4deg)}
+  .chip-float small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+
+  .creds{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .creds ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+  @media(min-width:760px){.creds ul{grid-template-columns:repeat(4,1fr)}}
+  .creds li{background:#fff;padding:20px 18px;font-weight:700;font-size:15px}
+  .creds li span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:4px}
+
+  section{padding:84px 0}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(38px,5.5vw,58px);line-height:1.02;margin-bottom:14px}
+  .sub{color:var(--muted);font-size:18px;max-width:54ch}
+
+  .areas{display:grid;gap:18px;margin-top:40px}
+  @media(min-width:760px){.areas{grid-template-columns:repeat(3,1fr)}}
+  .area{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px}
+  .area .ic{width:60px;height:60px;border-radius:20px;display:grid;place-items:center;margin-bottom:18px}
+  .area h3{font-size:22px;margin-bottom:10px}
+  .area ul{list-style:none;color:var(--muted)}
+  .area li{padding:6px 0;border-bottom:1px dashed var(--line)}
+  .area li:last-child{border:0}
+
+  /* consult tool */
+  .tool{background:var(--sage-deep);color:#fff;border-radius:36px;padding:clamp(26px,5vw,56px);display:grid;gap:34px;position:relative;overflow:hidden}
+  .tool::after{content:"";position:absolute;right:-160px;top:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(231,185,168,.35),transparent 65%)}
+  @media(min-width:900px){.tool{grid-template-columns:1fr 1fr}}
+  .tool h2{color:#fff}.tool .sub{color:#CFE0D3}
+  fieldset{border:0;margin-bottom:22px;position:relative;z-index:1}
+  legend{font-weight:800;margin-bottom:10px;font-size:15px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip span{display:inline-block;padding:10px 16px;border-radius:999px;border:2px solid rgba(255,255,255,.3);font-weight:600;cursor:pointer;transition:.15s}
+  .chip input:checked + span{background:#fff;color:var(--sage-deep);border-color:#fff}
+  .chip input:focus-visible + span{outline:3px solid var(--blush-deep);outline-offset:2px}
+  .out{background:#fff;color:var(--ink);border-radius:26px;padding:24px;position:relative;z-index:1;align-self:start}
+  .out .from{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:10px}
+  .bubble{background:var(--sage-soft);border-radius:20px 20px 20px 6px;padding:18px;font-size:17px;min-height:130px}
+  .out .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .btn-dark{background:var(--ink);color:#fff}
+  .safe{display:flex;gap:10px;margin-top:16px;background:var(--blush);border-radius:16px;padding:12px 14px;font-size:13px;color:#5B2FB3}
+
+  /* education */
+  .posts{display:grid;gap:16px;margin-top:40px}
+  @media(min-width:760px){.posts{grid-template-columns:repeat(2,1fr)}}
+  .post{display:flex;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:20px;text-decoration:none;transition:transform .15s, box-shadow .15s}
+  .post:hover{transform:translateY(-3px);box-shadow:0 18px 30px -20px rgba(0,0,0,.35)}
+  .post .thumb{flex:0 0 74px;height:74px;border-radius:18px;display:grid;place-items:center;font-size:30px}
+  .post b{display:block;font-size:18px;margin-bottom:4px}
+  .post small{color:var(--muted)}
+
+  /* about */
+  .about{display:grid;gap:30px;align-items:center}
+  @media(min-width:860px){.about{grid-template-columns:.8fr 1.2fr}}
+  .portrait{aspect-ratio:4/5;border-radius:200px 200px 30px 30px;background:linear-gradient(160deg,var(--blush),var(--sage-soft));display:grid;place-items:center;position:relative;overflow:hidden;max-width:360px;width:100%;justify-self:center}
+  .portrait span{font-family:var(--display);font-size:120px;color:var(--gold)}
+  .portrait small{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(255,255,255,.85);border-radius:14px;padding:10px;font-size:13px;color:var(--muted);text-align:center}
+  blockquote{font-family:var(--display);font-size:clamp(26px,3.4vw,34px);line-height:1.2;border-left:4px solid var(--gold);padding-left:20px;margin:24px 0}
+
+  .visit{background:#fff;border:2px dashed var(--line);border-radius:28px;padding:30px;display:grid;gap:20px}
+  @media(min-width:760px){.visit{grid-template-columns:1fr 1fr}}
+  .visit p{color:var(--muted)}
+
+  footer{background:var(--sage-deep);color:#CFE0D3;padding:46px 0;font-size:15px}
+  footer .fg{display:flex;gap:14px;align-items:center;margin-top:16px}
+  footer .dot{flex:0 0 44px;width:44px;height:44px;border-radius:50%;background:#1A33C9;color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+  footer a{color:#FFB81C}
+  footer .med{margin-top:14px;font-size:13px;opacity:.8}
+</style>
+</head>
+<body>
+
+<div class="concept" role="note"><b>Concept design</b> made by FirstGlance Studio to show Dr Archie Kriplani what her website could look like. Not the official website.</div>
+
+<div class="wrap">
+  <nav>
+    <div class="mono"><span>AK</span><div>Derm Diaries<small>by Dr Archie Kriplani, MD</small></div></div>
+    <a class="navbtn" href="#consult">Request a consult</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Online consultations · Mon–Fri</span>
+      <h1>Science over trends. <em>Let's fix your skin.</em></h1>
+      <p class="lede">Online dermatology consultations with Dr Archie Kriplani, MD Dermatologist. Expert advice for skin, hair and nails from the comfort of your home.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#consult">Request a consultation →</a>
+        <a class="btn btn-soft" href="#learn">Read skin tips</a>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="blob b1"></div><div class="blob b2"></div>
+      <div class="leaf lf1"></div><div class="leaf lf2"></div>
+      <div class="layers"><div class="l1">Tell us your concern</div><div class="l2">Video consultation</div><div class="l3">Your plan</div></div>
+      <div class="chip-float cf1">🧪 Science &gt; trends<small>No viral hacks</small></div>
+      <div class="chip-float cf2">🏠 From home<small>Mon–Fri</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="creds">
+  <ul class="wrap" style="padding:0">
+    <li><span>Doctor</span>Dr Archie Kriplani</li>
+    <li><span>Qualification</span>MD Dermatologist</li>
+    <li><span>Consultations</span>Online, Monday to Friday</li>
+    <li><span>Book via</span>@dermdairiesbydrarchie</li>
+  </ul>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>What I can help with</h2>
+    <p class="sub">From the comfort of your home. On the live site, each concern would open a short explainer written with Dr Archie.</p>
+    <div class="areas">
+      <article class="area"><div class="ic" style="background:var(--blush)">✨</div><h3>Skin</h3><ul><li>Acne and breakouts</li><li>Pigmentation and dark spots</li><li>Sensitive skin</li><li>Anti-ageing care</li></ul></article>
+      <article class="area"><div class="ic" style="background:var(--sage-soft)">💆</div><h3>Hair &amp; scalp</h3><ul><li>Hair fall and thinning</li><li>Dandruff and itchy scalp</li><li>Seasonal hair care</li></ul></article>
+      <article class="area"><div class="ic" style="background:#F4ECD9">💅</div><h3>Nails</h3><ul><li>Brittle or splitting nails</li><li>Colour or texture changes</li><li>Infections around the nail</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="consult" style="padding-top:0">
+  <div class="wrap">
+    <div class="tool">
+      <div style="position:relative;z-index:1">
+        <h2>Book an online consultation in 30 seconds</h2>
+        <p class="sub" style="margin-bottom:28px">Tap a few options and we'll write your request. Nothing is sent until you choose to send it.</p>
+        <fieldset><legend>Which area?</legend><div class="chips" id="area">
+          <label class="chip"><input type="radio" name="area" value="skin" checked><span>Skin</span></label>
+          <label class="chip"><input type="radio" name="area" value="hair"><span>Hair &amp; scalp</span></label>
+          <label class="chip"><input type="radio" name="area" value="nails"><span>Nails</span></label>
+        </div></fieldset>
+        <fieldset><legend>Main concern</legend><div class="chips" id="concern"></div></fieldset>
+        <fieldset><legend>Since when?</legend><div class="chips">
+          <label class="chip"><input type="radio" name="since" value="for less than a month" checked><span>&lt; 1 month</span></label>
+          <label class="chip"><input type="radio" name="since" value="for 1 to 6 months"><span>1–6 months</span></label>
+          <label class="chip"><input type="radio" name="since" value="for more than 6 months"><span>6+ months</span></label>
+        </div></fieldset>
+        <fieldset><legend>Tried anything yet?</legend><div class="chips">
+          <label class="chip"><input type="radio" name="tried" value="I haven't tried anything yet" checked><span>Nothing yet</span></label>
+          <label class="chip"><input type="radio" name="tried" value="I've tried home remedies"><span>Home remedies</span></label>
+          <label class="chip"><input type="radio" name="tried" value="I've tried over-the-counter products"><span>Shop products</span></label>
+          <label class="chip"><input type="radio" name="tried" value="I've used a prescribed treatment before"><span>Prescribed treatment</span></label>
+        </div></fieldset>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="from">Your request, ready to send</div>
+        <div class="bubble" id="bubble"></div>
+        <div class="row">
+          <button class="btn btn-main btn-sm" id="copy" type="button">Copy message</button>
+          <a class="btn btn-dark btn-sm" href="https://ig.me/m/dermdairiesbydrarchie" target="_blank" rel="noopener">Open Instagram DM ↗</a>
+        </div>
+        <div class="safe"><span>🔒</span><span>This tool doesn't diagnose anything, and nothing is stored. Bring photos and medical history to your consultation instead of sending them here.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="learn" style="background:#fff">
+  <div class="wrap">
+    <h2>Straight from Derm Diaries</h2>
+    <p class="sub">Dr Archie's no-nonsense takes. On the live site these become articles Google can find, so people searching for a dermatologist online find her, not a trend.</p>
+    <div class="posts">
+      <a class="post" href="https://www.instagram.com/p/DdoerAIBugA/" target="_blank" rel="noopener"><div class="thumb" style="background:var(--blush)">⏳</div><div><b>Your skin has a biological timeline</b><small>Why 5 days is too soon to judge a product ↗</small></div></a>
+      <a class="post" href="https://www.instagram.com/dermdairiesbydrarchie/reel/DaAxiLENEB8/" target="_blank" rel="noopener"><div class="thumb" style="background:var(--sage-soft)">🧼</div><div><b>Still using one soap for everything?</b><small>A dermatologist's guide to cleansers ↗</small></div></a>
+      <a class="post" href="https://www.instagram.com/dermdairiesbydrarchie/reel/Ddl4-nBNByj/" target="_blank" rel="noopener"><div class="thumb" style="background:#E6EEF6">🩺</div><div><b>Qualified advice only</b><small>Why your skin deserves a real dermatologist ↗</small></div></a>
+      <a class="post" href="https://www.instagram.com/dermdairiesbydrarchie/" target="_blank" rel="noopener"><div class="thumb" style="background:#FFF1D6">✨</div><div><b>All of Derm Diaries</b><small>More tips on Instagram ↗</small></div></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap about">
+    <div class="portrait" aria-hidden="true"><span>AK</span><small>Dr Archie's own photo would go here</small></div>
+    <div>
+      <h2>Meet Dr Archie</h2>
+      <p class="sub">Dr Archie Kriplani is an MD Dermatologist who runs Derm Diaries, her corner of the internet for honest, evidence-based skin, hair and nail care.</p>
+      <blockquote>"Science &gt; Trends."</blockquote>
+      <p class="sub">She consults online from Monday to Friday, so expert advice reaches you without the waiting room.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="visit">
+      <div><h2 style="font-size:40px">How online consults work</h2><p>1. Send your request on Instagram. 2. Get a slot between Monday and Friday. 3. Consult from home and get your personalised plan.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">
+        <a class="btn btn-main" href="#consult">Request a consultation →</a>
+        <a class="btn btn-soft" href="https://www.instagram.com/dermdairiesbydrarchie/" target="_blank" rel="noopener">@dermdairiesbydrarchie ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>This is a free concept. It was designed by FirstGlance Studio to show what a website for Dr Archie Kriplani could look like. It is not her official website and isn't listed on Google.</p>
+    <div class="fg"><span class="dot">FG</span><span>Like it? Reply to our Instagram message, or see more at <a href="https://firstglancestudio.in" target="_blank" rel="noopener">firstglancestudio.in</a></span></div>
+    <p class="med">Information on this page is general education, not medical advice. Please consult a qualified dermatologist for diagnosis and treatment.</p>
+  </div>
+</footer>
+
+<script>
+  const C = {
+    skin:['acne and breakouts','pigmentation and dark spots','sensitive skin','anti-ageing care','something else'],
+    hair:['hair fall','dandruff or an itchy scalp','thinning hair','something else'],
+    nails:['brittle or splitting nails','a change in nail colour','something around the nail','something else']
+  };
+  const L = {skin:'my skin',hair:'my hair and scalp',nails:'my nails'};
+  const box = document.getElementById('concern'), bubble = document.getElementById('bubble');
+  function renderConcerns(){
+    const a = document.querySelector('input[name=area]:checked').value;
+    box.innerHTML = C[a].map((c,i)=>`<label class="chip"><input type="radio" name="concern" value="${c}" ${i===0?'checked':''}><span>${c.charAt(0).toUpperCase()+c.slice(1)}</span></label>`).join('');
+    box.querySelectorAll('input').forEach(i=>i.addEventListener('change',update));
+    update();
+  }
+  function update(){
+    const a = document.querySelector('input[name=area]:checked').value;
+    const c = document.querySelector('input[name=concern]:checked').value;
+    const s = document.querySelector('input[name=since]:checked').value;
+    const t = document.querySelector('input[name=tried]:checked').value;
+    const what = c==='something else' ? `a concern with ${L[a]}` : c;
+    bubble.textContent = `Hi Dr Archie! I'd like to book an online consultation about ${what}. I've had it ${s}, and ${t}. Could you share a slot between Monday and Friday?`;
+  }
+  document.querySelectorAll('input[name=area]').forEach(i=>i.addEventListener('change',renderConcerns));
+  document.querySelectorAll('input[name=since],input[name=tried]').forEach(i=>i.addEventListener('change',update));
+  renderConcerns();
+  document.getElementById('copy').addEventListener('click', async e=>{
+    try{ await navigator.clipboard.writeText(bubble.textContent); e.target.textContent='Copied ✓'; }
+    catch(err){ e.target.textContent='Select and copy above'; }
+    setTimeout(()=>e.target.textContent='Copy message',2000);
+  });
+</script>
+</body>
+</html>
