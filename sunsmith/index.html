@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Sunsmith collects end-of-life solar panels and scrap metal, pays for what has value, and proves none of it went to landfill.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Sunsmith</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout concept: a solar panel is the page's grid. Deep cell-blue bands carry the pitch,
+   brushed-aluminium bands carry the detail, and a weighbridge docket is the one loud object. */
+:root{
+  --bg:#EDF0F4; --surface:#F9FAFC; --ink:#0B1736; --muted:#4A5672; --line:#C6CEDB;
+  --cell:#10245C; --cell-2:#0A1840; --on-cell:#EAF0FF; --on-cell-muted:#A9B8E0; --cell-line:#3A54A0;
+  --sun:#FFB81C; --on-sun:#1B1300; --copper:#A85722; --docket:#FFFDF4; --docket-ink:#1B1A14;
+  --m-glass:#9FD3E6; --m-poly:#7C86A6; --m-alu:#D5DAE2; --m-si:#3E67E0; --m-cu:#D07A3E; --m-ag:#FFFFFF;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1180px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#070E22; --surface:#0E1A3A; --ink:#E8EDFA; --muted:#9BA8C8; --line:#25355F;
+  --cell:#132B6E; --cell-2:#0B1A47; --on-cell:#EAF0FF; --on-cell-muted:#A9B8E0; --cell-line:#3A54A0;
+  --sun:#FFB81C; --on-sun:#1B1300; --copper:#E39057; --docket:#FFFDF4; --docket-ink:#1B1A14;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#070E22; --surface:#0E1A3A; --ink:#E8EDFA; --muted:#9BA8C8; --line:#25355F;
+  --cell:#132B6E; --cell-2:#0B1A47; --on-cell:#EAF0FF; --on-cell-muted:#A9B8E0; --cell-line:#3A54A0;
+  --sun:#FFB81C; --on-sun:#1B1300; --copper:#E39057; --docket:#FFFDF4; --docket-ink:#1B1A14;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;padding-bottom:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--cell-2)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-stretch:118%;font-weight:800;line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,4.6vw,3.5rem)}
+h3{font-size:1.25rem;font-stretch:108%;font-weight:700;line-height:1.2;letter-spacing:0}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.78rem;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--copper)}
+.lede{font-size:1.15rem;color:var(--muted);max-width:60ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-family:var(--display);font-stretch:110%;font-weight:700;font-size:1rem;padding:.9em 1.4em;border-radius:6px;border:2px solid transparent;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-sun{background:var(--sun);color:var(--on-sun)}
+.btn-ghost{border-color:currentColor;background:transparent;color:inherit}
+.band{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.band-cell{background:var(--cell-2);color:var(--on-cell)}
+.band-cell .eyebrow{color:var(--sun)}
+.band-cell .lede{color:var(--on-cell-muted)}
+.head{display:grid;gap:1rem;margin-bottom:clamp(2rem,4vw,3rem)}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--cell-2);color:var(--on-cell);border-bottom:1px solid var(--cell-line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-stretch:125%;font-weight:900;font-size:1.3rem;text-decoration:none;letter-spacing:-.01em}
+.logo i{width:26px;height:26px;border-radius:50%;background:var(--sun);display:block;position:relative;overflow:hidden}
+.logo i::after{content:"";position:absolute;inset:50% 0 0 0;background:repeating-linear-gradient(90deg,var(--cell-2) 0 3px,var(--m-cu) 3px 6px)}
+.top nav{display:flex;gap:1.6rem;font-size:.95rem}
+.top nav a{text-decoration:none;color:var(--on-cell-muted)}
+.top nav a:hover{color:var(--on-cell)}
+.top .btn{padding:.6em 1em;font-size:.92rem}
+@media (max-width:820px){.top nav{display:none}}
+
+/* hero */
+.hero{background:
+  linear-gradient(var(--cell-line) 1px,transparent 1px) 0 0/100% 84px,
+  linear-gradient(90deg,var(--cell-line) 1px,transparent 1px) 0 0/84px 100%,
+  linear-gradient(160deg,var(--cell) 0%,var(--cell-2) 70%);
+  color:var(--on-cell);padding-block:clamp(3rem,7vw,5.5rem)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero h1{font-size:clamp(2.9rem,8vw,6.2rem);font-weight:900;font-stretch:125%;line-height:.92;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero .eyebrow{color:var(--sun)}
+.hero p.sub{font-size:1.2rem;color:var(--on-cell);max-width:52ch;margin-top:1.4rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hero-copy{display:grid;gap:.4rem;min-width:0}
+.ways{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.8rem;font-family:var(--mono);font-size:.82rem;color:var(--on-cell-muted);list-style:none;padding:0}
+.ways li::before{content:"■ ";color:var(--sun)}
+
+.panel-box{min-width:0;display:grid;gap:1rem;justify-items:center}
+.panel{width:min(100%,340px);aspect-ratio:6/10;background:var(--m-alu);padding:9px;border-radius:5px;display:grid;grid-template-columns:repeat(6,1fr);gap:3px;box-shadow:0 30px 60px -20px #000a;transform:rotate(-3deg)}
+.pc{background:#0E2A7A;border-radius:1.5px;position:relative;transition:background .5s ease}
+.pc::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 31%,#ffffff40 31% 34%,transparent 34% 66%,#ffffff40 66% 69%,transparent 69%);transition:opacity .4s}
+.panel.open .pc::after{opacity:0}
+.panel.open .pc[data-m=glass]{background:var(--m-glass)}
+.panel.open .pc[data-m=poly]{background:var(--m-poly)}
+.panel.open .pc[data-m=alu]{background:var(--m-alu);box-shadow:inset 0 0 0 1px #8b93a3}
+.panel.open .pc[data-m=si]{background:var(--m-si)}
+.panel.open .pc[data-m=cu]{background:radial-gradient(circle at 78% 24%,var(--m-ag) 0 11%,var(--m-cu) 12%)}
+.legend{width:min(100%,340px);display:grid;grid-template-columns:1fr 1fr;gap:.35rem 1rem;font-family:var(--mono);font-size:.78rem;color:var(--on-cell);list-style:none;padding:0;margin:0}
+.legend li{display:flex;align-items:center;gap:.5rem}
+.legend b{width:11px;height:11px;border-radius:2px;flex:none}
+.toggle{font-family:var(--mono);font-size:.82rem;background:transparent;color:var(--on-cell);border:1px solid var(--on-cell-muted);border-radius:99px;padding:.5em 1.1em;cursor:pointer}
+.toggle:hover{border-color:var(--sun);color:var(--sun)}
+.panel-note{font-size:.78rem;color:var(--on-cell-muted);text-align:center;max-width:36ch}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.panel{width:min(100%,260px)}}
+
+/* estimator */
+.est{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+@media (max-width:900px){.est{grid-template-columns:1fr}}
+.mats{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:.6rem}
+.mat{font:inherit;text-align:left;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:6px;padding:.8rem .9rem;cursor:pointer;display:grid;gap:.15rem}
+.mat strong{font-family:var(--display);font-stretch:108%;font-weight:700}
+.mat span{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.mat[aria-pressed=true]{background:var(--cell);color:var(--on-cell);border-color:var(--cell)}
+.mat[aria-pressed=true] span{color:var(--on-cell-muted)}
+.field{display:grid;gap:.5rem;margin-top:1.8rem}
+.field label,.label{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.qty{display:flex;align-items:baseline;gap:.5rem;font-family:var(--display);font-stretch:120%;font-weight:800;font-size:2.6rem;line-height:1}
+.qty small{font-family:var(--mono);font-size:.95rem;font-weight:500;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--copper);height:2rem}
+.fine{font-size:.85rem;color:var(--muted);margin-top:1rem;max-width:56ch}
+.docket{background:var(--docket);color:var(--docket-ink);font-family:var(--mono);font-size:.9rem;padding:1.6rem 1.4rem 1.4rem;position:relative;box-shadow:0 24px 50px -24px #0009;transform:rotate(1.2deg);min-width:0}
+.docket::before,.docket::after{content:"";position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 6px 0,var(--bg) 5px,transparent 5.5px) 0 0/12px 10px repeat-x}
+.docket::before{top:0}.docket::after{bottom:0;transform:scaleY(-1)}
+.docket h3{font-family:var(--mono);font-stretch:100%;font-size:.95rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-align:center}
+.docket dl{margin:1rem 0 0;display:grid;gap:.45rem}
+.docket dl div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dashed #1b1a1440;padding-bottom:.4rem}
+.docket dt{opacity:.7}.docket dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.total{margin-top:1.1rem;text-align:center}
+.total span{display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.total strong{display:block;font-family:var(--display);font-stretch:118%;font-weight:900;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.1;font-variant-numeric:tabular-nums}
+.docket .btn{width:100%;margin-top:1.1rem;background:var(--docket-ink);color:var(--docket)}
+.docket p{font-size:.74rem;opacity:.75;margin-top:.8rem;text-align:center}
+
+/* materials */
+.take{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border-top:1px solid var(--cell-line);border-left:1px solid var(--cell-line)}
+.take article{padding:1.6rem 1.4rem;border-right:1px solid var(--cell-line);border-bottom:1px solid var(--cell-line);display:grid;gap:.6rem;align-content:start}
+.take .chip{width:38px;height:38px;border-radius:3px}
+.take p{color:var(--on-cell-muted);font-size:.97rem}
+.take .tag{font-family:var(--mono);font-size:.74rem;color:var(--sun)}
+
+/* process */
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:3px solid var(--ink);padding-top:1rem;display:grid;gap:.5rem;align-content:start}
+.steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:.8rem;color:var(--copper)}
+.steps p{color:var(--muted);font-size:.97rem}
+
+/* who */
+.who{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(1.5rem,4vw,3rem)}
+@media (max-width:820px){.who{grid-template-columns:1fr}}
+.tabs{display:flex;flex-direction:column;gap:.4rem}
+@media (max-width:820px){.tabs{flex-direction:row;flex-wrap:wrap}}
+.tab{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:1.15rem;text-align:left;background:transparent;color:var(--on-cell-muted);border:0;border-left:3px solid var(--cell-line);padding:.7rem 1rem;cursor:pointer}
+.tab[aria-selected=true]{color:var(--on-cell);border-left-color:var(--sun);background:var(--cell)}
+.pane{background:var(--cell);border:1px solid var(--cell-line);border-radius:6px;padding:clamp(1.4rem,3vw,2.2rem);display:grid;gap:1rem;min-width:0}
+.pane h3{font-size:1.7rem;font-stretch:118%;font-weight:800}
+.pane ul{margin:0;padding-left:1.1rem;display:grid;gap:.45rem;color:var(--on-cell-muted)}
+.pane .btn{justify-self:start}
+
+/* compliance */
+.comp{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.rules{display:grid;gap:1.2rem}
+.rules div{border-left:3px solid var(--copper);padding-left:1rem;display:grid;gap:.3rem}
+.rules p{color:var(--muted);font-size:.97rem}
+.cert{background:var(--surface);border:1.5px solid var(--line);padding:1.6rem;font-family:var(--mono);font-size:.84rem;display:grid;gap:.7rem;min-width:0}
+.cert h3{font-family:var(--mono);font-stretch:100%;font-size:.84rem;letter-spacing:.12em;text-transform:uppercase}
+.bar{display:flex;height:22px;border-radius:2px;overflow:hidden;border:1px solid var(--line)}
+.bar span{display:block}
+.cert table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.cert td{padding:.3rem 0;border-bottom:1px dashed var(--line)}
+.cert td:last-child{text-align:right}
+.cert small{color:var(--muted)}
+
+/* faq + form */
+.close{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+@media (max-width:900px){.close{grid-template-columns:1fr}}
+details{border-bottom:1px solid var(--line);padding:1rem 0}
+summary{font-family:var(--display);font-stretch:108%;font-weight:700;font-size:1.1rem;cursor:pointer}
+details p{color:var(--muted);margin-top:.6rem;max-width:60ch}
+form.book{background:var(--surface);border:1.5px solid var(--line);border-radius:8px;padding:clamp(1.3rem,3vw,2rem);display:grid;gap:1rem;min-width:0}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem}
+.f{display:grid;gap:.35rem;min-width:0}
+.f input,.f select,.f textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:5px;padding:.7rem .8rem;width:100%}
+.f textarea{min-height:5rem;resize:vertical}
+.done{background:var(--cell);color:var(--on-cell);border-radius:8px;padding:clamp(1.3rem,3vw,2rem);display:grid;gap:.8rem}
+.done pre{font-family:var(--mono);font-size:.85rem;white-space:pre-wrap;margin:0;color:var(--on-cell-muted)}
+
+footer{background:var(--cell-2);color:var(--on-cell-muted);font-size:.9rem;padding-block:2.5rem 6rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+footer .logo{color:var(--on-cell)}
+footer code{font-family:var(--mono);color:var(--sun)}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--sun);color:var(--on-sun);display:none;padding:.6rem max(16px,env(safe-area-inset-right,0px)) calc(.6rem + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));align-items:center;justify-content:space-between;gap:.8rem;font-weight:600;font-size:.92rem}
+.dock a{background:var(--on-sun);color:var(--sun);text-decoration:none;font-family:var(--display);font-weight:700;padding:.55em 1em;border-radius:5px;white-space:nowrap}
+@media (max-width:820px){.dock{display:flex}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#home"><i></i>SUNSMITH</a>
+    <nav aria-label="Sections">
+      <a href="#price">Price my load</a>
+      <a href="#take">What we take</a>
+      <a href="#how">How it works</a>
+      <a href="#proof">Compliance</a>
+    </nav>
+    <a class="btn btn-sun" href="#book">Book a pickup</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Solar panel &amp; scrap metal recovery · Melbourne</p>
+      <h1>Your panels have <em>one more job.</em></h1>
+      <p class="sub">Sunsmith collects end-of-life solar panels and scrap metal, pays for what has value, and hands you the paperwork that proves none of it went to landfill.</p>
+      <div class="cta-row">
+        <a class="btn btn-sun" href="#price">Price my load in 20 seconds</a>
+        <a class="btn btn-ghost" href="#book">Book a pickup</a>
+      </div>
+      <ul class="ways">
+        <li>We pick up</li><li>You drop off</li><li>Bin on your site</li>
+      </ul>
+    </div>
+    <div class="panel-box">
+      <div class="panel" id="panel" role="img" aria-label="A solar panel that rearranges into the materials it is made of"></div>
+      <button class="toggle" id="toggle" type="button" aria-pressed="false">See what's inside</button>
+      <ul class="legend">
+        <li><b style="background:var(--m-glass)"></b>Glass ~75%</li>
+        <li><b style="background:var(--m-poly)"></b>Polymers ~10%</li>
+        <li><b style="background:var(--m-alu)"></b>Aluminium ~8%</li>
+        <li><b style="background:var(--m-si)"></b>Silicon ~5%</li>
+        <li><b style="background:var(--m-cu)"></b>Copper ~1%</li>
+        <li><b style="background:var(--m-ag)"></b>Silver &lt;0.1%</li>
+      </ul>
+      <p class="panel-note">Typical crystalline silicon panel, by weight. Each cell above stands for about 1.7% of the panel.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="price">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Weighbridge estimator</p>
+      <h2>Before you throw it out, find out what it's worth.</h2>
+      <p class="lede">Pick a material, slide the weight, and read the docket. The number you see is the range we start from when your load hits the scale.</p>
+    </div>
+    <div class="est">
+      <div>
+        <p class="label" id="matlabel">1 · What have you got?</p>
+        <div class="mats" id="mats" role="group" aria-labelledby="matlabel" style="margin-top:.7rem"></div>
+        <div class="field">
+          <label for="w" id="wlabel">2 · How much?</label>
+          <div class="qty"><span id="qty">250</span><small id="unit">kg</small></div>
+          <input type="range" id="w" min="10" max="2000" step="10" value="250">
+        </div>
+        <p class="fine">Sample rates for this concept site. Before launch, connect the estimator to your own daily price list. Final price always depends on grade, cleanliness and scale weight.</p>
+      </div>
+      <aside class="docket" aria-live="polite">
+        <h3>Sunsmith · Estimate docket</h3>
+        <dl>
+          <div><dt>Docket</dt><dd id="d-no"></dd></div>
+          <div><dt>Date</dt><dd id="d-date"></dd></div>
+          <div><dt>Material</dt><dd id="d-mat"></dd></div>
+          <div><dt id="d-qk">Net weight</dt><dd id="d-w"></dd></div>
+          <div><dt id="d-rk">Rate</dt><dd id="d-rate"></dd></div>
+        </dl>
+        <div class="total"><span id="d-tk">We'd pay about</span><strong id="d-total"></strong></div>
+        <a class="btn" href="#book" id="d-book">Book this load</a>
+        <p id="d-note"></p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band band-cell" id="take">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">What we take</p>
+      <h2>If the sun, a sparky or a plumber touched it, bring it.</h2>
+    </div>
+    <div class="take">
+      <article><div class="chip" style="background:var(--m-si)"></div><h3>Solar panels</h3><p>End-of-life, storm-damaged, warranty returns and full site decommissions. Rooftop or solar farm, any brand, framed or frameless.</p><span class="tag">Chain-of-custody record included</span></article>
+      <article><div class="chip" style="background:var(--m-cu)"></div><h3>Copper &amp; cable</h3><p>Pipe, tube, bright wire, insulated cable, PV string cable and offcuts. Stripped and sorted copper earns the top of the range.</p><span class="tag">Highest value per kg</span></article>
+      <article><div class="chip" style="background:var(--m-alu)"></div><h3>Aluminium</h3><p>Panel frames, racking and rail, extrusions, window frames, sheet and castings. Keep it clean and separate for a better rate.</p><span class="tag">Racking and rail welcome</span></article>
+      <article><div class="chip" style="background:#D9B45A"></div><h3>Brass</h3><p>Taps, valves, fittings and plumbing parts. Don't let it ride to the tip in a mixed skip.</p><span class="tag">Weighed separately</span></article>
+      <article><div class="chip" style="background:#8E97A8"></div><h3>Steel &amp; stainless</h3><p>Structural steel, sheet, mounting posts, appliances and offcuts. From a ute tray to a full site clear-out.</p><span class="tag">Bins from small to bulk</span></article>
+      <article><div class="chip" style="background:var(--m-poly)"></div><h3>Inverters &amp; batteries</h3><p>String inverters, lead-acid batteries and switchgear that comes off the wall with the panels.</p><span class="tag">One truck, whole system</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="how">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How it works</p>
+      <h2>Five steps from your roof to someone else's raw material.</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Tell us the load</h3><p>Use the estimator or send a photo. You get a price range or a per-panel quote before anything moves.</p></li>
+      <li><h3>We collect, or you drop off</h3><p>Scheduled pickup, a bin left on site, or drive in and unload. Your choice per job.</p></li>
+      <li><h3>Weigh and docket</h3><p>Everything crosses the scale in front of you. The docket shows weight, grade and rate.</p></li>
+      <li><h3>Take it apart properly</h3><p>Frames, junction boxes and cable come off first. Glass, silicon and metals are separated mechanically.</p></li>
+      <li><h3>Paid and certified</h3><p>Payment for the metal, and a recovery certificate for your records that shows where each material went.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band-cell" id="who">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Built for your kind of job</p>
+      <h2>Who's bringing it in?</h2>
+    </div>
+    <div class="who">
+      <div class="tabs" role="tablist" aria-label="Customer type" id="tabs"></div>
+      <div class="pane" id="pane" role="tabpanel"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="proof">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Compliance without the homework</p>
+      <h2>The tip can't take your panels. We can.</h2>
+      <p class="lede">Old panels are a legal responsibility as well as a waste problem. Sunsmith's paperwork is designed to answer the questions an auditor, insurer or council will ask.</p>
+    </div>
+    <div class="comp">
+      <div class="rules">
+        <div><h3>Landfill is off the table in Victoria</h3><p>Solar panels are classed as e-waste, and Victoria has banned e-waste from landfill since 1 July 2019.</p></div>
+        <div><h3>The duty sits with your business</h3><p>Under Victoria's General Environmental Duty, in force since 1 July 2021, a business must take reasonable steps to make sure its waste goes to a lawful place.</p></div>
+        <div><h3>So we record the whole trip</h3><p>Every load gets a chain-of-custody record from your site to our scale to the buyer of each recovered material.</p></div>
+      </div>
+      <div class="cert">
+        <h3>Recovery certificate · sample</h3>
+        <small>Example for 100 panels at about 20 kg each. Shares are typical panel composition, shown for illustration.</small>
+        <div class="bar" aria-hidden="true">
+          <span style="width:75%;background:var(--m-glass)"></span><span style="width:10%;background:var(--m-poly)"></span><span style="width:8%;background:var(--m-alu)"></span><span style="width:5%;background:var(--m-si)"></span><span style="width:2%;background:var(--m-cu)"></span>
+        </div>
+        <table>
+          <tr><td>Glass</td><td>1,500 kg</td></tr>
+          <tr><td>Polymers</td><td>200 kg</td></tr>
+          <tr><td>Aluminium</td><td>160 kg</td></tr>
+          <tr><td>Silicon</td><td>100 kg</td></tr>
+          <tr><td>Copper</td><td>20 kg</td></tr>
+          <tr><td>Silver</td><td>under 2 kg</td></tr>
+          <tr><td><b>Total received</b></td><td><b>2,000 kg</b></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="book" style="padding-top:0">
+  <div class="wrap">
+    <div class="close">
+      <div>
+        <div class="head">
+          <p class="eyebrow">Straight answers</p>
+          <h2>Asked at the gate every day.</h2>
+        </div>
+        <details open><summary>Do you pay for solar panels?</summary><p>Usually not. Panels are mostly glass, so they carry a small recycling fee per panel. The aluminium frames, cable and racking that come with them do have value, and we credit that against the fee.</p></details>
+        <details><summary>How do I get the best price for scrap?</summary><p>Separate it. Copper away from brass, clean aluminium away from painted, cable in its own pile. Sorted loads grade higher and weigh in faster.</p></details>
+        <details><summary>What's the smallest load you'll take?</summary><p>One panel or one bucket of fittings at drop-off. Pickups make sense from about a ute load up. Ask and we'll tell you which is cheaper for you.</p></details>
+        <details><summary>Can you take the whole system off the roof?</summary><p>Yes. Panels, racking, inverter and cable can leave on one truck with one certificate.</p></details>
+      </div>
+      <div>
+        <form class="book" id="form" novalidate>
+          <h3 style="font-size:1.7rem;font-stretch:118%;font-weight:800">Book a pickup or drop-off</h3>
+          <div class="row">
+            <div class="f"><label class="label" for="f-name">Name</label><input id="f-name" required autocomplete="name"></div>
+            <div class="f"><label class="label" for="f-phone">Phone</label><input id="f-phone" type="tel" required autocomplete="tel"></div>
+          </div>
+          <div class="row">
+            <div class="f"><label class="label" for="f-suburb">Suburb</label><input id="f-suburb" autocomplete="address-level2"></div>
+            <div class="f"><label class="label" for="f-how">How</label><select id="f-how"><option>Pick up from my site</option><option>I'll drop it off</option><option>Leave a bin on site</option></select></div>
+          </div>
+          <div class="f"><label class="label" for="f-load">Your load</label><textarea id="f-load" placeholder="e.g. 40 panels and the racking, or 300 kg mixed copper and brass"></textarea></div>
+          <p class="fine" id="f-err" style="margin:0;color:var(--copper)" hidden>Add a name and a phone number so we can call you back.</p>
+          <button class="btn btn-sun" type="submit">Request my booking</button>
+        </form>
+        <div class="done" id="done" hidden>
+          <h3 style="font-size:1.5rem">Booking request ready</h3>
+          <pre id="done-text"></pre>
+          <p style="font-size:.85rem;color:var(--on-cell-muted)">Concept preview: this form isn't connected to an inbox yet, so nothing has been sent.</p>
+          <button class="btn btn-ghost" type="button" id="again">Edit request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><a class="logo" href="#home"><i></i>SUNSMITH</a><p style="margin-top:.6rem">Nothing the sun made goes to waste.</p></div>
+    <div><p>Yard address · <code>add yours</code></p><p>Phone · <code>add yours</code></p><p>Email · <code>add yours</code></p></div>
+    <div><p>Concept design. Rates, service promises and</p><p>licence details to be confirmed before launch.</p></div>
+  </div>
+</footer>
+
+<div class="dock"><span>Got a load? Get a price first.</span><a href="#price">Price my load</a></div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  // hero panel: 60 cells, sorted into materials by weight share
+  var order=[].concat(Array(45).fill('glass'),Array(6).fill('poly'),Array(5).fill('alu'),Array(3).fill('si'),['cu']);
+  var panel=$('panel'),tg=$('toggle');
+  order.forEach(function(m,i){var c=document.createElement('div');c.className='pc';c.dataset.m=m;c.style.transitionDelay=(i*12)+'ms';panel.appendChild(c)});
+  tg.addEventListener('click',function(){
+    var o=panel.classList.toggle('open');tg.setAttribute('aria-pressed',o);tg.textContent=o?'Put it back together':"See what's inside";
+  });
+
+  // estimator
+  var M=[
+    {k:'copper',n:'Copper',h:'pipe, wire, tube',r:[7,10]},
+    {k:'cable',n:'Insulated cable',h:'PV and building cable',r:[2,6]},
+    {k:'brass',n:'Brass',h:'taps, valves, fittings',r:[3.5,5.5]},
+    {k:'alu',n:'Aluminium',h:'frames, rail, extrusion',r:[0.8,1.4]},
+    {k:'ss',n:'Stainless',h:'sheet, tube, benches',r:[0.8,1.8]},
+    {k:'steel',n:'Steel',h:'structural, sheet',r:[0.2,0.3]},
+    {k:'batt',n:'Lead-acid batteries',h:'car, UPS, off-grid',r:[0.3,0.5]},
+    {k:'pv',n:'Solar panels',h:'any brand, any state',pv:true}
+  ];
+  var cur=M[0],w=$('w'),mats=$('mats');
+  var fmt=function(n){return Math.round(n).toLocaleString('en-AU')};
+  var money=function(n){return '$'+(n<10?n.toFixed(2):fmt(n))};
+  M.forEach(function(m){
+    var b=document.createElement('button');b.type='button';b.className='mat';b.setAttribute('aria-pressed',m===cur);
+    b.innerHTML='<strong>'+m.n+'</strong><span>'+m.h+'</span>';
+    b.addEventListener('click',function(){
+      cur=m;[].forEach.call(mats.children,function(x){x.setAttribute('aria-pressed',x===b)});
+      if(m.pv){w.min=1;w.max=500;w.step=1;w.value=40}else{w.min=10;w.max=2000;w.step=10;w.value=250}
+      draw();
+    });
+    mats.appendChild(b);
+  });
+  var d=new Date();
+  $('d-date').textContent=d.toLocaleDateString('en-AU',{day:'2-digit',month:'short',year:'numeric'});
+  $('d-no').textContent='SS-'+String(d.getFullYear()).slice(2)+('0'+(d.getMonth()+1)).slice(-2)+'-'+(1000+Math.floor(Math.random()*9000));
+  function draw(){
+    var v=+w.value;$('qty').textContent=fmt(v);$('d-mat').textContent=cur.n;
+    if(cur.pv){
+      var kg=v*20;
+      $('unit').textContent=v===1?'panel':'panels';$('d-qk').textContent='Panels';$('d-w').textContent=fmt(v)+' (~'+fmt(kg)+' kg)';
+      $('d-rk').textContent='Recovered';$('d-rate').textContent='~'+fmt(kg*.75)+' kg glass, ~'+fmt(kg*.08)+' kg aluminium';
+      $('d-tk').textContent='Kept out of landfill';$('d-total').textContent='~'+fmt(kg)+' kg';
+      $('d-book').textContent='Get my per-panel quote';
+      $('d-note').textContent='Panels carry a recycling fee per panel. Frames and cable are credited against it.';
+    }else{
+      $('unit').textContent='kg';$('d-qk').textContent='Net weight';$('d-w').textContent=fmt(v)+' kg';
+      $('d-rk').textContent='Rate';$('d-rate').textContent=money(cur.r[0])+' – '+money(cur.r[1])+' /kg';
+      $('d-tk').textContent="We'd pay about";$('d-total').textContent=money(v*cur.r[0])+' – '+money(v*cur.r[1]);
+      $('d-book').textContent='Book this load';
+      $('d-note').textContent='Estimate only. Sample rates, confirmed at the scale.';
+    }
+  }
+  w.addEventListener('input',draw);draw();
+  $('d-book').addEventListener('click',function(){
+    var v=+w.value;$('f-load').value=cur.pv?(v+' solar panels (about '+fmt(v*20)+' kg)'):(fmt(v)+' kg '+cur.n.toLowerCase()+', estimate '+$('d-total').textContent);
+  });
+
+  // who tabs
+  var W=[
+    {t:'Solar installers',h:'Take the old system away the day the new one goes on.',l:['Stillage or bin left at your depot, swapped when full','Per-panel pricing agreed up front, so you can quote the removal to your customer','A certificate for each job to hand to the homeowner'],c:'Set up an installer account'},
+    {t:'Solar farms & EPCs',h:'Decommissioning and storm-damage loads, by the truck.',l:['Site collection scheduled around your crew','Panels, racking, posts and DC cable on one manifest','Chain-of-custody reporting for owners, insurers and regulators'],c:'Scope a site job'},
+    {t:'Tradies & builders',h:'Turn the offcut pile into cash on the way home.',l:['Drive in, weigh in, get paid','Separate bins for copper, brass and aluminium on bigger sites','Straight answers on what your load grades as'],c:'Price my load'},
+    {t:'Factories & workshops',h:'A standing bin service that pays you back.',l:['Bins sized to your swarf, sheet and offcut volume','Scheduled swaps so the floor stays clear','Monthly statement of weights and payments'],c:'Arrange a bin'},
+    {t:'Households',h:'One old panel or a garage of scrap. Both are welcome.',l:['Drop-off with no minimum','Pickup available for full rooftop systems','We tell you what is worth money before you load the car'],c:'Book a drop-off'}
+  ];
+  var tabs=$('tabs'),pane=$('pane');
+  function show(i){
+    [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-selected',i===j)});
+    var x=W[i];pane.innerHTML='<h3>'+x.h+'</h3><ul>'+x.l.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul><a class="btn btn-sun" href="'+(x.c==='Price my load'?'#price':'#book')+'">'+x.c+'</a>';
+  }
+  W.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.className='tab';b.setAttribute('role','tab');b.textContent=x.t;b.addEventListener('click',function(){show(i)});tabs.appendChild(b)});
+  show(0);
+
+  // booking form (concept: nothing is sent)
+  var form=$('form'),done=$('done');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=$('f-name').value.trim(),p=$('f-phone').value.trim();
+    if(!n||!p){$('f-err').hidden=false;(n?$('f-phone'):$('f-name')).focus();return}
+    $('f-err').hidden=true;
+    $('done-text').textContent='Name:   '+n+'\nPhone:  '+p+'\nSuburb: '+($('f-suburb').value.trim()||'not given')+'\nHow:    '+$('f-how').value+'\nLoad:   '+($('f-load').value.trim()||'not described');
+    form.hidden=true;done.hidden=false;
+  });
+  $('again').addEventListener('click',function(){done.hidden=true;form.hidden=false});
+})();
+</script>
+</body>
+</html>
