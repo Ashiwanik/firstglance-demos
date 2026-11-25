@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cat With Ball Of Yarn · Website concept by FirstGlance Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,700&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF1F6;--paper:#FFFAFC;--ink:#2B1F33;--muted:#7A6A80;--accent:#D6457E;--accent2:#5C7CE0;--soft:#FFD9E8;--line:#F3D9E4;--hero:#FFE3EE;--heroink:#2B1F33;
+--display:"Fraunces",Georgia,serif;--body:"Hanken Grotesk",system-ui,-apple-system,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.concept{position:sticky;top:0;z-index:50;background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center;line-height:1.35}.concept b{color:#FFB81C}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-weight:800}
+nav.top .logo{font-family:var(--display);font-size:24px}
+nav.top a.cta{text-decoration:none;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:14px}
+.hero{background:var(--hero);color:var(--heroink);position:relative;overflow:hidden;padding-bottom:80px}
+.hero .grid{display:grid;gap:40px;align-items:center;padding-top:30px}
+@media(min-width:860px){.hero .grid{grid-template-columns:1.1fr .9fr}}
+.eyebrow{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;background:var(--soft);color:var(--ink);padding:8px 14px;border-radius:999px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(44px,8vw,86px);line-height:1;margin:20px 0;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--accent)}
+.lede{font-size:clamp(17px,2.2vw,20px);max-width:36ch;opacity:.9}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:16px 26px;font-weight:800;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-main{background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px var(--accent)}
+.btn-ghost{background:transparent;color:inherit;border:2px solid currentColor;opacity:.85}
+.art{position:relative;aspect-ratio:1;max-width:430px;width:100%;justify-self:center}
+.facts{background:var(--bg);border-bottom:1px solid var(--line)}
+.facts ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+@media(min-width:760px){.facts ul{grid-template-columns:repeat(4,1fr)}}
+.facts li{background:var(--bg);padding:20px 18px;font-weight:600;font-size:15px}
+.facts li span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+section{padding:80px 0}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(32px,5vw,50px);line-height:1.05;margin-bottom:14px}
+.sub{color:var(--muted);font-size:18px;max-width:54ch}
+.cards{display:grid;gap:18px;margin-top:40px}@media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:28px}
+.card .ico{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:28px;margin-bottom:18px;background:var(--soft)}
+.card h3{font-size:21px;margin-bottom:8px}.card p{color:var(--muted)}
+.builder{background:var(--ink);color:var(--paper);border-radius:34px;padding:clamp(26px,5vw,56px);display:grid;gap:36px}
+@media(min-width:900px){.builder{grid-template-columns:1.05fr .95fr}}
+.builder .sub{color:rgba(255,255,255,.75)}
+fieldset{border:0;margin-bottom:22px}legend,.lbl{display:block;font-weight:800;margin-bottom:10px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:10px 16px;border-radius:999px;border:2px solid rgba(255,255,255,.3);font-weight:600;cursor:pointer}
+.chip input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip input:focus-visible+span{outline:3px solid var(--soft);outline-offset:2px}
+.count{font-family:var(--display);font-size:42px;font-weight:800}
+input[type=range]{width:100%;accent-color:var(--accent)}
+input[type=date]{font:inherit;padding:12px 14px;border-radius:14px;border:0;width:100%;max-width:260px}
+.msg{background:var(--paper);color:var(--ink);border-radius:24px;padding:24px;align-self:start}
+.msg .from{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:10px}
+.bubble{background:var(--bg);border-radius:20px 20px 20px 6px;padding:18px;font-size:17px;min-height:130px}
+.msg .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn-sm{padding:12px 18px;font-size:15px}.btn-dark{background:var(--ink);color:#fff}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.extra{background:var(--bg)}
+.tiles{display:grid;gap:18px;margin-top:36px}@media(min-width:760px){.tiles{grid-template-columns:repeat(2,1fr)}}
+.tile{background:#fff;border-radius:26px;padding:26px;border:1px solid var(--line)}
+.tile b{display:block;font-family:var(--display);font-size:24px;margin-bottom:6px}
+.tile .meta{color:var(--muted)}
+.tile .ph{margin-top:14px;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+footer{background:#111;color:#bbb;padding:46px 0;font-size:15px}
+footer .fg{display:flex;gap:14px;align-items:center;margin-top:14px}
+footer .dot{width:44px;height:44px;border-radius:50%;background:#1A33C9;color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+footer a{color:#FFB81C}
+
+.fl{position:absolute;aspect-ratio:1;z-index:2}
+.fl i{position:absolute;width:46%;height:46%;border-radius:50% 50% 50% 50%;background:repeating-linear-gradient(45deg,var(--c) 0 6px,color-mix(in srgb,var(--c) 80%,#fff) 6px 9px);left:27%;top:27%;transform-origin:50% 50%}
+.fl i:nth-child(1){transform:translateY(-42%)}.fl i:nth-child(2){transform:rotate(72deg) translateY(-42%)}.fl i:nth-child(3){transform:rotate(144deg) translateY(-42%)}.fl i:nth-child(4){transform:rotate(216deg) translateY(-42%)}.fl i:nth-child(5){transform:rotate(288deg) translateY(-42%)}
+.fl b{position:absolute;width:26%;height:26%;left:37%;top:37%;border-radius:50%;background:#FFF3C4;box-shadow:inset 0 0 0 4px #F2C94C}
+.stem{position:absolute;width:8px;border-radius:4px;background:repeating-linear-gradient(0deg,#5BA36B 0 5px,#7BC08A 5px 8px);z-index:1;transform-origin:top}
+.vase{position:absolute;left:30%;bottom:4%;width:40%;height:30%;border-radius:18px 18px 40px 40px;background:#fff;box-shadow:0 30px 50px -20px rgba(120,60,90,.45);z-index:3}
+.yarn{position:absolute;right:2%;bottom:2%;width:24%;aspect-ratio:1;border-radius:50%;background:repeating-linear-gradient(120deg,#F49AC1 0 5px,#E57FAE 5px 9px);z-index:4;box-shadow:0 16px 30px -12px rgba(0,0,0,.35)}
+
+</style>
+</head>
+<body>
+<div class="concept" role="note"><b>Concept design</b> made by FirstGlance Studio to show Cat With Ball Of Yarn what its website could look like. Not the official website.</div>
+<header class="hero">
+  <div class="wrap">
+    <nav class="top"><span class="logo">Cat With Ball Of Yarn</span><a class="cta" href="#build">Build a bouquet</a></nav>
+    <div class="grid">
+      <div>
+        <span class="eyebrow">Handmade in Sydney since 2022</span>
+        <h1>Flowers that <em>never</em> wilt.</h1>
+        <p class="lede">Hand-crocheted bouquets, keychains and cosy gifts, made stitch by stitch. Visit us at Broadway or Westpoint Blacktown, open 7 days.</p>
+        <div class="ctas"><a class="btn btn-main" href="#build">Build your bouquet →</a><a class="btn btn-ghost" href="#stores">Visit a store</a></div>
+      </div>
+      <div class="art" aria-hidden="true"><div class="vase"></div><div class="fl" style="left:18%;top:8%;width:34%;--c:#F49AC1;transform:rotate(0deg)"><i></i><i></i><i></i><i></i><i></i><b></b></div><div class="fl" style="left:52%;top:4%;width:30%;--c:#8FB8F5;transform:rotate(20deg)"><i></i><i></i><i></i><i></i><i></i><b></b></div><div class="fl" style="left:36%;top:26%;width:32%;--c:#FFD166;transform:rotate(-15deg)"><i></i><i></i><i></i><i></i><i></i><b></b></div><div class="fl" style="left:8%;top:34%;width:26%;--c:#B9A3F2;transform:rotate(10deg)"><i></i><i></i><i></i><i></i><i></i><b></b></div><div class="fl" style="left:62%;top:30%;width:28%;--c:#F7A072;transform:rotate(35deg)"><i></i><i></i><i></i><i></i><i></i><b></b></div><span class="stem" style="left:34%;top:46%;height:34%;transform:rotate(-14deg)"></span><span class="stem" style="left:50%;top:44%;height:36%"></span><span class="stem" style="left:64%;top:46%;height:34%;transform:rotate(14deg)"></span><div class="yarn"></div></div>
+    </div>
+  </div>
+</header>
+<div class="facts"><ul class="wrap" style="padding:0"><li><span>Stores</span>Broadway & Westpoint Blacktown</li><li><span>Open</span>7 days a week</li><li><span>Made</span>By hand, in Sydney</li><li><span>Since</span>2022</li></ul></div>
+<section><div class="wrap"><h2>Why people choose crochet flowers</h2><p class="sub">On the real site, each of these would show your own photos from Instagram.</p><div class="cards"><article class="card"><div class="ico">💐</div><h3>Lasts forever</h3><p>No water, no wilting. A bouquet that still looks the same on the next anniversary.</p></article><article class="card"><div class="ico">🧶</div><h3>Made by hand</h3><p>Every petal is crocheted stitch by stitch, so no two bouquets are exactly alike.</p></article><article class="card"><div class="ico">🎁</div><h3>Gifts for anyone</h3><p>Birthdays, graduations, Mother's Day, or just because. Plus keychains and cosy extras.</p></article></div></div></section>
+<section id="build" style="padding-top:0"><div class="wrap"><div class="builder">
+  <div><h2>Build your bouquet in 30 seconds</h2><p class="sub" style="margin-bottom:28px">Choose the flowers, colours and size. We'll write the enquiry for you.</p><fieldset><legend>Flowers</legend><div class="chips"><label class="chip"><input type="checkbox" name="fl" value="sunflowers" checked><span>🌻 Sunflowers</span></label><label class="chip"><input type="checkbox" name="fl" value="tulips" checked><span>🌷 Tulips</span></label><label class="chip"><input type="checkbox" name="fl" value="roses"><span>🌹 Roses</span></label><label class="chip"><input type="checkbox" name="fl" value="daisies"><span>🌼 Daisies</span></label><label class="chip"><input type="checkbox" name="fl" value="lilies"><span>Lilies</span></label></div></fieldset><fieldset><legend>Colour mood</legend><div class="chips"><label class="chip"><input type="radio" name="col" value="soft pastels" checked><span>Soft pastels</span></label><label class="chip"><input type="radio" name="col" value="bright and bold"><span>Bright & bold</span></label><label class="chip"><input type="radio" name="col" value="all one colour"><span>One colour</span></label><label class="chip"><input type="radio" name="col" value="whatever you think suits"><span>Surprise me</span></label></div></fieldset><div style="margin-bottom:22px"><label class="lbl" for="qty">How many stems?</label><div class="count" id="qcount">7</div><input id="qty" type="range" min="1" max="30" step="1" value="7"></div><fieldset><legend>It's for…</legend><div class="chips"><label class="chip"><input type="radio" name="occ" value="a birthday" checked><span>Birthday</span></label><label class="chip"><input type="radio" name="occ" value="a graduation"><span>Graduation</span></label><label class="chip"><input type="radio" name="occ" value="an anniversary"><span>Anniversary</span></label><label class="chip"><input type="radio" name="occ" value="just because"><span>Just because</span></label></div></fieldset><fieldset><legend>Pick-up from</legend><div class="chips"><label class="chip"><input type="radio" name="pick" value="your Broadway store" checked><span>Broadway</span></label><label class="chip"><input type="radio" name="pick" value="your Westpoint Blacktown store"><span>Westpoint Blacktown</span></label></div></fieldset><div style="margin-bottom:22px"><label class="lbl" for="date">Needed by</label><input id="date" type="date"></div></div>
+  <div class="msg" aria-live="polite"><div class="from">Your order message, ready to send</div><div class="bubble" id="bubble"></div>
+    <div class="row"><button class="btn btn-main btn-sm" id="copy" type="button">Copy message</button><a class="btn btn-dark btn-sm" href="https://ig.me/m/catwithballofyarn" target="_blank" rel="noopener">Open Instagram DM ↗</a></div>
+    <p class="note">Nothing is sent or stored from this page. On the live site, this would go straight to your inbox or an order form.</p></div>
+</div></div></section>
+<section class="extra" id="stores"><div class="wrap"><h2>Visit us, open 7 days</h2><p class="sub">Two Sydney stores. Come and see the flowers in person.</p><div class="tiles"><div class="tile"><b>Broadway Sydney</b><div class="meta">Level 1, near Kmart<br>Open 7 days, 10am – 6:30pm</div><div class="ph">On the real site: a Google Maps button and directions.</div></div><div class="tile"><b>Westpoint Blacktown</b><div class="meta">Level 3, near Boost Juice<br>Open 7 days, 9am – 5pm</div><div class="ph">On the real site: a Google Maps button and directions.</div></div></div></div></section>
+<footer><div class="wrap"><p>This is a free concept, designed by FirstGlance Studio to show what a website for Cat With Ball Of Yarn could look like. It isn't the official website and isn't listed on Google. Photos on the real site would come from your own Instagram.</p>
+<div class="fg"><span class="dot">FG</span><span>Like it? Reply to our Instagram message, or see more at <a href="https://firstglancestudio.in" target="_blank" rel="noopener">firstglancestudio.in</a></span></div></div></footer>
+<script>
+const $=s=>document.querySelector(s);const b=$('#bubble');
+try{const d=$('#date');if(d){d.value=new Date(Date.now()+14*864e5).toISOString().slice(0,10)}}catch(e){}
+function fmt(v){if(!v)return 'soon';return new Date(v+'T12:00:00').toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
+function picked(n){return [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(i=>i.value)}
+function list(a){return a.length>1?a.slice(0,-1).join(', ')+' and '+a.slice(-1):(a[0]||'')}
+function update(){const r=$('#qty');if(r)$('#qcount').textContent=r.value;const f=list(picked('fl'))||'a mix of flowers';b.textContent=`Hi Cat With Ball Of Yarn! I'd love a crochet bouquet of ${$('#qty').value} stems with ${f}, in ${picked('col')[0]}. It's for ${picked('occ')[0]}. I'd like to pick it up from ${picked('pick')[0]} by ${fmt($('#date').value)}. Is that possible, and how much would it be?`;}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',update));update();
+$('#copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.textContent);$('#copy').textContent='Copied ✓'}catch(e){$('#copy').textContent='Select and copy above'}setTimeout(()=>$('#copy').textContent='Copy message',2000)});
+</script>
+</body></html>
