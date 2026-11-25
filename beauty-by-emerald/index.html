@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Beauty by Emerald · Website concept by FirstGlance Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#FBF7F2;--paper:#FFFDFB;--blush:#F3DCD4;--blush-d:#E7C2B6;--emerald:#0F5C4A;--emerald-d:#0A3F33;--gold:#C9A35B;--ink:#1F1A17;--muted:#7A6E68;--line:#EADFD7;
+--display:"Cormorant Garamond",Georgia,serif;--body:"Hanken Grotesk",system-ui,-apple-system,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.concept{position:sticky;top:0;z-index:60;background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center;line-height:1.35}.concept b{color:#FFB81C}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.nav{position:sticky;top:36px;z-index:50;background:rgba(251,247,242,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.logo{font-family:var(--display);font-size:28px;font-weight:600;text-decoration:none;letter-spacing:.02em}.logo em{color:var(--emerald)}
+.nav ul{display:none;list-style:none;gap:28px;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:520px){.logo{font-size:21px}.pill{padding:9px 14px;font-size:13px}}
+.nav ul a{text-decoration:none;color:var(--muted)}.nav ul a:hover{color:var(--emerald)}
+@media(min-width:920px){.nav ul{display:flex}}
+.pill{background:var(--emerald);color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:11px 20px;border-radius:999px}
+.hero{background:var(--ivory);position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:44px;align-items:center;padding-top:60px;padding-bottom:80px}
+@media(min-width:920px){.hero .wrap{grid-template-columns:1.05fr .95fr}}
+.kicker{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--emerald)}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(48px,7.5vw,88px);line-height:1;margin:18px 0 22px}
+h1 em{color:var(--emerald)}
+.lede{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:40ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:16px 28px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-main{background:var(--emerald);color:#fff;box-shadow:0 16px 30px -14px rgba(15,92,74,.7)}
+.btn-line{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:32px;font-size:14px;color:var(--muted);font-weight:600}
+.trust b{display:block;font-family:var(--display);font-size:34px;color:var(--ink);font-weight:600;line-height:1}
+.frame{position:relative;aspect-ratio:4/5;max-width:440px;width:100%;justify-self:center}
+.arch{position:absolute;inset:0 8% 6% 0;border-radius:220px 220px 26px 26px;background:linear-gradient(170deg,var(--blush),var(--blush-d));display:grid;place-items:center;color:rgba(31,26,23,.45);font-weight:700;text-align:center;padding:30px;font-size:14px;overflow:hidden}
+.arch::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;top:16%;background:radial-gradient(circle at 40% 35%,#fff7,#fff0 70%)}
+.ring{position:absolute;right:0;bottom:0;width:44%;aspect-ratio:1;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;background:var(--paper);text-align:center;font-family:var(--display);font-size:22px;line-height:1.1;padding:18px;box-shadow:0 20px 40px -24px rgba(31,26,23,.4)}
+.ring b{display:block;font-size:44px;color:var(--emerald)}
+section{padding:90px 0}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--emerald);margin-bottom:12px}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(36px,5vw,58px);line-height:1.05;margin-bottom:14px}
+h2 em{color:var(--emerald)}
+.sub{color:var(--muted);font-size:18px;max-width:56ch}
+.svc{display:grid;gap:18px;margin-top:42px}
+@media(min-width:800px){.svc{grid-template-columns:repeat(3,1fr)}}
+.s{background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px;display:flex;flex-direction:column}
+.s .ph{aspect-ratio:4/3;border-radius:20px;background:var(--ivory);margin-bottom:22px;display:grid;place-items:center;color:var(--muted);font-size:13px;font-weight:700}
+.s h3{font-family:var(--display);font-size:30px;font-weight:600}
+.s p{color:var(--muted);margin:8px 0 16px}
+.s ul{list-style:none;font-size:15px;margin-bottom:18px}.s li{padding:7px 0;border-top:1px dashed var(--line)}.s li::before{content:"✦ ";color:var(--gold)}
+.s .from{margin-top:auto;font-weight:800;color:var(--emerald)}
+.book{background:var(--emerald-d);color:#fff;border-radius:36px;padding:clamp(28px,5vw,60px);display:grid;gap:36px}
+@media(min-width:940px){.book{grid-template-columns:1.05fr .95fr}}
+.book h2{color:#fff}.book h2 em{color:var(--gold)}.book .sub{color:#C9DCD5}
+fieldset{border:0;margin-bottom:22px}legend,.lbl{display:block;font-weight:800;margin-bottom:10px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:10px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.35);font-weight:600;cursor:pointer}
+.chip input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.chip input:focus-visible+span{outline:3px solid #fff;outline-offset:2px}
+.count{font-family:var(--display);font-size:48px;line-height:1;font-weight:600}.count small{font-family:var(--body);font-size:15px;opacity:.7}
+input[type=range]{width:100%;accent-color:var(--gold);margin-top:8px}
+input[type=date],select{font:inherit;padding:12px 14px;border-radius:14px;border:0;width:100%;max-width:280px;color:var(--ink)}
+.out{background:var(--paper);color:var(--ink);border-radius:28px;padding:26px;align-self:start}
+.out .from{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800;margin-bottom:12px}
+.row2{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}.row2 b{text-align:right}
+.bubble{margin-top:16px;background:#E8F3EE;border-radius:20px 20px 20px 6px;padding:16px;font-size:16px}
+.out .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn-sm{padding:12px 18px;font-size:15px}.btn-wa{background:#1F9D55;color:#fff}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:36px}
+@media(min-width:800px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.g{aspect-ratio:3/4;border-radius:22px;display:grid;place-items:end start;padding:14px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(31,26,23,.55)}
+.train{display:grid;gap:30px;align-items:center}
+@media(min-width:900px){.train{grid-template-columns:1fr 1fr}}
+.tcard{background:var(--ivory);border:1px solid var(--line);border-radius:28px;padding:30px}
+.tcard li{list-style:none;padding:10px 0;border-bottom:1px dashed var(--line)}.tcard li::before{content:"✓ ";color:var(--emerald);font-weight:800}
+.reviews{display:grid;gap:18px;margin-top:36px}@media(min-width:800px){.reviews{grid-template-columns:repeat(3,1fr)}}
+.r{border:1.5px dashed var(--blush-d);border-radius:24px;padding:24px;background:#fff;color:var(--muted)}
+.r .st{color:var(--gold);letter-spacing:3px}
+.r p{font-family:var(--display);font-size:22px;color:var(--ink);margin:10px 0}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}.faq summary{font-weight:800;cursor:pointer;font-size:17px}.faq p{color:var(--muted);margin-top:10px}
+.final{text-align:center;background:var(--blush);border-radius:36px;padding:clamp(32px,6vw,70px)}
+.final .ctas{justify-content:center}
+footer{background:#14100E;color:#B9ADA6;padding:46px 0;font-size:15px}
+footer .fg{display:flex;gap:14px;align-items:center;margin-top:14px}
+footer .dot{width:44px;height:44px;border-radius:50%;background:#1A33C9;color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+footer a{color:#FFB81C}
+</style>
+</head>
+<body>
+<div class="concept" role="note"><b>Concept design</b> made by FirstGlance Studio to show Beauty by Emerald what her website could look like. Not the official website.</div>
+<nav class="nav" aria-label="Main"><div class="wrap">
+  <a class="logo" href="#top">Beauty by <em>Emerald</em></a>
+  <ul><li><a href="#services">Services</a></li><li><a href="#date">Check my date</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#training">Training</a></li></ul>
+  <a class="pill" href="#date">Check my date</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="kicker">Manchester bridal makeup artist</span>
+    <h1>Look like <em>you</em>, on the most beautiful day of your life.</h1>
+    <p class="lede">Bridal and occasion makeup with nine years of experience, based in Manchester and happy to travel to you. Soft, flawless and made to last from the first look to the last dance.</p>
+    <div class="ctas"><a class="btn btn-main" href="#date">Check if my date is free →</a><a class="btn btn-line" href="#portfolio">See bridal looks</a></div>
+    <div class="trust"><span><b>9 yrs</b>enhancing beauty</span><span><b>18K</b>followers on Instagram</span><span><b>UK-wide</b>available to travel</span></div>
+  </div>
+  <div class="frame" aria-hidden="true">
+    <div class="arch">Your favourite bridal photo from Instagram goes here</div>
+    <div class="ring"><span><b>9</b>years of brides</span></div>
+  </div>
+</div></header>
+
+<section id="services"><div class="wrap">
+  <p class="eyebrow">Services</p>
+  <h2>Every look, <em>made for you</em></h2>
+  <p class="sub">Clear packages mean brides can decide before they message, so your enquiries arrive ready to book.</p>
+  <div class="svc">
+    <article class="s"><div class="ph">Bridal photo</div><h3>Bridal</h3><p>Your wedding-day look, planned with you from the trial onwards.</p><ul><li>Bridal trial</li><li>Wedding-day makeup</li><li>Long-lasting finish</li></ul><span class="from">Your price · "from £—"</span></article>
+    <article class="s"><div class="ph">Occasion photo</div><h3>Occasion</h3><p>Engagements, mehndi, parties, prom and special events.</p><ul><li>Full glam or soft glam</li><li>Bridal party &amp; family</li><li>Travel to your venue</li></ul><span class="from">Your price · "from £—"</span></article>
+    <article class="s"><div class="ph">Training photo</div><h3>Makeup training</h3><p>Learn the techniques behind nine years of bridal work.</p><ul><li>1-to-1 lessons</li><li>Self-makeup classes</li><li>Pro artist courses</li></ul><span class="from">Your price · "from £—"</span></article>
+  </div>
+</div></section>
+
+<section id="date" style="padding-top:0"><div class="wrap"><div class="book">
+  <div>
+    <p class="eyebrow" style="color:var(--gold)">Check my date</p>
+    <h2>Is your wedding date <em>still free?</em></h2>
+    <p class="sub" style="margin-bottom:28px">Bridal dates book up months ahead. Tell us about your day and we'll reply with availability and a quote.</p>
+    <div style="margin-bottom:22px"><label class="lbl" for="wd">Wedding / event date</label><input id="wd" type="date"></div>
+    <fieldset><legend>What do you need?</legend><div class="chips">
+      <label class="chip"><input type="radio" name="sv" value="bridal makeup" checked><span>Bridal</span></label>
+      <label class="chip"><input type="radio" name="sv" value="occasion makeup"><span>Occasion</span></label>
+      <label class="chip"><input type="radio" name="sv" value="a bridal trial"><span>Trial only</span></label>
+    </div></fieldset>
+    <fieldset><legend>Your look</legend><div class="chips">
+      <label class="chip"><input type="radio" name="lk" value="soft and natural" checked><span>Soft &amp; natural</span></label>
+      <label class="chip"><input type="radio" name="lk" value="full glam"><span>Full glam</span></label>
+      <label class="chip"><input type="radio" name="lk" value="traditional bridal"><span>Traditional bridal</span></label>
+      <label class="chip"><input type="radio" name="lk" value="not sure yet, I'd love your advice"><span>Not sure yet</span></label>
+    </div></fieldset>
+    <div style="margin-bottom:22px"><label class="lbl" for="pp">People needing makeup (incl. you)</label><div class="count" id="ppc">1 <small>person</small></div><input id="pp" type="range" min="1" max="10" value="1"></div>
+    <div><label class="lbl" for="loc">Where will you get ready?</label><select id="loc"><option>Manchester</option><option>Greater Manchester</option><option>Lancashire</option><option>Yorkshire</option><option>Liverpool &amp; Merseyside</option><option>Elsewhere in the UK</option></select></div>
+  </div>
+  <div class="out" aria-live="polite">
+    <div class="from">Your enquiry</div>
+    <div class="row2"><span>Date</span><b id="o-d"></b></div>
+    <div class="row2"><span>Service</span><b id="o-s"></b></div>
+    <div class="row2"><span>Look</span><b id="o-l"></b></div>
+    <div class="row2"><span>People</span><b id="o-p"></b></div>
+    <div class="row2"><span>Location</span><b id="o-loc"></b></div>
+    <div class="bubble" id="msg"></div>
+    <div class="row"><a class="btn btn-wa btn-sm" id="wa" target="_blank" rel="noopener">Send on WhatsApp ↗</a><button class="btn btn-sm" style="background:var(--ink);color:#fff" id="copy" type="button">Copy message</button></div>
+    <p class="note">This concept opens WhatsApp with your message typed. Nothing is stored on this page.</p>
+  </div>
+</div></div></section>
+
+<section id="portfolio" style="background:var(--ivory)"><div class="wrap">
+  <p class="eyebrow">Portfolio</p>
+  <h2>Brides who <em>trusted Emerald</em></h2>
+  <p class="sub">On the real site, your best bridal looks from Instagram live here in full quality, sorted by style, so brides find a look they love in seconds.</p>
+  <div class="gallery" aria-hidden="true">
+    <div class="g" style="background:#F3DCD4">Soft glam</div><div class="g" style="background:#E9D3C4">Traditional bridal</div><div class="g" style="background:#DCE7E1">Nikkah / Walima</div><div class="g" style="background:#F1E4CF">Occasion</div>
+  </div>
+</div></section>
+
+<section id="training"><div class="wrap train">
+  <div>
+    <p class="eyebrow">Training</p>
+    <h2>Learn from <em>nine years</em> of brides</h2>
+    <p class="sub">A dedicated training page turns curious followers into students, with course details and an enquiry button, so you don't have to explain it again in every DM.</p>
+  </div>
+  <div class="tcard"><ul><li>1-to-1 makeup lessons</li><li>Self-makeup masterclass</li><li>Professional bridal course</li><li>Dates and prices kept up to date</li></ul><a class="btn btn-main btn-sm" style="margin-top:18px" href="#date">Ask about training</a></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <p class="eyebrow">Kind words</p>
+  <h2>What <em>brides</em> say</h2>
+  <p class="sub">Your real reviews from your Instagram highlights and Google go here. Brides trust other brides more than anything else.</p>
+  <div class="reviews">
+    <div class="r"><div class="st">★★★★★</div><p>"Your bride's review, word for word."</p>Bride's name · Wedding date</div>
+    <div class="r"><div class="st">★★★★★</div><p>"Your bride's review, word for word."</p>Bride's name · Wedding date</div>
+    <div class="r"><div class="st">★★★★★</div><p>"Your bride's review, word for word."</p>Bride's name · Wedding date</div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap faq">
+  <p class="eyebrow">Questions</p>
+  <h2>Before you <em>book</em></h2>
+  <details><summary>How far in advance should I book?</summary><p>Your answer goes here, e.g. how many months ahead brides usually book.</p></details>
+  <details><summary>Do you travel to the venue?</summary><p>Yes, available to travel. Your travel areas and any travel fee go here.</p></details>
+  <details><summary>Do you do bridal trials?</summary><p>Your trial details go here.</p></details>
+  <details><summary>How do I secure my date?</summary><p>Your deposit and booking steps go here.</p></details>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap"><div class="final">
+  <h2>Your date could be <em>next.</em></h2>
+  <p class="sub" style="margin:0 auto">Check availability in under a minute.</p>
+  <div class="ctas"><a class="btn btn-main" href="#date">Check my date →</a><a class="btn btn-line" href="https://www.instagram.com/beauty_by_emerald/" target="_blank" rel="noopener">@beauty_by_emerald ↗</a></div>
+</div></div></section>
+
+<footer><div class="wrap">
+  <p>This is a free concept, designed by FirstGlance Studio to show what a website for Beauty by Emerald could look like. It isn't the official website and isn't listed on Google. The real site would use your own photos, prices and reviews.</p>
+  <div class="fg"><span class="dot">FG</span><span>Like it? Reply to our Instagram message, or see more at <a href="https://firstglancestudio.in" target="_blank" rel="noopener">firstglancestudio.in</a></span></div>
+</div></footer>
+<script>
+const $=s=>document.querySelector(s);const pk=n=>document.querySelector('input[name="'+n+'"]:checked').value;
+try{$('#wd').value=new Date(Date.now()+180*864e5).toISOString().slice(0,10)}catch(e){}
+const fmt=v=>v?new Date(v+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'}):'a date to confirm';
+function upd(){const p=+$('#pp').value;$('#ppc').innerHTML=p+' <small>'+(p>1?'people':'person')+'</small>';
+const d=fmt($('#wd').value),s=pk('sv'),l=pk('lk'),loc=$('#loc').value;
+$('#o-d').textContent=d;$('#o-s').textContent=s;$('#o-l').textContent=l;$('#o-p').textContent=p;$('#o-loc').textContent=loc;
+const m=`Hi Emerald! I'd love to check your availability for ${d}. I'm looking for ${s} (${l} look) for ${p} ${p>1?'people':'person'}, getting ready in ${loc}. Could you let me know if you're free and send me a quote? Thank you!`;
+$('#msg').textContent=m;$('#wa').href='https://wa.me/447411666102?text='+encodeURIComponent(m);}
+document.querySelectorAll('input,select').forEach(i=>i.addEventListener('input',upd));upd();
+$('#copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('#msg').textContent);$('#copy').textContent='Copied ✓'}catch(e){$('#copy').textContent='Select & copy above'}setTimeout(()=>$('#copy').textContent='Copy message',2000)});
+</script>
+</body>
+</html>
