@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Vin Bakers, Jaipur · Website concept by FirstGlance Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FBF5EC;--paper:#FFFCF7;--crust:#9A5524;--crust-d:#6E3A16;--deep:#2B180C;--butter:#F2C14E;--butter-l:#FBE8B8;--sage:#6F8B6E;--ink:#2B180C;--muted:#7A6555;--line:#EADCC8;
+--display:"Fraunces",Georgia,serif;--body:"Hanken Grotesk",system-ui,-apple-system,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{max-width:100%}
+.concept{position:sticky;top:0;z-index:60;background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center;line-height:1.35}.concept b{color:#FFB81C}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* nav */
+.nav{position:sticky;top:36px;z-index:50;background:rgba(251,245,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:.02em;text-decoration:none}
+.logo span{color:var(--crust)}
+.nav ul{display:none;list-style:none;gap:26px;font-weight:600;font-size:15px}
+.nav ul a{text-decoration:none;color:var(--muted)}.nav ul a:hover{color:var(--ink)}
+@media(min-width:900px){.nav ul{display:flex}}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--deep);color:var(--cream);text-decoration:none;font-weight:800;font-size:14px;padding:11px 18px;border-radius:999px}
+/* hero */
+.hero{background:var(--cream);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-180px;top:-120px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--butter-l),rgba(251,232,184,0) 70%)}
+.hero .wrap{position:relative;display:grid;gap:40px;align-items:center;padding-top:56px;padding-bottom:72px}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--crust)}
+.kicker::before{content:"";width:28px;height:2px;background:var(--crust)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,7.4vw,82px);line-height:1;margin:18px 0 22px;letter-spacing:-.015em}
+h1 em{font-style:italic;font-weight:600;color:var(--crust)}
+.lede{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:38ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:16px 26px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s}
+.btn:active{transform:translateY(2px)}
+.btn-main{background:var(--crust);color:#fff;box-shadow:0 8px 0 -1px var(--crust-d),0 18px 30px -12px rgba(154,85,36,.6)}
+.btn-main:hover{background:#A95F2A}
+.btn-line{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.trust{display:flex;flex-wrap:wrap;gap:18px;margin-top:30px;font-size:14px;font-weight:600;color:var(--muted)}
+.trust span::before{content:"✓ ";color:var(--sage);font-weight:800}
+/* bread art */
+.art{position:relative;aspect-ratio:1/.92;max-width:470px;width:100%;justify-self:center}
+.board{position:absolute;left:4%;right:4%;bottom:6%;height:22%;border-radius:999px;background:linear-gradient(#C99467,#A8723F);box-shadow:0 30px 50px -20px rgba(70,35,10,.55)}
+.loaf{position:absolute;left:10%;bottom:20%;width:62%;height:44%;border-radius:48% 52% 26% 26%/70% 70% 30% 30%;background:radial-gradient(ellipse at 40% 25%,#E9A867,#C27838 55%,#9A5524);box-shadow:inset 0 -14px 0 rgba(110,58,22,.35)}
+.loaf i{position:absolute;top:22%;width:6%;height:46%;border-radius:999px;background:rgba(251,232,184,.75);transform:rotate(28deg)}
+.rolls{position:absolute;right:6%;bottom:22%;width:40%;height:34%}
+.rolls b{position:absolute;width:52%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 38% 30%,#F6D3A0,#E1A462 60%,#B9783B);box-shadow:inset 0 -8px 0 rgba(110,58,22,.25)}
+.rolls b:nth-child(1){left:0;bottom:0}.rolls b:nth-child(2){left:42%;bottom:0}.rolls b:nth-child(3){left:21%;bottom:38%}
+.badge{position:absolute;background:#fff;border-radius:18px;padding:12px 16px;font-weight:800;font-size:15px;box-shadow:0 18px 30px -14px rgba(43,24,12,.45)}
+.badge small{display:block;font-weight:600;font-size:12px;color:var(--muted)}
+.b1{left:0;top:6%;transform:rotate(-5deg)}.b2{right:0;top:22%;transform:rotate(4deg)}
+.steam{position:absolute;left:30%;top:4%;width:30%;height:22%}
+.steam span{position:absolute;bottom:0;width:10px;height:100%;border-radius:999px;border-left:4px solid rgba(154,85,36,.25);animation:rise 3s ease-in-out infinite}
+.steam span:nth-child(2){left:40%;animation-delay:.8s}.steam span:nth-child(3){left:80%;animation-delay:1.6s}
+@keyframes rise{0%{opacity:0;transform:translateY(20px) scaleY(.6)}50%{opacity:1}100%{opacity:0;transform:translateY(-20px)}}
+@media (prefers-reduced-motion:reduce){.steam span{animation:none}}
+/* strip */
+.strip{background:var(--deep);color:var(--cream)}
+.strip ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr)}
+@media(min-width:800px){.strip ul{grid-template-columns:repeat(4,1fr)}}
+.strip li{padding:22px 18px;border-right:1px solid rgba(251,245,236,.12);font-weight:600}
+.strip li b{display:block;font-family:var(--display);font-size:22px;color:var(--butter)}
+section{padding:88px 0}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--crust);margin-bottom:12px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.6vw,52px);line-height:1.05;margin-bottom:14px;letter-spacing:-.01em}
+h2 em{font-style:italic;font-weight:600;color:var(--crust)}
+.sub{color:var(--muted);font-size:18px;max-width:56ch}
+/* bake menu */
+.menu{display:grid;gap:18px;margin-top:40px}
+@media(min-width:760px){.menu{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.menu{grid-template-columns:repeat(4,1fr)}}
+.m{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;display:flex;flex-direction:column}
+.m .ph{aspect-ratio:4/3;display:grid;place-items:center;font-size:54px;position:relative}
+.m .ph small{position:absolute;bottom:10px;left:12px;font-size:11px;font-weight:700;color:rgba(43,24,12,.55);background:rgba(255,255,255,.7);padding:3px 8px;border-radius:999px}
+.m .bd{padding:22px}
+.m h3{font-family:var(--display);font-size:23px;margin-bottom:6px}
+.m p{color:var(--muted);font-size:15px}
+.m .tag{display:inline-block;margin-top:12px;font-size:12px;font-weight:800;color:var(--crust);background:var(--butter-l);padding:5px 10px;border-radius:999px}
+/* tools */
+.tool{border-radius:34px;padding:clamp(26px,5vw,56px);display:grid;gap:36px}
+@media(min-width:940px){.tool{grid-template-columns:1.05fr .95fr}}
+.tool.sub-t{background:var(--butter-l)}
+.tool.cat-t{background:var(--deep);color:var(--cream)}
+.tool.cat-t .sub{color:#D9C7B2}
+fieldset{border:0;margin-bottom:22px}
+legend,.lbl{display:block;font-weight:800;margin-bottom:10px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:10px 16px;border-radius:999px;border:2px solid rgba(43,24,12,.22);font-weight:600;cursor:pointer;background:rgba(255,255,255,.5)}
+.cat-t .chip span{border-color:rgba(251,245,236,.3);background:transparent}
+.chip input:checked+span{background:var(--crust);border-color:var(--crust);color:#fff}
+.chip input:focus-visible+span{outline:3px solid var(--butter);outline-offset:2px}
+.count{font-family:var(--display);font-size:46px;font-weight:800;line-height:1}
+.count small{font-family:var(--body);font-size:15px;font-weight:600;opacity:.7}
+input[type=range]{width:100%;accent-color:var(--crust);margin-top:8px}
+input[type=date],select{font:inherit;padding:12px 14px;border-radius:14px;border:1px solid var(--line);width:100%;max-width:280px;background:#fff;color:var(--ink)}
+.out{background:#fff;color:var(--ink);border-radius:26px;padding:26px;align-self:start;box-shadow:0 24px 50px -30px rgba(43,24,12,.5)}
+.out .from{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin-bottom:12px}
+.sumrow{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.sumrow b{text-align:right}
+.bubble{margin-top:16px;background:#EAF6EA;border-radius:20px 20px 20px 6px;padding:16px;font-size:16px;line-height:1.5}
+.out .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn-sm{padding:12px 18px;font-size:15px}
+.btn-wa{background:#1F9D55;color:#fff}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+/* why */
+.why{display:grid;gap:18px;margin-top:40px}
+@media(min-width:800px){.why{grid-template-columns:repeat(3,1fr)}}
+.w{padding:28px;border-radius:26px;background:var(--cream);border:1px solid var(--line)}
+.w .n{font-family:var(--display);font-size:44px;font-weight:800;color:var(--crust);line-height:1}
+.w h3{font-size:20px;margin:10px 0 6px}.w p{color:var(--muted)}
+/* founder */
+.founder{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.founder{grid-template-columns:.8fr 1.2fr}}
+.portrait{aspect-ratio:4/5;border-radius:30px;background:linear-gradient(160deg,#E9C9A3,#C98E5A);display:grid;place-items:center;color:rgba(43,24,12,.6);font-weight:700;text-align:center;padding:20px;position:relative;overflow:hidden}
+.portrait::after{content:"";position:absolute;inset:auto -30% -30% auto;width:70%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.18)}
+blockquote{font-family:var(--display);font-style:italic;font-size:clamp(24px,3vw,34px);line-height:1.25;margin:18px 0}
+/* reviews */
+.reviews{display:grid;gap:18px;margin-top:36px}
+@media(min-width:800px){.reviews{grid-template-columns:repeat(3,1fr)}}
+.r{background:#fff;border:2px dashed var(--line);border-radius:24px;padding:24px;color:var(--muted)}
+.r .stars{color:var(--butter);font-size:20px;letter-spacing:2px}
+.r p{margin:10px 0 14px}
+/* steps */
+.steps{display:grid;gap:14px;margin-top:36px;counter-reset:s}
+@media(min-width:800px){.steps{grid-template-columns:repeat(4,1fr)}}
+.st{background:#fff;border-radius:22px;padding:22px;border:1px solid var(--line);counter-increment:s}
+.st::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--butter);font-weight:800;margin-bottom:12px}
+.st b{display:block;margin-bottom:4px}.st span{color:var(--muted);font-size:15px}
+/* cta */
+.final{background:var(--crust);color:#fff;border-radius:34px;padding:clamp(30px,6vw,64px);text-align:center;position:relative;overflow:hidden}
+.final h2{color:#fff}.final .sub{color:#F6DEC6;margin:0 auto}
+.final .ctas{justify-content:center}
+.final .btn-main{background:var(--butter);color:var(--deep);box-shadow:none}
+.final .btn-line{border-color:#fff;color:#fff}
+footer{background:#1A0E06;color:#BBA896;padding:46px 0;font-size:15px}
+footer .fg{display:flex;gap:14px;align-items:center;margin-top:14px}
+footer .dot{width:44px;height:44px;border-radius:50%;background:#1A33C9;color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+footer a{color:#FFB81C}
+.sticky-order{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 14px 30px -10px rgba(0,0,0,.45)}
+</style>
+</head>
+<body>
+<div class="concept" role="note"><b>Concept design</b> made by FirstGlance Studio to show Vin Bakers what its website could look like. Not the official website.</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top">VIN <span>BAKERS</span></a>
+    <ul><li><a href="#bakes">Our bakes</a></li><li><a href="#subscribe">Bread subscription</a></li><li><a href="#catering">Catering</a></li><li><a href="#story">Our story</a></li></ul>
+    <a class="pill" href="#catering">Plan an event</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Freshly baked in Jaipur</span>
+      <h1>From your <em>morning bread</em> to your biggest celebration.</h1>
+      <p class="lede">Fresh breads, desserts and birthday cakes, bread subscriptions delivered to your door, and catering that guests talk about long after the party.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#subscribe">Start a bread subscription →</a>
+        <a class="btn btn-line" href="#catering">Plan catering</a>
+      </div>
+      <div class="trust"><span>Same-day Jaipur delivery</span><span>Catering for 30+ guests</span><span>Baked fresh to order</span></div>
+    </div>
+    <div class="art" aria-hidden="true">
+            <div class="board"></div>
+      <div class="loaf"><i style="left:24%"></i><i style="left:44%"></i><i style="left:64%"></i></div>
+      <div class="rolls"><b></b><b></b><b></b></div>
+      <div class="badge b1">🍞 New: Mini Milk Bread<small>Soft, fluffy, lightly sweet</small></div>
+      <div class="badge b2">🚚 Same-day delivery<small>Across Jaipur</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <ul class="wrap" style="padding:0">
+    <li><b>Daily</b>Fresh breads &amp; bakes</li>
+    <li><b>30+</b>Guests? We cater</li>
+    <li><b>Weekly</b>Bread subscriptions</li>
+    <li><b>Same day</b>Delivery in Jaipur</li>
+  </ul>
+</div>
+
+<section id="bakes">
+  <div class="wrap">
+    <p class="eyebrow">What we bake</p>
+    <h2>Something for every <em>table</em></h2>
+    <p class="sub">Each category gets its own page on the real site, with your photos and prices, so people searching "fresh bread Jaipur" or "birthday cake Jaipur" land right on it.</p>
+    <div class="menu">
+      <article class="m"><div class="ph" style="background:#F6E2C4">🍞<small>Your photo here</small></div><div class="bd"><h3>Fresh breads</h3><p>Everyday loaves, buns and the new Mini Milk Bread, perfect for breakfast and sandwiches.</p><span class="tag">Subscribe &amp; save time</span></div></article>
+      <article class="m"><div class="ph" style="background:#F8DCD6">🎂<small>Your photo here</small></div><div class="bd"><h3>Cakes &amp; desserts</h3><p>Birthday cakes and desserts for family moments, big and small.</p><span class="tag">Same-day delivery</span></div></article>
+      <article class="m"><div class="ph" style="background:#E3E8D8">🧺<small>Your photo here</small></div><div class="bd"><h3>Food hampers</h3><p>Curated hampers for festivals, thank-yous and corporate gifting.</p><span class="tag">Great for offices</span></div></article>
+      <article class="m"><div class="ph" style="background:#F3E6C4">🍽️<small>Your photo here</small></div><div class="bd"><h3>Catering spreads</h3><p>Thoughtfully curated menus, sweet and savoury, for 30 guests and up.</p><span class="tag">Get a quote below</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="subscribe" style="padding-top:0">
+  <div class="wrap">
+    <div class="tool sub-t">
+      <div>
+        <p class="eyebrow">Bread subscription</p>
+        <h2>Fresh bread at your door, <em>without asking twice</em></h2>
+        <p class="sub" style="margin-bottom:28px">Set it up once. Your breads arrive on the days you choose.</p>
+        <fieldset><legend>Which breads?</legend><div class="chips">
+          <label class="chip"><input type="checkbox" name="br" value="Mini Milk Bread" checked><span>Mini Milk Bread</span></label>
+          <label class="chip"><input type="checkbox" name="br" value="white sandwich bread"><span>Sandwich loaf</span></label>
+          <label class="chip"><input type="checkbox" name="br" value="brown / multigrain bread" checked><span>Brown / multigrain</span></label>
+          <label class="chip"><input type="checkbox" name="br" value="burger & pav buns"><span>Buns &amp; pav</span></label>
+        </div></fieldset>
+        <fieldset><legend>How often?</legend><div class="chips">
+          <label class="chip"><input type="radio" name="fr" value="every day" data-n="30"><span>Every day</span></label>
+          <label class="chip"><input type="radio" name="fr" value="3 times a week" data-n="12" checked><span>3× a week</span></label>
+          <label class="chip"><input type="radio" name="fr" value="once a week" data-n="4"><span>Weekly</span></label>
+        </div></fieldset>
+        <div style="margin-bottom:22px"><label class="lbl" for="hh">Loaves per delivery</label><div class="count" id="hhc">1 <small>loaf</small></div><input id="hh" type="range" min="1" max="6" value="1"></div>
+        <div><label class="lbl" for="area">Your area in Jaipur</label>
+          <select id="area"><option>C-Scheme</option><option>Malviya Nagar</option><option>Vaishali Nagar</option><option>Mansarovar</option><option>Raja Park</option><option>Jagatpura</option><option>Another area</option></select></div>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="from">Your subscription</div>
+        <div class="sumrow"><span>Breads</span><b id="s-br"></b></div>
+        <div class="sumrow"><span>Delivery</span><b id="s-fr"></b></div>
+        <div class="sumrow"><span>Deliveries a month</span><b id="s-n"></b></div>
+        <div class="sumrow"><span>Area</span><b id="s-ar"></b></div>
+        <div class="bubble" id="s-msg"></div>
+        <div class="row"><button class="btn btn-wa btn-sm" data-copy="s-msg" type="button">Copy &amp; send on WhatsApp</button><a class="btn btn-sm" style="background:var(--deep);color:#fff" href="https://ig.me/m/vinbakers" target="_blank" rel="noopener">Instagram DM ↗</a></div>
+        <p class="note">On the live site this goes straight to your WhatsApp. Prices per loaf would show here once you share them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="catering" style="padding-top:0">
+  <div class="wrap">
+    <div class="tool cat-t">
+      <div>
+        <p class="eyebrow" style="color:var(--butter)">Catering &amp; events</p>
+        <h2 style="color:#fff">You bring your people. <em style="color:var(--butter)">We'll bring the food.</em></h2>
+        <p class="sub" style="margin-bottom:28px">Tell us about your event in 30 seconds and get a menu and quote back from our team.</p>
+        <fieldset><legend>What's the occasion?</legend><div class="chips">
+          <label class="chip"><input type="radio" name="oc" value="a birthday party" checked><span>Birthday</span></label>
+          <label class="chip"><input type="radio" name="oc" value="an office celebration"><span>Office event</span></label>
+          <label class="chip"><input type="radio" name="oc" value="a family gathering"><span>Family gathering</span></label>
+          <label class="chip"><input type="radio" name="oc" value="a kitty party"><span>Kitty party</span></label>
+          <label class="chip"><input type="radio" name="oc" value="a festive get-together"><span>Festive</span></label>
+        </div></fieldset>
+        <div style="margin-bottom:22px"><label class="lbl" for="gs">How many guests?</label><div class="count" id="gsc">40 <small>guests</small></div><input id="gs" type="range" min="30" max="300" step="5" value="40"></div>
+        <fieldset><legend>The spread</legend><div class="chips">
+          <label class="chip"><input type="checkbox" name="sp" value="savoury bites" checked><span>Savoury bites</span></label>
+          <label class="chip"><input type="checkbox" name="sp" value="desserts" checked><span>Desserts</span></label>
+          <label class="chip"><input type="checkbox" name="sp" value="a celebration cake"><span>Celebration cake</span></label>
+          <label class="chip"><input type="checkbox" name="sp" value="breads & sandwiches"><span>Breads &amp; sandwiches</span></label>
+        </div></fieldset>
+        <div><label class="lbl" for="dt">Event date</label><input id="dt" type="date"></div>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="from">Your event request</div>
+        <div class="sumrow"><span>Occasion</span><b id="c-oc"></b></div>
+        <div class="sumrow"><span>Guests</span><b id="c-gs"></b></div>
+        <div class="sumrow"><span>Spread</span><b id="c-sp"></b></div>
+        <div class="sumrow"><span>Date</span><b id="c-dt"></b></div>
+        <div class="bubble" id="c-msg"></div>
+        <div class="row"><button class="btn btn-wa btn-sm" data-copy="c-msg" type="button">Copy &amp; send on WhatsApp</button><a class="btn btn-sm" style="background:var(--deep);color:#fff" href="https://ig.me/m/vinbakers" target="_blank" rel="noopener">Instagram DM ↗</a></div>
+        <p class="note">Every enquiry arrives complete: date, guest count and menu. No more ten-message back-and-forth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">How ordering works</p>
+    <h2>Simple from first click to <em>first bite</em></h2>
+    <div class="steps">
+      <div class="st"><b>Choose</b><span>Pick breads, a cake, a hamper or a catering spread.</span></div>
+      <div class="st"><b>Send</b><span>Your order goes to us on WhatsApp, already filled in.</span></div>
+      <div class="st"><b>We confirm</b><span>We reply with the menu, price and delivery time.</span></div>
+      <div class="st"><b>Enjoy</b><span>Same-day delivery in Jaipur, or we set up at your event.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="story" style="background:var(--cream)">
+  <div class="wrap founder">
+    <div class="portrait">Vinayak's photo<br>from your Instagram goes here</div>
+    <div>
+      <p class="eyebrow">Our story</p>
+      <h2>Meet <em>Vinayak</em>, founder of Vin Bakers</h2>
+      <blockquote>"Every place has a story, and the best person to tell it is the one who started it."</blockquote>
+      <p class="sub">From morning breads to birthday cakes, from office celebrations to family gatherings, Vin Bakers has been baking for Jaipur's moments, big and small. On the real site, this is where your story is told in your own words.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Kind words</p>
+    <h2>The messages that make it <em>worthwhile</em></h2>
+    <p class="sub">Your real client reviews from your "Review" highlight and Google go here. Reviews on your own website are one of the biggest reasons new customers say yes.</p>
+    <div class="reviews">
+      <div class="r"><div class="stars">★★★★★</div><p>Your client's review, word for word.</p><b>Client name · Event type</b></div>
+      <div class="r"><div class="stars">★★★★★</div><p>Your client's review, word for word.</p><b>Client name · Event type</b></div>
+      <div class="r"><div class="stars">★★★★★</div><p>Your client's review, word for word.</p><b>Client name · Event type</b></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Why a website, when you have Instagram?</p>
+    <h2>What this site would do for <em>Vin Bakers</em></h2>
+    <div class="why">
+      <div class="w"><div class="n">01</div><h3>Found on Google</h3><p>People search "catering in Jaipur" and "bread delivery Jaipur" every day. Instagram doesn't show up for those searches. A website does.</p></div>
+      <div class="w"><div class="n">02</div><h3>Repeat income</h3><p>Bread subscriptions turn one-time buyers into weekly customers, with orders arriving on autopilot.</p></div>
+      <div class="w"><div class="n">03</div><h3>Bigger events, less chasing</h3><p>Catering enquiries arrive complete with date, guests and menu, so you quote faster and win more events.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final">
+      <h2>Fresh from the oven, <em style="color:var(--butter)">straight to you.</em></h2>
+      <p class="sub">Breads, cakes, hampers and catering across Jaipur.</p>
+      <div class="ctas"><a class="btn btn-main" href="#subscribe">Start a subscription</a><a class="btn btn-line" href="#catering">Plan your event</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>This is a free concept, designed by FirstGlance Studio to show what a website for Vin Bakers could look like. It isn't the official website and isn't listed on Google. The real site would use your own photos, menu and prices.</p>
+    <div class="fg"><span class="dot">FG</span><span>Like it? Reply to our Instagram message, or see more at <a href="https://firstglancestudio.in" target="_blank" rel="noopener">firstglancestudio.in</a></span></div>
+  </div>
+</footer>
+<a class="btn btn-wa btn-sm sticky-order" href="#subscribe">🛒 Order now</a>
+
+<script>
+const $=s=>document.querySelector(s);
+const picked=n=>[...document.querySelectorAll('input[name="'+n+'"]:checked')];
+const list=a=>a.length>1?a.slice(0,-1).join(', ')+' and '+a.slice(-1):(a[0]||'');
+try{$('#dt').value=new Date(Date.now()+10*864e5).toISOString().slice(0,10)}catch(e){}
+const fmt=v=>v?new Date(v+'T12:00:00').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'}):'a date to confirm';
+function upd(){
+  const br=picked('br').map(i=>i.value), fr=picked('fr')[0], hh=+$('#hh').value, ar=$('#area').value;
+  $('#hhc').innerHTML=hh+' <small>'+(hh>1?'loaves':'loaf')+'</small>';
+  $('#s-br').textContent=list(br)||'Choose at least one';$('#s-fr').textContent=fr.value+', '+hh+' each';$('#s-n').textContent='about '+fr.dataset.n;$('#s-ar').textContent=ar;
+  $('#s-msg').textContent=`Hi Vin Bakers! I'd like to start a bread subscription: ${list(br)||'fresh bread'}, ${hh} ${hh>1?'loaves':'loaf'} each, ${fr.value}, delivered to ${ar}, Jaipur. What would it cost per month, and when can we start?`;
+  const oc=picked('oc')[0].value, gs=$('#gs').value, sp=picked('sp').map(i=>i.value), dt=fmt($('#dt').value);
+  $('#gsc').innerHTML=gs+' <small>guests</small>';
+  $('#c-oc').textContent=oc.replace(/^an? /,'');$('#c-gs').textContent=gs;$('#c-sp').textContent=list(sp)||'Your suggestion';$('#c-dt').textContent=dt;
+  $('#c-msg').textContent=`Hi Vin Bakers! I'm planning ${oc} for about ${gs} guests on ${dt}. We'd love ${list(sp)||'your suggested spread'}. Could you share a menu and quote?`;
+}
+document.querySelectorAll('input,select').forEach(i=>i.addEventListener('input',upd));upd();
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{const t=$('#'+b.dataset.copy).textContent;try{await navigator.clipboard.writeText(t);b.textContent='Copied ✓'}catch(e){b.textContent='Select & copy above'}setTimeout(()=>b.innerHTML='Copy &amp; send on WhatsApp',2000)}));
+</script>
+</body>
+</html>
