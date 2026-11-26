@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>FirstGlance photo relay</title></head>
+<body style="font:16px system-ui;padding:30px"><p id="s">Loading photos…</p>
+<script>
+(async()=>{const ids=(new URLSearchParams(location.search).get('ids')||'').split(',').filter(x=>/^photo-[0-9a-f-]+$/.test(x));
+const files=[];for(const id of ids){try{const b=await (await fetch('https://images.unsplash.com/'+id+'?w=1200&q=85&fm=jpg')).blob();files.push({id,blob:b})}catch(e){files.push({id,err:String(e)})}}
+document.getElementById('s').textContent='Loaded '+files.filter(f=>f.blob).length+' of '+ids.length+'. Sending…';
+if(window.opener){window.opener.postMessage({type:'fg-photos',files},'https://www.instagram.com');document.getElementById('s').textContent+=' Sent. You can close this tab.'}else{document.getElementById('s').textContent+=' (no opener)'}})();
+</script></body></html>
