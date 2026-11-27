@@ -56,7 +56,7 @@ function profile(n,im,fy,name,age,dist,tag,ick,green,cred){const [c,x]=mk(C.bg);
  // 7 green flags
  {const [c,x]=mk(C.bg);appbar(x);T(x,'💚 Green flags we spotted this week',70,210,`800 60px ${F}`,C.ink,940,68);
   const biz=[['@_dreambakes','Mississauga','Shows real client reviews'],['@mincakerynz','Auckland','Offers cake tasting boxes'],['@the_happybakester','Dublin','One-tap WhatsApp ordering'],['@elena.precisionmakeup','Scotland','Shares her availability up front'],['@brunascakes.ie','Dublin','Delivery available']];
-  biz.forEach((b,i)=>{const y=330+i*176;R(x,70,y,940,150,30,'#fff');x.save();x.shadowColor='transparent';x.restore();R(x,70,y,12,150,6,C.green);x.font=`800 36px ${F}`;x.fillStyle=C.ink;x.fillText(b[0],110,y+60);x.font=`600 26px ${F}`;x.fillStyle=C.muted;x.fillText(b[1],110,y+102);x.font=`700 30px ${F}`;x.fillStyle=C.green;x.textAlign='right';x.fillText('💚 '+b[2],990,y+84);x.textAlign='left'});
+  biz.forEach((b,i)=>{const y=330+i*176;R(x,70,y,940,150,30,'#fff');x.save();x.shadowColor='transparent';x.restore();R(x,70,y,12,150,6,C.green);x.font=`800 36px ${F}`;x.fillStyle=C.ink;x.fillText(b[0],110,y+60);x.font=`600 26px ${F}`;x.fillStyle=C.muted;x.textAlign='right';x.fillText(b[1],990,y+60);x.textAlign='left';x.font=`700 30px ${F}`;x.fillStyle=C.green;x.fillText('💚 '+b[2],110,y+110)});
   T(x,'Next step for all of them: put those green flags on a website, where Google can find them.',70,1250,`700 30px ${F}`,C.muted,940,38);out.push(c)}
  // 8 CTA
  {const [c,x]=mk(C.deep);x.font=`800 40px ${F}`;x.fillStyle='#fff';x.fillText('shopmatch',70,92);heart(x,300,74,26,'#FF8A5B');
