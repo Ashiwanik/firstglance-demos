@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>FG studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#222;font:14px system-ui;color:#fff}#g{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px}#g img{width:100%}</style></head>
+<body><p id="s" style="padding:8px">Building…</p><div id="g"></div>
+<script>
+const W=1080,H=1350,F='"Bricolage Grotesque",sans-serif';
+const C={a:'#FF4F6D',b:'#FF8A5B',ink:'#1E1A2B',muted:'#6B6580',bg:'#FFF4F2',green:'#1DB97A',red:'#FF3B4E',card:'#fff',chip:'#FFE5E1',deep:'#0B3D2E',brand:'#14694D'};
+const IDS={night:'photo-1507010823031-de6dce2e61d2',google:'photo-1601933973706-34bd411ffd67',gift:'photo-1713693212310-c61025910d49',review:'photo-1653762379954-8943c787e78b'};
+const CRED={night:'@danielapodaca96',google:'@brookecagle',gift:'@lookphoto',review:'@brookecagle'};
+function mk(bg){const c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');if(bg==='grad'){const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,C.a);g.addColorStop(1,C.b);x.fillStyle=g}else x.fillStyle=bg||C.bg;x.fillRect(0,0,W,H);return [c,x]}
+function lines(x,t,mw){const w=t.split(' ');const o=[];let cur='';for(const s of w){const tt=cur?cur+' '+s:s;if(x.measureText(tt).width>mw&&cur){o.push(cur);cur=s}else cur=tt}if(cur)o.push(cur);return o}
+function T(x,t,X,Y,font,col,mw,lh,al='left'){x.font=font;x.fillStyle=col;x.textAlign=al;const L=lines(x,t,mw);L.forEach((l,i)=>x.fillText(l,X,Y+i*lh));x.textAlign='left';return Y+L.length*lh}
+function R(x,X,Y,w,h,r,col){x.fillStyle=col;x.beginPath();x.roundRect(X,Y,w,h,r);x.fill()}
+function cover(x,im,X,Y,w,h,fy=0.4,r=0){const s=Math.max(w/im.width,h/im.height);const sw=w/s,sh=h/s;x.save();x.beginPath();x.roundRect(X,Y,w,h,r);x.clip();x.drawImage(im,(im.width-sw)/2,(im.height-sh)*fy,sw,sh,X,Y,w,h);x.restore()}
+function heart(x,cx,cy,s,col){x.fillStyle=col;x.beginPath();x.moveTo(cx,cy+s*0.35);x.bezierCurveTo(cx-s,cy-s*0.3,cx-s*0.45,cy-s,cx,cy-s*0.45);x.bezierCurveTo(cx+s*0.45,cy-s,cx+s,cy-s*0.3,cx,cy+s*0.35);x.fill()}
+function appbar(x,dark){x.font=`800 40px ${F}`;x.fillStyle=dark?'#fff':C.a;x.fillText('shopmatch',70,92);heart(x,300,74,26,dark?'#fff':C.a);x.font=`600 24px ${F}`;x.fillStyle=dark?'rgba(255,255,255,.8)':C.muted;x.textAlign='right';x.fillText('@firstglance.studio',W-70,90);x.textAlign='left'}
+function chip(x,t,X,Y,bg,fg){x.font=`700 28px ${F}`;const w=x.measureText(t).width+40;R(x,X,Y,w,52,26,bg);x.fillStyle=fg;x.fillText(t,X+20,Y+36);return w}
+function profile(n,im,fy,name,age,dist,tag,ick,green,cred){const [c,x]=mk(C.bg);appbar(x);
+ const X=60,Y=130,w=960,h=1020;x.save();x.shadowColor='rgba(30,26,43,.25)';x.shadowBlur=40;x.shadowOffsetY=20;R(x,X,Y,w,h,44,'#fff');x.restore();
+ cover(x,im,X,Y,w,620,fy,44);const g=x.createLinearGradient(0,Y+380,0,Y+620);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.75)');x.fillStyle=g;x.fillRect(X,Y+380,w,240);
+ x.font=`800 72px ${F}`;x.fillStyle='#fff';x.fillText(name+', '+age,X+40,Y+560);x.font=`600 30px ${F}`;x.fillStyle='rgba(255,255,255,.9)';x.fillText(dist,X+40,Y+600);
+ chip(x,tag,X+40,Y+30,'rgba(255,255,255,.92)',C.ink);
+ x.font=`500 18px ${F}`;x.fillStyle='rgba(255,255,255,.75)';x.textAlign='right';x.fillText('Fictional persona · photo: '+cred+' / Unsplash',X+w-30,Y+40);x.textAlign='left';
+ let y=Y+670;x.font=`800 30px ${F}`;x.fillStyle=C.red;x.fillText('🚩  INSTANT ICK',X+40,y);y+=14;ick.forEach(t=>{y=T(x,'• '+t,X+40,y+38,`600 32px ${F}`,C.ink,w-80,40)});
+ y+=40;x.font=`800 30px ${F}`;x.fillStyle=C.green;x.fillText('💚  SWIPES RIGHT IF',X+40,y);y+=14;green.forEach(t=>{y=T(x,'• '+t,X+40,y+38,`600 32px ${F}`,C.ink,w-80,40)});
+ // buttons
+ const by=Y+h+60;[[400,'#fff',C.red,'✕'],[680,'#fff',C.green,'♥']].forEach(([cx,bg,fg,s])=>{x.save();x.shadowColor='rgba(0,0,0,.18)';x.shadowBlur=20;x.fillStyle=bg;x.beginPath();x.arc(cx,by,58,0,7);x.fill();x.restore();x.font=`800 56px ${F}`;x.fillStyle=fg;x.textAlign='center';x.fillText(s,cx,by+20);x.textAlign='left'});
+ x.font=`700 24px ${F}`;x.fillStyle=C.muted;x.textAlign='right';x.fillText(n+'/8',W-70,H-40);x.textAlign='left';return c}
+(async()=>{
+ await document.fonts.load(`800 40px ${F}`);await document.fonts.load(`600 40px ${F}`);await document.fonts.load(`700 40px Caveat`);
+ const img={};for(const k in IDS){const b=await (await fetch('https://images.unsplash.com/'+IDS[k]+'?w=1000&q=85&fm=jpg')).blob();img[k]=await createImageBitmap(b)}
+ const out=[];
+ // 1 cover
+ {const [c,x]=mk('grad');appbar(x,true);
+  const cards=[[img.review,330,560,-0.16],[img.gift,750,560,0.14],[img.night,540,520,-0.02]];
+  cards.forEach(([im,cx,cy,r])=>{x.save();x.translate(cx,cy);x.rotate(r);x.shadowColor='rgba(0,0,0,.3)';x.shadowBlur=40;x.shadowOffsetY=20;R(x,-200,-270,400,540,32,'#fff');x.shadowColor='transparent';cover(x,im,-190,-260,380,520,0.35,26);x.restore()});
+  heart(x,830,300,70,'#fff');
+  T(x,'We made dating profiles for your customers.',70,960,`800 76px ${F}`,'#fff',940,82);
+  T(x,'Swipe to see who’s quietly ghosting your business →',70,1180,`700 40px Caveat`,'#fff',940,46);out.push(c)}
+ out.push(profile(2,img.night,0.3,'Aisha',27,'📍 2 km away · online at 11:47 PM','The 11 PM Planner',
+  ['“DM for price” (it’s midnight, nobody replies)','No menu, no prices, no way to order now'],['She can see prices and order in 2 minutes','Your page works while you sleep'],CRED.night));
+ out.push(profile(3,img.google,0.3,'Daniel',34,'📍 5 km away · never DMs, only Googles','The Googler',
+  ['Not on Google at all','Instagram-only (he doesn’t even have an account)'],['You show up when he searches “cake near me”','Clear address, hours & directions'],CRED.google));
+ out.push(profile(4,img.gift,0.25,'Meera',31,'📍 3 km away · party is TOMORROW','The Gift Panicker',
+  ['“Please order 1 week in advance” (and nothing else)','No idea if you’re free tomorrow'],['Shows the earliest date she can order','One-tap WhatsApp with her order written'],CRED.gift));
+ out.push(profile(5,img.review,0.3,'Sophie',42,'📍 1 km away · reads every review first','The Review Reader',
+  ['Reviews buried in a highlight from 2023','No photos of real orders'],['Real reviews on your homepage','Photos of past work, sorted by occasion'],CRED.review));
+ // 6 it's a match
+ {const [c,x]=mk('grad');appbar(x,true);
+  x.font=`800 120px ${F}`;x.fillStyle='#fff';x.textAlign='center';x.fillText('It’s a match!',540,330);x.font=`700 54px Caveat`;x.fillText('when your business has…',540,410);x.textAlign='left';
+  const circ=(im,cx)=>{x.save();x.beginPath();x.arc(cx,600,150,0,7);x.closePath();x.fillStyle='#fff';x.fill();x.beginPath();x.arc(cx,600,138,0,7);x.clip();if(im)cover(x,im,cx-138,462,276,276,0.3);x.restore()};
+  circ(img.night,330);x.save();x.beginPath();x.arc(750,600,150,0,7);x.fillStyle='#fff';x.fill();x.restore();x.font=`800 46px ${F}`;x.fillStyle=C.a;x.textAlign='center';x.fillText('your',750,585);x.fillText('website',750,635);x.textAlign='left';heart(x,540,610,60,'#fff');
+  const L=['Prices people can see','Hours, address & directions','An order or booking button','Real reviews up front','Found on Google'];
+  R(x,120,800,840,440,36,'rgba(255,255,255,.95)');L.forEach((t,i)=>{const y=880+i*76;x.fillStyle=C.green;x.beginPath();x.arc(180,y-12,22,0,7);x.fill();x.strokeStyle='#fff';x.lineWidth=6;x.beginPath();x.moveTo(170,y-12);x.lineTo(178,y-3);x.lineTo(192,y-22);x.stroke();x.font=`700 38px ${F}`;x.fillStyle=C.ink;x.fillText(t,226,y)});
+  x.font=`700 24px ${F}`;x.fillStyle='rgba(255,255,255,.85)';x.textAlign='right';x.fillText('6/8',W-70,H-40);x.textAlign='left';out.push(c)}
+ // 7 green flags
+ {const [c,x]=mk(C.bg);appbar(x);T(x,'💚 Green flags we spotted this week',70,210,`800 60px ${F}`,C.ink,940,68);
+  const biz=[['@_dreambakes','Mississauga','Shows real client reviews'],['@mincakerynz','Auckland','Offers cake tasting boxes'],['@the_happybakester','Dublin','One-tap WhatsApp ordering'],['@elena.precisionmakeup','Scotland','Shares her availability up front'],['@brunascakes.ie','Dublin','Delivery available']];
+  biz.forEach((b,i)=>{const y=330+i*176;R(x,70,y,940,150,30,'#fff');x.save();x.shadowColor='transparent';x.restore();R(x,70,y,12,150,6,C.green);x.font=`800 36px ${F}`;x.fillStyle=C.ink;x.fillText(b[0],110,y+60);x.font=`600 26px ${F}`;x.fillStyle=C.muted;x.fillText(b[1],110,y+102);x.font=`700 30px ${F}`;x.fillStyle=C.green;x.textAlign='right';x.fillText('💚 '+b[2],990,y+84);x.textAlign='left'});
+  T(x,'Next step for all of them: put those green flags on a website, where Google can find them.',70,1250,`700 30px ${F}`,C.muted,940,38);out.push(c)}
+ // 8 CTA
+ {const [c,x]=mk(C.deep);x.font=`800 40px ${F}`;x.fillStyle='#fff';x.fillText('shopmatch',70,92);heart(x,300,74,26,'#FF8A5B');
+  T(x,'Want customers to swipe right on your business?',70,330,`800 84px ${F}`,'#fff',940,92);
+  R(x,70,720,940,280,40,C.a);x.font=`700 40px ${F}`;x.fillStyle='#fff';x.fillText('Comment',120,800);x.font=`800 140px ${F}`;x.fillText('MATCH',120,950);heart(x,880,860,80,'#fff');
+  T(x,'and we’ll make you a free sample website: prices, hours, reviews & an order button. No cost, no catch.',70,1090,`600 34px ${F}`,'#CFE8DC',940,44);
+  T(x,'Tag a business that’s full of green flags 💚',70,1250,`700 46px Caveat`,'#FFB49A',940,50);out.push(c)}
+ const files=await Promise.all(out.map((c,i)=>new Promise(r=>c.toBlob(b=>r({id:'match'+(i+1),blob:b}),'image/jpeg',0.92))));
+ out.forEach(c=>{const im=new Image();im.src=c.toDataURL('image/jpeg',.5);document.getElementById('g').appendChild(im)});
+ document.getElementById('s').textContent='Built '+files.length;
+ if(window.opener){window.opener.postMessage({type:'fg-slides',files},'https://www.instagram.com');document.getElementById('s').textContent+=' · sent'}
+})().catch(e=>{document.getElementById('s').textContent='ERR '+e});
+</script></body></html>
