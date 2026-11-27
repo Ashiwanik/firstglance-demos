@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>FG studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Hanken+Grotesk:wght@600;800&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#222;font:14px system-ui;color:#fff}#g{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px}#g img{width:100%}</style></head>
+<body><p id="s" style="padding:8px">Building…</p><div id="g"></div>
+<script>
+const W=1080,H=1350,CZ='Cinzel',CG='"Cormorant Garamond"',HN='"Hanken Grotesk"';
+const C={bg1:'#1B1033',bg2:'#3A1C5C',gold:'#E8C27A',gold2:'#B8893E',cream:'#F6E9D0',mute:'#C9B7E3',pink:'#FF9EC4'};
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+function mk(){const c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');const g=x.createRadialGradient(540,500,100,540,600,1000);g.addColorStop(0,C.bg2);g.addColorStop(1,C.bg1);x.fillStyle=g;x.fillRect(0,0,W,H);
+ seed=11;for(let i=0;i<260;i++){const s=rnd()*2.6;x.fillStyle=`rgba(255,240,210,${.25+rnd()*.6})`;x.beginPath();x.arc(rnd()*W,rnd()*H,s,0,7);x.fill()}
+ x.strokeStyle='rgba(232,194,122,.35)';x.lineWidth=2;x.strokeRect(36,36,W-72,H-72);x.strokeRect(48,48,W-96,H-96);return [c,x]}
+function lines(x,t,mw){const w=t.split(' ');const o=[];let cur='';for(const s of w){const tt=cur?cur+' '+s:s;if(x.measureText(tt).width>mw&&cur){o.push(cur);cur=s}else cur=tt}if(cur)o.push(cur);return o}
+function T(x,t,X,Y,font,col,mw,lh,al='left'){x.font=font;x.fillStyle=col;x.textAlign=al;const L=lines(x,t,mw);L.forEach((l,i)=>x.fillText(l,X,Y+i*lh));x.textAlign='left';return Y+L.length*lh}
+function star(x,cx,cy,r,col,pts=4,inner=.28){x.fillStyle=col;x.beginPath();for(let i=0;i<pts*2;i++){const a=i*Math.PI/pts-Math.PI/2,rr=i%2?r*inner:r;x.lineTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr)}x.closePath();x.fill()}
+function cardBack(x,cx,cy,w,h,rot,num){x.save();x.translate(cx,cy);x.rotate(rot);x.shadowColor='rgba(0,0,0,.5)';x.shadowBlur=40;x.shadowOffsetY=20;
+ const g=x.createLinearGradient(0,-h/2,0,h/2);g.addColorStop(0,'#2A1748');g.addColorStop(1,'#140A26');x.fillStyle=g;x.beginPath();x.roundRect(-w/2,-h/2,w,h,24);x.fill();x.shadowColor='transparent';
+ x.strokeStyle=C.gold;x.lineWidth=5;x.beginPath();x.roundRect(-w/2+16,-h/2+16,w-32,h-32,16);x.stroke();x.lineWidth=2;x.beginPath();x.roundRect(-w/2+28,-h/2+28,w-56,h-56,12);x.stroke();
+ x.strokeStyle='rgba(232,194,122,.6)';x.beginPath();x.arc(0,-10,w*0.28,0,7);x.stroke();star(x,0,-10,w*0.2,C.gold,8,.35);
+ for(const [a,b] of [[-1,-1],[1,-1],[-1,1],[1,1]])star(x,a*(w/2-60),b*(h/2-60),14,C.gold);
+ x.font=`800 ${w*0.2}px ${CZ}`;x.fillStyle=C.gold;x.textAlign='center';x.fillText(num,0,h/2-70);x.restore()}
+function cardFront(x,cx,cy,w,h,title,draw){x.save();x.translate(cx,cy);x.shadowColor='rgba(0,0,0,.5)';x.shadowBlur=40;x.shadowOffsetY=20;x.fillStyle=C.cream;x.beginPath();x.roundRect(-w/2,-h/2,w,h,24);x.fill();x.shadowColor='transparent';
+ x.strokeStyle=C.gold2;x.lineWidth=5;x.beginPath();x.roundRect(-w/2+16,-h/2+16,w-32,h-32,14);x.stroke();
+ draw(x,w,h);x.font=`800 ${w*0.085}px ${CZ}`;x.fillStyle='#3A1C5C';x.textAlign='center';x.fillText(title,0,h/2-50);x.restore()}
+function foot(x,n){x.font=`600 24px ${HN}`;x.fillStyle='rgba(232,194,122,.8)';x.textAlign='center';x.fillText('@firstglance.studio  ✦  '+n+'/7',540,H-70);x.textAlign='left'}
+function reading(n,num,title,sub,draw,prophecy,watch,move){const [c,x]=mk();
+ x.font=`800 30px ${CZ}`;x.fillStyle=C.gold;x.textAlign='center';x.fillText('YOU PICKED CARD '+num,540,140);x.textAlign='left';
+ cardFront(x,270,480,330,520,title,draw);
+ T(x,sub,480,270,`italic 600 44px ${CG}`,C.gold,520,48);
+ T(x,prophecy,480,380,`600 34px ${CG}`,C.cream,520,42);
+ let y=820;x.font=`800 26px ${HN}`;x.fillStyle=C.pink;x.fillText('⚠  THE CARDS WARN',90,y);y=T(x,watch,90,y+50,`600 36px ${CG}`,C.cream,900,44);
+ y+=40;x.font=`800 26px ${HN}`;x.fillStyle=C.gold;x.fillText('✦  YOUR LUCKY MOVE FOR 2027',90,y);T(x,move,90,y+50,`600 36px ${CG}`,C.cream,900,44);
+ foot(x,n);return c}
+(async()=>{
+ await document.fonts.load(`800 40px ${CZ}`);await document.fonts.load(`italic 600 40px ${CG}`);await document.fonts.load(`600 40px ${CG}`);await document.fonts.load(`800 30px ${HN}`);await document.fonts.load(`600 30px ${HN}`);
+ const out=[];
+ // 1 cover
+ {const [c,x]=mk();x.font=`800 40px ${CZ}`;x.fillStyle=C.gold;x.textAlign='center';x.fillText('✦  PICK A CARD  ✦',540,170);
+  x.font=`italic 600 84px ${CG}`;x.fillStyle=C.cream;x.fillText('Your small business',540,280);x.fillText('reading for 2027',540,370);x.textAlign='left';
+  cardBack(x,240,760,280,440,-0.12,'1');cardBack(x,540,730,280,440,0,'2');cardBack(x,840,760,280,440,0.12,'3');
+  x.font=`600 40px ${CG}`;x.fillStyle=C.cream;x.textAlign='center';x.fillText('Trust your gut. Comment your number,',540,1100);x.fillText('then swipe to reveal your reading →',540,1150);x.textAlign='left';foot(x,1);out.push(c)}
+ // 2 card 1 STAR
+ out.push(reading(2,'1','THE STAR','The Soon-To-Be-Discovered',(x,w,h)=>{star(x,0,-40,110,C.gold2,8,.4);star(x,0,-40,60,'#E8C27A',4,.3);for(const [a,b,r] of [[-90,-150,16],[100,-130,12],[-110,60,10],[95,70,14]])star(x,a,b,r,C.gold2)},
+  'Strangers are about to discover you. 2027 brings new customers who have never seen your Instagram.',
+  'They will look for you on Google first, and if there is nothing there, they keep scrolling.',
+  'Give them somewhere to land: one simple page with your best work, prices and an order button.'));
+ // 3 card 2 MAGICIAN
+ out.push(reading(3,'2','THE MAGICIAN','The Fully Booked',(x,w,h)=>{x.strokeStyle=C.gold2;x.lineWidth=12;x.lineCap='round';x.beginPath();x.moveTo(-70,60);x.lineTo(70,-120);x.stroke();star(x,75,-128,40,C.gold2,5,.45);x.lineWidth=5;x.beginPath();x.ellipse(0,40,90,30,0,0,7);x.stroke();for(const [a,b] of [[-100,-100],[110,40],[-60,110]])star(x,a,b,14,C.gold2)},
+  'Your calendar fills up. Weekends, festivals, wedding season: the demand is there.',
+  'Chaos in your DMs. Double bookings, missed messages and "sorry, just saw this!"',
+  'Let customers check your dates and send complete orders themselves, so you only say yes.'));
+ // 4 card 3 MOON
+ out.push(reading(4,'3','THE MOON','The Midnight Seller',(x,w,h)=>{x.fillStyle=C.gold2;x.beginPath();x.arc(0,-40,100,0,7);x.fill();x.fillStyle=C.cream;x.beginPath();x.arc(40,-70,90,0,7);x.fill();for(const [a,b,r] of [[-100,-150,14],[110,-140,10],[-120,80,12],[100,70,16]])star(x,a,b,r,C.gold2)},
+  'Your best customers shop after dark. 2027 sends you orders at 11 PM, 1 AM, 6 AM.',
+  'While you sleep, they find someone who answered first.',
+  'A page that works night shifts: prices, menu and ordering, open 24/7, without you lifting a finger.'));
+ // 5 bonus: the cards see big things
+ {const [c,x]=mk();x.font=`800 34px ${CZ}`;x.fillStyle=C.gold;x.textAlign='center';x.fillText('✦  BONUS READING  ✦',540,160);x.font=`italic 600 70px ${CG}`;x.fillStyle=C.cream;x.fillText('The cards see big things',540,260);x.fillText('in 2027 for…',540,340);x.textAlign='left';
+  const biz=[['@navyabakes','Singapore','eggless bakes, full of love'],['@cake_some_more','Brisbane','custom celebration cakes'],['@bake.decorate','UAE','cakes that taste as good as they look'],['@jocys_cakes','Illinois','custom sweets & cake classes'],['@tameshk.cafe','Persian cakes','fresh kolompeh every day']];
+  biz.forEach((b,i)=>{const y=420+i*150;x.strokeStyle='rgba(232,194,122,.55)';x.lineWidth=2;x.beginPath();x.roundRect(110,y,860,124,20);x.stroke();star(x,170,y+62,26,C.gold);
+   x.font=`800 38px ${HN}`;x.fillStyle=C.cream;x.fillText(b[0],220,y+56);x.font=`italic 600 32px ${CG}`;x.fillStyle=C.mute;x.fillText(b[1]+' · '+b[2],220,y+100)});
+  x.font=`600 34px ${CG}`;x.fillStyle=C.gold;x.textAlign='center';x.fillText('✦ go show them some love ✦',540,1210);x.textAlign='left';foot(x,5);out.push(c)}
+ // 6 share prompt
+ {const [c,x]=mk();x.font=`italic 600 80px ${CG}`;x.fillStyle=C.cream;x.textAlign='center';x.fillText('Which card did',540,330);x.fillText('you pick?',540,420);
+  x.font=`600 40px ${CG}`;x.fillStyle=C.mute;x.fillText('Was it accurate? Tell us in the comments.',540,520);x.textAlign='left';
+  cardBack(x,330,830,230,360,-0.1,'?');cardBack(x,750,830,230,360,0.1,'?');
+  x.font=`800 34px ${HN}`;x.fillStyle=C.gold;x.textAlign='center';x.fillText('Send this to a business owner',540,1120);x.fillText('& make them pick a card 🔮',540,1170);x.textAlign='left';foot(x,6);out.push(c)}
+ // 7 CTA
+ {const [c,x]=mk();x.font=`800 34px ${CZ}`;x.fillStyle=C.gold;x.textAlign='center';x.fillText('✦  MAKE IT COME TRUE  ✦',540,200);
+  x.font=`italic 600 76px ${CG}`;x.fillStyle=C.cream;x.fillText('Every reading ends',540,330);x.fillText('the same way:',540,415);x.font=`800 64px ${HN}`;x.fillStyle=C.gold;x.fillText('a website that sells',540,520);x.fillText('while you don’t.',540,600);
+  x.strokeStyle=C.gold;x.lineWidth=4;x.beginPath();x.roundRect(150,690,780,300,28);x.stroke();x.font=`600 40px ${CG}`;x.fillStyle=C.cream;x.fillText('Comment',540,770);x.font=`800 110px ${CZ}`;x.fillStyle=C.gold;x.fillText('READING',540,900);x.font=`600 34px ${CG}`;x.fillStyle=C.cream;x.fillText('for a free sample website',540,960);
+  x.font=`600 36px ${CG}`;x.fillStyle=C.mute;x.fillText('No cost. No catch. Just good fortune.',540,1100);x.textAlign='left';star(x,180,1180,20,C.gold);star(x,900,1180,20,C.gold);foot(x,7);out.push(c)}
+ const files=await Promise.all(out.map((c,i)=>new Promise(r=>c.toBlob(b=>r({id:'tarot'+(i+1),blob:b}),'image/jpeg',0.93))));
+ out.forEach(c=>{const im=new Image();im.src=c.toDataURL('image/jpeg',.5);document.getElementById('g').appendChild(im)});
+ document.getElementById('s').textContent='Built '+files.length;
+ if(window.opener){window.opener.postMessage({type:'fg-slides',files},'https://www.instagram.com');document.getElementById('s').textContent+=' · sent'}
+})().catch(e=>{document.getElementById('s').textContent='ERR '+e});
+</script></body></html>
