@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>FG studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Gloock&family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#222;font:14px system-ui;color:#fff}#g{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px}#g img{width:100%}</style></head>
+<body><p id="s" style="padding:8px">Building…</p><div id="g"></div>
+<script>
+const W=1080,H=1350,HN='"Hanken Grotesk",sans-serif',CV='Caveat',GL='Gloock';
+const C={paper:'#F3EADB',ink:'#2B2620',red:'#D94A38',green:'#14694D',deep:'#0B3D2E',tape:'rgba(232,214,160,.78)',sticky:'#FFE58A',pink:'#FFC9C2',mint:'#CDEBD9'};
+const IDS={bake:'photo-1517686469429-8bdb88b9f907',phone:'photo-1687293233269-c6df38c3662f',pack:'photo-1786026632781-5d580ee117c6',tired:'photo-1758876019128-e76eebf402bd',shop:'photo-1758876201966-a680772a41ef'};
+const CRED={bake:'@kiboka',phone:'@omarlopez1',pack:'@gb_the_green_brand',tired:'@silverkblack',shop:'@silverkblack'};
+function mk(){const c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');x.fillStyle=C.paper;x.fillRect(0,0,W,H);
+ // paper grain
+ for(let i=0;i<9000;i++){x.fillStyle=`rgba(${120+Math.random()*60|0},${100+Math.random()*50|0},70,${Math.random()*.06})`;x.fillRect(Math.random()*W,Math.random()*H,2,2)}
+ x.strokeStyle='rgba(43,38,32,.06)';x.lineWidth=2;for(let y=60;y<H;y+=54){x.beginPath();x.moveTo(0,y);x.lineTo(W,y);x.stroke()}
+ return [c,x]}
+function lines(x,t,mw){const w=t.split(' ');const o=[];let cur='';for(const s of w){const tt=cur?cur+' '+s:s;if(x.measureText(tt).width>mw&&cur){o.push(cur);cur=s}else cur=tt}if(cur)o.push(cur);return o}
+function T(x,t,X,Y,font,col,mw,lh,al='left'){x.font=font;x.fillStyle=col;x.textAlign=al;const L=lines(x,t,mw);L.forEach((l,i)=>x.fillText(l,X,Y+i*lh));x.textAlign='left';return Y+L.length*lh}
+function tape(x,X,Y,w,rot){x.save();x.translate(X,Y);x.rotate(rot);x.fillStyle=C.tape;x.fillRect(-w/2,-22,w,44);x.fillStyle='rgba(255,255,255,.25)';x.fillRect(-w/2,-22,w,8);x.restore()}
+function polaroid(x,im,cx,cy,w,h,rot,cap,capSize=44){x.save();x.translate(cx,cy);x.rotate(rot);const pad=24,bot=h*0.0+ (cap?110:40);
+ x.shadowColor='rgba(0,0,0,.28)';x.shadowBlur=30;x.shadowOffsetY=14;x.fillStyle='#FFFEFA';x.fillRect(-w/2-pad,-h/2-pad,w+pad*2,h+pad+bot);x.shadowColor='transparent';
+ if(im){const s=Math.max(w/im.width,h/im.height);const sw=w/s,sh=h/s;x.drawImage(im,(im.width-sw)/2,(im.height-sh)/2,sw,sh,-w/2,-h/2,w,h)}
+ if(cap){x.font=`700 ${capSize}px ${CV}`;x.fillStyle=C.ink;x.textAlign='center';x.fillText(cap,0,h/2+72);x.textAlign='left'}
+ x.restore()}
+function sticky(x,X,Y,w,h,rot,col,draw){x.save();x.translate(X,Y);x.rotate(rot);x.shadowColor='rgba(0,0,0,.22)';x.shadowBlur=18;x.shadowOffsetY=10;x.fillStyle=col;x.fillRect(0,0,w,h);x.shadowColor='transparent';draw(x,w,h);x.restore()}
+function stamp(x,t,X,Y,rot,col=C.red){x.save();x.translate(X,Y);x.rotate(rot);x.font=`800 34px ${HN}`;const w=x.measureText(t).width+44;x.strokeStyle=col;x.lineWidth=5;x.strokeRect(-w/2,-34,w,62);x.fillStyle=col;x.textAlign='center';x.fillText(t,0,8);x.restore()}
+function credit(x,t){x.font=`500 20px ${HN}`;x.fillStyle='rgba(43,38,32,.55)';x.fillText(t,64,H-40)}
+function foot(x,n){x.font=`700 24px ${HN}`;x.fillStyle='rgba(43,38,32,.7)';x.textAlign='right';x.fillText('@firstglance.studio · '+n+'/8',W-60,H-40);x.textAlign='left'}
+function circleWord(x,X,Y,w,h){x.strokeStyle=C.red;x.lineWidth=5;x.beginPath();x.ellipse(X,Y,w,h,-0.05,0,Math.PI*1.95);x.stroke()}
+function arrow(x,x1,y1,x2,y2){x.strokeStyle=C.red;x.lineWidth=5;x.lineCap='round';x.beginPath();x.moveTo(x1,y1);x.quadraticCurveTo((x1+x2)/2+40,(y1+y2)/2-60,x2,y2);x.stroke();const a=Math.atan2(y2-((y1+y2)/2-60),x2-((x1+x2)/2+40));x.beginPath();x.moveTo(x2,y2);x.lineTo(x2-22*Math.cos(a-0.5),y2-22*Math.sin(a-0.5));x.moveTo(x2,y2);x.lineTo(x2-22*Math.cos(a+0.5),y2-22*Math.sin(a+0.5));x.stroke()}
+(async()=>{
+ await document.fonts.load(`700 40px ${CV}`);await document.fonts.load(`40px ${GL}`);await document.fonts.load(`800 40px ${HN}`);await document.fonts.load(`500 40px ${HN}`);
+ const img={};for(const k in IDS){const b=await (await fetch('https://images.unsplash.com/'+IDS[k]+'?w=1000&q=85&fm=jpg')).blob();img[k]=await createImageBitmap(b)}
+ const out=[];
+ // 1 cover
+ {const [c,x]=mk();polaroid(x,img.bake,250,330,330,330,-0.12,'6:00 am',40);polaroid(x,img.phone,800,300,330,330,0.09,'10:00 am',40);polaroid(x,img.tired,560,760,360,320,-0.03,'10:30 pm',40);
+  tape(x,250,150,140,-0.2);tape(x,800,118,140,0.15);tape(x,560,586,150,0.04);
+  x.font=`72px ${GL}`;x.fillStyle=C.ink;x.fillText('Black Friday,',64,1080);x.font=`700 84px ${CV}`;x.fillStyle=C.red;x.fillText('small business edition',64,1170);
+  sticky(x,770,960,250,220,0.06,C.sticky,(x,w,h)=>{T(x,'swipe through one long day →',22,64,`700 44px ${CV}`,C.ink,w-40,48)});
+  credit(x,'Photos: Unsplash (illustrative)');foot(x,1);out.push(c)}
+ // 2 6am
+ {const [c,x]=mk();x.font=`120px ${GL}`;x.fillStyle=C.ink;x.fillText('6:00',64,200);x.font=`700 64px ${CV}`;x.fillStyle=C.red;x.fillText('am',350,200);
+  polaroid(x,img.bake,560,620,700,560,0.03,'ovens on before the city wakes up',46);tape(x,330,330,150,-0.25);tape(x,800,330,150,0.25);
+  sticky(x,690,1040,330,200,-0.05,C.mint,(x,w,h)=>{T(x,'Big brands? Their website opened at midnight.',22,58,`700 40px ${CV}`,C.ink,w-40,44)});
+  credit(x,'Illustrative photo: '+CRED.bake+' / Unsplash');foot(x,2);out.push(c)}
+ // 3 10am
+ {const [c,x]=mk();x.font=`120px ${GL}`;x.fillStyle=C.ink;x.fillText('10:00',64,200);x.font=`700 64px ${CV}`;x.fillStyle=C.red;x.fillText('am',420,200);
+  polaroid(x,img.phone,380,610,520,600,-0.05,'the DMs start',46);tape(x,380,300,150,0.1);
+  const bub=[['price?',780,330],['still available??',740,450],['do u deliver?',800,570],['price pls',760,690],['what time do u close',720,810],['price?',800,930]];
+  bub.forEach(([t,X,Y],i)=>{x.font=`600 34px ${HN}`;const w=x.measureText(t).width+44;x.save();x.translate(X,Y);x.rotate((i%2?1:-1)*0.04);x.fillStyle=i%2?'#fff':'#3E8BFF';x.beginPath();x.roundRect(-w/2,-34,w,64,32);x.fill();x.fillStyle=i%2?C.ink:'#fff';x.textAlign='center';x.fillText(t,0,10);x.restore()});
+  T(x,'Same 3 questions. All. Day. Long.',64,1180,`700 60px ${CV}`,C.red,950,64);
+  credit(x,'Illustrative photo: '+CRED.phone+' / Unsplash');foot(x,3);out.push(c)}
+ // 4 2pm
+ {const [c,x]=mk();x.font=`120px ${GL}`;x.fillStyle=C.ink;x.fillText('2:00',64,200);x.font=`700 64px ${CV}`;x.fillStyle=C.red;x.fillText('pm',330,200);
+  polaroid(x,img.pack,620,600,560,560,0.06,'packing orders between replies',42);tape(x,620,300,160,-0.08);
+  sticky(x,70,330,300,420,-0.07,C.sticky,(x,w,h)=>{x.font=`700 46px ${CV}`;x.fillStyle=C.ink;x.fillText('today:',24,62);const it=[['bake',1],['pack',1],['reply to DMs',0],['eat lunch',0],['post a story',0]];it.forEach(([t,d],i)=>{const y=130+i*62;x.strokeStyle=C.ink;x.lineWidth=3;x.strokeRect(24,y-30,30,30);if(d){x.strokeStyle=C.green;x.lineWidth=6;x.beginPath();x.moveTo(28,y-16);x.lineTo(38,y-4);x.lineTo(58,y-34);x.stroke()}x.font=`700 40px ${CV}`;x.fillStyle=C.ink;x.fillText(t,70,y-2)})});
+  T(x,'Lunch? Maybe tomorrow.',64,1180,`700 60px ${CV}`,C.red,950,64);
+  credit(x,'Illustrative photo: '+CRED.pack+' / Unsplash');foot(x,4);out.push(c)}
+ // 5 10:30pm
+ {const [c,x]=mk();x.fillStyle='rgba(20,24,40,.10)';x.fillRect(0,0,W,H);x.font=`120px ${GL}`;x.fillStyle=C.ink;x.fillText('10:30',64,200);x.font=`700 64px ${CV}`;x.fillStyle=C.red;x.fillText('pm',430,200);
+  polaroid(x,img.tired,540,640,760,560,-0.03,'still answering "what are your timings?"',42);tape(x,250,350,150,-0.3);tape(x,830,350,150,0.3);
+  T(x,'The 47th time today. (We stopped counting.)',64,1170,`700 52px ${CV}`,C.red,950,58);
+  credit(x,'Illustrative photo: '+CRED.tired+' / Unsplash');foot(x,5);out.push(c)}
+ // 6 meanwhile
+ {const [c,x]=mk();T(x,'Meanwhile…',64,170,`700 90px ${CV}`,C.red,900,90);
+  polaroid(x,img.shop,380,560,540,520,0.05,'a customer, shopping in bed',40);tape(x,380,270,150,-0.1);
+  sticky(x,690,330,330,360,0.06,C.sticky,(x,w,h)=>{x.font=`64px ${GL}`;x.fillStyle=C.ink;x.fillText('$12.9B',22,90);T(x,'expected to be spent ONLINE in the US this Black Friday',22,150,`700 38px ${CV}`,C.ink,w-40,42);x.font=`500 18px ${HN}`;x.fillStyle='rgba(43,38,32,.65)';x.fillText('Adobe 2026 forecast',22,h-20)});
+  arrow(x,820,720,640,760);
+  T(x,'She searched for exactly what you make… and bought from whoever had a website.',64,1010,`72px ${GL}`.replace('72px','56px'),C.ink,950,64);
+  credit(x,'Illustrative photo: '+CRED.shop+' / Unsplash');foot(x,6);out.push(c)}
+ // 7 shop small wall
+ {const [c,x]=mk();T(x,'Small businesses we’d shop from this weekend',64,150,`60px ${GL}`,C.ink,950,70);
+  const biz=[['@floury.language','Singapore','halal cookies & brownies, less-sweet options',C.sticky,-0.05],['@irocakes_nz','New Zealand','custom cakes & cupcakes by Iro',C.pink,0.04],['@piecesofcaked','Cape Town','French-inspired pâtisserie',C.mint,-0.03],['@emskupcakes','East London','cakes & cupcakes for every occasion',C.sticky,0.05],['@beauteparlui','Paisley, Scotland','makeup, brows, lashes & skin',C.pink,-0.04]];
+  const pos=[[70,300],[560,330],[90,640],[580,670],[330,960]];
+  biz.forEach((b,i)=>{const [X,Y]=pos[i];sticky(x,X,Y,420,270,b[4],b[3],(x,w,h)=>{x.font=`800 32px ${HN}`;x.fillStyle=C.ink;x.fillText(b[0],26,62);x.font=`700 40px ${CV}`;x.fillStyle=C.red;x.fillText(b[1],26,112);T(x,b[2],26,170,`700 38px ${CV}`,C.ink,w-50,42)});tape(x,X+210,Y+4,120,b[4]*2)});
+  foot(x,7);out.push(c)}
+ // 8 CTA
+ {const [c,x]=mk();T(x,'What if your website answered the DMs…',64,200,`72px ${GL}`,C.ink,950,84);T(x,'while you baked?',64,390,`700 96px ${CV}`,C.red,950,96);
+  sticky(x,120,520,840,420,-0.03,C.sticky,(x,w,h)=>{x.font=`700 48px ${CV}`;x.fillStyle=C.ink;x.fillText('Comment',40,90);x.font=`130px ${GL}`;x.fillStyle=C.red;x.fillText('FRIDAY',40,240);T(x,'and we’ll make you a free sample website: prices, timings & orders, answered 24/7.',40,310,`700 40px ${CV}`,C.ink,w-80,44)});
+  tape(x,540,520,200,0.05);circleWord(x,345,700,260,90);
+  T(x,'Know a small business owner who had this exact day? Send it to them →',64,1110,`600 36px ${HN}`,C.ink,950,46);
+  foot(x,8);out.push(c)}
+ const files=await Promise.all(out.map((c,i)=>new Promise(r=>c.toBlob(b=>r({id:'bf'+(i+1),blob:b}),'image/jpeg',0.92))));
+ out.forEach(c=>{const im=new Image();im.src=c.toDataURL('image/jpeg',.5);document.getElementById('g').appendChild(im)});
+ document.getElementById('s').textContent='Built '+files.length;
+ if(window.opener){window.opener.postMessage({type:'fg-slides',files},'https://www.instagram.com');document.getElementById('s').textContent+=' · sent'}
+})().catch(e=>{document.getElementById('s').textContent='ERR '+e});
+</script></body></html>
