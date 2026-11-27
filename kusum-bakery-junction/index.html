@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kusum Bakery Junction · Since 1964 · Website concept by FirstGlance Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFD21F;--y2:#FFE680;--ink:#16120C;--choc:#3B2316;--cream:#FFF8E6;--muted:#6E6250;--red:#E2412B;--line:#EADFC3;--display:"Fraunces",Georgia,serif;--body:"Hanken Grotesk",system-ui,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.concept{position:sticky;top:0;z-index:60;background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center}.concept b{color:#FFB81C}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.nav{position:sticky;top:36px;z-index:50;background:rgba(22,18,12,.92);backdrop-filter:blur(8px);color:#fff}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:900;font-size:22px;text-decoration:none}
+.logo i{width:40px;height:40px;border-radius:50%;background:var(--y);color:var(--ink);display:grid;place-items:center;font-style:normal;font-size:14px;font-family:var(--body);font-weight:800}
+.nav ul{display:none;list-style:none;gap:26px;font-weight:600;font-size:15px}.nav ul a{text-decoration:none;opacity:.85}
+@media(min-width:900px){.nav ul{display:flex}}
+.pill{background:var(--y);color:var(--ink);font-weight:800;text-decoration:none;padding:11px 18px;border-radius:999px;font-size:14px;white-space:nowrap}
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:20px;align-items:center;padding-top:40px;padding-bottom:60px}
+@media(min-width:920px){.hero .wrap{grid-template-columns:1fr 1fr}}
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--y);color:var(--ink);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(46px,7.4vw,92px);line-height:.98;margin:22px 0 20px;letter-spacing:-.01em}h1 em{color:var(--y)}
+.lede{font-size:19px;opacity:.85;max-width:44ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:16px 26px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-y{background:var(--y);color:var(--ink);box-shadow:0 14px 34px -12px rgba(255,210,31,.7)}.btn-o{border:2px solid rgba(255,255,255,.5);color:#fff;background:transparent}
+.btn-wa{background:#1F9D55;color:#fff}
+#hero3d{width:100%;aspect-ratio:1;max-width:560px;justify-self:center;cursor:grab;touch-action:pan-y}
+.hint{font-size:13px;opacity:.6;text-align:center;margin-top:-6px}
+.ticker{background:var(--y);color:var(--ink);overflow:hidden;white-space:nowrap;font-weight:800;font-size:18px;padding:14px 0}
+.ticker span{display:inline-block;animation:tk 28s linear infinite;padding-left:100%}@keyframes tk{to{transform:translateX(-100%)}}
+section{padding:84px 0}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+h2{font-family:var(--display);font-weight:900;font-size:clamp(34px,5vw,58px);line-height:1.02;margin-bottom:14px}
+.sub{color:var(--muted);font-size:18px;max-width:58ch}
+/* builder */
+.builder{display:grid;gap:30px;margin-top:36px}@media(min-width:960px){.builder{grid-template-columns:1.05fr .95fr}}
+#cake3d{width:100%;aspect-ratio:1;background:radial-gradient(circle at 50% 40%,#fff 0,#FFF1C2 60%,#FFE27A 100%);border-radius:32px;cursor:grab;touch-action:pan-y;box-shadow:inset 0 0 0 2px var(--line)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px}
+fieldset{border:0;margin-bottom:20px}legend,.lbl{display:block;font-weight:800;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:2px solid var(--line);font-weight:700;cursor:pointer;background:#fff}
+.chip span i{width:16px;height:16px;border-radius:50%;display:inline-block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.chip input:checked+span{border-color:var(--ink);background:var(--ink);color:#fff}
+.chip input:focus-visible+span{outline:3px solid var(--y);outline-offset:2px}
+input[type=text],input[type=date]{font:inherit;padding:12px 14px;border-radius:14px;border:2px solid var(--line);width:100%;max-width:320px}
+.price{display:flex;justify-content:space-between;align-items:center;background:var(--cream);border-radius:18px;padding:16px 18px;margin:8px 0 16px;font-weight:700}
+.price b{font-family:var(--display);font-size:30px}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+/* menu */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tab{padding:11px 18px;border-radius:999px;border:2px solid var(--ink);background:transparent;font-weight:800;cursor:pointer;font-family:inherit;font-size:15px}
+.tab[aria-selected=true]{background:var(--ink);color:var(--y)}
+.mgrid{display:grid;gap:16px;margin-top:26px}@media(min-width:760px){.mgrid{grid-template-columns:repeat(3,1fr)}}
+.mi{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;transform-style:preserve-3d;transition:transform .15s ease,box-shadow .2s;will-change:transform}
+.mi:hover{box-shadow:0 24px 40px -24px rgba(59,35,22,.5)}
+.mi .em{font-size:40px}.mi h3{font-family:var(--display);font-size:24px;margin:10px 0 4px}.mi p{color:var(--muted);font-size:15px}.mi .pr{margin-top:12px;font-weight:800;color:var(--red)}
+.mi .new{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;margin-left:6px;vertical-align:middle}
+.offer{background:var(--ink);color:#fff;border-radius:36px;padding:clamp(28px,5vw,56px);display:grid;gap:24px;align-items:center}@media(min-width:860px){.offer{grid-template-columns:1.2fr .8fr}}
+.offer h2{color:var(--y)}
+.bigtag{font-family:var(--display);font-weight:900;font-size:clamp(54px,9vw,110px);line-height:.9;color:var(--y);text-align:center}
+.bigtag small{display:block;font-family:var(--body);font-size:18px;color:#fff;font-weight:600;margin-top:10px}
+.story{display:grid;gap:30px;align-items:center}@media(min-width:860px){.story{grid-template-columns:.9fr 1.1fr}}
+.year{font-family:var(--display);font-weight:900;font-size:clamp(90px,16vw,200px);line-height:.85;color:var(--y);-webkit-text-stroke:3px var(--ink)}
+.visit{display:grid;gap:16px;margin-top:30px}@media(min-width:760px){.visit{grid-template-columns:repeat(3,1fr)}}
+.vc{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}.vc h3{font-family:var(--display);font-size:24px;margin-bottom:6px}.vc p{color:var(--muted)}
+footer{background:var(--ink);color:#BDB39F;padding:44px 0;font-size:15px}footer a{color:#FFB81C}
+footer .fg{display:flex;gap:14px;align-items:center;margin-top:14px}footer .fgd{width:44px;height:44px;border-radius:50%;background:#1A33C9;color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.sticky-order{position:fixed;right:16px;bottom:16px;z-index:40}
+@media(prefers-reduced-motion:reduce){.ticker span{animation:none;padding-left:0}}
+</style>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+<div class="concept" role="note"><b>Made for Kusum Bakery Junction</b> · a free website concept by FirstGlance Studio. Not the official website.</div>
+<nav class="nav" aria-label="Main"><div class="wrap">
+  <a class="logo" href="#top"><i>KBJ</i>Kusum Bakery Junction</a>
+  <ul><li><a href="#cake">Design a cake</a></li><li><a href="#menu">Menu</a></li><li><a href="#offer">Offers</a></li><li><a href="#visit">Visit</a></li></ul>
+  <a class="pill" href="#cake">Order a cake</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="badge">★ Bhopal’s bakery since 1964</span>
+    <h1>Fresh every day.<br><em>Loved for 60 years.</em></h1>
+    <p class="lede">Custom cakes, pastries, pizza, burgers, Darjeeling momos and shakes, made fresh every single day at Karariya Farm, near the Coach Factory.</p>
+    <div class="ctas"><a class="btn btn-y" href="#cake">Design your cake in 3D →</a><a class="btn btn-o" href="#menu">See the menu</a></div>
+  </div>
+  <div><canvas id="hero3d" aria-label="3D cake you can spin"></canvas><p class="hint">Drag to spin the cake 🎂</p></div>
+</div></header>
+<div class="ticker" aria-hidden="true"><span>🍕 Fresh pizza &nbsp;✦&nbsp; 🥟 Darjeeling momos &nbsp;✦&nbsp; 🆕 Momos Pizza &nbsp;✦&nbsp; 🎂 Custom cakes &nbsp;✦&nbsp; 🥐 Pastries &nbsp;✦&nbsp; 🍔 Burgers &nbsp;✦&nbsp; ☕ Coffee &nbsp;✦&nbsp; 🍹 Shakes &nbsp;✦&nbsp; Freshly made every day since 1964 &nbsp;✦&nbsp;</span></div>
+
+<section id="cake"><div class="wrap">
+  <p class="eyebrow">Design your cake · live in 3D</p>
+  <h2>See your cake before we bake it.</h2>
+  <p class="sub">Pick the size, flavour, topping and message. The cake updates in 3D as you go, and your order goes to us on WhatsApp in one tap.</p>
+  <div class="builder">
+    <canvas id="cake3d" aria-label="3D preview of your custom cake"></canvas>
+    <div class="panel">
+      <fieldset><legend>Size</legend><div class="chips">
+        <label class="chip"><input type="radio" name="tiers" value="1" data-w="0.5" checked><span>½ kg · 1 tier</span></label>
+        <label class="chip"><input type="radio" name="tiers" value="1" data-w="1"><span>1 kg · 1 tier</span></label>
+        <label class="chip"><input type="radio" name="tiers" value="2" data-w="2"><span>2 kg · 2 tiers</span></label>
+        <label class="chip"><input type="radio" name="tiers" value="3" data-w="3"><span>3 kg · 3 tiers</span></label>
+      </div></fieldset>
+      <fieldset><legend>Flavour</legend><div class="chips">
+        <label class="chip"><input type="radio" name="fl" value="Chocolate truffle" data-c="#5A3220" data-t="#3B1F12" checked><span><i style="background:#5A3220"></i>Chocolate</span></label>
+        <label class="chip"><input type="radio" name="fl" value="Vanilla" data-c="#FFF3D6" data-t="#F6E3B4"><span><i style="background:#FFF3D6"></i>Vanilla</span></label>
+        <label class="chip"><input type="radio" name="fl" value="Strawberry" data-c="#F7A8B8" data-t="#E9718A"><span><i style="background:#F7A8B8"></i>Strawberry</span></label>
+        <label class="chip"><input type="radio" name="fl" value="Butterscotch" data-c="#F2C178" data-t="#D99A3E"><span><i style="background:#F2C178"></i>Butterscotch</span></label>
+        <label class="chip"><input type="radio" name="fl" value="Pineapple" data-c="#FFE58A" data-t="#F7C948"><span><i style="background:#FFE58A"></i>Pineapple</span></label>
+      </div></fieldset>
+      <fieldset><legend>Topping</legend><div class="chips">
+        <label class="chip"><input type="radio" name="tp" value="cherries" checked><span>🍒 Cherries</span></label>
+        <label class="chip"><input type="radio" name="tp" value="sprinkles"><span>✨ Sprinkles</span></label>
+        <label class="chip"><input type="radio" name="tp" value="candles"><span>🕯️ Candles</span></label>
+      </div></fieldset>
+      <div style="margin-bottom:16px"><label class="lbl" for="msgIn">Message on the cake</label><input id="msgIn" type="text" maxlength="24" value="Happy Birthday"></div>
+      <div style="margin-bottom:6px"><label class="lbl" for="dt">Needed on</label><input id="dt" type="date"></div>
+      <div class="price"><span>Your cake</span><b id="summ">½ kg</b></div>
+      <a class="btn btn-wa" id="wa" target="_blank" rel="noopener">Order on WhatsApp ↗</a>
+      <p class="note">On the real site, your own prices appear here. The message opens WhatsApp ready to send.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="menu" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <p class="eyebrow">Menu</p>
+  <h2>Something for every craving.</h2>
+  <p class="sub">Your full menu, always up to date, so nobody has to DM “menu bhejo?” again. Prices below are placeholders.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-t="pizza">🍕 Pizza</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="snacks">🥟 Momos & snacks</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="bakery">🎂 Bakery</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="drinks">🍹 Drinks</button>
+  </div>
+  <div class="mgrid" id="mgrid"></div>
+</div></section>
+
+<section id="offer"><div class="wrap"><div class="offer">
+  <div><p class="eyebrow" style="color:var(--y)">This week’s offer</p><h2>Pizza lovers, this one’s for you.</h2><p class="sub" style="color:#D8CFBD">Every offer gets its own spot on the homepage, with a button to claim it, so your Instagram posts finally have somewhere to send people.</p>
+  <div class="ctas"><a class="btn btn-y" id="offerWa" target="_blank" rel="noopener">Claim on WhatsApp ↗</a></div></div>
+  <div class="bigtag">BUY 1<br>GET 1<small>Medium pizza + a FREE mocktail</small></div>
+</div></div></section>
+
+<section style="padding-top:0"><div class="wrap story">
+  <div class="year">1964</div>
+  <div><p class="eyebrow">Our story</p><h2>Three generations of fresh.</h2><p class="sub">Your family story goes here: how Kusum Bakery Junction started, the recipes that never changed, and the new favourites like Momos Pizza. A bakery with 60 years of history is a story Google and new customers should hear. (And yes, Sheru Bhai approves 🦁)</p></div>
+</div></section>
+
+<section id="visit" style="padding-top:0"><div class="wrap">
+  <p class="eyebrow">Visit</p><h2>Come hungry.</h2>
+  <div class="visit">
+    <div class="vc"><h3>Find us</h3><p>Karariya Farm, near Coach Factory, Bhopal</p><a class="btn btn-y" style="margin-top:14px;padding:12px 18px;font-size:15px" href="https://share.google/itZgUmC8Uo3NiGpyh" target="_blank" rel="noopener">Directions ↗</a></div>
+    <div class="vc"><h3>Order</h3><p>Call or WhatsApp us for cakes, party orders and takeaway.</p><a class="btn btn-wa" style="margin-top:14px;padding:12px 18px;font-size:15px" href="https://wa.me/917471115203" target="_blank" rel="noopener">WhatsApp ↗</a></div>
+    <div class="vc"><h3>Hours</h3><p>Your opening hours go here, with an “open now” badge that updates by itself.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p>This is a free concept, designed by FirstGlance Studio to show Kusum Bakery Junction what its website could look like. It isn’t the official website and isn’t listed on Google. The real site would use your own photos, menu and prices.</p>
+  <div class="fg"><span class="fgd">FG</span><span>Like it? Just reply to our Instagram message. More at <a href="https://firstglancestudio.in" target="_blank" rel="noopener">firstglancestudio.in</a></span></div>
+</div></footer>
+<a class="btn btn-y sticky-order" href="#cake">🎂 Order a cake</a>
+
+<script>
+const WA='https://wa.me/917471115203?text=';
+const M={pizza:[['🍕','Margherita','Classic, cheesy, fresh from the oven'],['🍕','Farmhouse','Loaded with fresh veggies'],['🥟','Momos Pizza','Pizza meets Darjeeling momos',1],['🍕','Paneer Tikka','Spicy, smoky, desi favourite'],['🍕','Cheese Burst','For the serious cheese lovers'],['🍕','Corn & Capsicum','Simple and always loved']],
+snacks:[['🥟','Darjeeling Momos','Soft, juicy, with spicy chutney'],['🍔','Burgers','Crispy, cheesy, made to order'],['🍜','Noodles','Freshly tossed, full of flavour'],['🍟','Fries','Golden and crispy'],['🥪','Sandwiches','Grilled, toasted, fresh'],['🌯','Rolls','Perfect for on the go']],
+bakery:[['🎂','Custom cakes','Design yours in 3D above'],['🥐','Pastries','Fresh every morning'],['🍰','Cake slices','For a quick sweet fix'],['🧁','Cupcakes','Party-ready boxes'],['🍪','Cookies','Baked fresh daily'],['🍞','Breads','Soft, fresh, every day']],
+drinks:[['☕','Coffee','Hot or cold'],['🍹','Shakes','Thick and creamy'],['🍹','Mocktails','Free with a medium pizza this week'],['🥤','Cold coffee','A Bhopal favourite'],['🧃','Fresh juice','Seasonal fruit'],['🍵','Tea','Kadak chai']]};
+function showMenu(k){document.getElementById('mgrid').innerHTML=M[k].map(i=>`<div class="mi"><div class="em">${i[0]}</div><h3>${i[1]}${i[3]?'<span class="new">NEW</span>':''}</h3><p>${i[2]}</p><div class="pr">₹ — your price</div></div>`).join('');
+document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.t===k));bindTilt()}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>showMenu(t.dataset.t)));
+function bindTilt(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.querySelectorAll('.mi').forEach(el=>{el.onmousemove=e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(700px) rotateY(${x*14}deg) rotateX(${-y*14}deg) translateZ(6px)`};el.onmouseleave=()=>el.style.transform=''})}
+showMenu('pizza');
+document.getElementById('offerWa').href=WA+encodeURIComponent("Hi Kusum Bakery Junction! I'd like to claim the Buy 1 Medium Pizza, Get 1 Mocktail FREE offer.");
+try{document.getElementById('dt').value=new Date(Date.now()+2*864e5).toISOString().slice(0,10)}catch(e){}
+</script>
+<script type="module">
+import * as THREE from 'three';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function makeScene(canvas,{bg=null,fov=35,camY=3.2,camZ=7.2}={}){
+  const r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.shadowMap.enabled=true;r.outputColorSpace=THREE.SRGBColorSpace;
+  const s=new THREE.Scene();const cam=new THREE.PerspectiveCamera(fov,1,.1,100);cam.position.set(0,camY,camZ);cam.lookAt(0,1.1,0);
+  s.add(new THREE.HemisphereLight(0xffffff,0x5a4630,1.1));const d=new THREE.DirectionalLight(0xfff2d6,2.2);d.position.set(4,8,5);d.castShadow=true;d.shadow.mapSize.set(1024,1024);s.add(d);
+  const fill=new THREE.DirectionalLight(0xffd21f,.6);fill.position.set(-5,3,-3);s.add(fill);
+  function size(){const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+  new ResizeObserver(size).observe(canvas);size();
+  // drag to rotate
+  const pivot=new THREE.Group();s.add(pivot);let drag=false,lx=0,vel=reduce?0:.006,auto=!reduce;
+  canvas.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;canvas.style.cursor='grabbing';auto=false});
+  addEventListener('pointerup',()=>{drag=false;canvas.style.cursor='grab';setTimeout(()=>auto=!reduce,1500)});
+  addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lx;lx=e.clientX;pivot.rotation.y+=dx*.012});
+  return {r,s,cam,pivot,tick:(t)=>{if(auto)pivot.rotation.y+=vel;r.render(s,cam)}};
+}
+function plate(){const g=new THREE.CylinderGeometry(2.25,2.05,.12,64);const m=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.35,metalness:.05});const p=new THREE.Mesh(g,m);p.position.y=.06;p.receiveShadow=true;return p}
+function drips(radius,y,color,n=22){const grp=new THREE.Group();const mat=new THREE.MeshStandardMaterial({color,roughness:.3});
+  for(let i=0;i<n;i++){const a=i/n*Math.PI*2;const len=.15+((i*37)%7)/14;const g=new THREE.CapsuleGeometry(.07,len,6,10);const m=new THREE.Mesh(g,mat);m.position.set(Math.cos(a)*radius,y-len/2,Math.sin(a)*radius);m.castShadow=true;grp.add(m)}return grp}
+function buildCake({tiers=1,weight=.5,base='#5A3220',top='#3B1F12',topping='cherries'}){
+  const g=new THREE.Group();g.add(plate());let y=.12;const radii=tiers===1?[weight>=1?1.6:1.35]:tiers===2?[1.75,1.15]:[1.9,1.35,.85];const h=tiers===1?1.15:.9;
+  radii.forEach((rad,i)=>{const body=new THREE.Mesh(new THREE.CylinderGeometry(rad,rad,h,64),new THREE.MeshStandardMaterial({color:base,roughness:.55}));body.position.y=y+h/2;body.castShadow=true;body.receiveShadow=true;g.add(body);
+    const icing=new THREE.Mesh(new THREE.CylinderGeometry(rad+.04,rad+.04,.14,64),new THREE.MeshStandardMaterial({color:top,roughness:.25}));icing.position.y=y+h-.02;icing.castShadow=true;g.add(icing);
+    g.add(drips(rad+.03,y+h-.06,top));
+    // piping beads around base
+    const bead=new THREE.MeshStandardMaterial({color:0xFFF6E0,roughness:.4});for(let k=0;k<36;k++){const a=k/36*Math.PI*2;const b=new THREE.Mesh(new THREE.SphereGeometry(.075,12,12),bead);b.position.set(Math.cos(a)*(rad+.02),y+.06,Math.sin(a)*(rad+.02));g.add(b)}
+    y+=h});
+  const topR=radii[radii.length-1];
+  if(topping==='cherries'){const cm=new THREE.MeshStandardMaterial({color:0xC8102E,roughness:.15,metalness:.1});const n=8;for(let k=0;k<n;k++){const a=k/n*Math.PI*2;const c=new THREE.Mesh(new THREE.SphereGeometry(.14,20,20),cm);c.position.set(Math.cos(a)*topR*.72,y+.14,Math.sin(a)*topR*.72);c.castShadow=true;g.add(c);const st=new THREE.Mesh(new THREE.CylinderGeometry(.012,.012,.22),new THREE.MeshStandardMaterial({color:0x2E6B2E}));st.position.set(c.position.x,y+.33,c.position.z);st.rotation.z=.3;g.add(st)}
+    const swirl=new THREE.Mesh(new THREE.TorusGeometry(topR*.35,.09,12,48),new THREE.MeshStandardMaterial({color:0xFFF6E0,roughness:.35}));swirl.rotation.x=Math.PI/2;swirl.position.y=y+.06;g.add(swirl)}
+  if(topping==='sprinkles'){const cols=[0xFF5C8A,0xFFD21F,0x4CC9F0,0x7BD389,0xffffff,0xB388EB];for(let k=0;k<140;k++){const rr=Math.sqrt(Math.random())*topR*.92,a=Math.random()*Math.PI*2;const sp=new THREE.Mesh(new THREE.CapsuleGeometry(.02,.07,4,6),new THREE.MeshStandardMaterial({color:cols[k%cols.length],roughness:.4}));sp.position.set(Math.cos(a)*rr,y+.09,Math.sin(a)*rr);sp.rotation.set(Math.PI/2,0,Math.random()*Math.PI);g.add(sp)}}
+  const flames=[];
+  if(topping==='candles'){const n=5;for(let k=0;k<n;k++){const a=k/n*Math.PI*2;const cx=Math.cos(a)*topR*.55,cz=Math.sin(a)*topR*.55;const cd=new THREE.Mesh(new THREE.CylinderGeometry(.05,.05,.55,16),new THREE.MeshStandardMaterial({color:[0xFF5C8A,0x4CC9F0,0xFFD21F,0x7BD389,0xB388EB][k]}));cd.position.set(cx,y+.32,cz);cd.castShadow=true;g.add(cd);
+    const fl=new THREE.Mesh(new THREE.SphereGeometry(.07,12,12),new THREE.MeshBasicMaterial({color:0xFFB020}));fl.scale.set(1,1.7,1);fl.position.set(cx,y+.68,cz);g.add(fl);flames.push(fl);const lt=new THREE.PointLight(0xFFB020,.6,1.6);lt.position.copy(fl.position);g.add(lt)}}
+  g.userData={top:y,flames};return g}
+function plaqueTexture(txt){const c=document.createElement('canvas');c.width=512;c.height=160;const x=c.getContext('2d');x.fillStyle='#FFF6E0';x.beginPath();x.roundRect(6,6,500,148,40);x.fill();x.strokeStyle='#E8C27A';x.lineWidth=6;x.stroke();x.fillStyle='#3B1F12';x.font='700 54px Fraunces, Georgia, serif';x.textAlign='center';x.textBaseline='middle';x.fillText(txt||' ',256,84);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t}
+
+// hero
+const H=makeScene(document.getElementById('hero3d'),{camY:3.6,camZ:7.6});
+const heroCake=buildCake({tiers:2,base:'#5A3220',top:'#FFD21F',topping:'candles'});H.pivot.add(heroCake);
+// floating confetti cubes
+const conf=[];for(let i=0;i<26;i++){const m=new THREE.Mesh(new THREE.BoxGeometry(.12,.12,.12),new THREE.MeshStandardMaterial({color:[0xFFD21F,0xE2412B,0xffffff,0xFFB020][i%4]}));m.position.set((Math.random()-.5)*6,Math.random()*4+.3,(Math.random()-.5)*4);H.s.add(m);conf.push(m)}
+// builder
+const B=makeScene(document.getElementById('cake3d'),{camY:3.8,camZ:8});
+let cake=null,plaque=null;
+function val(n){return document.querySelector(`input[name="${n}"]:checked`)}
+function rebuild(){if(cake){B.pivot.remove(cake)}const t=val('tiers'),f=val('fl');cake=buildCake({tiers:+t.value,weight:+t.dataset.w,base:f.dataset.c,top:f.dataset.t,topping:val('tp').value});B.pivot.add(cake);
+  const mat=new THREE.MeshBasicMaterial({map:plaqueTexture(document.getElementById('msgIn').value),transparent:true});plaque=new THREE.Mesh(new THREE.PlaneGeometry(1.5,.47),mat);plaque.position.set(0,cake.userData.top+.55,0);cake.add(plaque);
+  const w=t.dataset.w;document.getElementById('summ').textContent=(w==='0.5'?'½':w)+' kg · '+f.value;
+  const d=document.getElementById('dt').value;const ds=d?new Date(d+'T12:00:00').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'}):'soon';
+  const msg=`Hi Kusum Bakery Junction! I'd like to order a ${w==='0.5'?'½':w} kg ${f.value} cake (${t.value} tier${t.value>1?'s':''}) with ${val('tp').value} on top and the message "${document.getElementById('msgIn').value}". Needed on ${ds}. Could you confirm the price?`;
+  document.getElementById('wa').href=WA+encodeURIComponent(msg)}
+document.querySelectorAll('#cake input').forEach(i=>i.addEventListener('input',rebuild));rebuild();
+const clock=new THREE.Clock();
+function loop(){const t=clock.getElapsedTime();
+  conf.forEach((c,i)=>{c.position.y+=Math.sin(t*1.2+i)*.004;c.rotation.x+=.01;c.rotation.y+=.013});
+  [heroCake,cake].forEach(k=>k&&k.userData.flames.forEach((f,i)=>{f.scale.y=1.5+Math.sin(t*12+i*2)*.25}));
+  if(plaque)plaque.quaternion.copy(B.cam.quaternion).premultiply(cake.parent.quaternion.clone().invert());
+  H.tick(t);B.tick(t);requestAnimationFrame(loop)}
+loop();
+</script>
+</body>
+</html>
