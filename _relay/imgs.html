@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>FirstGlance image relay</title></head>
+<body style="font:16px system-ui;padding:30px"><p id="s">Loading…</p>
+<script>
+(async()=>{const q=new URLSearchParams(location.search);const d=q.get('d')||'';const n=+(q.get('n')||0);if(!/^[a-z0-9-]+$/.test(d)||!(n>0&&n<=10))return;
+const files=[];for(let i=1;i<=n;i++){const b=await (await fetch('media/'+d+'/slide'+i+'.jpg')).blob();files.push({name:'slide'+i+'.jpg',blob:b})}
+document.getElementById('s').textContent='Loaded '+files.length;
+if(window.opener){window.opener.postMessage({type:'fg-slides',files},'https://www.instagram.com');document.getElementById('s').textContent+=' · sent'}})();
+</script></body></html>
