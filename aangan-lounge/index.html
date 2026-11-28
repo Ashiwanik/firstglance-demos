@@ -105,7 +105,7 @@ h2 em{font:italic 600 1.05em var(--serif);letter-spacing:0;color:transparent;bac
 .look b{display:block;font:italic 600 32px/1.15 var(--serif);color:var(--gold1)}
 .bridal{min-height:92vh;display:flex;align-items:center;overflow:hidden}
 .bridal .bgv{position:absolute;inset:0;background:radial-gradient(60% 70% at 75% 40%,rgba(194,24,91,.35),transparent 60%),radial-gradient(50% 60% at 20% 70%,rgba(184,137,59,.25),transparent 60%),#0c0a0b}
-.bridal video{position:absolute;top:0;bottom:0;right:0;width:min(60vh,50vw);height:100%;object-fit:cover;opacity:0;transition:opacity 1s;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}.bridal video.on{opacity:.55}@media(max-width:800px){.bridal video{width:100%}}
+.bridal video{position:absolute;top:0;bottom:0;right:0;width:min(60vh,50vw);height:100%;object-fit:cover;opacity:0;transition:opacity 1s;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}.bridal video.on{opacity:.8}@media(max-width:800px){.bridal video{width:100%}}
 .bridal .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,8,.9),rgba(7,7,8,.45) 55%,rgba(7,7,8,.2))}
 .bridal .wrap{position:relative;z-index:2;width:100%}
 .bridal h2{font:500 clamp(46px,6.6vw,96px)/1 var(--serif);color:var(--ink);letter-spacing:-.01em;max-width:12ch}
@@ -200,7 +200,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-s
 </div></section>
 
 <section class="bridal" id="bridal">
-  <div class="bgv"></div><video id="vb" muted loop playsinline preload="none" src="assets/cocktail.mp4#t=11"></video><div class="shade"></div>
+  <div class="bgv"></div><video id="vb" muted loop playsinline preload="none" poster="assets/carnival.jpg" src="assets/carnival.mp4"></video><div class="shade"></div>
   <div class="wrap reveal">
     <p class="mono eyebrow" data-t="b1">Bridal · Events · Wedding season</p>
     <h2 style="margin-top:16px" data-t="b2">She walks, <br><em class="gold">the world stops.</em></h2>
@@ -251,7 +251,7 @@ const v0=document.getElementById('v0');v0.play().catch(()=>{});
 const vb=document.getElementById('vb');vb.addEventListener('error',()=>vb.remove());new IntersectionObserver(es=>{if(!vb.isConnected)return;if(es[0].isIntersecting){vb.preload='auto';vb.play().then(()=>vb.classList.add('on')).catch(()=>{})}else vb.pause()}).observe(document.getElementById('bridal'));
 const EXP=[{s:'Colour',k:'01 · Hair',t:'Colour transformations',i:'Before to beautiful after.',v:'',g:'linear-gradient(160deg,#3b2a1a,#7a4a22 60%,#c98a43)'},
  {s:'Glam',k:'02 · Makeup',t:'Cocktail & party glam',i:'More than a second glance.',v:'assets/cocktail.mp4',g:'linear-gradient(160deg,#2a0f1d,#7a1a46 60%,#c2185b)'},
- {s:'Bride',k:'03 · Bridal',t:'Luxury bridal',i:'Your fairytale moment.',v:'',g:'linear-gradient(160deg,#2b1b0c,#8a5a1c 60%,#e0b060)'},
+ {s:'Bride',k:'03 · Bridal',t:'Luxury bridal & festive',i:'Your fairytale moment.',v:'assets/carnival.mp4',g:'linear-gradient(160deg,#2b1b0c,#8a5a1c 60%,#e0b060)'},
  {s:'Unwind',k:'04 · Spa',t:'Spa, facial & pedicure',i:'Your self-care sanctuary.',v:'',g:'linear-gradient(160deg,#10201c,#1f4a3f 60%,#6aa38f)'},
  {s:'Sip',k:'05 · Café',t:'The Aangan café',i:'Relax, sip, savour.',v:'',g:'linear-gradient(160deg,#1c120c,#4a2c1a 60%,#a8703c)'}];
 const flow=document.getElementById('flow'),ftabs=document.getElementById('ftabs');let fi=0;
