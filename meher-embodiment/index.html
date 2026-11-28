@@ -123,7 +123,7 @@ nav ul a{text-decoration:none;opacity:.75}nav ul a:hover{opacity:1;color:var(--c
 .about{padding:130px 0}
 .about .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center}
 .art{aspect-ratio:4/5;border-radius:200px 200px 28px 28px;overflow:hidden;position:relative;background:var(--blush)}
-.art img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block}
+.art img{width:100%;height:100%;object-fit:cover;object-position:40% 72%;display:block}
 .portrait{position:relative;padding:0 50px 60px 0}
 .paint{position:absolute;right:0;bottom:0;width:46%;background:#fff;padding:10px 10px 0;border-radius:6px;transform:rotate(5deg);box-shadow:0 24px 50px -16px rgba(10,10,11,.45)}
 .paint img{width:100%;display:block;aspect-ratio:1;object-fit:cover}
@@ -289,13 +289,13 @@ footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;l
 .drawsec{padding:120px 0;background:#0A0A0B;border-top:1px solid var(--line)}
 .drawsec .top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
 .drawsec p.l{color:var(--mut);max-width:460px;margin-top:16px}
-.pad{position:relative;margin-top:40px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(70% 90% at 50% 50%,#15130f,#0A0A0B);height:min(520px,70vh);touch-action:none;cursor:crosshair}
+.pad{position:relative;margin-top:40px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(60% 80% at 50% 55%,rgba(216,178,110,.07),transparent 70%),#0B0B0C;height:min(520px,70vh);touch-action:none;cursor:crosshair}
 .pad canvas{position:absolute;inset:0;width:100%;height:100%}
-.pad .hint{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-family:var(--serif);font-style:italic;font-size:clamp(24px,3vw,36px);color:rgba(240,212,154,.55);transition:opacity .6s}
+.pad .hint{position:absolute;left:0;right:0;bottom:22px;text-align:center;pointer-events:none;font:500 11px var(--mono);letter-spacing:.24em;text-transform:uppercase;color:rgba(240,212,154,.5);transition:opacity .8s}
 .pad.used .hint{opacity:0}
 .tools{display:flex;gap:10px;flex-wrap:wrap}
 .pal{display:flex;gap:8px;align-items:center;margin-right:8px}
-.pal button{width:28px;height:28px;border-radius:50%;border:1px solid rgba(240,212,154,.3);cursor:pointer;padding:0}
+.pal button{width:26px;height:26px;border-radius:50%;border:1px solid rgba(240,212,154,.25);cursor:pointer;padding:0;opacity:.85}
 .pal button.on{outline:2px solid #F0D49A;outline-offset:3px}
 @media(max-width:600px){.snd span.t{display:none}.snd{padding:12px}}
 </style>
@@ -413,10 +413,10 @@ footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;l
 <section class="drawsec" id="draw">
  <div class="wrap">
   <div class="top reveal">
-   <div><div class="eyebrow">Slow down · make something</div><h2 style="margin-top:16px">Draw a line.<br><i>Let it wander.</i></h2><p class="l">Meher paints flowing, layered lines when her mind gets busy. Try it: drag slowly across the space below and watch your line ripple into colour.</p></div>
-   <div class="tools"><div class="pal" id="pal"></div><button class="btn" id="clr" type="button">Clear</button><button class="btn fill" id="savePng" type="button">Save my art</button></div>
+   <div><div class="eyebrow">Slow down · make something</div><h2 style="margin-top:16px">Draw slowly.<br><i>Let it go.</i></h2><p class="l">Meher paints soft, layered lines when her mind gets busy. Trace a slow line below. It breathes for a moment, then gently fades, like an exhale.</p></div>
+   <div class="tools"><div class="pal" id="pal"></div><button class="btn" id="clr" type="button">Clear</button><button class="btn" id="savePng" type="button">Save this moment</button></div>
   </div>
-  <div class="pad reveal" id="pad"><canvas id="cv"></canvas><div class="hint">Draw slowly, here ✦</div></div>
+  <div class="pad reveal" id="pad"><canvas id="cv"></canvas><div class="hint">Trace a slow line here</div></div>
  </div>
 </section>
 
@@ -559,25 +559,37 @@ function draw(){let i;do{i=Math.random()*INV.length|0}while(i===lastI);lastI=i;i
 flip.onclick=()=>{if(flip.classList.contains('open')){flip.classList.remove('open');setTimeout(draw,700)}else draw()};
 again.onclick=()=>{flip.classList.remove('open');setTimeout(draw,700)};
 
-/* ---------- flowing-line drawing (inspired by her painting) ---------- */
-const PALS={rainbow:['#7B5CD6','#2E86DE','#2BB3A3','#9BCB3C','#F2C14E','#F08A4B','#E0457B','#B83280'],gold:['#F6E7C6','#F0D49A','#E4C383','#D8B26E','#C79E55','#B8893B','#8E6826'],rose:['#FBE1EA','#F7C3D5','#F4A6C0','#EC7FA4','#E35D8C','#D2386C','#A3224F'],ocean:['#E0F2F1','#A7DCD6','#6FC2BC','#3BA3A0','#2A7F86','#1F5E6E','#163F52']};
-let pal='rainbow';const palEl=document.getElementById('pal');
-Object.entries(PALS).forEach(([k,c])=>{const b=document.createElement('button');b.type='button';b.title=k;b.style.background=`conic-gradient(${c.join(',')})`;if(k===pal)b.classList.add('on');b.onclick=()=>{pal=k;palEl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))};palEl.appendChild(b)});
-const pad=document.getElementById('pad'),cv=document.getElementById('cv'),cx=cv.getContext('2d');let W,H,dpr;
-function size(){const r=pad.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);const old=W?cx.getImageData(0,0,cv.width,cv.height):null;W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);cx.lineCap='round';cx.lineJoin='round';if(old)cx.putImageData(old,0,0)}
-size();addEventListener('resize',()=>{W=0;size()});
-let pts=null,lastN=null,toneT=0;
+/* ---------- breathing lines (soothing, fade like breath) ---------- */
+const PALS={gold:['#FFF4DC','#F6E3B8','#F0D49A','#E4C383','#D8B26E','#C79E55','#B8893B'],moon:['#FFFFFF','#EDEBE6','#D9D6CE','#BFC3C6','#A3ABB2','#8A939C','#6F7882'],dusk:['#F6E6E4','#EBCFCF','#DDB7BE','#C9A2B3','#B190A9','#97809F','#7D7193'],sage:['#EEF2E6','#D9E2CF','#C1D0B5','#A7BD9B','#8EA984','#77946F','#62805D']};
+let pal='gold';const palEl=document.getElementById('pal');
+Object.entries(PALS).forEach(([k,c])=>{const b=document.createElement('button');b.type='button';b.title=k;b.setAttribute('aria-label',k+' colours');b.style.background=`linear-gradient(135deg,${c[1]},${c[5]})`;if(k===pal)b.classList.add('on');b.onclick=()=>{pal=k;palEl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))};palEl.appendChild(b)});
+const pad=document.getElementById('pad'),cv=document.getElementById('cv'),cx=cv.getContext('2d');let W=0,H=0,dpr=1;
+function size(){const r=pad.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);cx.lineCap='round';cx.lineJoin='round'}
+size();addEventListener('resize',size);
+const FADE=9000;let strokes=[],cur=null,lastUser=0,ghost=null,vis=false,toneT=0;
+new IntersectionObserver(e=>{vis=e[0].isIntersecting},{threshold:.1}).observe(pad);
+function addPt(st,x,y){const p=st.pts,q=p[p.length-1];if(q){const dx=x-q.x,dy=y-q.y,d=Math.hypot(dx,dy);if(d<4)return false;let nx=-dy/d,ny=dx/d;if(q.nx!==undefined){nx=q.nx*.82+nx*.18;ny=q.ny*.82+ny*.18;const l=Math.hypot(nx,ny);nx/=l;ny/=l}p.push({x,y,nx,ny});if(p.length===2){q.nx=nx;q.ny=ny}}else p.push({x,y});return true}
+function drawStroke(st,now){const p=st.pts;if(p.length<3)return;const C=PALS[st.pal],n=C.length,gap=W<600?6:9;
+ let a=1;if(st.end)a=Math.max(0,1-(now-st.end)/FADE);const born=Math.min(1,(now-st.born)/400);a*=born;if(a<=0)return;
+ const breathe=1+Math.sin(now/1600+st.seed)*.18;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*gap*breathe;const edge=Math.abs(i-(n-1)/2)/((n-1)/2);
+  cx.strokeStyle=C[i];cx.globalAlpha=a*(.85-edge*.45);cx.lineWidth=(W<600?1.4:1.8)*(1.2-edge*.4);cx.shadowColor=C[i];cx.shadowBlur=10;
+  cx.beginPath();const P=k=>({x:p[k].x+(p[k].nx||0)*o,y:p[k].y+(p[k].ny||0)*o});let s0=P(1);cx.moveTo(s0.x,s0.y);
+  for(let k=2;k<p.length-1;k++){const c=P(k),d=P(k+1);cx.quadraticCurveTo(c.x,c.y,(c.x+d.x)/2,(c.y+d.y)/2)}cx.stroke()}
+ cx.globalAlpha=1;cx.shadowBlur=0}
+function frame(now){if(vis){cx.clearRect(0,0,W,H);strokes=strokes.filter(st=>!st.end||now-st.end<FADE);strokes.forEach(st=>drawStroke(st,now));
+  // gentle guide line when idle
+  if(!cur&&now-lastUser>6000&&!ghost&&strokes.length===0&&!RM){ghost={pts:[],pal,born:now,seed:Math.random()*6,t0:now,y0:H*(.35+Math.random()*.3),amp:H*(.12+Math.random()*.1),ph:Math.random()*6};strokes.push(ghost)}
+  if(ghost){const t=(now-ghost.t0)/5200;const x=W*.08+t*W*.84;addPt(ghost,x,ghost.y0+Math.sin(t*Math.PI*2.2+ghost.ph)*ghost.amp);if(t>=1){ghost.end=now;ghost=null}}
+  pad.classList.toggle('used',strokes.length>0&&!ghost||!!cur)}
+ requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
 function P(e){const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
-pad.addEventListener('pointerdown',e=>{pad.setPointerCapture(e.pointerId);pts=[P(e)];lastN=null;pad.classList.add('used');bowl(PENTA[Math.random()*PENTA.length|0],.07,5)});
-pad.addEventListener('pointermove',e=>{if(!pts)return;const p=P(e),q=pts[pts.length-1];const dx=p.x-q.x,dy=p.y-q.y,d=Math.hypot(dx,dy);if(d<3)return;pts.push(p);
- let nx=-dy/d,ny=dx/d;if(lastN){nx=lastN.x*.7+nx*.3;ny=lastN.y*.7+ny*.3;const l=Math.hypot(nx,ny);nx/=l;ny/=l}
- const C=PALS[pal],n=C.length,gap=W<600?5:7;
- for(let i=0;i<n;i++){const o=(i-(n-1)/2)*gap;const ln=lastN||{x:nx,y:ny};cx.strokeStyle=C[i];cx.lineWidth=W<600?3:4.2;cx.beginPath();cx.moveTo(q.x+ln.x*o,q.y+ln.y*o);cx.lineTo(p.x+nx*o,p.y+ny*o);cx.stroke()}
- lastN={x:nx,y:ny};
- const now=performance.now();if(now-toneT>420&&d>6){toneT=now;bowl(PENTA[Math.floor((1-p.y/H)*PENTA.length)%PENTA.length]*2,.025,2.5)}});
-const end=()=>{pts=null};pad.addEventListener('pointerup',end);pad.addEventListener('pointercancel',end);
-document.getElementById('clr').onclick=()=>{cx.clearRect(0,0,W,H);pad.classList.remove('used')};
-document.getElementById('savePng').onclick=()=>{const t=document.createElement('canvas');t.width=cv.width;t.height=cv.height;const x=t.getContext('2d');x.fillStyle='#0A0A0B';x.fillRect(0,0,t.width,t.height);x.drawImage(cv,0,0);x.fillStyle='rgba(240,212,154,.7)';x.font=`${14*dpr}px Georgia`;x.fillText('drawn with Meher · @meherguliani',20*dpr,t.height-20*dpr);const a=document.createElement('a');a.download='my-flowing-lines.png';a.href=t.toDataURL('image/png');a.click()};
+pad.addEventListener('pointerdown',e=>{pad.setPointerCapture(e.pointerId);if(ghost){ghost.end=performance.now();ghost=null}const p=P(e);cur={pts:[],pal,born:performance.now(),seed:Math.random()*6};addPt(cur,p.x,p.y);strokes.push(cur);lastUser=performance.now();bowl(PENTA[Math.random()*PENTA.length|0],.06,6)});
+pad.addEventListener('pointermove',e=>{if(!cur)return;const p=P(e);if(addPt(cur,p.x,p.y)){lastUser=performance.now();const now=performance.now();if(now-toneT>700){toneT=now;bowl(PENTA[Math.max(0,Math.floor((1-p.y/H)*PENTA.length))%PENTA.length]*2,.018,3)}}});
+const end=()=>{if(cur){cur.end=performance.now()+2500;cur=null;lastUser=performance.now()}};pad.addEventListener('pointerup',end);pad.addEventListener('pointercancel',end);
+document.getElementById('clr').onclick=()=>{const n=performance.now();strokes.forEach(s=>{if(!s.end||s.end>n)s.end=n-FADE*.6})};
+document.getElementById('savePng').onclick=()=>{const t=document.createElement('canvas');t.width=cv.width;t.height=cv.height;const x=t.getContext('2d');x.fillStyle='#0A0A0B';x.fillRect(0,0,t.width,t.height);x.drawImage(cv,0,0);x.fillStyle='rgba(240,212,154,.7)';x.font=`${14*dpr}px Georgia`;x.fillText('a slow moment with Meher · @meherguliani',20*dpr,t.height-20*dpr);const a=document.createElement('a');a.download='my-breathing-lines.png';a.href=t.toDataURL('image/png');a.click()};
 })();
 </script>
 </body></html>
