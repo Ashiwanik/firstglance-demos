@@ -251,6 +251,53 @@ h1 i,h2 i,.hero h1 i,.breath h2 i,.offer h2 i,.close h2 i,blockquote i,.mam bloc
 footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.08em}
 .vcap{font-family:var(--mono);color:#F0D49A;background:rgba(10,10,11,.6)}
 .concept{background:#1A33C9;color:#fff}.concept b{color:#FFC94A}
+
+/* ===== INTERACTIVE ===== */
+.snd{position:fixed;left:20px;bottom:20px;z-index:80;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;border-radius:999px;background:rgba(10,10,11,.82);backdrop-filter:blur(10px);border:1px solid rgba(240,212,154,.4);color:#F0D49A;font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.snd:hover{border-color:#F0D49A}
+.eq{display:flex;gap:3px;align-items:flex-end;height:16px}
+.eq i{width:3px;height:4px;background:#D8B26E;border-radius:2px;transition:height .3s}
+.snd.on .eq i{animation:eq 1.4s ease-in-out infinite}
+.snd.on .eq i:nth-child(2){animation-delay:.2s}.snd.on .eq i:nth-child(3){animation-delay:.5s}.snd.on .eq i:nth-child(4){animation-delay:.8s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+.invite{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#CFC6BA;background:none;border:0;cursor:pointer;padding:0}
+.invite b{width:30px;height:30px;border-radius:50%;border:1px solid rgba(240,212,154,.5);display:grid;place-items:center;color:#F0D49A;font-size:12px}
+.invite:hover{color:#F0D49A}
+.hero .glow{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(380px circle at var(--mx,30%) var(--my,40%),rgba(240,212,154,.13),transparent 60%);transition:opacity .4s}
+.hero .wrap{z-index:3}
+/* journey progress */
+.steps{padding-left:34px}
+.steps:before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--line)}
+.steps .bar{position:absolute;left:0;top:0;width:1px;height:var(--p,0%);background:linear-gradient(#F0D49A,#B8893B);box-shadow:0 0 14px rgba(240,212,154,.7)}
+.steps .bar:after{content:"";position:absolute;left:-5px;bottom:-6px;width:11px;height:11px;border-radius:50%;background:#F0D49A;box-shadow:0 0 18px #F0D49A}
+.step{opacity:.42;transition:opacity .5s}.step.act{opacity:1}.step.act .n{color:#F0D49A}
+/* invitation cards */
+.deck{display:flex;flex-direction:column;align-items:center;margin:10px auto 70px}
+.flip{width:260px;height:360px;perspective:1200px;cursor:pointer;background:none;border:0;padding:0}
+.flip .in{position:relative;width:100%;height:100%;transition:transform 1s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
+.flip.open .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;text-align:center;border:1px solid rgba(240,212,154,.45)}
+.face.back{background:radial-gradient(circle at 50% 40%,#2a2215,#0d0c0b 70%)}
+.face.back svg{width:120px;height:120px}
+.face.back span{margin-top:22px;font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#D8B26E}
+.face.front{transform:rotateY(180deg);background:linear-gradient(160deg,#F6E7C6,#E4C383 60%,#C79E55);color:#1a1206}
+.face.front small{font:500 10px var(--mono);letter-spacing:.22em;text-transform:uppercase;opacity:.7}
+.face.front p{font-family:var(--serif);font-size:27px;line-height:1.15;margin:18px 0;color:#1a1206!important;max-width:none}
+.face.front em{font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;font-style:normal;opacity:.7}
+.deck .again{margin-top:22px}
+/* drawing */
+.drawsec{padding:120px 0;background:#0A0A0B;border-top:1px solid var(--line)}
+.drawsec .top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.drawsec p.l{color:var(--mut);max-width:460px;margin-top:16px}
+.pad{position:relative;margin-top:40px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(70% 90% at 50% 50%,#15130f,#0A0A0B);height:min(520px,70vh);touch-action:none;cursor:crosshair}
+.pad canvas{position:absolute;inset:0;width:100%;height:100%}
+.pad .hint{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;font-family:var(--serif);font-style:italic;font-size:clamp(24px,3vw,36px);color:rgba(240,212,154,.55);transition:opacity .6s}
+.pad.used .hint{opacity:0}
+.tools{display:flex;gap:10px;flex-wrap:wrap}
+.pal{display:flex;gap:8px;align-items:center;margin-right:8px}
+.pal button{width:28px;height:28px;border-radius:50%;border:1px solid rgba(240,212,154,.3);cursor:pointer;padding:0}
+.pal button.on{outline:2px solid #F0D49A;outline-offset:3px}
+@media(max-width:600px){.snd span.t{display:none}.snd{padding:12px}}
 </style>
 </head>
 <body>
@@ -264,11 +311,13 @@ footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;l
 <header class="hero" id="top">
  <img class="poster" src="assets/rooftop.jpg" alt=""><video id="v0" muted loop playsinline autoplay preload="auto" poster="assets/rooftop.jpg" src="assets/rooftop.mp4"></video>
  <span class="vcap">● Meher, dancing before the rain</span>
+ <div class="glow" aria-hidden="true"></div>
  <div class="wrap">
   <div class="eyebrow reveal">Embodiment · Reiki · Conscious movement · Bangalore & online</div>
   <h1 class="reveal" style="margin-top:22px">Get out of your head.<br><i>Come home</i> to your body.</h1>
   <p class="lead reveal">Embodiment circles, Reiki healing and movement-as-medicine with Meher. For anyone who sits at a desk all week, lives in their thoughts, or swears they “can’t dance”.</p>
   <div class="row reveal"><a class="btn fill" href="#circle">Reserve a spot in the next circle</a><a class="btn" href="#breathe">Take one breath first ↓</a></div>
+  <button class="invite reveal" id="invite" type="button"><b>♪</b>Put on headphones · turn on the sound</button>
   <div class="meta reveal"><span><b>1.5 hrs</b>per circle</span><span><b>10</b>spots only</span><span><b>Zoom</b>&amp; in person</span><span><b>Wild Womb</b>trained facilitator</span></div>
  </div>
 </header>
@@ -309,7 +358,7 @@ footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;l
 <section class="journey" id="journey">
  <div class="wrap">
   <div class="reveal"><div class="eyebrow">Inside an embodiment circle</div><h2 style="margin-top:16px">Ninety minutes,<br><i>head to hips.</i></h2></div>
-  <div class="steps">
+  <div class="steps" id="steps"><div class="bar" id="sbar"></div>
    <div class="step reveal"><span class="n">01</span><h3>Getting out of the head</h3><p>We arrive, settle, and let the to-do lists go quiet. No experience needed.</p></div>
    <div class="step reveal"><span class="n">02</span><h3>Descending into the body</h3><p>Breath and gentle awareness, moving attention from thoughts down into sensation.</p></div>
    <div class="step reveal"><span class="n">03</span><h3>Building trust with ourselves</h3><p>Listening to what the body is asking for, and learning to honour it.</p></div>
@@ -361,6 +410,16 @@ footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;l
  </div>
 </section>
 
+<section class="drawsec" id="draw">
+ <div class="wrap">
+  <div class="top reveal">
+   <div><div class="eyebrow">Slow down · make something</div><h2 style="margin-top:16px">Draw a line.<br><i>Let it wander.</i></h2><p class="l">Meher paints flowing, layered lines when her mind gets busy. Try it: drag slowly across the space below and watch your line ripple into colour.</p></div>
+   <div class="tools"><div class="pal" id="pal"></div><button class="btn" id="clr" type="button">Clear</button><button class="btn fill" id="savePng" type="button">Save my art</button></div>
+  </div>
+  <div class="pad reveal" id="pad"><canvas id="cv"></canvas><div class="hint">Draw slowly, here ✦</div></div>
+ </div>
+</section>
+
 <section class="circle" id="circle">
  <div class="wrap">
   <div class="reveal">
@@ -384,6 +443,8 @@ footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;l
 
 <section class="close">
  <div class="wrap">
+  <div class="eyebrow reveal" style="margin-bottom:22px">Today’s invitation</div>
+  <div class="deck reveal"><button class="flip" id="flip" type="button" aria-label="Draw today's invitation"><div class="in"><div class="face back"><svg viewBox="0 0 120 120" fill="none" stroke="#D8B26E" stroke-width="1.2"><circle cx="60" cy="60" r="52" opacity=".5"/><circle cx="60" cy="60" r="38" opacity=".7"/><path d="M60 22c10 14 10 28 0 44-10-16-10-30 0-44Z"/><path d="M60 66c-14-4-24-14-28-30 14 2 24 12 28 30Zm0 0c14-4 24-14 28-30-14 2-24 12-28 30Z"/><path d="M30 86c18 8 42 8 60 0"/></svg><span>Tap to draw a card</span></div><div class="face front"><small>Your invitation</small><p id="inv"></p><em id="invT"></em></div></div></button><button class="btn again" id="again" type="button" hidden>Draw another</button></div>
   <h2 class="reveal">You are okay.<br><i>Just be.</i></h2>
   <p class="reveal">When the self-growth noise gets loud, come back to the simplest thing: your breath, your body, this moment.</p>
   <a class="btn reveal" href="#circle">Join the next circle</a>
@@ -391,6 +452,7 @@ footer{border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;l
  </div>
 </section>
 
+<button class="snd" id="snd" type="button" aria-pressed="false"><span class="eq"><i></i><i></i><i></i><i></i></span><span class="t" id="sndT">Sound off</span></button>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Meher · Embodiment Coach & Reiki Healer","address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressCountry":"IN"},"sameAs":["https://instagram.com/meherguliani"]}</script>
 <script>
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -443,5 +505,79 @@ const nm=document.getElementById('nm'),msg=document.getElementById('msg');nm.oni
 function text(){return `Dance 💃\nHi Meher! I'd love to join Dance from Within on 29 Nov${seat?` (spot ${seat})`:''}.\nI want to feel more ${[...chosen].join(', ').toLowerCase()||'like myself'}.\n— ${nm.value.trim()||'your name'}`}
 function upd(){msg.textContent=text()}upd();
 document.getElementById('send').onclick=()=>{try{navigator.clipboard.writeText(text())}catch(e){}};
+</script>
+
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ---------- generative ambient sound ---------- */
+let ctx,master,wet,filt,on=false,timer,voices=[];
+const PENTA=[220,261.63,293.66,329.63,392,440,523.25];
+function impulse(sec){const r=ctx.sampleRate,l=r*sec,b=ctx.createBuffer(2,l,r);for(let c=0;c<2;c++){const d=b.getChannelData(c);for(let i=0;i<l;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/l,3)}return b}
+function init(){if(ctx)return;ctx=new (window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=0;master.connect(ctx.destination);
+ const rv=ctx.createConvolver();rv.buffer=impulse(5);wet=ctx.createGain();wet.gain.value=.55;rv.connect(wet);wet.connect(master);
+ const dry=ctx.createGain();dry.gain.value=.6;dry.connect(master);
+ filt=ctx.createBiquadFilter();filt.type='lowpass';filt.frequency.value=700;filt.Q.value=.4;filt.connect(dry);filt.connect(rv);
+ const lfo=ctx.createOscillator(),lg=ctx.createGain();lfo.frequency.value=.04;lg.gain.value=280;lfo.connect(lg);lg.connect(filt.frequency);lfo.start();
+ // drone pad: A minor (add9) spread
+ [[110,'sine',.16],[164.81,'sine',.09],[220,'triangle',.05],[246.94,'sine',.035],[329.63,'sine',.03]].forEach(([f,t,v],i)=>{for(const dt of[-4,4]){const o=ctx.createOscillator();o.type=t;o.frequency.value=f;o.detune.value=dt;const g=ctx.createGain();g.gain.value=v/2;const l=ctx.createOscillator(),lgn=ctx.createGain();l.frequency.value=.05+i*.017;lgn.gain.value=v/2*.8;l.connect(lgn);lgn.connect(g.gain);l.start();o.connect(g);g.connect(filt);o.start()}});
+ window.__fgBowl=bowl;window.__fgBreath=breathSnd}
+function bowl(f,v=.16,dur=7){if(!ctx||!on)return;const t=ctx.currentTime;[[1,1],[2.76,.35],[5.4,.12],[8.9,.05]].forEach(([m,a])=>{const o=ctx.createOscillator();o.type='sine';o.frequency.value=f*m;const o2=ctx.createOscillator();o2.frequency.value=f*m*1.004;const g=ctx.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v*a,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+dur/m**.4);o.connect(g);o2.connect(g);g.connect(wet.context===ctx?master:master);const s=ctx.createGain();s.gain.value=.8;g.connect(s);s.connect(wet);o.start(t);o2.start(t);o.stop(t+dur);o2.stop(t+dur)})}
+function noise(sec){const b=ctx.createBuffer(1,ctx.sampleRate*sec,ctx.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const n=ctx.createBufferSource();n.buffer=b;return n}
+function breathSnd(kind,sec){if(!ctx||!on)return;const t=ctx.currentTime,n=noise(sec+.2),bp=ctx.createBiquadFilter();bp.type='bandpass';bp.Q.value=1.2;const g=ctx.createGain();
+ if(kind==='in'){bp.frequency.setValueAtTime(350,t);bp.frequency.exponentialRampToValueAtTime(1400,t+sec);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.09,t+sec*.7);g.gain.linearRampToValueAtTime(0,t+sec)}
+ else{bp.frequency.setValueAtTime(1200,t);bp.frequency.exponentialRampToValueAtTime(260,t+sec);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.08,t+.6);g.gain.linearRampToValueAtTime(0,t+sec)}
+ n.connect(bp);bp.connect(g);g.connect(master);n.start(t);n.stop(t+sec+.2);
+ filt.frequency.cancelScheduledValues(t);filt.frequency.setTargetAtTime(kind==='in'?1500:600,t,sec/3)}
+function sched(){clearTimeout(timer);if(!on)return;bowl(PENTA[Math.random()*PENTA.length|0]*(Math.random()<.3?.5:1),.07+Math.random()*.05,9);timer=setTimeout(sched,7000+Math.random()*7000)}
+const btn=document.getElementById('snd'),bt=document.getElementById('sndT');
+function set(v){init();on=v;const t=ctx.currentTime;if(on){ctx.resume();master.gain.cancelScheduledValues(t);master.gain.setValueAtTime(master.gain.value,t);master.gain.linearRampToValueAtTime(.55,t+3);bowl(220,.18,9);setTimeout(sched,4000)}else{master.gain.cancelScheduledValues(t);master.gain.setValueAtTime(master.gain.value,t);master.gain.linearRampToValueAtTime(0,t+1.2);clearTimeout(timer)}
+ btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on);bt.textContent=on?'Sound on':'Sound off';try{localStorage.setItem('meherSound',on?'1':'0')}catch(e){}}
+btn.onclick=()=>set(!on);document.getElementById('invite').onclick=()=>{set(true)};
+window.__fgSound=()=>on;
+document.addEventListener('visibilitychange',()=>{if(!ctx)return;document.hidden?ctx.suspend():on&&ctx.resume()});
+
+/* ---------- hero glow ---------- */
+const hero=document.querySelector('.hero');hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
+
+/* ---------- hook breath + body + seats into sound ---------- */
+const bB=document.getElementById('bBtn');bB.addEventListener('click',()=>{if(!on)set(true);let k=0;const cyc=()=>{if(k++>=3)return;breathSnd('in',4);setTimeout(()=>breathSnd('out',6),5500);setTimeout(cyc,11500)};setTimeout(cyc,50)},{capture:true});
+const TONES=[523.25,440,392,329.63,261.63,196];
+document.querySelectorAll('.spot').forEach((s,i)=>s.addEventListener('click',()=>bowl(TONES[i],.16,6)));
+document.getElementById('seats').addEventListener('click',e=>{const b=e.target.closest('.seat');if(b)bowl(PENTA[(+b.textContent-1)%PENTA.length]*2,.09,4)});
+document.getElementById('chips').addEventListener('click',e=>{if(e.target.closest('.chip'))bowl(880,.04,2.5)});
+
+/* ---------- journey progress ---------- */
+const st=document.getElementById('steps'),bar=document.getElementById('sbar'),steps=[...st.querySelectorAll('.step')];let last=-1;
+function prog(){const r=st.getBoundingClientRect(),vh=innerHeight;const p=Math.min(1,Math.max(0,(vh*.6-r.top)/r.height));bar.style.height=(p*100)+'%';let a=-1;steps.forEach((s,i)=>{const sr=s.getBoundingClientRect();if(sr.top<vh*.62)a=i});steps.forEach((s,i)=>s.classList.toggle('act',i===a));if(a!==last&&a>=0){bowl([392,329.63,293.66,261.63,220][a],.08,5)}last=a}
+addEventListener('scroll',prog,{passive:true});prog();
+
+/* ---------- invitation cards ---------- */
+const INV=[['Place one hand on your heart and one on your belly. Which one is breathing more?','for the next 3 breaths'],['Roll your shoulders back three times. Let them drop away from your ears.','right now'],['Put on one song today and let your hips decide how to move.','before dinner'],['Notice where your feet meet the floor. Let the ground hold you.','for 30 seconds'],['Say one true thing out loud that you have been holding in.','today'],['Eat one bite slowly enough to really taste it.','at your next meal'],['Stretch like a cat waking up. No rules, just what feels good.','when you get up'],['Lie down and feel the weight of your body sink. You do not have to do anything.','for 2 minutes']];
+const flip=document.getElementById('flip'),again=document.getElementById('again'),inv=document.getElementById('inv'),invT=document.getElementById('invT');let lastI=-1;
+function draw(){let i;do{i=Math.random()*INV.length|0}while(i===lastI);lastI=i;inv.textContent=INV[i][0];invT.textContent=INV[i][1];flip.classList.add('open');again.hidden=false;bowl(329.63,.13,8);setTimeout(()=>bowl(493.88,.08,7),350)}
+flip.onclick=()=>{if(flip.classList.contains('open')){flip.classList.remove('open');setTimeout(draw,700)}else draw()};
+again.onclick=()=>{flip.classList.remove('open');setTimeout(draw,700)};
+
+/* ---------- flowing-line drawing (inspired by her painting) ---------- */
+const PALS={rainbow:['#7B5CD6','#2E86DE','#2BB3A3','#9BCB3C','#F2C14E','#F08A4B','#E0457B','#B83280'],gold:['#F6E7C6','#F0D49A','#E4C383','#D8B26E','#C79E55','#B8893B','#8E6826'],rose:['#FBE1EA','#F7C3D5','#F4A6C0','#EC7FA4','#E35D8C','#D2386C','#A3224F'],ocean:['#E0F2F1','#A7DCD6','#6FC2BC','#3BA3A0','#2A7F86','#1F5E6E','#163F52']};
+let pal='rainbow';const palEl=document.getElementById('pal');
+Object.entries(PALS).forEach(([k,c])=>{const b=document.createElement('button');b.type='button';b.title=k;b.style.background=`conic-gradient(${c.join(',')})`;if(k===pal)b.classList.add('on');b.onclick=()=>{pal=k;palEl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))};palEl.appendChild(b)});
+const pad=document.getElementById('pad'),cv=document.getElementById('cv'),cx=cv.getContext('2d');let W,H,dpr;
+function size(){const r=pad.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);const old=W?cx.getImageData(0,0,cv.width,cv.height):null;W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);cx.lineCap='round';cx.lineJoin='round';if(old)cx.putImageData(old,0,0)}
+size();addEventListener('resize',()=>{W=0;size()});
+let pts=null,lastN=null,toneT=0;
+function P(e){const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+pad.addEventListener('pointerdown',e=>{pad.setPointerCapture(e.pointerId);pts=[P(e)];lastN=null;pad.classList.add('used');bowl(PENTA[Math.random()*PENTA.length|0],.07,5)});
+pad.addEventListener('pointermove',e=>{if(!pts)return;const p=P(e),q=pts[pts.length-1];const dx=p.x-q.x,dy=p.y-q.y,d=Math.hypot(dx,dy);if(d<3)return;pts.push(p);
+ let nx=-dy/d,ny=dx/d;if(lastN){nx=lastN.x*.7+nx*.3;ny=lastN.y*.7+ny*.3;const l=Math.hypot(nx,ny);nx/=l;ny/=l}
+ const C=PALS[pal],n=C.length,gap=W<600?5:7;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*gap;const ln=lastN||{x:nx,y:ny};cx.strokeStyle=C[i];cx.lineWidth=W<600?3:4.2;cx.beginPath();cx.moveTo(q.x+ln.x*o,q.y+ln.y*o);cx.lineTo(p.x+nx*o,p.y+ny*o);cx.stroke()}
+ lastN={x:nx,y:ny};
+ const now=performance.now();if(now-toneT>420&&d>6){toneT=now;bowl(PENTA[Math.floor((1-p.y/H)*PENTA.length)%PENTA.length]*2,.025,2.5)}});
+const end=()=>{pts=null};pad.addEventListener('pointerup',end);pad.addEventListener('pointercancel',end);
+document.getElementById('clr').onclick=()=>{cx.clearRect(0,0,W,H);pad.classList.remove('used')};
+document.getElementById('savePng').onclick=()=>{const t=document.createElement('canvas');t.width=cv.width;t.height=cv.height;const x=t.getContext('2d');x.fillStyle='#0A0A0B';x.fillRect(0,0,t.width,t.height);x.drawImage(cv,0,0);x.fillStyle='rgba(240,212,154,.7)';x.font=`${14*dpr}px Georgia`;x.fillText('drawn with Meher · @meherguliani',20*dpr,t.height-20*dpr);const a=document.createElement('a');a.download='my-flowing-lines.png';a.href=t.toDataURL('image/png');a.click()};
+})();
 </script>
 </body></html>
