@@ -119,6 +119,13 @@ footer{background:var(--esp);color:#CDBBA8;padding:40px 0;font-size:14px}
 footer b{color:var(--cream)}
 .sticky{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 16px 30px -12px rgba(0,0,0,.45)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.big .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;white-space:nowrap}
+.big .l{display:inline-block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rise{to{transform:none}}
+.cap.in{animation:capin .6s ease both}@keyframes capin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.stage:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.07;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.stage:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(120,80,45,.18))}
+@media(prefers-reduced-motion:reduce){.big .l{animation:none;transform:none}}
 </style>
 </head>
 <body>
@@ -228,79 +235,155 @@ footer b{color:var(--cream)}
 // tilt cards
 document.querySelectorAll('[data-tilt]').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
 </script>
-<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
 <script type="module">
 import * as THREE from 'three';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const WA='https://wa.me/971566821611?text=';
+const sm=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
+const rnd=(i)=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
 
-function base(canvas,{fov=34,cam=[0,2.2,8],look=[0,1.2,0]}={}){
-  const r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.05;
-  const s=new THREE.Scene();const c=new THREE.PerspectiveCamera(fov,1,.1,100);c.position.set(...cam);c.lookAt(...look);
-  s.add(new THREE.HemisphereLight(0xfff4e6,0x3a2418,1.15));
-  const k=new THREE.DirectionalLight(0xffffff,2.4);k.position.set(4,7,5);s.add(k);
-  const rim=new THREE.DirectionalLight(0xD59B6A,1.4);rim.position.set(-5,3,-4);s.add(rim);
+/* ---------- shared renderer setup with studio reflections ---------- */
+function base(canvas,{fov=34,cam=[0,2.2,8],look=[0,1.2,0],env=.9}={}){
+  const r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));
+  r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.05;
+  const s=new THREE.Scene();const pm=new THREE.PMREMGenerator(r);s.environment=pm.fromScene(new RoomEnvironment(),.04).texture;s.environmentIntensity=env;
+  const c=new THREE.PerspectiveCamera(fov,1,.1,100);c.position.set(...cam);c.lookAt(...look);
+  s.add(new THREE.HemisphereLight(0xfff4e6,0x3a2418,.55));
+  const k=new THREE.DirectionalLight(0xfff1dc,2.2);k.position.set(4,7,5);s.add(k);
+  const rim=new THREE.DirectionalLight(0xE0A06A,1.6);rim.position.set(-5,3,-4);s.add(rim);
   function size(){const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;r.setSize(w,h,false);c.aspect=w/h;c.updateProjectionMatrix()}
   new ResizeObserver(size).observe(canvas);size();
-  return {r,s,c,look:new THREE.Vector3(...look)};
+  return {r,s,c,key:k};
 }
-function drag(canvas,obj){let d=false,lx=0;canvas.addEventListener('pointerdown',e=>{d=true;lx=e.clientX});addEventListener('pointerup',()=>d=false);addEventListener('pointermove',e=>{if(!d)return;obj.userData.spin=(e.clientX-lx)*.012;obj.rotation.y+=obj.userData.spin;lx=e.clientX})}
+function drag(canvas,obj){let d=false,lx=0;canvas.addEventListener('pointerdown',e=>{d=true;lx=e.clientX});addEventListener('pointerup',()=>d=false);addEventListener('pointermove',e=>{if(!d)return;obj.rotation.y+=(e.clientX-lx)*.012;lx=e.clientX})}
+function canvasTex(w,h,draw,repeat){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;if(repeat){t.wrapS=t.wrapT=THREE.RepeatWrapping}return t}
 
-// --- coffee bean geometry: flattened ellipsoid with a centre crease ---
-function beanGeo(){const g=new THREE.SphereGeometry(1,28,20);const p=g.attributes.position;const v=new THREE.Vector3();
-  for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i);v.x*=.72;v.y*=1;v.z*=.5;
-    if(v.z>0){v.z*=.55;const crease=Math.exp(-Math.pow(v.x/.09,2));v.z-=crease*.16*(1-Math.abs(v.y)*.6)}
-    p.setXYZ(i,v.x,v.y,v.z)}g.computeVertexNormals();return g}
+/* ---------- textures ---------- */
+// bean surface: fine speckle + soft mottling + the dark centre crease (sphere u = .25 is the flat face centre)
+const beanTex=canvasTex(512,256,(x,w,h)=>{x.fillStyle='#fff';x.fillRect(0,0,w,h);
+  for(let i=0;i<2600;i++){const a=.04+rnd(i)*.09;x.fillStyle=`rgba(60,35,20,${a})`;x.beginPath();x.arc(rnd(i+1)*w,rnd(i+2)*h,.5+rnd(i+3)*1.6,0,7);x.fill()}
+  for(let i=0;i<40;i++){const g=x.createRadialGradient(rnd(i+9)*w,rnd(i+8)*h,0,rnd(i+9)*w,rnd(i+8)*h,20+rnd(i)*40);g.addColorStop(0,'rgba(90,50,25,.10)');g.addColorStop(1,'rgba(90,50,25,0)');x.fillStyle=g;x.fillRect(0,0,w,h)}
+  const cx=w*.25;const g=x.createLinearGradient(cx-10,0,cx+10,0);g.addColorStop(0,'rgba(40,20,10,0)');g.addColorStop(.5,'rgba(30,14,6,.85)');g.addColorStop(1,'rgba(40,20,10,0)');x.fillStyle=g;
+  x.beginPath();x.moveTo(cx,h*.12);for(let y=h*.12;y<h*.88;y+=4)x.lineTo(cx+Math.sin(y*.05)*3,y);x.lineTo(cx+9,h*.88);for(let y=h*.88;y>h*.12;y-=4)x.lineTo(cx+Math.sin(y*.05)*3-9,y);x.fill();
+  x.strokeStyle='rgba(255,240,220,.55)';x.lineWidth=1.2;x.beginPath();for(let y=h*.15;y<h*.85;y+=4)x.lineTo(cx+5+Math.sin(y*.05)*3,y);x.stroke()});
+const beanBump=canvasTex(256,128,(x,w,h)=>{x.fillStyle='#808080';x.fillRect(0,0,w,h);for(let i=0;i<1800;i++){x.fillStyle=rnd(i)>.5?'#8c8c8c':'#747474';x.fillRect(rnd(i+5)*w,rnd(i+6)*h,1.5,1.5)}const cx=w*.25;x.fillStyle='#202020';x.fillRect(cx-2,h*.12,4,h*.76)});
+beanBump.colorSpace=THREE.NoColorSpace;
+// crema with a slow latte swirl
+const cremaTex=canvasTex(512,512,(x,w,h)=>{const g=x.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);g.addColorStop(0,'#C88A55');g.addColorStop(.55,'#B87843');g.addColorStop(.86,'#9A5E30');g.addColorStop(1,'#6E3D1C');x.fillStyle=g;x.fillRect(0,0,w,h);
+  for(let i=0;i<900;i++){x.fillStyle=`rgba(255,235,200,${.05+rnd(i)*.12})`;const a=rnd(i+1)*6.28,r=rnd(i+2)*w*.47;x.beginPath();x.arc(w/2+Math.cos(a)*r,h/2+Math.sin(a)*r,.6+rnd(i+3)*2.2,0,7);x.fill()}
+  x.strokeStyle='rgba(250,225,185,.55)';x.lineCap='round';for(let k=0;k<3;k++){x.lineWidth=7-k*2;x.beginPath();for(let a=0;a<15;a+=.05){const r=4+a*14+k*5;x.lineTo(w/2+Math.cos(a+k*2.1)*r,h/2+Math.sin(a+k*2.1)*r)}x.stroke()}});
+// flowing coffee: amber streaks that we scroll along the tube
+const flowTex=canvasTex(512,64,(x,w,h)=>{x.fillStyle='#3B1A0B';x.fillRect(0,0,w,h);for(let i=0;i<60;i++){const y=rnd(i)*h,len=30+rnd(i+1)*140,X=rnd(i+2)*w;const g=x.createLinearGradient(X,0,X+len,0);g.addColorStop(0,'rgba(201,120,60,0)');g.addColorStop(.5,`rgba(214,140,75,${.25+rnd(i+3)*.45})`);g.addColorStop(1,'rgba(201,120,60,0)');x.fillStyle=g;x.fillRect(X,y,len,1.5+rnd(i+4)*3)}},true);
+// soft contact shadow
+const shadowTex=canvasTex(256,256,(x,w,h)=>{const g=x.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);g.addColorStop(0,'rgba(40,22,12,.55)');g.addColorStop(.6,'rgba(40,22,12,.18)');g.addColorStop(1,'rgba(40,22,12,0)');x.fillStyle=g;x.fillRect(0,0,w,h)});
+// leaf with veins
+const leafTex=canvasTex(256,512,(x,w,h)=>{const g=x.createLinearGradient(0,0,w,0);g.addColorStop(0,'#1F5A2C');g.addColorStop(.5,'#3E8A45');g.addColorStop(1,'#1F5A2C');x.fillStyle=g;x.fillRect(0,0,w,h);x.strokeStyle='rgba(200,235,170,.55)';x.lineWidth=4;x.beginPath();x.moveTo(w/2,h);x.lineTo(w/2,0);x.stroke();x.lineWidth=2;for(let y=60;y<h-30;y+=46){x.beginPath();x.moveTo(w/2,y+30);x.quadraticCurveTo(w*.3,y+10,0,y);x.moveTo(w/2,y+30);x.quadraticCurveTo(w*.7,y+10,w,y);x.stroke()}});
+
+/* ---------- geometry ---------- */
+function beanGeo(){const g=new THREE.SphereGeometry(1,40,28);const p=g.attributes.position;const v=new THREE.Vector3();
+  for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i);v.x*=.72;v.z*=.5;
+    if(v.z>0){v.z*=.55;const crease=Math.exp(-Math.pow(v.x/.07,2));v.z-=crease*.17*(1-Math.abs(v.y)*.55)}
+    p.setXYZ(i,v.x,v.y*(1-.04*Math.abs(v.x)),v.z)}g.computeVertexNormals();return g}
 const BEAN=beanGeo();
-const roastColor=t=>{const stops=[[0,[0.47,0.58,0.38]],[.3,[0.66,0.47,0.27]],[.6,[0.36,0.21,0.12]],[1,[0.13,0.07,0.045]]];for(let i=1;i<stops.length;i++){if(t<=stops[i][0]){const a=stops[i-1],b=stops[i],k=(t-a[0])/(b[0]-a[0]);return new THREE.Color(...a[1].map((x,j)=>x+(b[1][j]-x)*k))}}return new THREE.Color(...stops[3][1])};
+const ROAST=[[0,[0.50,0.60,0.40]],[.18,[0.62,0.60,0.36]],[.34,[0.72,0.50,0.28]],[.55,[0.45,0.26,0.14]],[.78,[0.25,0.13,0.07]],[1,[0.11,0.06,0.04]]];
+const roastColor=t=>{for(let i=1;i<ROAST.length;i++){if(t<=ROAST[i][0]){const a=ROAST[i-1],b=ROAST[i],k=(t-a[0])/(b[0]-a[0]);return new THREE.Color().setRGB(...a[1].map((x,j)=>x+(b[1][j]-x)*k),THREE.SRGBColorSpace)}}return new THREE.Color().setRGB(...ROAST.at(-1)[1],THREE.SRGBColorSpace)};
+function beanMat(){return new THREE.MeshPhysicalMaterial({map:beanTex,bumpMap:beanBump,bumpScale:1.2,color:roastColor(0),roughness:.55,clearcoat:.1,clearcoatRoughness:.35,sheen:.3,sheenColor:new THREE.Color(0xffe2c0)})}
+function setRoastLook(m,t){m.color.copy(roastColor(t));m.roughness=.6-t*.38;m.clearcoat=.05+Math.max(0,t-.55)*1.6;m.sheen=.3*(1-t)}
+function leafGeo(){const s=new THREE.Shape();s.moveTo(0,0);s.bezierCurveTo(.35,.25,.32,.75,0,1);s.bezierCurveTo(-.32,.75,-.35,.25,0,0);const g=new THREE.ShapeGeometry(s,24);const p=g.attributes.position,uv=g.attributes.uv;
+  for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i);p.setZ(i,Math.abs(x)*.25+Math.sin(y*3)*.04);uv.setXY(i,x/.7+.5,y)}g.computeVertexNormals();return g}
+// tube with tapering radius (thick at the lip, thin as it falls) + wobble
+function streamGeo(curve,seg=260,rad=14){const fr=curve.computeFrenetFrames(seg,false);const pos=[],uv=[],idx=[];const P=new THREE.Vector3(),N=new THREE.Vector3();
+  for(let i=0;i<=seg;i++){const u=i/seg;curve.getPointAt(u,P);const r=(.12-.06*u)*(1+.12*Math.sin(u*40));
+    for(let j=0;j<=rad;j++){const a=j/rad*Math.PI*2;N.copy(fr.normals[i]).multiplyScalar(Math.cos(a)).addScaledVector(fr.binormals[i],Math.sin(a));pos.push(P.x+N.x*r,P.y+N.y*r,P.z+N.z*r);uv.push(u*4,j/rad)}}
+  for(let i=0;i<seg;i++)for(let j=0;j<rad;j++){const a=i*(rad+1)+j,b=a+rad+1;idx.push(a,b,a+1,b,b+1,a+1)}
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(idx);g.computeVertexNormals();return g}
 
-// --- cup (ceramic) ---
-function cup(){const g=new THREE.Group();const pts=[];const prof=[[0,0],[.55,0],[.62,.05],[.66,.2],[.8,.7],[.93,1.25],[.96,1.32],[.9,1.32],[.86,1.25],[.73,.7],[.6,.22],[.5,.12],[0,.12]];prof.forEach(q=>pts.push(new THREE.Vector2(q[0],q[1])));
-  const m=new THREE.MeshPhysicalMaterial({color:0xFBF7F1,roughness:.18,clearcoat:1,clearcoatRoughness:.08});
-  const body=new THREE.Mesh(new THREE.LatheGeometry(pts,72),m);g.add(body);
-  const h=new THREE.Mesh(new THREE.TorusGeometry(.32,.065,14,40,Math.PI*1.25),m);h.position.set(.98,.72,0);h.rotation.z=-Math.PI*.62;g.add(h);
-  const sp=[];[[0,0],[1.55,0],[1.62,.05],[1.58,.1],[.7,.08],[0,.1]].forEach(q=>sp.push(new THREE.Vector2(q[0],q[1])));
-  const saucer=new THREE.Mesh(new THREE.LatheGeometry(sp,72),m);saucer.position.y=-.08;g.add(saucer);
-  const coffee=new THREE.Mesh(new THREE.CircleGeometry(.86,64),new THREE.MeshPhysicalMaterial({color:0x3A1F12,roughness:.12,clearcoat:1}));coffee.rotation.x=-Math.PI/2;coffee.position.y=.2;coffee.scale.setScalar(.7);g.add(coffee);
-  const crema=new THREE.Mesh(new THREE.RingGeometry(.0,.86,64),new THREE.MeshStandardMaterial({color:0xB97A45,roughness:.5,transparent:true,opacity:0}));crema.rotation.x=-Math.PI/2;crema.position.y=.205;g.add(crema);
+/* ---------- steam (shader ribbons) ---------- */
+const steamMat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{uT:{value:0},uO:{value:0}},
+  vertexShader:`varying vec2 vUv;uniform float uT;void main(){vUv=uv;vec3 p=position;p.x+=sin(uv.y*5.0+uT*1.3)*.18*uv.y+sin(uv.y*11.0-uT*2.0)*.05*uv.y;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.0);}`,
+  fragmentShader:`varying vec2 vUv;uniform float uT;uniform float uO;
+  float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+  float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+  void main(){vec2 q=vUv*vec2(2.5,3.0)+vec2(0.,-uT*.35);float v=n(q*2.)*.6+n(q*4.3)*.4;float edge=smoothstep(0.,.35,vUv.x)*smoothstep(1.,.65,vUv.x);float fade=smoothstep(0.,.15,vUv.y)*smoothstep(1.,.45,vUv.y);
+  float a=smoothstep(.42,.85,v)*edge*fade*uO;gl_FragColor=vec4(vec3(1.),a*.55);}`});
+function steam(n=3,w=.7,h=2.6){const g=new THREE.Group();for(let i=0;i<n;i++){const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h,1,40),steamMat.clone());m.position.set((i-(n-1)/2)*.28,h/2,(i%2)*.1);m.userData.ph=i*1.7;g.add(m)}return g}
+function tickSteam(g,t,o,cam){g.children.forEach(m=>{m.material.uniforms.uT.value=t+m.userData.ph;m.material.uniforms.uO.value=o;m.quaternion.copy(cam.quaternion)})}
+
+/* ---------- cup ---------- */
+function cup(){const g=new THREE.Group();const pts=[];[[0,0],[.55,0],[.62,.05],[.66,.2],[.8,.7],[.93,1.25],[.965,1.31],[.95,1.335],[.9,1.32],[.86,1.25],[.73,.7],[.6,.22],[.5,.12],[0,.12]].forEach(q=>pts.push(new THREE.Vector2(q[0],q[1])));
+  const m=new THREE.MeshPhysicalMaterial({color:0xFBF8F3,roughness:.22,clearcoat:1,clearcoatRoughness:.06,sheen:.2});
+  g.add(new THREE.Mesh(new THREE.LatheGeometry(pts,96),m));
+  const band=new THREE.Mesh(new THREE.TorusGeometry(.955,.012,8,96),new THREE.MeshStandardMaterial({color:0xC58B4E,metalness:1,roughness:.25}));band.rotation.x=Math.PI/2;band.position.y=1.322;g.add(band);
+  const hc=new THREE.CatmullRomCurve3([new THREE.Vector3(.86,1.05,0),new THREE.Vector3(1.28,1.08,0),new THREE.Vector3(1.38,.78,0),new THREE.Vector3(1.12,.46,0),new THREE.Vector3(.76,.42,0)]);
+  g.add(new THREE.Mesh(new THREE.TubeGeometry(hc,40,.07,14),m));
+  const sp=[];[[0,0],[1.55,0],[1.63,.05],[1.66,.13],[1.6,.15],[.72,.09],[.68,.11],[0,.11]].forEach(q=>sp.push(new THREE.Vector2(q[0],q[1])));
+  const saucer=new THREE.Mesh(new THREE.LatheGeometry(sp,96),m);saucer.position.y=-.09;g.add(saucer);
+  const sh=new THREE.Mesh(new THREE.PlaneGeometry(4.4,4.4),new THREE.MeshBasicMaterial({map:shadowTex,transparent:true,depthWrite:false}));sh.rotation.x=-Math.PI/2;sh.position.y=-.095;g.add(sh);
+  const coffee=new THREE.Mesh(new THREE.CircleGeometry(.86,72),new THREE.MeshPhysicalMaterial({color:0x2B1309,roughness:.08,clearcoat:1}));coffee.rotation.x=-Math.PI/2;coffee.position.y=.2;g.add(coffee);
+  const crema=new THREE.Mesh(new THREE.CircleGeometry(.86,72),new THREE.MeshPhysicalMaterial({map:cremaTex,roughness:.45,transparent:true,opacity:0,clearcoat:.5}));crema.rotation.x=-Math.PI/2;g.add(crema);
   g.userData={coffee,crema};return g}
 
-// ================= HERO: scroll-driven pour =================
-const H=base(document.getElementById('hero3d'),{fov:32,cam:[0,2.4,9.5],look:[0,1.6,0]});
-const heroRoot=new THREE.Group();H.s.add(heroRoot);
-const C=cup();C.position.set(0,0,0);C.scale.setScalar(1.25);heroRoot.add(C);
-// carafe (glass) that tilts in
+/* ================= HERO: scroll-driven story ================= */
+const heroCanvas=document.getElementById('hero3d');
+const H=base(heroCanvas,{fov:32,cam:[0,2.4,9.5],look:[0,1.6,0]});
+const root=new THREE.Group();H.s.add(root);
+const C=cup();C.scale.setScalar(1.25);root.add(C);
+// glass carafe with wooden collar and liquid inside
 const carafe=new THREE.Group();{const pts=[];[[0,0],[.55,0],[.62,.1],[.7,.6],[.55,1.05],[.32,1.25],[.3,1.7],[.36,1.78],[.34,1.8],[.27,1.72],[.27,1.26],[.5,1.04],[.64,.6],[.56,.12],[0,.06]].forEach(q=>pts.push(new THREE.Vector2(q[0],q[1])));
-  const glass=new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.05,transmission:.92,thickness:.3,ior:1.45,transparent:true,opacity:.55});carafe.add(new THREE.Mesh(new THREE.LatheGeometry(pts,60),glass));
-  const inside=new THREE.Mesh(new THREE.CylinderGeometry(.5,.54,.55,40),new THREE.MeshPhysicalMaterial({color:0x2A160C,roughness:.1,clearcoat:1,transparent:true,opacity:.92}));inside.position.y=.36;carafe.add(inside);carafe.userData.inside=inside;
-  const collar=new THREE.Mesh(new THREE.TorusGeometry(.33,.06,12,40),new THREE.MeshStandardMaterial({color:0x8A5A2B,metalness:.7,roughness:.3}));collar.rotation.x=Math.PI/2;collar.position.y=1.2;carafe.add(collar);}
-heroRoot.add(carafe);
-// the swirling stream: a tube grown along a spiral by scroll
-const spiral=[];for(let i=0;i<=60;i++){const u=i/60;const a=u*Math.PI*3.2;const rr=.55*Math.sin(u*Math.PI)*(1-u*.35);spiral.push(new THREE.Vector3(Math.cos(a)*rr-.1*u,3.3-u*2.85,Math.sin(a)*rr*.8))}
+  carafe.add(new THREE.Mesh(new THREE.LatheGeometry(pts,72),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.02,transmission:1,thickness:.25,ior:1.5,transparent:true,opacity:.6,specularIntensity:1})));
+  const inside=new THREE.Mesh(new THREE.CylinderGeometry(.5,.54,.55,48),new THREE.MeshPhysicalMaterial({color:0x2A120A,roughness:.05,clearcoat:1,transparent:true,opacity:.95}));inside.position.y=.36;carafe.add(inside);carafe.userData.inside=inside;
+  const wood=new THREE.MeshStandardMaterial({color:0x8B5A33,roughness:.55});const collar=new THREE.Mesh(new THREE.CylinderGeometry(.42,.38,.32,40),wood);collar.position.y=1.05;carafe.add(collar);
+  const tie=new THREE.Mesh(new THREE.TorusGeometry(.4,.025,8,40),new THREE.MeshStandardMaterial({color:0xE9D8BE,roughness:.9}));tie.rotation.x=Math.PI/2;tie.position.y=1.05;carafe.add(tie)}
+root.add(carafe);
+// stream curve: lip of carafe -> swirl -> cup centre
+const spiral=[];for(let i=0;i<=70;i++){const u=i/70;const a=u*Math.PI*3.2;const rr=.55*Math.sin(u*Math.PI)*(1-u*.35);spiral.push(new THREE.Vector3(Math.cos(a)*rr-.1*u,3.3-u*2.85,Math.sin(a)*rr*.8))}
 const curve=new THREE.CatmullRomCurve3(spiral);
-const streamGeo=new THREE.TubeGeometry(curve,240,.085,14,false);
-const streamMat=new THREE.MeshPhysicalMaterial({color:0x4A230F,roughness:.08,clearcoat:1,clearcoatRoughness:.05,transmission:.15,thickness:.5});
-const stream=new THREE.Mesh(streamGeo,streamMat);heroRoot.add(stream);
-const totalIdx=streamGeo.index.count;streamGeo.setDrawRange(0,0);
-// droplets and flying beans
-const drops=[];const dropMat=streamMat;for(let i=0;i<26;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(.05+Math.random()*.05,12,10),dropMat);d.userData={u:Math.random(),off:new THREE.Vector3((Math.random()-.5)*.8,(Math.random()-.5)*.3,(Math.random()-.5)*.8)};heroRoot.add(d);drops.push(d)}
-const beans=[];for(let i=0;i<22;i++){const m=new THREE.Mesh(BEAN,new THREE.MeshPhysicalMaterial({color:roastColor(0),roughness:.35,clearcoat:.6}));const a=i/22*Math.PI*2;const r=2.1+Math.random()*1.6;m.userData={a,r,y:.2+Math.random()*4.2,sp:.15+Math.random()*.25,rot:new THREE.Vector3(Math.random(),Math.random(),Math.random())};m.scale.setScalar(.17+Math.random()*.06);heroRoot.add(m);beans.push(m)}
+const sGeo=streamGeo(curve);const sIdx=sGeo.index.count;sGeo.setDrawRange(0,0);
+const streamMat=new THREE.MeshPhysicalMaterial({map:flowTex,color:0xffffff,roughness:.06,clearcoat:1,clearcoatRoughness:.03,transmission:.2,thickness:.6,attenuationColor:new THREE.Color(0x5a2a10),attenuationDistance:.4});
+const stream=new THREE.Mesh(sGeo,streamMat);root.add(stream);
+// droplets riding the stream
+const dropMat=new THREE.MeshPhysicalMaterial({color:0x3B1A0B,roughness:.05,clearcoat:1});
+const drops=[];for(let i=0;i<34;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(.035+rnd(i)*.05,14,12),dropMat);d.userData={u:rnd(i+40),off:new THREE.Vector3(rnd(i+1)-.5,(rnd(i+2)-.5)*.3,rnd(i+3)-.5)};root.add(d);drops.push(d)}
+// splash: crown droplets + ripples
+const crown=[];for(let i=0;i<22;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(.03+rnd(i+70)*.03,10,8),dropMat);d.visible=false;d.userData={life:0,v:new THREE.Vector3()};root.add(d);crown.push(d)}
+const ripples=[];for(let i=0;i<5;i++){const m=new THREE.Mesh(new THREE.RingGeometry(.9,1,64),new THREE.MeshBasicMaterial({color:0xE2B27F,transparent:true,opacity:0,depthWrite:false}));m.rotation.x=-Math.PI/2;m.userData={ph:i/5};root.add(m);ripples.push(m)}
+const hSteam=steam(3,.75,2.8);root.add(hSteam);
+// coffee cherries + leaves (chapter "Grown") and beans
+const cherryMat=new THREE.MeshPhysicalMaterial({color:0xB3121E,roughness:.18,clearcoat:1,clearcoatRoughness:.05,sheen:.4,sheenColor:new THREE.Color(0xff8a8a)});
+const navelMat=new THREE.MeshStandardMaterial({color:0x2A1A10,roughness:.8});
+const leafMat=new THREE.MeshStandardMaterial({map:leafTex,side:THREE.DoubleSide,roughness:.5});
+const LEAF=leafGeo();
+const items=[];
+for(let i=0;i<26;i++){const grp=new THREE.Group();
+  const cherry=new THREE.Group();const ch=new THREE.Mesh(new THREE.SphereGeometry(1,28,22),cherryMat);ch.scale.set(1,.92,1);cherry.add(ch);const nv=new THREE.Mesh(new THREE.CylinderGeometry(.18,.1,.12,12),navelMat);nv.position.y=.9;cherry.add(nv);
+  const bean=new THREE.Mesh(BEAN,beanMat());grp.add(cherry,bean);
+  const s=.15+rnd(i+11)*.08;grp.scale.setScalar(s);
+  grp.userData={a:i/26*Math.PI*2+rnd(i)*.3,r:2.0+rnd(i+20)*1.8,y:.2+rnd(i+30)*4.0,sp:.12+rnd(i+31)*.2,rx:rnd(i+32)*2-1,ry:rnd(i+33)*2-1,stagger:rnd(i+34)*.08,cherry,bean,z:rnd(i+35)};
+  root.add(grp);items.push(grp)}
+const leaves=[];for(let i=0;i<9;i++){const l=new THREE.Mesh(LEAF,leafMat);l.scale.setScalar(.55+rnd(i+90)*.35);l.userData={x:(rnd(i+91)-.5)*7,y:rnd(i+92)*4.2,z:(rnd(i+93)-.5)*3-.6,r:rnd(i+94)*6};root.add(l);leaves.push(l)}
 
-const storyEl=document.querySelector('.story');let prog=0,target=0;
-function onScroll(){const r=storyEl.getBoundingClientRect();const total=r.height-innerHeight;target=Math.min(1,Math.max(0,-r.top/Math.max(1,total)))}
+// scroll + pointer parallax
+const storyEl=document.querySelector('.story');let prog=0,target=0,mx=0,my=0,tmx=0,tmy=0;
+function onScroll(){const r=storyEl.getBoundingClientRect();target=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-innerHeight)))}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
+addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5},{passive:true});
 const t1=document.getElementById('t1'),t2=document.getElementById('t2'),cap=document.getElementById('cap'),hint=document.getElementById('hint');const chaps=[...document.querySelectorAll('.chap span')];
-const caps=['<b>Colombian roots, crafted in the UAE.</b> Our own farm in Colombia, our own roastery in Al Quoz, Dubai. Scroll to follow the bean.','<b>Roasted in Dubai.</b> Green beans from the farm turn the colour of caramel, then chocolate, in small batches.','<b>Poured for you.</b> Bright, fruit-driven Colombian coffee, from 07:00 to 21:00, or at your door in 45 minutes.'];
-let capI=0;
-const sm=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
+const caps=['<b>Grown in Colombia.</b> Ripe red cherries, hand-picked on our own family farm at 1,680–1,750 metres. Scroll to follow the bean.','<b>Roasted in Dubai.</b> Green beans turn caramel, then chocolate, in small batches at our Al Quoz roastery.','<b>Poured for you.</b> Bright, fruit-driven Colombian coffee, from 07:00 to 21:00, or at your door in 45 minutes.'];
+let capI=-1;
+// split hero words into letters for a staggered reveal
+[t1,t2].forEach((el,k)=>{el.innerHTML=el.textContent.split(' ').map(w=>'<span class="w">'+[...w].map((ch,i)=>`<span class="l" style="animation-delay:${k*.35+i*.045}s">${ch}</span>`).join('')+'</span>').join(' ')});
 
-// ================= ROAST LAB =================
-const R=base(document.getElementById('roast3d'),{fov:30,cam:[0,3.2,7.5],look:[0,.6,0]});
-const pile=new THREE.Group();R.s.add(pile);const pileMat=new THREE.MeshPhysicalMaterial({color:roastColor(0),roughness:.45,clearcoat:.2});
-for(let i=0;i<130;i++){const m=new THREE.Mesh(BEAN,pileMat);const a=Math.random()*Math.PI*2,rr=Math.sqrt(Math.random())*1.9;const h=Math.max(0,1.25-rr*.6)*Math.random();m.position.set(Math.cos(a)*rr,.18+h,Math.sin(a)*rr);m.rotation.set(Math.random()*6,Math.random()*6,Math.random()*6);m.scale.setScalar(.24);pile.add(m)}
-const hero=new THREE.Mesh(BEAN,pileMat);hero.scale.setScalar(.75);hero.position.set(0,2.1,0);R.s.add(hero);
-const dish=new THREE.Mesh(new THREE.CylinderGeometry(2.4,2.2,.14,64),new THREE.MeshStandardMaterial({color:0x0B3A2E,roughness:.6}));dish.position.y=.04;pile.add(dish);
-const smokeMat=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0,depthWrite:false});const smoke=[];for(let i=0;i<14;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.25,12,10),smokeMat.clone());s.userData={o:Math.random()};R.s.add(s);smoke.push(s)}
+/* ================= ROAST LAB ================= */
+const R=base(document.getElementById('roast3d'),{fov:30,cam:[0,3.2,7.5],look:[0,.7,0],env:.7});
+const pile=new THREE.Group();R.s.add(pile);const pileMats=[beanMat(),beanMat(),beanMat()];
+for(let i=0;i<150;i++){const m=new THREE.Mesh(BEAN,pileMats[i%3]);const a=rnd(i+200)*Math.PI*2,rr=Math.sqrt(rnd(i+201))*1.95;const h=Math.max(0,1.3-rr*.62)*rnd(i+202);m.position.set(Math.cos(a)*rr,.2+h,Math.sin(a)*rr);m.rotation.set(rnd(i+203)*6,rnd(i+204)*6,rnd(i+205)*6);m.scale.setScalar(.23);pile.add(m)}
+const heroBean=new THREE.Mesh(BEAN,beanMat());heroBean.scale.setScalar(.8);heroBean.position.set(0,2.15,0);R.s.add(heroBean);
+const tray=new THREE.Mesh(new THREE.CylinderGeometry(2.45,2.25,.16,72),new THREE.MeshPhysicalMaterial({color:0x9a9a9a,metalness:1,roughness:.32}));tray.position.y=.04;pile.add(tray);
+const rSteam=steam(4,1.1,3);rSteam.position.y=.6;R.s.add(rSteam);
+// sparks: little glowing embers when the roast is dark
+const embers=[];for(let i=0;i<24;i++){const e=new THREE.Mesh(new THREE.SphereGeometry(.025,6,6),new THREE.MeshBasicMaterial({color:0xFFB15A,transparent:true,opacity:0}));e.userData={o:rnd(i+300),x:(rnd(i+301)-.5)*2.6,z:(rnd(i+302)-.5)*2};R.s.add(e);embers.push(e)}
 drag(document.getElementById('roast3d'),pile);
 const RL=[
  {max:15,tag:'Green',name:'Fresh off the farm',desc:'Raw, grassy and dense. This is how every Don Tulio bean leaves Colombia.',temp:'—',body:'—',acid:'—',url:'https://fincadontulio.com/collections/all'},
@@ -308,72 +391,87 @@ const RL=[
  {max:78,tag:'Espresso roast',name:'Sweet & balanced',desc:'Caramel sweetness with the fruit still there. The Don Tulio Blend lives here.',temp:'~215°C',body:'Medium',acid:'Medium',url:'https://fincadontulio.com/products/don-tulio-blend-1kg'},
  {max:101,tag:'Dark',name:'Bold & smoky',desc:'Chocolate, toast and a heavy body. Great with milk.',temp:'~230°C',body:'Full',acid:'Low',url:'https://fincadontulio.com/collections/all'}];
 const rIn=document.getElementById('roastIn');let roast=0;
-function setRoast(){const v=+rIn.value;const L=RL.find(x=>v<x.max);document.getElementById('rTag').textContent=L.tag;document.getElementById('rName').textContent=L.name;document.getElementById('rDesc').textContent=L.desc;document.getElementById('rTemp').textContent=L.temp;document.getElementById('rBody').textContent=L.body;document.getElementById('rAcid').textContent=L.acid;document.getElementById('rShop').href=L.url}
+function setRoast(){const v=+rIn.value;const L=RL.find(x=>v<x.max);rTag.textContent=L.tag;rName.textContent=L.name;rDesc.textContent=L.desc;rTemp.textContent=L.temp;rBody.textContent=L.body;rAcid.textContent=L.acid;rShop.href=L.url}
+const [rTag,rName,rDesc,rTemp,rBody,rAcid,rShop]=['rTag','rName','rDesc','rTemp','rBody','rAcid','rShop'].map(id=>document.getElementById(id));
 rIn.addEventListener('input',setRoast);setRoast();
 
-// ================= CUP BUILDER =================
-const B=base(document.getElementById('cup3d'),{fov:30,cam:[0,2.6,7.8],look:[0,1.25,0]});
+/* ================= CUP BUILDER ================= */
+const B=base(document.getElementById('cup3d'),{fov:30,cam:[0,2.7,8.2],look:[0,1.3,0]});
 const bRoot=new THREE.Group();B.s.add(bRoot);
-const glassPts=[];[[0,0],[.95,0],[1.02,.06],[1.1,2.4],[1.04,2.4],[.97,.12],[0,.12]].forEach(q=>glassPts.push(new THREE.Vector2(q[0],q[1])));
-bRoot.add(new THREE.Mesh(new THREE.LatheGeometry(glassPts,72),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.04,transmission:.95,thickness:.2,ior:1.5,transparent:true,opacity:.35})));
-const coaster=new THREE.Mesh(new THREE.CylinderGeometry(1.7,1.7,.08,64),new THREE.MeshStandardMaterial({color:0x0F4A3B,roughness:.8}));coaster.position.y=-.04;bRoot.add(coaster);
-const LAY={esp:{c:0x3A1C0E,n:'Espresso'},water:{c:0x6B3A1E,n:'Hot water',o:.85},milk:{c:0xE9D6BC,n:'Steamed milk'},foam:{c:0xFFFBF4,n:'Microfoam'},chai:{c:0xC88A55,n:'Spiced chai'}};
+const glassPts=[];[[0,0],[.95,0],[1.02,.06],[1.1,2.4],[1.115,2.43],[1.08,2.43],[1.04,2.4],[.97,.14],[0,.14]].forEach(q=>glassPts.push(new THREE.Vector2(q[0],q[1])));
+bRoot.add(new THREE.Mesh(new THREE.LatheGeometry(glassPts,96),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.02,transmission:1,thickness:.15,ior:1.5,transparent:true,opacity:.45,specularIntensity:1})));
+const coaster=new THREE.Mesh(new THREE.CylinderGeometry(1.75,1.75,.08,72),new THREE.MeshStandardMaterial({color:0x0F4A3B,roughness:.85}));coaster.position.y=-.04;bRoot.add(coaster);
+const bsh=new THREE.Mesh(new THREE.PlaneGeometry(4.6,4.6),new THREE.MeshBasicMaterial({map:shadowTex,transparent:true,depthWrite:false}));bsh.rotation.x=-Math.PI/2;bsh.position.y=-.075;B.s.add(bsh);
+const LAY={esp:{c:0x3A1C0E,n:'Espresso'},water:{c:0x5E3018,n:'Hot water',o:.88},milk:{c:0xEAD7BD,n:'Steamed milk'},foam:{c:0xFFFBF4,n:'Microfoam'},chai:{c:0xC88A55,n:'Spiced chai'}};
 const RECIPE={'Espresso':[['esp',.45]],'Americano':[['esp',.45],['water',1.35]],'Cortado':[['esp',.55],['milk',.55]],'Flat White':[['esp',.5],['milk',1.0],['foam',.18]],'Cappuccino':[['esp',.5],['milk',.6],['foam',.7]],'Chai Latte':[['chai',.9],['milk',.6],['foam',.35]]};
-const layerMeshes={};Object.entries(LAY).forEach(([k,v])=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(.99,.95,1,64),new THREE.MeshPhysicalMaterial({color:v.c,roughness:k==='foam'?.7:.2,clearcoat:k==='foam'?0:.8,transparent:!!v.o,opacity:v.o||1}));m.visible=false;m.userData={h:0,th:0,y:0,ty:0};bRoot.add(m);layerMeshes[k]=m});
-// latte art heart on foam
-const heart=new THREE.Shape();heart.moveTo(0,-.25);heart.bezierCurveTo(-.5,.05,-.25,.38,0,.16);heart.bezierCurveTo(.25,.38,.5,.05,0,-.25);
-const art=new THREE.Mesh(new THREE.ShapeGeometry(heart,24),new THREE.MeshBasicMaterial({color:0xC69468}));art.rotation.x=-Math.PI/2;art.visible=false;bRoot.add(art);
+const layerMeshes={};Object.entries(LAY).forEach(([k,v])=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(.99,.955,1,72),new THREE.MeshPhysicalMaterial({color:v.c,roughness:k==='foam'?.75:.15,clearcoat:k==='foam'?0:.8,transparent:!!v.o,opacity:v.o||1,sheen:k==='foam'?.6:0}));m.visible=false;m.userData={h:0,th:0,y:0,ty:0};bRoot.add(m);layerMeshes[k]=m});
+const heart=new THREE.Shape();heart.moveTo(0,-.3);heart.bezierCurveTo(-.55,.05,-.28,.42,0,.18);heart.bezierCurveTo(.28,.42,.55,.05,0,-.3);
+const art=new THREE.Mesh(new THREE.ShapeGeometry(heart,32),new THREE.MeshBasicMaterial({color:0xB98458,transparent:true,opacity:0}));art.rotation.x=-Math.PI/2;bRoot.add(art);
+// pour stream for the builder
+const bStream=new THREE.Mesh(new THREE.CylinderGeometry(.07,.05,1,20,1,true),new THREE.MeshPhysicalMaterial({color:0x3A1C0E,roughness:.08,clearcoat:1}));bStream.visible=false;bRoot.add(bStream);
+const bSteam=steam(3,.8,2.4);B.s.add(bSteam);
+const bubbles=[];for(let i=0;i<18;i++){const b=new THREE.Mesh(new THREE.SphereGeometry(.03,8,6),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.1,transmission:.6,transparent:true,opacity:.7}));b.userData={o:rnd(i+400),a:rnd(i+401)*6.28,r:rnd(i+402)*.8};bRoot.add(b);bubbles.push(b)}
 drag(document.getElementById('cup3d'),bRoot);
-let qty=1;
+let qty=1,lastChange=0;
 function drink(){return document.querySelector('input[name=dr]:checked')}
-function buildCup(){const d=drink();const rec=RECIPE[d.value];let y=.12;Object.values(layerMeshes).forEach(m=>{m.userData.th=0});
+function buildCup(){const d=drink();const rec=RECIPE[d.value];let y=.14;Object.values(layerMeshes).forEach(m=>{m.userData.th=0});
   rec.forEach(([k,h])=>{const m=layerMeshes[k];m.userData.th=h;m.userData.ty=y+h/2;y+=h});
-  art.userData.ty=y+.012;art.userData.on=(d.value==='Flat White'||d.value==='Cortado'||d.value==='Chai Latte');
-  document.getElementById('legend').innerHTML=rec.map(([k])=>`<span><i style="background:#${LAY[k].c.toString(16).padStart(6,'0')}"></i>${LAY[k].n}</span>`).join('');
+  art.userData.ty=y+.012;art.userData.on=['Flat White','Cortado','Chai Latte','Cappuccino'].includes(d.value);lastChange=performance.now();bStream.material.color.setHex(LAY[rec.at(-1)[0]].c);
+  document.getElementById('legend').innerHTML=rec.map(([k])=>`<span><i style="background:#${LAY[k].c.toString(16).padStart(6,'0')};box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"></i>${LAY[k].n}</span>`).join('');
   const p=+d.dataset.p*qty;document.getElementById('tot').textContent='AED '+p;
-  const msg=`Hi Finca Don Tulio! I'd like to order ${qty} × ${d.value} (AED ${p}). Is it available for pickup/delivery now?`;
-  document.getElementById('wa').href=WA+encodeURIComponent(msg);document.getElementById('q').textContent=qty}
+  document.getElementById('wa').href=WA+encodeURIComponent(`Hi Finca Don Tulio! I'd like to order ${qty} × ${d.value} (AED ${p}). Is it available for pickup/delivery now?`);document.getElementById('q').textContent=qty}
 document.querySelectorAll('input[name=dr]').forEach(i=>i.addEventListener('change',buildCup));
 document.getElementById('plus').onclick=()=>{qty=Math.min(20,qty+1);buildCup()};document.getElementById('minus').onclick=()=>{qty=Math.max(1,qty-1);buildCup()};
 buildCup();
 
-// visible-only rendering
-const vis=new Map();const io=new IntersectionObserver(es=>es.forEach(e=>vis.set(e.target,e.isIntersecting)),{rootMargin:'100px'});
+/* ================= render loop (only what's on screen) ================= */
+const vis=new Map();const io=new IntersectionObserver(es=>es.forEach(e=>vis.set(e.target,e.isIntersecting)),{rootMargin:'120px'});
 ['hero3d','roast3d','cup3d'].forEach(id=>{const el=document.getElementById(id);vis.set(el,true);io.observe(el)});
-
-const clock=new THREE.Clock();
-function loop(){const t=performance.now()/1000;const dt=Math.min(.05,clock.getDelta());
-  // HERO
-  if(vis.get(H.r.domElement)){
-    prog+=(target-prog)*(reduce?1:.12);const P=prog;
-    const pour=sm(.28,.62,P);
-    // carafe tilts in from the top-left
-    {const k=sm(.08,.3,P);carafe.position.set(-3.2+k*1.5,6-k*2.09,0);carafe.rotation.z=-sm(.12,.32,P)*1.75;}
-    carafe.userData.inside.scale.y=1-pour*.85;carafe.userData.inside.position.y=.36-pour*.23;
-    streamGeo.setDrawRange(0,Math.floor(totalIdx*sm(.3,.55,P)*(1-sm(.82,.97,P)))/3*3|0);
-    stream.visible=P>.3&&P<.97;
-    // fill cup
-    const fill=sm(.4,.8,P);C.userData.coffee.position.y=.2+fill*1.02;C.userData.coffee.scale.setScalar(.66+fill*.36);C.userData.crema.position.y=C.userData.coffee.position.y+.004;C.userData.crema.scale.setScalar(.66+fill*.36);C.userData.crema.material.opacity=sm(.75,.95,P)*.9;
-    // droplets along stream
-    drops.forEach((d,i)=>{const u=(d.userData.u+t*.25)%1;const p=curve.getPoint(Math.min(.99,u));d.position.copy(p).add(d.userData.off.clone().multiplyScalar(.5+Math.sin(t*2+i)*.2));d.visible=stream.visible&&u<sm(.3,.55,P)});
-    // beans: green -> roasted with scroll, orbit, then settle
-    const roastT=sm(.12,.45,P);const col=roastColor(roastT*.78);
-    beans.forEach((b,i)=>{const u=b.userData;const a=u.a+t*u.sp*(reduce?0:1);const r=u.r*(1-sm(.75,1,P)*.25);b.position.set(Math.cos(a)*r,u.y+Math.sin(t+i)*.12,Math.sin(a)*r*.7-.4);b.rotation.x+=u.rot.x*.01;b.rotation.y+=u.rot.y*.012;b.material.color.copy(col)});
-    heroRoot.rotation.y=Math.sin(t*.25)*.12+P*.5;
-    {const far=H.c.aspect<.8?1.55:1;H.c.position.set(0,2.6+P*.6,(10.5-P*1.4)*far);H.c.lookAt(0,1.9-P*.15,0);}
-    // text choreography
-    t1.style.transform=`translateY(${-P*40}vh)`;t2.style.transform=`translateY(${P*24}vh)`;t1.style.opacity=1-sm(.55,.75,P);t2.style.opacity=1-sm(.65,.85,P)*.6;
-    hint.style.opacity=1-sm(0,.08,P);
-    const ci=P<.3?0:P<.62?1:2;if(ci!==capI){capI=ci;cap.innerHTML=caps[ci];chaps.forEach((c,j)=>c.classList.toggle('on',j===ci))}
+const tmpV=new THREE.Vector3();let lastT=performance.now()/1000;
+function loop(){const t=performance.now()/1000;const dt=Math.min(.05,t-lastT);lastT=t;
+  if(vis.get(heroCanvas)){
+    prog+=(target-prog)*(reduce?1:.1);const P=prog;mx+=(tmx-mx)*.05;my+=(tmy-my)*.05;
+    // chapter 1 -> 2: cherries pop into green beans, then roast
+    items.forEach((g,i)=>{const u=g.userData;const k=sm(.1+u.stagger,.2+u.stagger,P);
+      u.cherry.scale.setScalar(Math.max(.001,1-k));u.bean.scale.setScalar(Math.max(.001,k));
+      const a=u.a+t*u.sp*(reduce?0:1);const r=u.r*(1-sm(.75,1,P)*.25);
+      g.position.set(Math.cos(a)*r,u.y+Math.sin(t*.9+i)*.14,Math.sin(a)*r*.7-.4);
+      g.rotation.x+=u.rx*.012;g.rotation.y+=u.ry*.015;setRoastLook(u.bean.material,sm(.2,.5,P)*.8)});
+    leaves.forEach((l,i)=>{const u=l.userData;const f=1-sm(.12,.26,P);l.visible=f>.01;l.position.set(u.x+Math.sin(t*.4+i)*.3,u.y+Math.sin(t*.6+i*2)*.2+P*3,u.z);l.rotation.set(Math.sin(t*.5+i)*.6,u.r+t*.2,Math.cos(t*.4+i)*.5);l.scale.setScalar((.55+rnd(i+90)*.35)*f)});
+    // carafe glides in and tilts
+    {const k=sm(.08,.3,P);carafe.position.set(-3.2+k*1.5,6-k*2.09,0);carafe.rotation.z=-sm(.12,.32,P)*1.75+Math.sin(t*1.5)*.01*k}
+    const pour=sm(.3,.62,P);carafe.userData.inside.scale.y=Math.max(.05,1-pour*.9);carafe.userData.inside.position.y=.36-pour*.24;
+    const grow=sm(.3,.55,P),cut=sm(.82,.97,P);sGeo.setDrawRange(0,Math.floor(sIdx*grow*(1-cut)/6)*6);stream.visible=grow>0&&cut<1;
+    flowTex.offset.x=-t*1.6;
+    drops.forEach((d,i)=>{const u=(d.userData.u+t*.3)%1;curve.getPointAt(Math.min(.99,u),tmpV);d.position.copy(tmpV).addScaledVector(d.userData.off,.35+Math.sin(t*3+i)*.15);d.visible=stream.visible&&u<grow});
+    // fill + crema + ripples + splash
+    const fill=sm(.4,.8,P);const lvl=(.2+fill*1.0)*1.25;
+    C.userData.coffee.position.y=.2+fill*1.0;C.userData.coffee.scale.setScalar(.66+fill*.36);C.userData.crema.position.y=C.userData.coffee.position.y+.003;C.userData.crema.scale.copy(C.userData.coffee.scale);
+    C.userData.crema.material.opacity=sm(.6,.92,P);C.userData.crema.rotation.z=t*.08;
+    const pouring=stream.visible&&grow>.95;
+    ripples.forEach(m=>{const ph=(m.userData.ph+t*.6)%1;m.position.set(-.1,lvl+.01,0);m.scale.setScalar(.08+ph*.75*(.66+fill*.36)*1.25);m.material.opacity=pouring?(1-ph)*.5:0});
+    crown.forEach((d,i)=>{const u=d.userData;if(u.life<=0&&pouring&&Math.random()<.25){u.life=.5+Math.random()*.4;const a=Math.random()*6.28,sp=.6+Math.random()*.9;u.v.set(Math.cos(a)*sp,1.6+Math.random()*1.4,Math.sin(a)*sp);d.position.set(-.1,lvl,0);d.visible=true}
+      if(u.life>0){u.life-=dt;u.v.y-=9*dt;d.position.addScaledVector(u.v,dt);if(u.life<=0||d.position.y<lvl-.05){d.visible=false;u.life=0}}});
+    // steam once the cup is full
+    hSteam.position.set(0,lvl+.05,0);tickSteam(hSteam,t,sm(.8,.95,P),H.c);
+    // gentle warm light sweep + camera parallax
+    H.key.position.set(4-P*6,7,5);H.key.intensity=2.2+P*.4;
+    root.rotation.y=Math.sin(t*.25)*.1+P*.45+mx*.25;
+    {const far=H.c.aspect<.8?1.55:1;H.c.position.set(mx*.8,2.6+P*.6-my*.5,(10.5-P*1.4)*far);H.c.lookAt(0,1.9-P*.15,0)}
+    t1.style.transform=`translateY(${-P*40}vh)`;t2.style.transform=`translateY(${P*24}vh)`;t1.style.opacity=1-sm(.55,.75,P);t2.style.opacity=1-sm(.65,.85,P)*.6;hint.style.opacity=1-sm(0,.08,P);
+    const ci=P<.22?0:P<.62?1:2;if(ci!==capI){capI=ci;cap.innerHTML=caps[ci];cap.classList.remove('in');void cap.offsetWidth;cap.classList.add('in');chaps.forEach((c,j)=>c.classList.toggle('on',j===ci))}
     H.r.render(H.s,H.c)}
-  // ROAST
-  if(vis.get(R.r.domElement)){roast+=((+rIn.value)/100-roast)*.12;pileMat.color.copy(roastColor(roast));
-    if(!reduce)pile.rotation.y+=.003;hero.rotation.set(.4+Math.sin(t*.7)*.2,t*.8,.2);hero.position.y=2.1+Math.sin(t*1.3)*.08;
-    smoke.forEach((s,i)=>{const o=(s.userData.o+t*.12)%1;s.position.set(Math.sin(i*2.3+t*.4)*.6,1+o*2.6,Math.cos(i*1.7)*.5);s.scale.setScalar(.5+o*1.6);s.material.opacity=Math.max(0,roast-.55)*.22*(1-o)});
+  if(vis.get(R.r.domElement)){roast+=((+rIn.value)/100-roast)*.08;pileMats.forEach((m,i)=>setRoastLook(m,Math.min(1,roast*(1+(i-1)*.06))));setRoastLook(heroBean.material,roast);
+    if(!reduce)pile.rotation.y+=.0025;heroBean.rotation.set(.4+Math.sin(t*.7)*.25,t*.8,.2);heroBean.position.y=2.15+Math.sin(t*1.3)*.08;
+    tickSteam(rSteam,t,sm(.45,.9,roast),R.c);
+    embers.forEach(e=>{const o=(e.userData.o+t*.35)%1;e.position.set(e.userData.x+Math.sin(t+o*6)*.15,.5+o*2.4,e.userData.z);e.material.opacity=sm(.7,1,roast)*(1-o)})
     R.r.render(R.s,R.c)}
-  // CUP
-  if(vis.get(B.r.domElement)){Object.values(layerMeshes).forEach(m=>{const u=m.userData;u.h+=(u.th-u.h)*.09;u.y+=(u.ty-u.y)*.09;m.visible=u.h>.01;m.scale.y=Math.max(.001,u.h);m.position.y=u.y});
-    art.userData.y=(art.userData.y||.2)+((art.userData.ty||.2)-(art.userData.y||.2))*.09;art.position.y=art.userData.y;art.visible=art.userData.on&&Math.abs(art.userData.y-art.userData.ty)<.08;
+  if(vis.get(B.r.domElement)){let top=.14,moving=false;Object.values(layerMeshes).forEach(m=>{const u=m.userData;u.h+=(u.th-u.h)*.06;u.y+=(u.ty-u.y)*.06;if(Math.abs(u.th-u.h)>.02)moving=true;m.visible=u.h>.01;m.scale.y=Math.max(.001,u.h);m.position.y=u.y;if(m.visible)top=Math.max(top,u.y+u.h/2)});
+    const since=(performance.now()-lastChange)/1000;
+    bStream.visible=moving&&since<1.6;bStream.position.y=(top+3.3)/2;bStream.scale.y=Math.max(.01,3.3-top);bStream.position.x=Math.sin(t*6)*.01;
+    art.position.y=top+.012;art.material.opacity+=((art.userData.on&&!moving?1:0)-art.material.opacity)*.08;art.rotation.z=-bRoot.rotation.y*0;
+    bubbles.forEach(b=>{const o=(b.userData.o+t*.25)%1;const isA=drink().value==='Americano';b.visible=isA&&!moving;b.position.set(Math.cos(b.userData.a)*b.userData.r,.2+o*(top-.25),Math.sin(b.userData.a)*b.userData.r)});
+    bSteam.position.y=top;tickSteam(bSteam,t,moving?0:.85,B.c);
     if(!reduce)bRoot.rotation.y+=.004;B.r.render(B.s,B.c)}
   requestAnimationFrame(loop)}
 loop();
