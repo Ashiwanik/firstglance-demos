@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>FirstGlance video relay</title></head>
+<body style="font:16px system-ui;padding:30px"><p id="s">Loading video…</p>
+<script>
+(async()=>{const f=(new URLSearchParams(location.search).get('f')||'');if(!/^[a-z0-9-]+\.mp4$/.test(f))return;
+const b=await (await fetch('media/'+f)).blob();
+document.getElementById('s').textContent='Loaded '+Math.round(b.size/1024)+' KB. Sending…';
+if(window.opener){window.opener.postMessage({type:'fg-video',name:f,blob:b},'https://www.instagram.com');document.getElementById('s').textContent+=' Sent.'}})();
+</script></body></html>
