@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MaisonDeni Nail Atelier · Private nail studio, Canning Town (concept)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_lib/fg.css">
+<style>
+:root{--bg:#F8ECE8;--ink:#2B1217;--muted:#8A6B70;--acc:#7A1F35;--on-acc:#FFF4F1;--line:#EAD3CD;--card:#FFF8F6;--chip:#fff;--stage:radial-gradient(70% 60% at 50% 40%,#FFF6F3,#F0D9D3);--display:"Fraunces",Georgia,serif}
+.swatches{display:flex;flex-wrap:wrap;gap:10px}
+.swatches label{position:relative}.swatches input{position:absolute;opacity:0}
+.swatches span{display:block;width:40px;height:40px;border-radius:50%;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15),0 4px 10px -4px rgba(0,0,0,.3);transition:transform .2s}
+.swatches input:checked+span{transform:scale(1.15);box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--acc)}
+.swatches input:focus-visible+span{outline:3px solid var(--acc);outline-offset:4px}
+</style>
+</head>
+<body>
+<div class="concept"><b>Made for MaisonDeni Nail Atelier</b> · a free website concept by FirstGlance Studio. Not an official website.</div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">Maison<em>Deni</em></a>
+  <ul><li><a href="#design">Design your set</a></li><li><a href="#menu">Services</a></li><li><a href="#visit">Visit</a></li></ul>
+  <a class="pill" href="https://trea.tw/sK8wYqijWiHtZTQw2" target="_blank" rel="noopener">Book a slot</a>
+</div></header>
+<div class="wrap hero" id="top">
+  <div>
+    <span class="kicker">💎 Private 1-1 nail studio · Canning Town E16</span>
+    <h1 id="h1">The cleanest, glossiest nails in London.</h1>
+    <p class="lead">Hi, I'm Deni. BIAB, nail art and Russian manicures in a private one-to-one studio, just you and me.</p>
+    <div class="ctas"><a class="btn btn-a" href="https://trea.tw/sK8wYqijWiHtZTQw2" target="_blank" rel="noopener">Book your festive nails ↗</a><a class="btn btn-o" href="#design">Design your set ↓</a></div>
+  </div>
+  <canvas id="hero3d" aria-label="3D glossy nail with polish bottles"></canvas>
+</div>
+<section id="design" style="padding-top:30px"><div class="wrap">
+  <p class="eyebrow">Design your set · live in 3D</p>
+  <h2>Pick it. Spin it. <em>Book it.</em></h2>
+  <p class="sub">Choose a shape, colour and finish, and add an accent nail. Your set appears on the stand, ready to bring to your appointment.</p>
+  <div class="builder">
+    <canvas id="set3d" aria-label="3D set of five nails on a display stand"></canvas>
+    <div class="panel">
+      <span class="lbl">Shape</span>
+      <div class="opts"><label class="opt"><input type="radio" name="s" value="Almond" checked><span>Almond</span></label><label class="opt"><input type="radio" name="s" value="Oval"><span>Oval</span></label><label class="opt"><input type="radio" name="s" value="Square"><span>Square</span></label><label class="opt"><input type="radio" name="s" value="Coffin"><span>Coffin</span></label><label class="opt"><input type="radio" name="s" value="Stiletto"><span>Stiletto</span></label></div>
+      <span class="lbl">Colour</span>
+      <div class="swatches" id="cols"></div>
+      <span class="lbl">Finish</span>
+      <div class="opts"><label class="opt"><input type="radio" name="f" value="Gloss" checked><span>Gloss</span></label><label class="opt"><input type="radio" name="f" value="Chrome"><span>Chrome</span></label><label class="opt"><input type="radio" name="f" value="French tip"><span>French tip</span></label><label class="opt"><input type="radio" name="f" value="Glitter"><span>Glitter</span></label></div>
+      <span class="lbl">Accent nail</span>
+      <div class="opts"><label class="opt"><input type="checkbox" id="acc"><span>✨ Glitter accent on the ring finger</span></label></div>
+      <div class="summary"><small style="color:var(--muted)">Your set</small><b id="sum"></b></div>
+      <a class="btn btn-a" id="book" href="https://trea.tw/sK8wYqijWiHtZTQw2" target="_blank" rel="noopener">Book this set ↗</a>
+      <p class="note" id="bnote">We copy your design so you can paste it into your booking note. Booking stays on Treatwell.</p>
+    </div>
+  </div>
+</div></section>
+<section id="menu" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">In the chair</p>
+  <h2>Just you, me and <em>very good nails.</em></h2>
+  <div class="cards">
+    <div class="card"><div class="ic">💅</div><h3>BIAB</h3><p>Builder gel for strong, natural-looking nails that last.</p></div>
+    <div class="card"><div class="ic">🎨</div><h3>Nail art</h3><p>From clean chrome to festive designs. Bring your inspo.</p></div>
+    <div class="card"><div class="ic">✨</div><h3>Russian manicure</h3><p>Precise cuticle work for that super-clean finish.</p></div>
+    <div class="card"><div class="ic">🔒</div><h3>Private 1-1 studio</h3><p>No busy salon, no rush. Just your appointment.</p></div>
+  </div>
+</div></section>
+<section id="visit" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">Festive slots are going fast</p>
+  <h2>Come sit <em>in my chair.</em></h2>
+  <div class="visit">
+    <div class="card"><h3>Where</h3><p>Canning Town, London E16</p><p style="margin-top:12px"><a href="https://www.google.com/maps/search/?api=1&query=Canning+Town+London+E16" target="_blank" rel="noopener"><b>Open in Maps ↗</b></a></p></div>
+    <div class="card"><h3>Book</h3><p>Live availability and prices on Treatwell.</p><p style="margin-top:12px"><a href="https://trea.tw/sK8wYqijWiHtZTQw2" target="_blank" rel="noopener"><b>See slots ↗</b></a></p></div>
+    <div class="card"><h3>Follow</h3><p>New sets every week.</p><p style="margin-top:12px"><a href="https://www.instagram.com/maisondenilondon/" target="_blank" rel="noopener"><b>@maisondenilondon ↗</b></a></p></div>
+  </div>
+</div></section>
+<footer><div class="wrap">MaisonDeni Nail Atelier · Canning Town. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. Everything here is drawn live in 3D, no photos used.</div></footer>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import {THREE,base,canvasTex,shadowDisc,drag,onVisible,splitLetters,rnd,reduce,floaters} from '../_lib/fg3d.js';
+splitLetters(document.getElementById('h1'));
+const COLS={'Milky nude':'#E9CBBE','Soft pink':'#F2B6C1','Burgundy':'#6E1328','Cherry red':'#B3112E','Festive green':'#1F5E43','Chrome silver':'#C9CCD3','Gold':'#C9A24D','Midnight':'#1C1C2E'};
+cols.innerHTML=Object.entries(COLS).map(([n,c],i)=>`<label title="${n}"><input type="radio" name="c" value="${n}" ${i===2?'checked':''} aria-label="${n}"><span style="background:${c}"></span></label>`).join('');
+// nail outline shapes (x: -.3..3, y: 0..len)
+function outline(kind){const s=new THREE.Shape();const w=.3;s.moveTo(-w,0);s.quadraticCurveTo(0,-.08,w,0);
+  if(kind==='Square'){s.lineTo(w,1.02);s.quadraticCurveTo(w,1.08,w-.05,1.08);s.lineTo(-w+.05,1.08);s.quadraticCurveTo(-w,1.08,-w,1.02)}
+  else if(kind==='Oval'){s.lineTo(w,.75);s.bezierCurveTo(w,1.05,-w,1.05,-w,.75)}
+  else if(kind==='Almond'){s.lineTo(w,.6);s.bezierCurveTo(w,.95,.08,1.25,0,1.28);s.bezierCurveTo(-.08,1.25,-w,.95,-w,.6)}
+  else if(kind==='Coffin'){s.lineTo(w,.6);s.lineTo(.15,1.3);s.quadraticCurveTo(0,1.33,-.15,1.3);s.lineTo(-w,.6)}
+  else{s.lineTo(w,.55);s.bezierCurveTo(w,.9,.04,1.45,0,1.55);s.bezierCurveTo(-.04,1.45,-w,.9,-w,.55)}
+  s.lineTo(-w,0);return s}
+function nailGeo(kind){const g=new THREE.ExtrudeGeometry(outline(kind),{depth:.05,bevelEnabled:true,bevelThickness:.03,bevelSize:.025,bevelSegments:6,curveSegments:40});
+  const p=g.attributes.position;for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i);p.setZ(i,p.getZ(i)-x*x*1.6+y*.06-y*y*.05)}g.computeVertexNormals();
+  // uv: map x -.3..3 -> 0..1, y 0..1.6 -> 0..1
+  const uv=g.attributes.uv;for(let i=0;i<uv.count;i++){uv.setXY(i,(p.getX(i)+.3)/.6,p.getY(i)/1.6)}return g}
+function finishTex(col,finish){return canvasTex(256,256,(x,w,h)=>{x.fillStyle=col;x.fillRect(0,0,w,h);
+  if(finish==='French tip'){x.fillStyle='#EBC0B4';x.fillRect(0,0,w,h);x.fillStyle=(col==='#E9CBBE'?'#FFFFFF':col);x.beginPath();x.moveTo(0,0);x.lineTo(w,0);x.lineTo(w,h*.26);x.quadraticCurveTo(w/2,h*.44,0,h*.26);x.fill();}
+  if(finish==='Glitter'){for(let i=0;i<1400;i++){const c=rnd(i)>.5?'rgba(255,255,255,.95)':'rgba(255,225,170,.9)';x.fillStyle=c;const r=.6+rnd(i+1)*1.8;x.fillRect(rnd(i+2)*w,rnd(i+3)*h,r,r)}}
+  const g=x.createLinearGradient(0,h,0,0);g.addColorStop(0,'rgba(255,255,255,.0)');g.addColorStop(.92,'rgba(255,255,255,0)');g.addColorStop(1,'rgba(255,255,255,.18)');x.fillStyle=g;x.fillRect(0,0,w,h)})}
+// French tip texture is drawn with y flipped (canvas top = nail tip)
+function nailMat(col,finish){const t=finishTex(col,finish);t.flipY=true;const chrome=finish==='Chrome';
+  return new THREE.MeshPhysicalMaterial({map:t,color:0xffffff,roughness:chrome?.12:(finish==='Glitter'?.3:.18),metalness:chrome?1:0,clearcoat:1,clearcoatRoughness:.03,iridescence:chrome?.6:0,sheen:finish==='Glitter'?1:0,sheenColor:new THREE.Color(0xffffff)})}
+/* ---------- HERO ---------- */
+const A=base(document.getElementById('hero3d'),{fov:30,cam:[0,1.6,7],look:[0,1.3,0],env:1.1});
+const big=new THREE.Mesh(nailGeo('Almond'),nailMat('#6E1328','Gloss'));big.scale.setScalar(2.1);big.position.set(0,0,0);
+const bigG=new THREE.Group();bigG.add(big);big.position.set(0,-1.3,0);bigG.position.set(0,1.6,0);bigG.rotation.set(-.25,0,.25);A.s.add(bigG);
+function bottle(col){const g=new THREE.Group();const pts=[];[[0,0],[.34,0],[.38,.05],[.4,.5],[.36,.62],[.18,.7],[.16,.74],[0,.74]].forEach(q=>pts.push(new THREE.Vector2(...q)));
+  g.add(new THREE.Mesh(new THREE.LatheGeometry(pts,48),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.02,transmission:1,thickness:.4,ior:1.5,transparent:true,opacity:.5})));
+  const liq=new THREE.Mesh(new THREE.CylinderGeometry(.33,.33,.5,40),new THREE.MeshPhysicalMaterial({color:col,roughness:.1,clearcoat:1}));liq.position.y=.29;g.add(liq);
+  const cap=new THREE.Mesh(new THREE.CylinderGeometry(.13,.15,.7,32),new THREE.MeshPhysicalMaterial({color:0x111111,roughness:.2,clearcoat:1}));cap.position.y=1.08;g.add(cap);
+  const band=new THREE.Mesh(new THREE.CylinderGeometry(.155,.155,.06,32),new THREE.MeshPhysicalMaterial({color:0xC9A24D,metalness:1,roughness:.2}));band.position.y=.76;g.add(band);return g}
+const bottles=['#6E1328','#E9CBBE','#1F5E43','#B3112E','#C9CCD3'].map((c,i)=>{const b=bottle(c);b.scale.setScalar(.75);A.s.add(b);return b});
+const spark=floaters(26,{color:0xffffff,r:.03,spread:4,height:3.5,opacity:.9});spark.position.y=0;A.s.add(spark);
+const ash=shadowDisc(3.6,.25);ash.position.y=-.2;A.s.add(ash);
+const spinA=drag(A.r.domElement,bigG,{auto:.006});const vA=onVisible(A.r.domElement);
+/* ---------- SET BUILDER ---------- */
+const B=base(document.getElementById('set3d'),{fov:30,cam:[0,3.9,8.8],look:[0,.35,0],env:1});
+const stand=new THREE.Group();B.s.add(stand);
+const velvet=new THREE.Mesh(new THREE.CylinderGeometry(2.4,2.5,.3,96),new THREE.MeshPhysicalMaterial({color:0xE7C3BE,roughness:.9,sheen:1,sheenColor:new THREE.Color(0xffffff),sheenRoughness:.6}));velvet.position.y=-.15;stand.add(velvet);
+const rim=new THREE.Mesh(new THREE.TorusGeometry(2.45,.05,12,96),new THREE.MeshPhysicalMaterial({color:0xC9A24D,metalness:1,roughness:.2}));rim.rotation.x=Math.PI/2;rim.position.y=0;stand.add(rim);
+const bsh=shadowDisc(6,.35);bsh.position.y=-.31;B.s.add(bsh);
+const FING=[{x:-1.6,s:.95,r:.35},{x:-.8,s:1.05,r:.15},{x:0,s:1.12,r:0},{x:.8,s:1.02,r:-.15},{x:1.55,s:.85,r:-.35}];
+const nails=FING.map((f,i)=>{const g=new THREE.Group();const m=new THREE.Mesh(nailGeo('Almond'),nailMat('#6E1328','Gloss'));m.rotation.x=-Math.PI/2+.5;m.position.y=.25;g.add(m);g.position.set(f.x,0,.3-Math.abs(f.x)*.25);g.rotation.y=f.r;g.scale.setScalar(f.s);g.userData={m,pop:0};stand.add(g);return g});
+const spinB=drag(B.r.domElement,stand,{auto:.002});
+const pick=n=>document.querySelector(`input[name=${n}]:checked`).value;
+let last='';
+function upd(){const s=pick('s'),c=pick('c'),f=pick('f');const col=COLS[c];const accent=document.getElementById('acc').checked;
+  const key=s+c+f+accent;if(key===last)return;const shapeChanged=!last.startsWith(s);last=key;
+  const geo=nailGeo(s);nails.forEach((n,i)=>{const m=n.userData.m;if(shapeChanged){m.geometry.dispose();m.geometry=geo}m.material.dispose();m.material=nailMat(col,(accent&&i===3)?'Glitter':f);n.userData.pop=1});
+  const txt=`${s} · ${c.toLowerCase()} · ${f.toLowerCase()}${accent?' · glitter accent':''}`;sum.textContent=txt;window.__set=txt;
+  bigG.children[0].geometry=geo;bigG.children[0].material=nailMat(col,f)}
+document.querySelectorAll('.panel input').forEach(i=>i.addEventListener('change',upd));upd();
+document.getElementById('book').addEventListener('click',()=>{try{navigator.clipboard.writeText('My set: '+window.__set);bnote.textContent='Copied ✓ Paste "'+window.__set+'" into your booking note.'}catch(e){}});
+const vB=onVisible(B.r.domElement);
+function loop(){const t=performance.now()/1000;
+  if(vA.v){spinA();bigG.position.y=1.6+Math.sin(t*1.2)*.08;bottles.forEach((b,i)=>{const a=t*.35+i/5*Math.PI*2;b.position.set(Math.cos(a)*2.3,.2+Math.sin(t+i)*.25+i*.15,Math.sin(a)*1.2-.3);b.rotation.y=t*.5+i;b.rotation.z=Math.sin(t*.7+i)*.2});spark.userData.tick(t);A.r.render(A.s,A.c)}
+  if(vB.v){spinB();nails.forEach((n,i)=>{n.userData.pop*=.9;n.position.y=Math.sin(n.userData.pop*Math.PI)*.35+Math.sin(t*1.2+i)*.02;n.userData.m.rotation.z=n.userData.pop*.6});B.r.render(B.s,B.c)}
+  requestAnimationFrame(loop)}
+loop();
+</script>
+</body>
+</html>

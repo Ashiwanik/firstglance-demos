@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kays Florals · London florist, nationwide delivery (concept)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_lib/fg.css">
+<style>
+:root{--bg:#F4F1EA;--ink:#25201C;--muted:#7D736B;--acc:#B23A5B;--on-acc:#FFF5F7;--line:#E3DCCF;--card:#FFFDF8;--chip:#fff;--stage:radial-gradient(70% 60% at 50% 40%,#FFFDF8,#E9E3D6);--display:"Fraunces",Georgia,serif}
+.price{display:flex;gap:10px}.price .opt span{flex-direction:column;align-items:flex-start;border-radius:18px;padding:10px 16px}
+.price small{font-weight:600;opacity:.8}
+textarea{width:100%;border:2px solid var(--line);border-radius:14px;padding:12px;font:600 15px var(--body);background:#fff;color:var(--ink);resize:vertical;min-height:70px}
+</style>
+</head>
+<body>
+<div class="concept"><b>Made for Kays Florals</b> · a free website concept by FirstGlance Studio. Not an official website.</div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">Kays <em>Florals</em> 🌷</a>
+  <ul><li><a href="#build">Build a bouquet</a></li><li><a href="#more">Gifts &amp; bridal</a></li><li><a href="#visit">Delivery</a></li></ul>
+  <a class="pill" href="https://ig.me/m/kayss.florals" target="_blank" rel="noopener">DM to order</a>
+</div></header>
+<div class="wrap hero" id="top">
+  <div>
+    <span class="kicker">📍 Limehouse, London E14 · 📦 UK nationwide delivery</span>
+    <h1 id="h1">Peonies, hydrangeas and roses, delivered.</h1>
+    <p class="lead">Premium hand-tied bouquets from our London studio, sent anywhere in the UK. Build yours below and see it in 3D before you order.</p>
+    <div class="ctas"><a class="btn btn-a" href="#build">Build your bouquet ↓</a><a class="btn btn-o" href="https://ig.me/m/kayss.florals" target="_blank" rel="noopener">DM to order ↗</a></div>
+  </div>
+  <canvas id="hero3d" aria-label="3D hand-tied bouquet with falling petals"></canvas>
+</div>
+<section id="build" style="padding-top:30px"><div class="wrap">
+  <p class="eyebrow">Build a bouquet · live in 3D</p>
+  <h2>Choose your blooms. <em>Watch it come together.</em></h2>
+  <p class="sub">Pick your flowers, size and wrap, and add a card. Spin the bouquet to see it from every side, then send it to us to order.</p>
+  <div class="builder">
+    <canvas id="build3d" aria-label="3D bouquet that changes as you choose flowers"></canvas>
+    <div class="panel">
+      <span class="lbl">Flowers</span>
+      <div class="opts" id="fl">
+        <label class="opt"><input type="checkbox" value="rose" checked><span>🌹 Roses</span></label>
+        <label class="opt"><input type="checkbox" value="peony" checked><span>🌸 Peonies</span></label>
+        <label class="opt"><input type="checkbox" value="hydrangea" checked><span>💠 Hydrangeas</span></label>
+        <label class="opt"><input type="checkbox" value="lily"><span>🤍 Lilies</span></label>
+        <label class="opt"><input type="checkbox" value="spray"><span>🌺 Spray roses</span></label>
+        <label class="opt"><input type="checkbox" value="gyp" checked><span>☁️ Gypsophila</span></label>
+        <label class="opt"><input type="checkbox" value="euc" checked><span>🌿 Eucalyptus</span></label>
+      </div>
+      <span class="lbl">Rose colour</span>
+      <div class="opts"><label class="opt"><input type="radio" name="rc" value="#B0122E" checked><span><i class="sw" style="background:#B0122E"></i>Red</span></label><label class="opt"><input type="radio" name="rc" value="#F3A6B8"><span><i class="sw" style="background:#F3A6B8"></i>Pink</span></label><label class="opt"><input type="radio" name="rc" value="#FFF6EE"><span><i class="sw" style="background:#FFF6EE"></i>White</span></label></div>
+      <span class="lbl">Size</span>
+      <div class="opts price"><label class="opt"><input type="radio" name="sz" value="L" checked><span>Large<small>from £115</small></span></label><label class="opt"><input type="radio" name="sz" value="XL"><span>Extra large<small>from £165</small></span></label></div>
+      <span class="lbl">Wrap</span>
+      <div class="opts"><label class="opt"><input type="radio" name="wr" value="#C9A27A" checked><span><i class="sw" style="background:#C9A27A"></i>Kraft</span></label><label class="opt"><input type="radio" name="wr" value="#1E1E1E"><span><i class="sw" style="background:#1E1E1E"></i>Black</span></label><label class="opt"><input type="radio" name="wr" value="#F2D6D6"><span><i class="sw" style="background:#F2D6D6"></i>Blush</span></label></div>
+      <span class="lbl">Card message</span>
+      <textarea id="msg" maxlength="160" placeholder="Happy birthday, love you lots x"></textarea>
+      <div class="opts" style="margin-top:10px"><label class="opt"><input type="checkbox" id="anon"><span>🤫 Send anonymously</span></label></div>
+      <div class="summary"><small style="color:var(--muted)">Your bouquet</small><b id="sum"></b></div>
+      <button class="btn btn-a" id="send" type="button">Send my bouquet to Kays ↗</button>
+      <p class="note" id="bnote">We copy your order and open our DMs, so just paste and send. Prices are taken from recent posts; final price confirmed by DM.</p>
+    </div>
+  </div>
+</div></section>
+<section id="more" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">More from the studio</p>
+  <h2>For every <em>kind of moment.</em></h2>
+  <div class="cards">
+    <div class="card"><div class="ic">💐</div><h3>Premium bouquets</h3><p>Hand-tied in L and XL, with seasonal stems.</p></div>
+    <div class="card"><div class="ic">🤫</div><h3>Anonymous bouquet</h3><p>Let the flowers do the talking. We keep your name secret.</p></div>
+    <div class="card"><div class="ic">🧺</div><h3>Bloom baskets</h3><p>A basket full of blooms that looks good anywhere.</p></div>
+    <div class="card"><div class="ic">👰</div><h3>Bridal</h3><p>Bouquets and florals for the big day. DM to enquire.</p></div>
+  </div>
+</div></section>
+<section id="visit" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">Delivery</p>
+  <h2>From E14 to <em>anywhere in the UK.</em></h2>
+  <div class="visit">
+    <div class="card"><h3>Studio</h3><p>Limehouse, London E14</p></div>
+    <div class="card"><h3>Delivery</h3><p>Nationwide delivery available. Check our availability before you order.</p></div>
+    <div class="card"><h3>Order</h3><p>DM us your bouquet and date.</p><p style="margin-top:12px"><a href="https://www.instagram.com/kayss.florals/" target="_blank" rel="noopener"><b>@kayss.florals ↗</b></a></p></div>
+  </div>
+</div></section>
+<footer><div class="wrap">Kays Florals · Limehouse, London. Please read our policies and T&amp;Cs before ordering. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. Every flower here is drawn live in 3D, no photos used.</div></footer>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import {THREE,base,canvasTex,shadowDisc,drag,onVisible,splitLetters,rnd,reduce} from '../_lib/fg3d.js';
+splitLetters(document.getElementById('h1'));
+const petalGeo=new THREE.SphereGeometry(1,14,10,0,Math.PI*.9,0,Math.PI*.42);
+const mat=(c,o={})=>new THREE.MeshPhysicalMaterial({color:c,roughness:.55,sheen:1,sheenColor:new THREE.Color(0xffffff),sheenRoughness:.5,side:THREE.DoubleSide,...o});
+function petalGeom(w=1,ruffle=0,seed=0){const sh=new THREE.Shape();sh.moveTo(0,0);sh.bezierCurveTo(.42*w,.12,.5*w,.72,0,1);sh.bezierCurveTo(-.5*w,.72,-.42*w,.12,0,0);
+  const g=new THREE.ShapeGeometry(sh,14);const p=g.attributes.position;for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i);p.setZ(i,x*x*1.4+(ruffle?Math.sin(x*18+seed)*.03*y:0))}g.computeVertexNormals();return g}
+const PG=petalGeom(1),PG2=petalGeom(1.25,1,2);
+function bloom(col,count,geo,{open=1.1,base=.22,grow=.36,curl=.5}={}){const g=new THREE.Group();const m=mat(col),m2=mat(new THREE.Color(col).offsetHSL(0,-.04,-.07));
+  for(let i=0;i<count;i++){const k=i/count;const piv=new THREE.Group();piv.rotation.y=i*2.39996;const p=new THREE.Mesh(geo,k<.35?m2:m);const s=base+k*grow;p.scale.set(s,s*1.1,s);p.position.z=.015+k*.1;p.rotation.x=-(.12+Math.pow(k,1.3)*open);
+    // curl outer petal tips outward
+    piv.add(p);g.add(piv)}
+  return g}
+function rose(col,s=1){const g=bloom(col,20,PG,{open:1.25,base:.2,grow:.34});const bud=new THREE.Mesh(new THREE.SphereGeometry(.07,12,10),mat(new THREE.Color(col).offsetHSL(0,0,-.1)));bud.scale.y=1.6;bud.position.y=.08;g.add(bud);g.scale.setScalar(s);return g}
+function peony(col,s=1){const g=bloom(col,42,PG2,{open:1.45,base:.2,grow:.42});g.scale.setScalar(s);return g}
+function hydrangea(col,s=1){const g=new THREE.Group();const geo=new THREE.CircleGeometry(.07,4);const m=mat(col),m2=mat(new THREE.Color(col).offsetHSL(.03,0,.07));for(let i=0;i<90;i++){const y=1-(i/89)*.85;const r=Math.sqrt(1-y*y);const a=i*2.39996;const f=new THREE.Mesh(geo,i%2?m:m2);const v=new THREE.Vector3(Math.cos(a)*r,y,Math.sin(a)*r).multiplyScalar(.5);f.position.copy(v);f.lookAt(v.clone().multiplyScalar(3));f.rotation.z+=i;g.add(f)}
+  const core=new THREE.Mesh(new THREE.SphereGeometry(.46,20,14),mat(new THREE.Color(col).offsetHSL(0,0,-.12)));core.scale.y=.85;g.add(core);g.scale.setScalar(s);return g}
+const lilyShape=(()=>{const sh=new THREE.Shape();sh.moveTo(0,0);sh.bezierCurveTo(.16,.25,.14,.6,0,.9);sh.bezierCurveTo(-.14,.6,-.16,.25,0,0);return new THREE.ShapeGeometry(sh,16)})();
+function lily(s=1){const g=new THREE.Group();const m=mat(0xFFFBF5,{roughness:.4});for(let i=0;i<6;i++){const p=new THREE.Mesh(lilyShape,m);p.rotation.set(-1.0,i*Math.PI/3,0,'YXZ');g.add(p)}
+  const st=new THREE.MeshStandardMaterial({color:0xB5532A});for(let i=0;i<6;i++){const a=i*Math.PI/3+.5;const s2=new THREE.Mesh(new THREE.CylinderGeometry(.008,.008,.4,6),new THREE.MeshStandardMaterial({color:0xDDE6B0}));s2.position.set(Math.cos(a)*.05,.2,Math.sin(a)*.05);s2.rotation.set(Math.sin(a)*.3,0,-Math.cos(a)*.3);g.add(s2);const an=new THREE.Mesh(new THREE.SphereGeometry(.03,8,6),st);an.scale.set(1,2,1);an.position.set(Math.cos(a)*.11,.4,Math.sin(a)*.11);g.add(an)}g.scale.setScalar(s);return g}
+function gyp(s=1){const g=new THREE.Group();const m=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.8});const geo=new THREE.SphereGeometry(.03,6,5);for(let i=0;i<70;i++){const d=new THREE.Mesh(geo,m);const a=rnd(i)*6.28,r=Math.sqrt(rnd(i+1))*.45;d.position.set(Math.cos(a)*r,rnd(i+2)*.3,Math.sin(a)*r);g.add(d)}g.scale.setScalar(s);return g}
+function euc(s=1){const g=new THREE.Group();const m=mat(0x8FA89A,{roughness:.7});const geo=new THREE.CircleGeometry(.11,16);for(let i=0;i<16;i++){const l=new THREE.Mesh(geo,m);const y=i*.06;l.position.set(Math.sin(i*1.7)*.06,y,Math.cos(i*1.7)*.06);l.rotation.set(rnd(i)*.8,i*1.7,0);g.add(l)}
+  const stem=new THREE.Mesh(new THREE.CylinderGeometry(.012,.012,1,6),new THREE.MeshStandardMaterial({color:0x6E7F64}));stem.position.y=.45;g.add(stem);g.scale.setScalar(s);return g}
+function wrapTex(col){return canvasTex(512,256,(x,w,h)=>{x.fillStyle=col;x.fillRect(0,0,w,h);for(let i=0;i<1600;i++){x.fillStyle=`rgba(${rnd(i)>.5?255:0},${rnd(i)>.5?255:0},${rnd(i)>.5?255:0},.04)`;x.fillRect(rnd(i+1)*w,rnd(i+2)*h,2,2)}for(let i=0;i<8;i++){x.strokeStyle='rgba(0,0,0,.08)';x.lineWidth=2;x.beginPath();x.moveTo(i*w/8+rnd(i)*20,0);x.lineTo(i*w/8+rnd(i+3)*40,h);x.stroke()}})}
+const HEAD={rose:c=>rose(c,1.05),peony:()=>peony(0xF4A9BF,1.0),hydrangea:()=>hydrangea(Math.random()>.5?0xA9C2EB:0xF1F2F6,.82),lily:()=>lily(1.1),spray:c=>rose(c,.55)};
+function bouquet(sel,{rc='#B0122E',size='L',wrap='#C9A27A'}={}){const g=new THREE.Group();
+  const heads=sel.filter(k=>HEAD[k]);const n=size==='XL'?21:13;const R=size==='XL'?1.45:1.15;
+  for(let i=0;i<n;i++){const y=1-(i/(n-1))*.75;const r=Math.sqrt(1-y*y);const a=i*2.39996;const k=heads.length?heads[i%heads.length]:'rose';
+    const h=HEAD[k](rc);const v=new THREE.Vector3(Math.cos(a)*r*R,y*.55*R,Math.sin(a)*r*R);h.position.copy(v).add(new THREE.Vector3(0,1.6,0));h.lookAt(h.position.clone().add(v.clone().setY(v.y+.9)));h.rotateX(Math.PI/2);h.userData.d=i;g.add(h)}
+  if(sel.includes('gyp'))for(let i=0;i<(size==='XL'?9:6);i++){const a=i/6*6.28+.4;const d=gyp(.9);d.position.set(Math.cos(a)*R*.95,1.75+rnd(i)*.4,Math.sin(a)*R*.95);g.add(d)}
+  if(sel.includes('euc'))for(let i=0;i<(size==='XL'?10:7);i++){const a=i/7*6.28+.2;const e=euc(1.1);e.position.set(Math.cos(a)*R*.85,1.25,Math.sin(a)*R*.85);e.rotation.set(Math.sin(a)*.6,a,-Math.cos(a)*.6);g.add(e)}
+  // stems
+  const sm=new THREE.MeshStandardMaterial({color:0x5E7A4E,roughness:.7});for(let i=0;i<14;i++){const s=new THREE.Mesh(new THREE.CylinderGeometry(.025,.025,2.2,6),sm);const a=i/14*6.28;s.position.set(Math.cos(a)*.12,-.2,Math.sin(a)*.12);s.rotation.set(Math.sin(a)*.08,0,-Math.cos(a)*.08);g.add(s)}
+  // paper wrap: open cone + folded outer sheets
+  const wm=new THREE.MeshStandardMaterial({map:wrapTex(wrap),roughness:.85,side:THREE.DoubleSide});
+  const cone=new THREE.Mesh(new THREE.CylinderGeometry(R*1.15,.3,2.1,48,1,true),wm);cone.position.y=.75;g.add(cone);
+  for(let i=0;i<5;i++){const sh=new THREE.Mesh(new THREE.PlaneGeometry(1.4*R,1.7,6,6),wm);const p=sh.geometry.attributes.position;for(let j=0;j<p.count;j++){const x=p.getX(j),y=p.getY(j);p.setZ(j,-x*x*.35+(y>.6?(y-.6)*.4:0))}sh.geometry.computeVertexNormals();const a=i/5*6.28;sh.position.set(Math.cos(a)*R*.6,.75,Math.sin(a)*R*.6);sh.rotation.set(0,-a+Math.PI/2,0);sh.rotateX(-.35);g.add(sh)}
+  const ribbon=new THREE.Mesh(new THREE.TorusGeometry(.36,.05,10,40),new THREE.MeshPhysicalMaterial({color:0xB23A5B,roughness:.3,sheen:1}));ribbon.rotation.x=Math.PI/2;ribbon.position.y=-.2;g.add(ribbon);
+  [-1,1].forEach(s=>{const bow=new THREE.Mesh(new THREE.TorusGeometry(.18,.045,10,30),ribbon.material);bow.position.set(s*.2,-.2,.36);bow.rotation.set(0,s*.5,0);bow.scale.set(1.3,.7,1);g.add(bow)});
+  g.position.y=-.4;return g}
+/* HERO */
+const A=base(document.getElementById('hero3d'),{fov:30,cam:[0,4.2,8.2],look:[0,1.1,0],env:.9});
+const hb=bouquet(['rose','peony','hydrangea','gyp','euc'],{size:'XL'});A.s.add(hb);
+const petals=new THREE.Group();A.s.add(petals);for(let i=0;i<24;i++){const p=new THREE.Mesh(petalGeo,mat(i%3?0xB0122E:0xF4A9BF));p.scale.setScalar(.12);p.userData={x:(rnd(i)-.5)*4,z:(rnd(i+1)-.5)*2,o:rnd(i+2),s:.05+rnd(i+3)*.06};petals.add(p)}
+const ash=shadowDisc(3.4,.3);ash.position.y=-1.5;A.s.add(ash);
+const spinA=drag(A.r.domElement,hb,{auto:.004});const vA=onVisible(A.r.domElement);
+/* BUILDER */
+const B=base(document.getElementById('build3d'),{fov:30,cam:[0,4.4,8.4],look:[0,.95,0],env:.9});
+const bsh=shadowDisc(3.6,.3);bsh.position.y=-1.5;B.s.add(bsh);let cur=null,grow=0;const holder=new THREE.Group();B.s.add(holder);
+const spinB=drag(B.r.domElement,holder,{auto:.003});
+const pick=n=>document.querySelector(`input[name=${n}]:checked`);
+const NAMES={rose:'roses',peony:'peonies',hydrangea:'hydrangeas',lily:'lilies',spray:'spray roses',gyp:'gypsophila',euc:'eucalyptus'};
+function upd(){const sel=[...document.querySelectorAll('#fl input:checked')].map(i=>i.value);const rc=pick('rc'),sz=pick('sz').value,wr=pick('wr');
+  if(cur){holder.remove(cur)}cur=bouquet(sel,{rc:rc.value,size:sz,wrap:wr.value});holder.add(cur);grow=0;
+  const colN=rc.parentElement.innerText.trim().toLowerCase();const list=sel.map(k=>(k==='rose'||k==='spray')?colN+' '+NAMES[k]:NAMES[k]);
+  const txt=`${sz} bouquet · ${list.join(', ')||'florist\'s choice'} · ${wr.parentElement.innerText.trim().toLowerCase()} wrap`;sum.textContent=txt;window.__b=txt}
+document.querySelectorAll('.panel input').forEach(i=>i.addEventListener('change',upd));upd();
+document.getElementById('send').addEventListener('click',async()=>{const m=document.getElementById('msg').value.trim();const an=document.getElementById('anon').checked;
+  const order=`Hi Kays Florals! I'd like to order: ${window.__b}.${m?` Card: "${m}".`:''}${an?' Please send it anonymously.':''} Delivery date: ___ · Postcode: ___`;
+  try{await navigator.clipboard.writeText(order);bnote.textContent='Order copied ✓ Paste it in our DMs with your date and postcode.'}catch(e){}window.open('https://ig.me/m/kayss.florals','_blank','noopener')});
+const vB=onVisible(B.r.domElement);
+function loop(){const t=performance.now()/1000;
+  if(vA.v){spinA();petals.children.forEach((p,i)=>{const u=p.userData;const k=(u.o+t*u.s)%1;p.position.set(u.x+Math.sin(t+i)*.3,3.6-k*5,u.z);p.rotation.set(t+i,t*.7,i)});A.r.render(A.s,A.c)}
+  if(vB.v){spinB();grow+=(1-grow)*.08;if(cur)cur.children.forEach(c=>{if(c.userData.d!==undefined){const k=Math.min(1,Math.max(0,grow*1.6-c.userData.d*.03));c.scale.setScalar(Math.max(.001,k*(c.userData.s0||(c.userData.s0=c.scale.x))))}});B.r.render(B.s,B.c)}
+  requestAnimationFrame(loop)}
+loop();
+</script>
+</body>
+</html>

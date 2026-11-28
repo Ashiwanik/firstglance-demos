@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OUR. Pilates Co · Reformer Pilates made for real life (concept)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_lib/fg.css">
+<style>
+:root{--bg:#EEF4F7;--ink:#1C2830;--muted:#66788A;--acc:#3F7FA3;--on-acc:#F4FAFD;--line:#D4E1E9;--card:#FAFDFE;--chip:#fff;--stage:radial-gradient(70% 60% at 50% 40%,#FFFFFF,#DDE9F0);--display:"Fraunces",Georgia,serif}
+.breath{font-family:var(--display);font-style:italic;font-size:28px;color:var(--acc);min-height:40px;margin-top:6px;transition:opacity .4s}
+.offer{background:var(--ink);color:#F4FAFD;border-radius:28px;padding:30px;display:grid;gap:14px;align-items:center}
+@media(min-width:800px){.offer{grid-template-columns:1fr auto}}
+.offer b{font-family:var(--display);font-size:clamp(34px,5vw,56px);line-height:1;display:block}
+</style>
+</head>
+<body>
+<div class="concept"><b>Made for OUR. Pilates Co</b> · a free website concept by FirstGlance Studio. Not an official website.</div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">OUR. <em>Pilates Co</em> 🩵</a>
+  <ul><li><a href="#try">Try the reformer</a></li><li><a href="#studios">Studios</a></li><li><a href="#offer">Intro offer</a></li></ul>
+  <a class="pill" href="https://linktr.ee/ourpilatesco" target="_blank" rel="noopener">Book a class</a>
+</div></header>
+<div class="wrap hero" id="top">
+  <div>
+    <span class="kicker">Reformer Pilates · 4 studios · kid-friendly classes</span>
+    <h1 id="h1">Reformer Pilates, made for real life.</h1>
+    <p class="lead">Charlestown, Toronto, Cameron Park and Morisset. Classes you can actually fit around work, school runs and everything else.</p>
+    <div class="breath" id="breath" aria-live="polite">inhale…</div>
+    <div class="ctas"><a class="btn btn-a" href="#offer">2 weeks unlimited · $69 ↓</a><a class="btn btn-o" href="#try">Try the reformer ↓</a></div>
+  </div>
+  <canvas id="hero3d" aria-label="3D reformer Pilates machine moving with your breath"></canvas>
+</div>
+<section id="try" style="padding-top:30px"><div class="wrap">
+  <p class="eyebrow">Never been on a reformer? · try it in 3D</p>
+  <h2>Set the springs. <em>Feel the flow.</em></h2>
+  <p class="sub">Most first-timers don't know what the springs do. Change the tension and the tempo and watch the carriage respond, then come and feel it for real.</p>
+  <div class="builder">
+    <canvas id="ref3d" aria-label="Interactive 3D reformer: springs and tempo"></canvas>
+    <div class="panel">
+      <span class="lbl">Spring tension</span>
+      <div class="opts"><label class="opt"><input type="radio" name="sp" value="1" ><span>🟡 Light</span></label><label class="opt"><input type="radio" name="sp" value="2" checked><span>🔵 Medium</span></label><label class="opt"><input type="radio" name="sp" value="3"><span>🔴 Heavy</span></label></div>
+      <span class="lbl">Tempo</span>
+      <input type="range" id="tempo" min="0" max="100" value="45" aria-label="Tempo">
+      <span class="lbl">Movement</span>
+      <div class="opts"><label class="opt"><input type="radio" name="mv" value="Footwork" checked><span>Footwork</span></label><label class="opt"><input type="radio" name="mv" value="Leg circles"><span>Leg circles</span></label><label class="opt"><input type="radio" name="mv" value="Elephant"><span>Elephant</span></label></div>
+      <div class="summary"><small style="color:var(--muted)">What you'd feel</small><b id="feel"></b></div>
+      <a class="btn btn-a" href="https://linktr.ee/ourpilatesco" target="_blank" rel="noopener">Book your first class ↗</a>
+      <p class="note">Classes are booked through our app, so the timetable is always live.</p>
+    </div>
+  </div>
+</div></section>
+<section id="studios" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">Four studios</p>
+  <h2>There's one <em>near you.</em></h2>
+  <div class="cards">
+    <div class="card"><div class="ic">📍</div><h3>Charlestown</h3><p><a href="https://www.google.com/maps/search/?api=1&query=OUR.+Pilates+Co+Charlestown+NSW" target="_blank" rel="noopener"><b>Directions ↗</b></a></p></div>
+    <div class="card"><div class="ic">📍</div><h3>Toronto</h3><p><a href="https://www.google.com/maps/search/?api=1&query=OUR.+Pilates+Co+Toronto+NSW" target="_blank" rel="noopener"><b>Directions ↗</b></a></p></div>
+    <div class="card"><div class="ic">📍</div><h3>Cameron Park</h3><p><a href="https://www.google.com/maps/search/?api=1&query=OUR.+Pilates+Co+Cameron+Park+NSW" target="_blank" rel="noopener"><b>Directions ↗</b></a></p></div>
+    <div class="card"><div class="ic">📍</div><h3>Morisset</h3><p><a href="https://www.google.com/maps/search/?api=1&query=OUR.+Pilates+Co+Morisset+NSW" target="_blank" rel="noopener"><b>Directions ↗</b></a></p></div>
+  </div>
+  <div class="cards" style="margin-top:14px">
+    <div class="card"><div class="ic">👶</div><h3>Kid friendly</h3><p>Classes where little ones are welcome, because real life.</p></div>
+    <div class="card"><div class="ic">📱</div><h3>Book in the app</h3><p>Live timetable, waitlists and reminders.</p></div>
+    <div class="card"><div class="ic">🩵</div><h3>The OUR. Village</h3><p>A community that turns up for each other.</p></div>
+    <div class="card"><div class="ic">🎄</div><h3>December specials</h3><p>Make every last class of the year count.</p></div>
+  </div>
+</div></section>
+<section id="offer" style="padding-top:20px"><div class="wrap">
+  <div class="offer"><div><span class="eyebrow" style="color:#9CC6DE">Intro offer</span><b>2 weeks unlimited, $69</b><p style="color:#B9CEDA;margin-top:8px">New to OUR.? Try as many classes as you like, at any of our four studios.</p></div>
+  <a class="btn btn-a" href="https://linktr.ee/ourpilatesco" target="_blank" rel="noopener">Claim the intro offer ↗</a></div>
+</div></section>
+<footer><div class="wrap">OUR. Pilates Co · Charlestown · Toronto · Cameron Park · Morisset. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. The reformer is drawn live in 3D, no photos used.</div></footer>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import {THREE,base,canvasTex,shadowDisc,drag,onVisible,splitLetters,rnd,reduce} from '../_lib/fg3d.js';
+splitLetters(document.getElementById('h1'));
+const SPC={1:0xE8C547,2:0x3F7FA3,3:0xD2554E};
+function reformer(){const g=new THREE.Group();
+  const wood=new THREE.MeshPhysicalMaterial({map:canvasTex(512,128,(x,w,h)=>{x.fillStyle='#D9B98F';x.fillRect(0,0,w,h);for(let i=0;i<40;i++){x.strokeStyle=`rgba(120,80,40,${.08+rnd(i)*.12})`;x.lineWidth=1+rnd(i+1)*2;x.beginPath();const y=rnd(i+2)*h;x.moveTo(0,y);for(let X=0;X<=w;X+=30)x.lineTo(X,y+Math.sin(X*.02+i)*3);x.stroke()}}),roughness:.45,clearcoat:.4});
+  const alu=new THREE.MeshPhysicalMaterial({color:0xE6EAEE,metalness:1,roughness:.25});
+  const pad=new THREE.MeshPhysicalMaterial({color:0xF2F5F7,roughness:.7,sheen:.6,sheenColor:new THREE.Color(0xffffff)});
+  const dark=new THREE.MeshStandardMaterial({color:0x2A3540,roughness:.6});
+  const L=4.4,W=1.05;
+  // frame rails
+  [-1,1].forEach(s=>{const r=new THREE.Mesh(new THREE.BoxGeometry(L,.22,.12),wood);r.position.set(0,.45,s*W/2);g.add(r);const t=new THREE.Mesh(new THREE.BoxGeometry(L,.03,.08),alu);t.position.set(0,.575,s*(W/2-.08));g.add(t)});
+  [-1,1].forEach(e=>{const end=new THREE.Mesh(new THREE.BoxGeometry(.14,.35,W+.12),wood);end.position.set(e*L/2,.4,0);g.add(end);[-1,1].forEach(s=>{const leg=new THREE.Mesh(new THREE.CylinderGeometry(.05,.06,.28,16),dark);leg.position.set(e*(L/2-.05),.14,s*W/2);g.add(leg)})});
+  // carriage
+  const car=new THREE.Group();const base=new THREE.Mesh(new THREE.BoxGeometry(1.6,.12,W-.08),wood);car.add(base);
+  const cush=new THREE.Mesh(new THREE.BoxGeometry(1.5,.12,W-.2),pad);cush.position.y=.12;car.add(cush);
+  const head=new THREE.Mesh(new THREE.BoxGeometry(.32,.08,.55),pad);head.position.set(-.56,.24,0);head.rotation.z=.18;car.add(head);
+  [-1,1].forEach(s=>{const sr=new THREE.Mesh(new THREE.CylinderGeometry(.09,.09,.32,20),pad);sr.position.set(-.3,.34,s*.26);car.add(sr)});
+  car.position.set(.2,.66,0);g.add(car);
+  // footbar
+  const fb=new THREE.Mesh(new THREE.TorusGeometry(.55,.035,12,48,Math.PI),alu);fb.rotation.y=Math.PI/2;fb.position.set(1.55,.58,0);fb.rotation.z=-.25;g.add(fb);
+  // springs (helix tubes) from carriage to the foot end
+  function spring(col){const pts=[];for(let i=0;i<=200;i++){const u=i/200;const a=u*Math.PI*2*28;pts.push(new THREE.Vector3(u,Math.cos(a)*.035,Math.sin(a)*.035))}
+    const m=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),400,.008,6),new THREE.MeshPhysicalMaterial({color:col,metalness:.6,roughness:.3}));return m}
+  const springs=[0,1,2,3].map(i=>{const sp=spring(0xbfc5cb);sp.position.set(0,.55,-.33+i*.22);g.add(sp);return sp});
+  // ropes + straps from the head end to the carriage
+  const ropeMat=new THREE.MeshStandardMaterial({color:0x2A3540});const ropes=[-1,1].map(s=>{const r=new THREE.Mesh(new THREE.CylinderGeometry(.012,.012,1,8),ropeMat);g.add(r);return r});
+  const pulleys=[-1,1].map(s=>{const p=new THREE.Mesh(new THREE.TorusGeometry(.08,.02,8,20),alu);p.position.set(-L/2+.1,1.25,s*.48);g.add(p);const post=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,.8,10),alu);post.position.set(-L/2+.1,.88,s*.48);g.add(post);return p});
+  g.userData={car,springs,ropes,pulleys,L};return g}
+function tick(R,t,{tension=2,tempo=.45,move='Footwork'}){const u=R.userData;const sp=(.45+tempo*1.4);
+  const phase=(Math.sin(t*sp*1.6)*.5+.5);const range=move==='Elephant'?.55:move==='Leg circles'?.35:.8;const x=.2-phase*range*(1.15-tension*.12);
+  u.car.position.x=x;const anchor=u.L/2-.12;
+  u.springs.forEach((s,i)=>{const on=i<tension+1;const start=x+.8,len=anchor-start;s.position.x=start;s.scale.set(Math.max(.05,len),1,1);s.material.color.setHex(on?SPC[tension]:0xbfc5cb);s.visible=true});
+  u.ropes.forEach((r,i)=>{const s=i?1:-1;const a=new THREE.Vector3(-u.L/2+.1,1.25,s*.48),b=new THREE.Vector3(x-.4+(move==='Leg circles'?Math.cos(t*sp*1.6)*.15:0),1.05+(move==='Leg circles'?Math.sin(t*sp*1.6)*.15:0),s*.3);
+    r.position.copy(a).add(b).multiplyScalar(.5);r.scale.y=a.distanceTo(b);r.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),b.clone().sub(a).normalize())});
+  return phase}
+/* HERO */
+const A=base(document.getElementById('hero3d'),{fov:28,cam:[5.6,4.4,9.6],look:[0,.5,0],env:1});
+const hr=reformer();A.s.add(hr);const ash=shadowDisc(6,.35);ash.scale.set(1.2,.6,1);ash.position.y=0;A.s.add(ash);
+const floor=new THREE.Mesh(new THREE.CircleGeometry(4,64),new THREE.MeshStandardMaterial({color:0xE3ECF1,roughness:.9}));floor.rotation.x=-Math.PI/2;floor.position.y=-.005;
+const spinA=drag(A.r.domElement,hr,{auto:.0015});const vA=onVisible(A.r.domElement);
+const breath=document.getElementById('breath');let lastB='';
+/* BUILDER */
+const B=base(document.getElementById('ref3d'),{fov:28,cam:[5.2,4.2,9.0],look:[0,.5,0],env:1});
+const br=reformer();B.s.add(br);const bsh=shadowDisc(6,.35);bsh.scale.set(1.2,.6,1);B.s.add(bsh);
+const spinB=drag(B.r.domElement,br,{auto:.001});const vB=onVisible(B.r.domElement);
+const FEEL={1:'Light springs: less support, so your core works harder to control the carriage.',2:'Medium springs: steady support. A great place to start.',3:'Heavy springs: more resistance for strong legs and glutes.'};
+const st={tension:2,tempo:.45,move:'Footwork'};
+function upd(){st.tension=+document.querySelector('input[name=sp]:checked').value;st.tempo=+tempo.value/100;st.move=document.querySelector('input[name=mv]:checked').value;feel.textContent=FEEL[st.tension]}
+document.querySelectorAll('.panel input').forEach(i=>i.addEventListener('input',upd));upd();
+function loop(){const t=performance.now()/1000;
+  if(vA.v){spinA();const ph=tick(hr,reduce?0:t,{tension:2,tempo:.25});const b=ph>.5?'exhale…':'inhale…';if(b!==lastB){lastB=b;breath.textContent=b}A.r.render(A.s,A.c)}
+  if(vB.v){spinB();tick(br,reduce?0:t,st);B.r.render(B.s,B.c)}
+  requestAnimationFrame(loop)}
+loop();
+</script>
+</body>
+</html>

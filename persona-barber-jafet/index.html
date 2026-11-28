@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jafet Mondragón · Barber at Persona Studio, Toronto (concept)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_lib/fg.css">
+<style>
+:root{--bg:#121212;--ink:#F4EFE6;--muted:#A9A39A;--acc:#D8B26E;--on-acc:#121212;--line:rgba(255,255,255,.13);--card:#1B1B1B;--stage:radial-gradient(70% 60% at 50% 40%,#2a2a2a,#151515);--display:"Fraunces",Georgia,serif}
+.cut{display:grid;gap:10px}
+</style>
+</head>
+<body>
+<div class="concept"><b>Made for Jafet Mondragón</b> · a free website concept by FirstGlance Studio. Not an official website.</div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">Jafet <em>Mondragón</em></a>
+  <ul><li><a href="#fade">Design your fade</a></li><li><a href="#services">Services</a></li><li><a href="#visit">Visit</a></li></ul>
+  <a class="pill" href="https://getsqr.co/jafet-mondragon-1" target="_blank" rel="noopener">Book a chair</a>
+</div></header>
+<div class="wrap hero" id="top">
+  <div>
+    <span class="kicker">💈 Toronto 🇨🇦 · 🇲🇽 · Persona Studio</span>
+    <h1 id="h1">Texture changes everything.</h1>
+    <p class="lead">Cold fades, sharp tapers and textured cuts by Jafet, co-owner of Persona Studio on Queen St W.</p>
+    <div class="ctas"><a class="btn btn-a" href="https://getsqr.co/jafet-mondragon-1" target="_blank" rel="noopener">Book your next cut ↗</a><a class="btn btn-o" href="#fade">Design your fade ↓</a></div>
+  </div>
+  <canvas id="pole" aria-label="3D spinning barber pole with scissors"></canvas>
+</div>
+
+<section id="fade" style="padding-top:30px"><div class="wrap">
+  <p class="eyebrow">Design your fade · live in 3D</p>
+  <h2>Show Jafet <em>exactly</em> what you want.</h2>
+  <p class="sub">Pick the fade height, the blend and what's on top. Spin the head to check the back, then send it with your booking so there's no guesswork in the chair.</p>
+  <div class="builder">
+    <canvas id="head" aria-label="3D head showing your chosen fade"></canvas>
+    <div class="panel">
+      <span class="lbl">Fade height</span>
+      <div class="opts" id="o-h"><label class="opt"><input type="radio" name="h" value="Low" checked><span>Low</span></label><label class="opt"><input type="radio" name="h" value="Mid"><span>Mid</span></label><label class="opt"><input type="radio" name="h" value="High"><span>High</span></label></div>
+      <span class="lbl">Blend</span>
+      <div class="opts"><label class="opt"><input type="radio" name="b" value="Skin fade" checked><span>Skin fade</span></label><label class="opt"><input type="radio" name="b" value="Taper"><span>Taper</span></label><label class="opt"><input type="radio" name="b" value="Burst fade"><span>Burst</span></label></div>
+      <span class="lbl">On top</span>
+      <div class="opts"><label class="opt"><input type="radio" name="t" value="Textured crop" checked><span>Textured crop</span></label><label class="opt"><input type="radio" name="t" value="Curls"><span>Curls</span></label><label class="opt"><input type="radio" name="t" value="Slick back"><span>Slick back</span></label></div>
+      <span class="lbl">Extras</span>
+      <div class="opts"><label class="opt"><input type="checkbox" id="beard"><span>Beard line-up</span></label><label class="opt"><input type="checkbox" id="part"><span>Hard part</span></label></div>
+      <div class="summary"><small style="color:var(--muted)">Your cut</small><b id="sum">Low skin fade · textured crop</b></div>
+      <a class="btn btn-a" id="book" href="https://getsqr.co/jafet-mondragon-1" target="_blank" rel="noopener">Book with this cut ↗</a>
+      <p class="note" id="bnote">We copy your cut so you can paste it into the booking notes. Booking stays on your existing Square page.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="services" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">In the chair</p>
+  <h2>Every cut, <em>finished properly.</em></h2>
+  <div class="cards">
+    <div class="card"><div class="ic">✂️</div><h3>Fades</h3><p>Low, mid, high or skin. Blended until it's cold.</p></div>
+    <div class="card"><div class="ic">〰️</div><h3>Texture</h3><p>Crops and curls with movement, because texture can change your whole haircut.</p></div>
+    <div class="card"><div class="ic">🧔</div><h3>Beard &amp; line-up</h3><p>Sharp edges to finish the look.</p></div>
+    <div class="card"><div class="ic">📅</div><h3>Easy booking</h3><p>Pick a time on Square in seconds, prices included.</p></div>
+  </div>
+</div></section>
+
+<section id="visit" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">Find the chair</p>
+  <h2>Persona Studio, <em>Queen West.</em></h2>
+  <div class="visit">
+    <div class="card"><h3>Where</h3><p>927 Queen St W, Toronto</p><p style="margin-top:12px"><a href="https://www.google.com/maps/search/?api=1&query=927+Queen+St+W+Toronto" target="_blank" rel="noopener"><b>Open in Maps ↗</b></a></p></div>
+    <div class="card"><h3>Book</h3><p>Live availability and prices on Square.</p><p style="margin-top:12px"><a href="https://getsqr.co/jafet-mondragon-1" target="_blank" rel="noopener"><b>See times ↗</b></a></p></div>
+    <div class="card"><h3>Follow</h3><p>New cuts every week.</p><p style="margin-top:12px"><a href="https://www.instagram.com/chucho_barber29/" target="_blank" rel="noopener"><b>@chucho_barber29 ↗</b></a> · <a href="https://www.instagram.com/personastudio.to/" target="_blank" rel="noopener"><b>@personastudio.to ↗</b></a></p></div>
+  </div>
+</div></section>
+<footer><div class="wrap">Jafet Mondragón · Persona Studio, Toronto. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. Everything here is drawn live in 3D, no photos used.</div></footer>
+
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import {THREE,base,canvasTex,shadowDisc,drag,onVisible,splitLetters,rnd,reduce} from '../_lib/fg3d.js';
+splitLetters(document.getElementById('h1'));
+/* ---------- HERO: barber pole + scissors ---------- */
+const P=base(document.getElementById('pole'),{fov:30,cam:[0,1.6,9],look:[0,1.4,0],env:1});
+const root=new THREE.Group();P.s.add(root);
+const stripes=canvasTex(512,512,(x,w,h)=>{x.fillStyle='#F6F1E8';x.fillRect(0,0,w,h);x.save();x.translate(w/2,h/2);x.rotate(-Math.PI/5);const cols=['#C8102E','#F6F1E8','#1D4E9E','#F6F1E8'];for(let i=-12;i<12;i++){x.fillStyle=cols[(i+120)%4];x.fillRect(-w,i*58,w*2,58)}x.restore()},[2,1]);
+stripes.wrapS=stripes.wrapT=THREE.RepeatWrapping;
+const inner=new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,3,64,1,true),new THREE.MeshStandardMaterial({map:stripes,roughness:.4}));inner.position.y=1.5;root.add(inner);
+const glass=new THREE.Mesh(new THREE.CylinderGeometry(.52,.52,3,64,1,true),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.02,transmission:1,thickness:.1,ior:1.45,transparent:true,opacity:.35,specularIntensity:1}));glass.position.y=1.5;root.add(glass);
+const chrome=new THREE.MeshPhysicalMaterial({color:0xD8D8D8,metalness:1,roughness:.12});const gold=new THREE.MeshPhysicalMaterial({color:0xD8B26E,metalness:1,roughness:.22});
+[[0,.12],[3,.12]].forEach(([y])=>{const c=new THREE.Mesh(new THREE.CylinderGeometry(.6,.6,.22,64),chrome);c.position.y=y;root.add(c);const r=new THREE.Mesh(new THREE.TorusGeometry(.6,.04,12,64),gold);r.rotation.x=Math.PI/2;r.position.y=y+(y?.1:-.1);root.add(r)});
+const ball=new THREE.Mesh(new THREE.SphereGeometry(.42,48,32),gold);ball.position.y=3.5;root.add(ball);
+const bot=new THREE.Mesh(new THREE.ConeGeometry(.3,.5,48),chrome);bot.rotation.x=Math.PI;bot.position.y=-.35;root.add(bot);
+const lamp=new THREE.PointLight(0xffe3b0,6,6,1.5);lamp.position.set(0,1.5,0);root.add(lamp);
+// scissors: two blades + ring handles, opening and closing
+function blade(sign){const g=new THREE.Group();const s=new THREE.Shape();s.moveTo(0,0);s.lineTo(1.6,.07*sign);s.quadraticCurveTo(1.75,0,1.6,-.02*sign);s.lineTo(0,-.12*sign);s.lineTo(0,0);
+  const b=new THREE.Mesh(new THREE.ExtrudeGeometry(s,{depth:.03,bevelEnabled:true,bevelSize:.01,bevelThickness:.01,bevelSegments:2}),chrome);g.add(b);
+  const arm=new THREE.Mesh(new THREE.BoxGeometry(.55,.07,.04),chrome);arm.position.set(-.3,-.02*sign,0);g.add(arm);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(.18,.04,12,32),new THREE.MeshPhysicalMaterial({color:0x1a1a1a,roughness:.3,clearcoat:1}));ring.position.set(-.72,-.1*sign,0);g.add(ring);return g}
+const sc=new THREE.Group();const b1=blade(1),b2=blade(-1);b2.position.z=.05;sc.add(b1,b2);const pin=new THREE.Mesh(new THREE.CylinderGeometry(.05,.05,.12,16),gold);pin.rotation.x=Math.PI/2;sc.add(pin);
+sc.position.set(1.55,2.3,.6);sc.rotation.set(.3,-.5,-.7);sc.scale.setScalar(.8);P.s.add(sc);
+// comb
+const comb=new THREE.Group();const cm=new THREE.MeshPhysicalMaterial({color:0xD8B26E,metalness:.2,roughness:.3,clearcoat:1});const spine=new THREE.Mesh(new THREE.BoxGeometry(1.6,.16,.05),cm);comb.add(spine);for(let i=0;i<22;i++){const t=new THREE.Mesh(new THREE.BoxGeometry(.035,.32,.04),cm);t.position.set(-.75+i*.072,-.22,0);comb.add(t)}
+comb.position.set(-1.55,.9,.4);comb.rotation.set(.2,.5,.5);comb.scale.setScalar(.75);P.s.add(comb);
+const sh=shadowDisc(3,.6);sh.position.y=-.6;P.s.add(sh);
+const spin=drag(P.r.domElement,root,{auto:0});const vP=onVisible(P.r.domElement);
+/* ---------- FADE BUILDER: head with a fade shader ---------- */
+const H=base(document.getElementById('head'),{fov:30,cam:[0,1.2,7.2],look:[0,1.1,0],env:.7});
+const head=new THREE.Group();H.s.add(head);
+const U={uFade:{value:-.35},uSoft:{value:.06},uTop:{value:0},uBeard:{value:0},uPart:{value:0},uSkin:{value:new THREE.Color(0xB9805D)},uHair:{value:new THREE.Color(0x17110D)},uBurst:{value:0}};
+const headMat=new THREE.MeshStandardMaterial({roughness:.65});
+headMat.onBeforeCompile=sh=>{Object.assign(sh.uniforms,U);
+  sh.vertexShader=sh.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 vP;').replace('#include <begin_vertex>','#include <begin_vertex>\nvP=position;');
+  sh.fragmentShader=sh.fragmentShader.replace('#include <common>',`#include <common>
+varying vec3 vP;uniform float uFade,uSoft,uTop,uBeard,uPart,uBurst;uniform vec3 uSkin,uHair;
+float h1(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float n2(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h1(i),h1(i+vec2(1,0)),f.x),mix(h1(i+vec2(0,1)),h1(i+vec2(1,1)),f.x),f.y);}`)
+  .replace('#include <color_fragment>',`#include <color_fragment>
+  vec3 p=normalize(vP);float face=smoothstep(.15,.45,p.z)*(1.-smoothstep(.5,.75,p.y));
+  float line=uFade;
+  // burst fade curves around the ear
+  line+=uBurst*(.35*exp(-pow(p.z*2.2,2.))*smoothstep(.2,.9,abs(p.x)));
+  float hair=smoothstep(line-uSoft,line+uSoft,p.y);
+  float density=mix(.25,1.,hair);
+  float top=smoothstep(.45,.75,p.y);
+  float tex=n2(vec2(atan(p.x,p.z)*8.,p.y*22.))*.5+n2(vec2(atan(p.x,p.z)*30.,p.y*60.))*.5;
+  float curls=n2(vec2(atan(p.x,p.z)*14.,p.y*14.))*n2(vec2(p.x*24.,p.z*24.));
+  float slick=sin(p.z*60.+n2(p.xz*8.)*3.)*.5+.5;
+  float pattern=mix(mix(tex,curls*1.6,step(.5,uTop)*step(uTop,1.5)),slick,step(1.5,uTop));
+  vec3 hairCol=uHair*(0.7+pattern*.6*top+.15*(1.-top));
+  float stubble=(1.-hair)*smoothstep(line-uSoft*3.,line,p.y)*.6;
+  vec3 skin=mix(uSkin,uHair*1.2,stubble*.55*n2(p.xy*80.));
+  float m=hair*(1.-face);
+  // part line
+  float partLine=uPart*(1.-smoothstep(.0,.018,abs(p.x-.32)))*step(.35,p.y)*step(p.z,.7);
+  m*=1.-partLine;
+  // beard on lower face
+  float beard=uBeard*smoothstep(.25,.6,p.z)*smoothstep(.05,-.25,p.y)*smoothstep(-.95,-.6,p.y);
+  m=max(m,beard*.95);
+  diffuseColor.rgb=mix(skin,hairCol,m);`)};
+const skull=new THREE.Mesh(new THREE.SphereGeometry(1,128,96),headMat);skull.scale.set(.86,1.05,.98);skull.position.y=1.55;head.add(skull);
+const skinMat=new THREE.MeshStandardMaterial({color:0xB9805D,roughness:.6});
+[-1,1].forEach(s=>{const ear=new THREE.Mesh(new THREE.SphereGeometry(.2,24,16),skinMat);ear.scale.set(.35,1,.7);ear.position.set(s*.86,1.5,-.02);head.add(ear)});
+const nose=new THREE.Mesh(new THREE.ConeGeometry(.12,.34,24),skinMat);nose.rotation.x=Math.PI/2;nose.position.set(0,1.45,1.02);nose.scale.set(1,1,.8);head.add(nose);
+const neck=new THREE.Mesh(new THREE.CylinderGeometry(.42,.5,.9,48),skinMat);neck.position.y=.55;head.add(neck);
+const tee=new THREE.Mesh(new THREE.SphereGeometry(1.5,64,32,0,Math.PI*2,0,Math.PI/2),new THREE.MeshStandardMaterial({color:0x2b2b2b,roughness:.9}));tee.scale.set(1.15,.55,.7);tee.position.y=-.05;head.add(tee);
+const cape=new THREE.Mesh(new THREE.CylinderGeometry(.55,.55,.12,48),new THREE.MeshStandardMaterial({color:0xD8B26E,roughness:.5}));cape.position.y=.28;head.add(cape);
+const hsh=shadowDisc(3.4,.5);hsh.position.y=-.06;H.s.add(hsh);
+const spinH=drag(H.r.domElement,head,{auto:.005});head.rotation.y=Math.PI*.8;
+const target={fade:-.35,soft:.06,burst:0};
+const FH={Low:-.35,Mid:-.05,High:.22},BL={'Skin fade':[.05,0],'Taper':[.16,0],'Burst fade':[.06,1]},TP={'Textured crop':0,'Curls':1,'Slick back':2};
+function upd(){const h=document.querySelector('input[name=h]:checked').value,b=document.querySelector('input[name=b]:checked').value,t=document.querySelector('input[name=t]:checked').value;
+  target.fade=FH[h];[target.soft,target.burst]=BL[b];U.uTop.value=TP[t];U.uBeard.value=beard.checked?1:0;U.uPart.value=part.checked?1:0;
+  const txt=`${h} ${b.toLowerCase()} · ${t.toLowerCase()}${beard.checked?' · beard line-up':''}${part.checked?' · hard part':''}`;sum.textContent=txt[0].toUpperCase()+txt.slice(1);window.__cut=txt}
+document.querySelectorAll('.panel input').forEach(i=>i.addEventListener('change',upd));upd();
+document.getElementById('book').addEventListener('click',()=>{try{navigator.clipboard.writeText('Cut: '+window.__cut);document.getElementById('bnote').textContent='Copied ✓ Paste "'+window.__cut+'" into your booking notes.'}catch(e){}});
+const vH=onVisible(H.r.domElement);
+function loop(){const t=performance.now()/1000;
+  if(vP.v){stripes.offset.y=(t*.25)%1;spin();root.rotation.y+=reduce?0:.002;const o=(Math.sin(t*2.2)*.5+.5)*.35;b1.rotation.z=o;b2.rotation.z=-o;sc.position.y=2.3+Math.sin(t*1.1)*.12;comb.position.y=.9+Math.sin(t*1.3+1)*.1;comb.rotation.z=.5+Math.sin(t*.8)*.08;P.r.render(P.s,P.c)}
+  if(vH.v){U.uFade.value+=(target.fade-U.uFade.value)*.08;U.uSoft.value+=(target.soft-U.uSoft.value)*.08;U.uBurst.value+=(target.burst-U.uBurst.value)*.08;spinH();H.r.render(H.s,H.c)}
+  requestAnimationFrame(loop)}
+loop();
+</script>
+</body>
+</html>
