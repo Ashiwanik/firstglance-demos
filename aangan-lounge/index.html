@@ -6,312 +6,303 @@
 <meta name="description" content="The Aangan Lounge, Jodhpur: a salon and café under one roof. Keratin, hair Botox, nanoplastia, balayage, bridal makeup, spa, nails and great coffee. Book on WhatsApp.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Hanken+Grotesk:wght@400;600;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../_lib/fg.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["HairSalon","CafeOrCoffeeShop"],"name":"The Aangan Lounge","description":"Salon & Café in Jodhpur","telephone":"+91-7727985757","address":{"@type":"PostalAddress","addressLocality":"Jodhpur","addressRegion":"Rajasthan","addressCountry":"IN"},"hasMap":"https://maps.app.goo.gl/BqgeRDJkmr5vGp7E9","sameAs":["https://www.instagram.com/theaanganlounge/"]}</script>
 <style>
-:root{--bg:#FFF7EC;--ink:#1B1446;--muted:#6E6488;--acc:#E0287A;--on-acc:#FFF5FA;--blue:#2341A8;--blue2:#14256B;--gold:#F4A51C;--line:#EADFCF;--card:#FFFDF8;--chip:#fff;--stage:radial-gradient(70% 60% at 50% 40%,#FFFFFF,#F7E6CF);--display:"Fraunces",Georgia,serif;--hi:"Tiro Devanagari Hindi",serif}
-body{background:var(--bg)}
-.hi{font-family:var(--hi)}
-.lang{border:2px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font-weight:800;cursor:pointer;font-family:inherit;color:var(--ink)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo i{width:38px;height:38px;border-radius:12px 12px 4px 4px;background:linear-gradient(160deg,var(--blue),var(--blue2));color:var(--gold);display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:900;box-shadow:inset 0 -3px 0 var(--gold)}
-/* hero */
-.heroX{position:relative;min-height:calc(100vh - 100px);overflow:hidden;background:radial-gradient(90% 70% at 50% 35%,#2D52C9 0%,#1B2F86 55%,#0F1A55 100%);color:#FFF3E2}
-.heroX canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.heroX:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(12,20,70,.78) 0%,rgba(12,20,70,.35) 45%,rgba(12,20,70,0) 70%)}@media(max-width:800px){.heroX:after{background:linear-gradient(0deg,rgba(12,20,70,.9) 0%,rgba(12,20,70,.5) 45%,rgba(12,20,70,0) 70%)}}
-.heroX .wrap{position:relative;z-index:2;display:grid;min-height:calc(100vh - 100px);align-items:end;padding-bottom:6vh;pointer-events:none}
-.heroX .copy{max-width:620px;pointer-events:auto}
-.heroX h1{color:#FFF3E2;text-shadow:0 6px 30px rgba(0,0,0,.35)}
-.heroX h1 em{color:var(--gold)}
-.heroX .lead{color:#D8DFFF}
-.heroX .kicker{color:var(--gold);border-color:rgba(255,255,255,.25);background:rgba(10,15,60,.35);backdrop-filter:blur(6px)}
-.heroX .btn-o{color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(6px)}
-@media(max-width:800px){.heroX .wrap{align-items:end;padding-top:46vh}}
-.marq{background:var(--acc);color:#fff;overflow:hidden;white-space:nowrap;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:14px;padding:12px 0}
-.marq div{display:inline-block;animation:mq 30s linear infinite}
-@keyframes mq{to{transform:translateX(-50%)}}
-/* menu */
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
-.tab{border:2px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-weight:800;cursor:pointer;font-family:inherit;color:var(--ink)}
-.tab[aria-selected=true]{background:var(--blue);border-color:var(--blue);color:#fff}
-.list{display:grid;gap:10px;margin-top:20px}
-@media(min-width:800px){.list{grid-template-columns:1fr 1fr}}
-.item{display:flex;justify-content:space-between;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
-.item b{font-family:var(--display);font-size:20px}
-.item small{display:block;color:var(--muted);font-size:14px}
-.price{font-weight:800;white-space:nowrap;color:var(--acc)}
-.add{border:0;background:var(--ink);color:#fff;border-radius:999px;width:36px;height:36px;font-size:20px;font-weight:800;cursor:pointer;flex:none}
-.add.on{background:var(--acc)}
-/* bridal */
-.bridal{background:linear-gradient(135deg,#7A0E3A,#B3155A 50%,#E0287A);color:#FFF1F6;position:relative;overflow:hidden}
-.bridal:before{content:"";position:absolute;inset:0;background:var(--mandala) center/520px;opacity:.12}
-.bridal .wrap{position:relative}
-.bridal h2 em{color:var(--gold)}.bridal .sub{color:#FFD3E4}
-.pk{display:grid;gap:14px;margin-top:28px}
-@media(min-width:900px){.pk{grid-template-columns:repeat(3,1fr)}}
-.pkc{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:24px;padding:22px;backdrop-filter:blur(4px)}
-.pkc h3{font-family:var(--display);font-size:26px;color:#fff}
-.pkc ul{margin:10px 0 0 18px;color:#FFE3EE}
-/* cafe */
-.cafe{background:#2A1A12;color:#F6E6D3}
-.cafe h2 em{color:var(--gold)}.cafe .sub{color:#D8BFA5}
-.cafe .item{background:#36231A;border-color:#4A3226;color:#F6E6D3}.cafe .item small{color:#C8AB8E}
-/* booking */
-.steps{display:flex;gap:8px;margin-bottom:16px}
-.steps span{flex:1;height:6px;border-radius:9px;background:var(--line)}.steps span.on{background:var(--acc)}
+:root{--bg:#0A0A0B;--bg2:#121214;--ink:#EDE6DC;--muted:#8E877D;--line:rgba(237,230,220,.12);--gold:#D8B26E;--gold1:#F0D49A;--gold2:#B8893B;--cream:#ECE6E0;--cink:#141414;--rani:#C2185B;
+--serif:"Cormorant Garamond","Bodoni Moda",Georgia,serif;--sans:"Geist",-apple-system,system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,Consolas,monospace;--grot:"Archivo",sans-serif;--hi:"Tiro Devanagari Hindi",serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.concept{background:#1A33C9;color:#fff;font:500 12px var(--sans);padding:8px 16px;text-align:center;position:relative;z-index:70}.concept b{color:#FFC94A}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px}
+.gold{background:linear-gradient(135deg,var(--gold1),var(--gold) 45%,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav{position:fixed;left:0;right:0;top:33px;z-index:60;transition:background .3s,top .3s}
+.nav.solid{background:rgba(10,10,11,.86);backdrop-filter:blur(14px);top:0;border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font:600 15px var(--grot);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
+.mark{width:34px;height:34px;display:grid;place-items:center;border:1.5px solid var(--gold);border-radius:999px 999px 6px 6px;font:600 17px var(--serif);color:var(--gold)}
+.links{display:none;gap:30px}.links a{opacity:.75}.links a:hover{opacity:1;color:var(--gold)}
+@media(min-width:960px){.links{display:flex}}
+.right{display:flex;gap:10px;align-items:center}
+.lang{background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:9px 13px;cursor:pointer;font:500 12px var(--mono);letter-spacing:.1em}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 24px;cursor:pointer;border:1px solid transparent;font:500 12px var(--mono);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;transition:transform .2s,box-shadow .2s}
+.pill.o{border-color:rgba(216,178,110,.7);color:var(--gold1);background:rgba(10,10,11,.25);backdrop-filter:blur(6px)}
+.pill.g{background:linear-gradient(135deg,var(--gold1),var(--gold) 50%,var(--gold2));color:#1a1206;box-shadow:0 10px 30px -10px rgba(216,178,110,.6)}
+.pill.d{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.04)}
+.pill:hover{transform:translateY(-2px)}
+.hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:#070708}
+.hero .bg{position:absolute;inset:0;background:radial-gradient(70% 60% at 70% 35%,rgba(184,137,59,.28),transparent 60%),radial-gradient(60% 60% at 20% 80%,rgba(194,24,91,.22),transparent 60%),#0b0a0c}
+.hero .bg:after{content:"";position:absolute;inset:0;background:var(--mandala) 78% 45%/900px no-repeat;opacity:.08}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}
+.hero video.on{opacity:1}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,8,.86) 0%,rgba(7,7,8,.55) 45%,rgba(7,7,8,.15) 100%),linear-gradient(0deg,rgba(7,7,8,.85),rgba(7,7,8,0) 40%)}
+.hero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:60px}
+.hero h1{font:500 clamp(46px,7.2vw,104px)/.98 var(--serif);letter-spacing:-.01em;max-width:13ch}
+.hero h1 em{font-style:italic}
+.hero .sub{font:italic 500 clamp(19px,2.1vw,26px)/1.4 var(--serif);color:#D9D1C5;margin:24px 0 34px;max-width:34ch}
+.hero .sub b{font-weight:600;font-style:italic}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.dots{position:absolute;right:96px;bottom:30px;z-index:3;display:flex;gap:10px;align-items:center;background:rgba(10,10,11,.55);border:1px solid var(--line);border-radius:999px;padding:8px 10px;backdrop-filter:blur(8px)}
+.dots button{width:8px;height:8px;border-radius:9px;border:0;background:rgba(237,230,220,.35);cursor:pointer;padding:0;transition:width .3s}
+.dots button.on{width:26px;background:var(--gold)}
+.dots .nx{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold1),var(--gold2));color:#1a1206;font-size:16px;display:grid;place-items:center}
+.scroll{position:absolute;left:28px;bottom:36px;z-index:3;color:var(--muted)}
+section{padding:120px 0;position:relative}
+.eyebrow{color:var(--gold)}
+h2{font:800 clamp(40px,6vw,84px)/1 var(--grot);letter-spacing:-.025em;color:#CFC8BE;margin:16px 0}
+h2 em{font:italic 600 1.05em var(--serif);letter-spacing:0;color:transparent;background:linear-gradient(135deg,var(--gold1),var(--gold) 45%,var(--gold2));-webkit-background-clip:text;background-clip:text}
+.lead{font-size:18px;color:var(--muted);max-width:56ch}
+.cream{background:var(--cream);color:var(--cink)}
+.cream h2{color:var(--cink)}.cream .lead{color:#5d5750}
+.cream .big{font:italic 600 clamp(52px,8vw,116px)/1 var(--serif);letter-spacing:-.01em}
+.typer{font:800 clamp(26px,3.4vw,44px)/1.2 var(--grot);margin-top:18px}
+.typer em{font:italic 600 1.08em var(--serif)}
+.caret{display:inline-block;width:2px;height:1em;background:var(--gold2);vertical-align:-.12em;margin-left:6px}
+.flow{position:relative;height:560px;margin-top:50px;perspective:1600px}
+.card{position:absolute;left:50%;top:50%;width:300px;height:470px;margin:-235px 0 0 -150px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#161618;cursor:pointer;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s,filter .7s;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.card .art{position:absolute;inset:0}
+.card .art video{width:100%;height:100%;object-fit:cover}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,7,8,.92) 0%,rgba(7,7,8,.2) 55%,rgba(7,7,8,0))}
+.card .meta{position:absolute;left:22px;right:22px;bottom:22px;z-index:2}
+.card .meta .mono{color:var(--gold);font-size:11px}
+.card .meta b{display:block;font:800 26px/1.15 var(--grot);margin-top:8px}
+.card .meta i{font:italic 500 18px var(--serif);color:#CFC8BE}
+.card .script{position:absolute;left:22px;top:22px;z-index:2;font:italic 600 34px var(--serif);color:var(--gold1);text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.arrows{display:flex;justify-content:center;gap:14px;margin-top:26px}
+.arrows button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-size:18px;cursor:pointer}
+.tabsx{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:26px}
+.tabsx button{background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 0;border-bottom:1px solid transparent;font:inherit;letter-spacing:inherit;text-transform:inherit}
+.tabsx button.on{color:var(--gold);border-color:var(--gold)}
+.mtabs{display:flex;gap:28px;flex-wrap:wrap;margin:40px 0 10px;border-bottom:1px solid var(--line)}
+.mtabs button{background:none;border:0;color:var(--muted);cursor:pointer;padding:12px 0;border-bottom:1px solid transparent;margin-bottom:-1px;font:inherit;letter-spacing:inherit;text-transform:inherit}
+.mtabs button[aria-selected=true]{color:var(--gold);border-color:var(--gold)}
+.rows{display:grid;gap:0 60px}
+@media(min-width:900px){.rows{grid-template-columns:1fr 1fr}}
+.row{display:flex;align-items:center;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.row .t{flex:1}.row .t b{font:600 26px/1.1 var(--serif);display:block}.row .t small{color:var(--muted);font-size:14px}
+.row .p{font:500 12px var(--mono);letter-spacing:.12em;color:var(--gold);white-space:nowrap}
+.add{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:18px;cursor:pointer;flex:none}
+.add.on{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:#1a1206;border-color:transparent}
+.studio{display:grid;gap:40px;margin-top:50px;align-items:center}
+@media(min-width:960px){.studio{grid-template-columns:1fr 1fr}}
+.fan{border-radius:26px;background:radial-gradient(60% 55% at 50% 40%,#1d1b1e,#0d0d0f);border:1px solid var(--line);aspect-ratio:1;display:grid;place-items:center}
+.fan svg{width:86%}
+.panel{border:1px solid var(--line);border-radius:26px;padding:30px;background:var(--bg2)}
+.lbl{display:block;color:var(--muted);margin:22px 0 12px}.lbl:first-child{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}.chip input{position:absolute;opacity:0}
+.chip span{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:9px 15px;cursor:pointer;font-size:14px;color:#D9D1C5}
+.chip input:checked+span{border-color:var(--gold);color:var(--gold1);background:rgba(216,178,110,.08)}
+.chip input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.sw{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.look{margin:24px 0;padding-top:20px;border-top:1px solid var(--line)}
+.look b{display:block;font:italic 600 32px/1.15 var(--serif);color:var(--gold1)}
+.bridal{min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.bridal .bgv{position:absolute;inset:0;background:radial-gradient(60% 70% at 75% 40%,rgba(194,24,91,.35),transparent 60%),radial-gradient(50% 60% at 20% 70%,rgba(184,137,59,.25),transparent 60%),#0c0a0b}
+.bridal video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}.bridal video.on{opacity:.75}
+.bridal .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,8,.9),rgba(7,7,8,.45) 55%,rgba(7,7,8,.2))}
+.bridal .wrap{position:relative;z-index:2;width:100%}
+.bridal h2{font:500 clamp(46px,6.6vw,96px)/1 var(--serif);color:var(--ink);letter-spacing:-.01em;max-width:12ch}
+.bridal h2 em{font-weight:600}
+.pk{display:grid;gap:14px;margin:40px 0;max-width:900px}
+@media(min-width:860px){.pk{grid-template-columns:repeat(3,1fr)}}
+.pk div{border:1px solid var(--line);border-radius:20px;padding:20px;background:rgba(10,10,11,.45);backdrop-filter:blur(8px)}
+.pk b{font:600 24px var(--serif);color:var(--gold1);display:block;margin-bottom:6px}
+.pk p{color:#BDB5A9;font-size:14px}
+.cafegrid{display:grid;gap:0 60px;margin-top:40px}
+@media(min-width:900px){.cafegrid{grid-template-columns:1fr 1fr}}
+.cream .row{border-color:rgba(20,20,20,.12)}.cream .row .t small{color:#6b655e}.cream .row .p{color:#8a6a2e}.cream .add{border-color:rgba(20,20,20,.2);color:#141414}
+.book{display:grid;gap:40px;margin-top:40px}
+@media(min-width:960px){.book{grid-template-columns:.9fr 1.1fr}}
 .slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.slot{border:2px solid var(--line);background:#fff;border-radius:12px;padding:10px 0;font-weight:800;cursor:pointer;font-family:inherit;color:var(--ink)}
-.slot.on{background:var(--blue);border-color:var(--blue);color:#fff}
-.field{width:100%;border:2px solid var(--line);border-radius:14px;padding:13px 14px;font:600 16px var(--body);background:#fff;color:var(--ink)}
-.cart{background:#FFF1F7;border:1px dashed #F3B4CF;border-radius:16px;padding:12px 14px;font-weight:700;margin:12px 0;font-size:15px}
-.wa{position:fixed;right:16px;bottom:16px;z-index:60;width:60px;height:60px;border-radius:50%;background:#1FAF55;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);text-decoration:none;font-size:28px}
-.feat{display:grid;gap:12px;margin-top:26px}
-@media(min-width:900px){.feat{grid-template-columns:repeat(4,1fr)}}
-
-/* reels inside jharokha windows */
-.jh{position:relative;width:min(340px,100%);margin:0 auto}
-.jh .frame{position:relative;border-radius:170px 170px 26px 26px;padding:12px;background:linear-gradient(160deg,#F7D58B,#C8963E 40%,#F2C66D 60%,#A8762A);box-shadow:0 30px 60px -20px rgba(0,0,0,.55),inset 0 0 0 2px rgba(255,255,255,.35)}
-.jh .win{position:relative;border-radius:160px 160px 18px 18px;overflow:hidden;background:#0F1A55;height:500px}
-.jh iframe{position:absolute;left:50%;top:-72px;width:326px;height:720px;transform:translateX(-50%) scale(1.28);transform-origin:50% 0;border:0}
-.jh .cap{position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);white-space:nowrap;background:var(--acc);color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px;box-shadow:0 10px 20px -8px rgba(0,0,0,.4)}
-.jh .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#C9D3FF;font-weight:700;padding:30px}
-.toran{position:absolute;left:0;right:0;top:0;height:46px;z-index:2;pointer-events:none;background:radial-gradient(circle at 18px 14px,#F59E0B 0 11px,transparent 12px) 0 0/36px 30px repeat-x,radial-gradient(circle at 18px 14px,#F97316 0 11px,transparent 12px) 18px 6px/36px 30px repeat-x}
-.toran:after{content:"";position:absolute;left:0;right:0;top:26px;height:20px;background:radial-gradient(ellipse 7px 12px at 18px 8px,#2E7D32 0 6px,transparent 7px) 0 0/72px 20px repeat-x}
-.heroS{position:relative;background:radial-gradient(90% 80% at 70% 40%,#2D52C9 0%,#1B2F86 55%,#0F1A55 100%);color:#FFF3E2;overflow:hidden}
-.heroS:before{content:"";position:absolute;inset:0;background:var(--mandala) 78% 40%/760px no-repeat;opacity:.16}
-.heroS .wrap{position:relative;z-index:1;display:grid;gap:40px;align-items:center;padding:90px 22px 70px;min-height:calc(100vh - 100px)}
-@media(min-width:960px){.heroS .wrap{grid-template-columns:1.05fr .95fr}}
-.heroS h1{color:#FFF3E2}.heroS h1 em{color:var(--gold)}.heroS .lead{color:#D8DFFF}
-.heroS .kicker{color:var(--gold);border-color:rgba(255,255,255,.25);background:rgba(10,15,60,.35)}
-.heroS .btn-o{color:#fff;border-color:rgba(255,255,255,.35)}
-.facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.facts span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;color:#FFE9C6}
-.glam{display:grid;gap:46px;margin-top:40px}
-@media(min-width:860px){.glam{grid-template-columns:1fr 1fr}}
-/* hair colour preview (static SVG, no animation) */
-.hairbox{border-radius:30px;background:var(--stage);display:grid;place-items:center;aspect-ratio:1;max-height:600px;width:100%}
-.hairbox svg{width:88%;height:auto}
-.marq div{animation:none!important}
-
-.archArt{position:relative;width:min(360px,100%);margin:0 auto;aspect-ratio:.68}
-.archArt .frame{position:absolute;inset:0;border-radius:999px 999px 26px 26px;padding:12px;background:linear-gradient(160deg,#F7D58B,#C8963E 40%,#F2C66D 60%,#A8762A);box-shadow:0 30px 60px -20px rgba(0,0,0,.55)}
-.archArt .in{position:relative;height:100%;border-radius:999px 999px 18px 18px;overflow:hidden;background:radial-gradient(70% 55% at 50% 38%,#3B62E0,#1A2C85 70%,#101B5A);display:grid;place-items:center}
-.archArt .in:before{content:"";position:absolute;inset:-20%;background:var(--mandala) center/120% no-repeat;opacity:.28}
-.archArt .in:after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(0deg,rgba(224,40,122,.35),rgba(224,40,122,0))}
-.archArt .steps{position:absolute;left:12%;right:12%;bottom:8%;height:7%;background:#D99A55;border-radius:6px;z-index:1;box-shadow:0 -10px 0 -2px #E8B776}
-.seal{position:relative;z-index:2;width:156px;height:156px;border:0;background:none;cursor:pointer;padding:0;color:inherit}
-.seal svg{width:100%;height:100%;display:block;filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
-.seal:hover svg{transform:scale(1.04)}.seal svg{transition:transform .25s}
-.seal:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:50%}
-.archArt .tag{position:absolute;z-index:3;left:50%;bottom:-16px;transform:translateX(-50%);white-space:nowrap;background:var(--acc);color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px}
-.watchRow{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:34px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:28px;padding:18px 22px}
-.watchRow .seal{width:120px;height:120px}
-.watchRow p{max-width:46ch;color:#FFE3EE}.watchRow b{font-family:var(--display);font-size:26px;color:#fff;display:block}
-dialog.reel{border:0;padding:0;background:transparent;max-width:none;margin:auto;overflow:visible}
-dialog.reel::backdrop{background:rgba(10,12,40,.78);backdrop-filter:blur(4px)}
-dialog.reel .box{position:relative;width:min(380px,92vw);height:min(720px,86vh);border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-dialog.reel iframe{width:100%;height:100%;border:0}
-dialog.reel .x{position:absolute;top:-14px;right:-14px;z-index:2;width:42px;height:42px;border-radius:50%;border:0;background:var(--gold);color:#3a1a00;font-size:22px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.slot{border:1px solid var(--line);background:transparent;color:#D9D1C5;border-radius:12px;padding:11px 0;cursor:pointer;font:500 12px var(--mono);letter-spacing:.06em}
+.slot.on{border-color:var(--gold);color:#1a1206;background:linear-gradient(135deg,var(--gold1),var(--gold2))}
+.field{width:100%;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:14px;padding:14px 16px;font:500 16px var(--sans)}
+.cart{border:1px dashed rgba(216,178,110,.5);border-radius:14px;padding:14px 16px;color:var(--gold1);font:italic 500 20px var(--serif)}
+.note{color:var(--muted);font-size:13px;margin-top:12px}
+.info{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;align-self:start}
+.info div{background:var(--bg);padding:24px}
+.info b{font:600 26px var(--serif);display:block;margin:6px 0}
+.info a{color:var(--gold)}
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:13px}
+.wa{position:fixed;right:20px;bottom:20px;z-index:65;width:58px;height:58px;border-radius:50%;background:#1FAF55;display:grid;place-items:center;color:#fff;font-size:26px;box-shadow:0 14px 30px -10px rgba(0,0,0,.6)}
+.hi{font-family:var(--hi)!important}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media(max-width:700px){.flow{height:500px}.card{width:250px;height:400px;margin:-200px 0 0 -125px}.dots{right:auto;left:28px;bottom:24px}.scroll{display:none}.slots{grid-template-columns:repeat(3,1fr)}.brand{font-size:12px;letter-spacing:.16em}.nav .pill.o{display:none}}
 </style>
 </head>
 <body>
-<div class="concept"><b>Made for The Aangan Lounge</b> · a free website concept by FirstGlance Studio. Not the official website yet.</div>
-<header class="nav"><div class="wrap">
-  <a class="logo" href="#top"><i>A</i><span>The Aangan <em>Lounge</em></span></a>
-  <ul><li><a href="#colour" data-t="nav1">Hair colour</a></li><li><a href="#menu" data-t="nav2">Services</a></li><li><a href="#bridal" data-t="nav3">Bridal</a></li><li><a href="#cafe" data-t="nav4">Café</a></li></ul>
-  <div style="display:flex;gap:8px;align-items:center"><button class="lang" id="lang" type="button" aria-label="Switch language">हिंदी</button><a class="pill" href="#book" data-t="book">Book now</a></div>
+<div class="concept"><b>Made for The Aangan Lounge</b> · a free website concept by FirstGlance Studio</div>
+<header class="nav" id="nav"><div class="wrap">
+  <a class="brand" href="#top"><span class="mark">A</span>The Aangan Lounge</a>
+  <nav class="links mono"><a href="#experiences" data-t="n1">Experiences</a><a href="#menu" data-t="n2">Services</a><a href="#bridal" data-t="n3">Bridal</a><a href="#cafe" data-t="n4">Café</a></nav>
+  <div class="right"><button class="lang" id="lang" type="button">हिंदी</button><a class="pill o" href="#book" data-t="nb">Book a visit</a></div>
 </div></header>
 
-<div class="heroS" id="top"><div class="toran" aria-hidden="true"></div>
+<div class="hero" id="top">
+  <div class="bg"></div>
+  <video id="v0" muted loop playsinline preload="auto" src="assets/tour.mp4"></video>
+  <video id="v1" muted loop playsinline preload="none" src="assets/cocktail.mp4"></video>
+  <div class="shade"></div>
   <div class="wrap">
-    <div>
-      <span class="kicker" data-t="kick">✨ Salon · Café · Beauty · Makeup · Nails · Jodhpur</span>
-      <h1><span data-t="h1">Where beauty meets <em>coffee.</em></span></h1>
-      <p class="lead" data-t="lead">Hair transformations, bridal glam and spa rituals, with a café in the same courtyard. Sip, relax and walk out shining.</p>
-      <div class="ctas"><a class="btn btn-a" href="#book" data-t="cta1">Book on WhatsApp ↓</a><a class="btn btn-o" href="#menu" data-t="cta2">Explore services ↓</a></div>
-      <div class="facts"><span>💇‍♀️ Hair from ₹1,500</span><span>👰 Bridal &amp; party makeup</span><span>☕ Café inside</span></div>
-    </div>
-    <div class="archArt"><div class="frame"><div class="in"><button class="seal" type="button" data-reel="DdHLv3LtA3W" aria-label="Watch The Aangan Lounge tour reel"><svg viewBox="0 0 200 200"><defs><path id="cDdHLv3LtA3W" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/><linearGradient id="ggDdHLv3LtA3W" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D58B"/><stop offset=".5" stop-color="#C8963E"/><stop offset="1" stop-color="#F2C66D"/></linearGradient></defs>
-<circle cx="100" cy="100" r="96" fill="url(#ggDdHLv3LtA3W)"/><circle cx="100" cy="100" r="88" fill="#E0287A"/><circle cx="100" cy="100" r="52" fill="#FFF7EC"/>
-<text font-family="Hanken Grotesk,Arial,sans-serif" font-weight="800" font-size="14" fill="#FFF3E2"><textPath textLength="460" lengthAdjust="spacing" href="#cDdHLv3LtA3W">WATCH THE AANGAN TOUR ✦ STEP INSIDE ✦ </textPath></text>
-<path d="M90 78 L124 100 L90 122 Z" fill="#E0287A"/></svg></button></div></div><span class="tag" data-t="r1">✨ Step inside the lounge</span></div></div>
+    <p class="mono eyebrow" data-t="k">Salon · Café · Beauty · Jodhpur</p>
+    <h1 style="margin-top:18px"><span data-t="h1">Where beauty <br>meets <em class="gold">coffee.</em></span></h1>
+    <p class="sub" data-t="sub">Hair transformations, bridal glam and slow spa rituals, with a café in the same courtyard. <b class="gold">Sip. Relax. Shine.</b></p>
+    <div class="ctas"><a class="pill o" href="#menu" data-t="c1">View services</a><a class="pill g" href="#book" data-t="c2">Book on WhatsApp</a></div>
   </div>
+  <span class="scroll mono">Scroll ↓</span>
+  <div class="dots" aria-label="Hero videos"><button class="on" data-i="0" aria-label="Salon tour"></button><button data-i="1" aria-label="Cocktail look"></button><button class="nx" id="nx" aria-label="Next">›</button></div>
 </div>
-<div class="marq" aria-hidden="true"><div>Kerasmooth ✦ Keratin ✦ Hair Botox ✦ Nanoplastia ✦ Balayage ✦ Ombré ✦ Global colour ✦ Bridal makeup ✦ Spa ✦ Facial ✦ Pedicure ✦ Nails ✦ Café ✦ Kerasmooth ✦ Keratin ✦ Hair Botox ✦ Nanoplastia ✦ Balayage ✦ Ombré ✦ Global colour ✦ Bridal makeup ✦ Spa ✦ Facial ✦ Pedicure ✦ Nails ✦ Café ✦&nbsp;</div></div>
 
-<section id="colour"><div class="wrap">
-  <p class="eyebrow" data-t="c-eye">Hair colour studio</p>
-  <h2 data-t="c-h">See your new shade <em>before you sit down.</em></h2>
-  <p class="sub" data-t="c-sub">Pick a technique and a shade to preview the look. Then book your colour consultation with the look already chosen.</p>
-  <div class="builder">
-    <div class="hairbox"><svg id="hairsvg" viewBox="0 0 400 520" role="img" aria-label="Hair colour preview"></svg></div>
+<section id="experiences"><div class="wrap">
+  <div class="reveal"><p class="mono eyebrow" data-t="e1">The Aangan experience</p>
+  <h2 data-t="e2">Step inside. <em>Stay a while.</em></h2></div>
+  <div class="flow" id="flow"></div>
+  <div class="arrows"><button type="button" id="prev" aria-label="Previous">‹</button><button type="button" id="next" aria-label="Next">›</button></div>
+  <div class="tabsx mono" id="ftabs"></div>
+</div></section>
+
+<section class="cream"><div class="wrap reveal">
+  <p class="big">What we do</p>
+  <p class="typer">Slow, luxurious <em id="typed">hair transformations</em><span class="caret"></span></p>
+  <p class="lead" style="margin-top:16px">Salon-grade results and café-grade coffee, without ever leaving the courtyard.</p>
+</div></section>
+
+<section id="menu"><div class="wrap">
+  <div class="reveal"><p class="mono eyebrow" data-t="m1">The menu</p><h2 data-t="m2">Everything, in <em>one aangan.</em></h2>
+  <p class="lead" data-t="m3">Tap + to add to your booking. Hair treatments begin at ₹1,500.</p></div>
+  <div class="mtabs mono" role="tablist" id="mtabs"></div>
+  <div class="rows" id="rows"></div>
+</div></section>
+
+<section id="colour" style="padding-top:40px"><div class="wrap">
+  <div class="reveal"><p class="mono eyebrow">Colour studio</p><h2>Choose your shade <em>before you sit.</em></h2></div>
+  <div class="studio">
+    <div class="fan"><svg id="hairsvg" viewBox="0 0 520 520" role="img" aria-label="Hair colour swatch preview"></svg></div>
     <div class="panel">
-      <span class="lbl" data-t="tech">Technique</span>
-      <div class="opts"><label class="opt"><input type="radio" name="tq" value="Balayage" checked><span>Balayage</span></label><label class="opt"><input type="radio" name="tq" value="Ombré"><span>Ombré</span></label><label class="opt"><input type="radio" name="tq" value="Sombré"><span>Sombré</span></label><label class="opt"><input type="radio" name="tq" value="Highlights"><span>Highlights</span></label><label class="opt"><input type="radio" name="tq" value="Global colour"><span>Global colour</span></label></div>
-      <span class="lbl" data-t="shade">Shade</span>
-      <div class="opts" id="shades"></div>
-      <span class="lbl" data-t="finish">Finish with</span>
-      <div class="opts"><label class="opt"><input type="checkbox" id="spa" checked><span>💆‍♀️ Luxury hair spa</span></label><label class="opt"><input type="checkbox" id="kera"><span>✨ Keratin / Kerasmooth</span></label></div>
-      <div class="summary"><small style="color:var(--muted)" data-t="yourlook">Your look</small><b id="look"></b></div>
-      <button class="btn btn-a" type="button" id="addLook" data-t="addlook">Add to my booking ↓</button>
-      <p class="note" data-t="cnote">Colour results depend on your current hair. We'll confirm the right shade in a free consultation.</p>
+      <span class="lbl mono">Technique</span>
+      <div class="chips"><label class="chip"><input type="radio" name="tq" value="Balayage" checked><span>Balayage</span></label><label class="chip"><input type="radio" name="tq" value="Ombré"><span>Ombré</span></label><label class="chip"><input type="radio" name="tq" value="Sombré"><span>Sombré</span></label><label class="chip"><input type="radio" name="tq" value="Highlights"><span>Highlights</span></label><label class="chip"><input type="radio" name="tq" value="Global colour"><span>Global colour</span></label></div>
+      <span class="lbl mono">Shade</span><div class="chips" id="shades"></div>
+      <span class="lbl mono">Finish with</span>
+      <div class="chips"><label class="chip"><input type="checkbox" id="spa" checked><span>Luxury hair spa</span></label><label class="chip"><input type="checkbox" id="kera"><span>Keratin · Kerasmooth</span></label></div>
+      <div class="look"><span class="mono" style="color:var(--muted)">Your look</span><b id="look"></b></div>
+      <button class="pill g" type="button" id="addLook">Add to my booking</button>
+      <p class="note">We'll confirm the perfect shade for your hair in a free consultation.</p>
     </div>
   </div>
 </div></section>
 
-<section id="menu" style="padding-top:10px"><div class="wrap">
-  <p class="eyebrow" data-t="m-eye">The menu</p>
-  <h2 data-t="m-h">Everything for you, <em>in one aangan.</em></h2>
-  <p class="sub" data-t="m-sub">Tap + to add services to your booking. Hair treatments start at just ₹1,500.</p>
-  <div class="tabs" role="tablist" id="tabs"></div>
-  <div class="list" id="list"></div>
-</div></section>
-
-<section class="bridal" id="bridal"><div class="wrap" id="glam">
-  <p class="eyebrow" style="color:var(--gold)" data-t="b-eye">Bridal &amp; events · wedding season</p>
-  <h2 style="color:#fff" data-t="b-h">She walks, <em>the world stops.</em></h2>
-  <p class="sub" data-t="b-sub">Every bride deserves her fairytale moment. Luxury bridal makeup, family and guest glam, and event looks, all planned with you.</p>
-  <div class="pk">
-    <div class="pkc"><h3>👰 The Bride</h3><ul><li>Luxury bridal makeup &amp; hair</li><li>Pre-bridal skin &amp; hair prep</li><li>Trial look on request</li></ul></div>
-    <div class="pkc"><h3>💃 The Family</h3><ul><li>Makeup &amp; hair for mothers, sisters, friends</li><li>Sangeet, mehendi &amp; reception looks</li></ul></div>
-    <div class="pkc"><h3>🎉 Events</h3><ul><li>Party &amp; carnival glam</li><li>Group bookings at the lounge</li></ul></div>
+<section class="bridal" id="bridal">
+  <div class="bgv"></div><video id="vb" muted loop playsinline preload="none" src="assets/carnival.mp4"></video><div class="shade"></div>
+  <div class="wrap reveal">
+    <p class="mono eyebrow" data-t="b1">Bridal · Events · Wedding season</p>
+    <h2 style="margin-top:16px" data-t="b2">She walks, <br><em class="gold">the world stops.</em></h2>
+    <div class="pk"><div><b>The Bride</b><p>Luxury bridal makeup &amp; hair, pre-bridal skin and hair prep, trial on request.</p></div><div><b>The Family</b><p>Mothers, sisters, friends: sangeet, mehendi and reception looks.</p></div><div><b>The Party</b><p>Cocktail and carnival glam that steals the spotlight.</p></div></div>
+    <a class="pill g" id="bridalWA" target="_blank" rel="noopener" data-t="b3">Enquire about my date</a>
   </div>
-  <div class="watchRow"><button class="seal" type="button" data-reel="Deoug74Nbk5" aria-label="Watch the cocktail makeup look reel"><svg viewBox="0 0 200 200"><defs><path id="cDeoug74Nbk5" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/><linearGradient id="ggDeoug74Nbk5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D58B"/><stop offset=".5" stop-color="#C8963E"/><stop offset="1" stop-color="#F2C66D"/></linearGradient></defs>
-<circle cx="100" cy="100" r="96" fill="url(#ggDeoug74Nbk5)"/><circle cx="100" cy="100" r="88" fill="#E0287A"/><circle cx="100" cy="100" r="52" fill="#FFF7EC"/>
-<text font-family="Hanken Grotesk,Arial,sans-serif" font-weight="800" font-size="14" fill="#FFF3E2"><textPath textLength="460" lengthAdjust="spacing" href="#cDeoug74Nbk5">COCKTAIL NIGHT LOOK ✦ TAP TO WATCH ✦ </textPath></text>
-<path d="M90 78 L124 100 L90 122 Z" fill="#E0287A"/></svg></button><p><b data-t="r3">Your cocktail look deserves more than a second glance.</b>Flawless glam and perfectly blended details. Tap to watch a look created at the lounge.</p></div>
-  <div class="ctas" style="margin-top:30px"><a class="btn" style="background:var(--gold);color:#3a1a00" id="bridalWA" target="_blank" rel="noopener" data-t="b-cta">Enquire about my wedding date ↗</a></div>
-</div></section>
+</section>
 
-<section class="cafe" id="cafe"><div class="wrap">
-  <p class="eyebrow" style="color:var(--gold)" data-t="f-eye">The Aangan café</p>
-  <h2 style="color:#FFF3E2" data-t="f-h">Sip while you <em>shine.</em></h2>
-  <p class="sub" data-t="f-sub">Good vibes, beautiful ambience and delicious moments. Order a drink with your booking and it's ready when you are.</p>
-  <div class="list" id="cafeList"></div>
-  <p class="note" style="color:#C8AB8E" data-t="f-note">Sample menu for this concept. We'll add your real café menu and prices.</p>
+<section class="cream" id="cafe"><div class="wrap">
+  <div class="reveal"><p class="mono" style="color:#8a6a2e">The Aangan café</p><p class="big" style="margin-top:10px">Sip while you shine.</p>
+  <p class="lead" style="margin-top:16px">Order with your booking and it's ready when you are. <i>(Sample menu: your real menu and prices go here.)</i></p></div>
+  <div class="cafegrid" id="cafeRows"></div>
 </div></section>
 
 <section id="book"><div class="wrap">
-  <p class="eyebrow" data-t="k-eye">Book in 30 seconds</p>
-  <h2 data-t="k-h">Your visit, <em>sorted on WhatsApp.</em></h2>
-  <div class="builder" style="grid-template-columns:1fr">
-    <div class="panel" style="max-width:760px">
-      <div class="steps"><span class="on"></span><span class="on" id="st2"></span><span id="st3"></span></div>
-      <span class="lbl" data-t="k-sel">Your selection</span>
-      <div class="cart" id="cart">Nothing yet. Add services above, or just tell us what you need.</div>
-      <span class="lbl" data-t="k-day">Day</span>
-      <div class="slots" id="days"></div>
-      <span class="lbl" data-t="k-time">Time</span>
-      <div class="slots" id="times"></div>
-      <span class="lbl" data-t="k-name">Your name</span>
-      <input class="field" id="nm" placeholder="Priya" maxlength="40">
-      <div class="ctas"><a class="btn btn-a" id="bookWA" target="_blank" rel="noopener" data-t="k-cta">Send booking on WhatsApp ↗</a><a class="btn btn-o" href="tel:+917727985757" data-t="call">📞 Call 77279 85757</a></div>
-      <p class="note" data-t="k-note">Your request goes straight to the lounge's WhatsApp, and they'll confirm your slot.</p>
+  <div class="reveal"><p class="mono eyebrow" data-t="k1">Reserve your chair</p><h2 data-t="k2">Book in <em>thirty seconds.</em></h2></div>
+  <div class="book">
+    <div class="info">
+      <div><span class="mono" style="color:var(--muted)">Find us</span><b>Jodhpur, Rajasthan</b><a class="mono" href="https://maps.app.goo.gl/BqgeRDJkmr5vGp7E9" target="_blank" rel="noopener">Get directions ↗</a></div>
+      <div><span class="mono" style="color:var(--muted)">Call · WhatsApp</span><b>+91 77279 85757</b><a class="mono" href="tel:+917727985757">Call now ↗</a></div>
+      <div><span class="mono" style="color:var(--muted)">Instagram</span><b>@theaanganlounge</b><a class="mono" href="https://www.instagram.com/theaanganlounge/" target="_blank" rel="noopener">Follow ↗</a></div>
+    </div>
+    <div class="panel">
+      <span class="lbl mono">Your selection</span><div class="cart" id="cart">Nothing yet. Add services above, or tell us what you need.</div>
+      <span class="lbl mono">Day</span><div class="slots" id="days"></div>
+      <span class="lbl mono">Time</span><div class="slots" id="times"></div>
+      <span class="lbl mono">Your name</span><input class="field" id="nm" placeholder="Priya" maxlength="40">
+      <div class="ctas" style="margin-top:22px"><a class="pill g" id="bookWA" target="_blank" rel="noopener">Send on WhatsApp</a><a class="pill d" href="tel:+917727985757">Call</a></div>
+      <p class="note">Your request goes straight to the lounge's WhatsApp, and they'll confirm your slot.</p>
     </div>
   </div>
 </div></section>
-
-<section style="padding-top:10px"><div class="wrap">
-  <p class="eyebrow" data-t="w-eye">Why clients love Aangan</p>
-  <div class="feat">
-    <div class="card"><div class="ic">☕</div><h3 data-t="w1">Salon + café</h3><p data-t="w1p">Your coffee is brewing while your colour develops.</p></div>
-    <div class="card"><div class="ic">🎨</div><h3 data-t="w2">Colour specialists</h3><p data-t="w2p">From global colour to balayage, before to beautiful after.</p></div>
-    <div class="card"><div class="ic">👑</div><h3 data-t="w3">Bridal experts</h3><p data-t="w3p">Fairytale bridal looks, made unforgettable.</p></div>
-    <div class="card"><div class="ic">⭐</div><h3 data-t="w4">Google reviews</h3><p data-t="w4p">Your latest Google reviews appear here automatically on the real site.</p></div>
-  </div>
-</div></section>
-
-<section id="visit" style="padding-top:10px"><div class="wrap">
-  <p class="eyebrow" data-t="v-eye">Visit the aangan</p>
-  <h2 data-t="v-h">See you <em>in Jodhpur.</em></h2>
-  <div class="visit">
-    <div class="card"><h3>📍 <span data-t="v1">Find us</span></h3><p>The Aangan Lounge, Jodhpur</p><p style="margin-top:12px"><a href="https://maps.app.goo.gl/BqgeRDJkmr5vGp7E9" target="_blank" rel="noopener"><b data-t="dir">Get directions ↗</b></a></p></div>
-    <div class="card"><h3>📞 <span data-t="v2">Call or WhatsApp</span></h3><p><a href="tel:+917727985757">+91 77279 85757</a></p><p style="margin-top:12px"><a href="https://wa.me/917727985757" target="_blank" rel="noopener"><b>WhatsApp ↗</b></a></p></div>
-    <div class="card"><h3>📸 Instagram</h3><p data-t="v3">Transformations every week.</p><p style="margin-top:12px"><a href="https://www.instagram.com/theaanganlounge/" target="_blank" rel="noopener"><b>@theaanganlounge ↗</b></a></p></div>
-  </div>
-</div></section>
-<footer><div class="wrap">The Aangan Lounge · Salon &amp; Café, Jodhpur. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. Reels open directly from @theaanganlounge on Instagram.</div></footer>
-<dialog class="reel" id="reelDlg" aria-label="Instagram reel"><div class="box"><button class="x" type="button" id="reelX" aria-label="Close">×</button><iframe id="reelFrame" title="Instagram reel from @theaanganlounge" allowfullscreen></iframe></div></dialog>
-<a class="wa" href="https://wa.me/917727985757" target="_blank" rel="noopener" aria-label="WhatsApp The Aangan Lounge">💬</a>
+<footer><div class="wrap">The Aangan Lounge · Salon &amp; Café, Jodhpur. Website concept by <a href="https://firstglancestudio.in" style="color:var(--gold)">FirstGlance Studio</a>.</div></footer>
+<a class="wa" href="https://wa.me/917727985757" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 <script>
-// mandala pattern (used in bridal bg + 3D)
-window.mandala=(function(){const c=document.createElement('canvas');c.width=c.height=1024;const x=c.getContext('2d');x.translate(512,512);
-  const ring=(r,n,f)=>{for(let i=0;i<n;i++){x.save();x.rotate(i/n*Math.PI*2);f(r);x.restore()}};
-  x.strokeStyle='#FFD27A';x.fillStyle='#FFD27A';x.lineWidth=3;
-  [60,140,230,330,440].forEach((r,k)=>{x.beginPath();x.arc(0,0,r,0,7);x.stroke()});
-  ring(100,12,r=>{x.beginPath();x.ellipse(0,-r,16,40,0,0,7);x.stroke()});
-  ring(185,24,r=>{x.beginPath();x.moveTo(0,-r-40);x.quadraticCurveTo(22,-r,0,-r+40);x.quadraticCurveTo(-22,-r,0,-r-40);x.stroke()});
-  ring(280,32,r=>{x.beginPath();x.arc(0,-r,14,0,7);x.fill()});
-  ring(385,48,r=>{x.beginPath();x.moveTo(0,-r-46);x.lineTo(14,-r);x.lineTo(0,-r+46);x.lineTo(-14,-r);x.closePath();x.stroke()});
-  ring(470,64,r=>{x.beginPath();x.arc(0,-r,6,0,7);x.fill()});
-  document.documentElement.style.setProperty('--mandala',`url(${c.toDataURL()})`);return c})();
+(function(){const c=document.createElement('canvas');c.width=c.height=1024;const x=c.getContext('2d');x.translate(512,512);x.strokeStyle='#E7C47A';x.fillStyle='#E7C47A';x.lineWidth=2.5;
+ const ring=(r,n,f)=>{for(let i=0;i<n;i++){x.save();x.rotate(i/n*Math.PI*2);f(r);x.restore()}};
+ [70,150,240,340,450].forEach(r=>{x.beginPath();x.arc(0,0,r,0,7);x.stroke()});
+ ring(110,12,r=>{x.beginPath();x.ellipse(0,-r,16,40,0,0,7);x.stroke()});ring(195,24,r=>{x.beginPath();x.moveTo(0,-r-40);x.quadraticCurveTo(22,-r,0,-r+40);x.quadraticCurveTo(-22,-r,0,-r-40);x.stroke()});
+ ring(290,32,r=>{x.beginPath();x.arc(0,-r,12,0,7);x.fill()});ring(395,48,r=>{x.beginPath();x.moveTo(0,-r-44);x.lineTo(13,-r);x.lineTo(0,-r+44);x.lineTo(-13,-r);x.closePath();x.stroke()});
+ document.documentElement.style.setProperty('--mandala',`url(${c.toDataURL()})`)})();
 const WA='917727985757';
-/* ---- services menu (from the lounge's own posts) ---- */
-const MENU={'Hair':[['Kerasmooth','Frizz-free, silky smooth','From ₹1,500'],['Keratin','Smooth, shiny, manageable','From ₹1,500'],['Hair Botox','Deep repair for tired hair','From ₹1,500'],['Nanoplastia','Long-lasting straight finish','From ₹1,500'],['Global colour','One rich all-over shade','On consultation'],['Highlights','Dimension & brightness','On consultation'],['Balayage / Ombré / Sombré','Hand-painted, blended colour','On consultation'],['Luxury hair spa','Deep nourishment ritual','From ₹1,500'],['Haircut & styling','A whole new vibe','On consultation'],['Little champ cut','Kids\' haircuts','On consultation']],
- 'Makeup':[['Bridal makeup','Luxury bride, fairytale moment','On consultation'],['Party & event glam','Shine, sparkle, steal the spotlight','On consultation'],['Family & guest makeup','For the whole wedding party','On consultation']],
- 'Skin & Spa':[['Facial','Glow-up for every skin','On consultation'],['Spa','Relax & unwind','On consultation'],['Pedicure','Soft, pampered feet','On consultation'],['Botox (aesthetic)','A naturally refreshed look · consultation first','On consultation']],
- 'Nails':[['Nail extensions','Shape, length & finish of your choice','On consultation'],['Nail art','From minimal to festive','On consultation']]};
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+// hero videos: the lounge's own reels, muted; if a file is missing the dark-gold backdrop shows instead
+const vids=[document.getElementById('v0'),document.getElementById('v1')];let cur=0;
+function showV(i){cur=i;vids.forEach((v,j)=>{if(!v.isConnected)return;if(j===i){v.preload='auto';v.play().then(()=>v.classList.add('on')).catch(()=>{})}else{v.classList.remove('on');setTimeout(()=>v.pause(),1200)}});document.querySelectorAll('.dots [data-i]').forEach(b=>b.classList.toggle('on',+b.dataset.i===i))}
+vids.forEach(v=>v.addEventListener('error',()=>v.remove()));
+document.querySelectorAll('.dots [data-i]').forEach(b=>b.onclick=()=>showV(+b.dataset.i));document.getElementById('nx').onclick=()=>showV((cur+1)%2);
+showV(0);setInterval(()=>{if(!document.hidden)showV((cur+1)%2)},12000);
+const vb=document.getElementById('vb');vb.addEventListener('error',()=>vb.remove());new IntersectionObserver(es=>{if(!vb.isConnected)return;if(es[0].isIntersecting){vb.preload='auto';vb.play().then(()=>vb.classList.add('on')).catch(()=>{})}else vb.pause()}).observe(document.getElementById('bridal'));
+const EXP=[{s:'Colour',k:'01 · Hair',t:'Colour transformations',i:'Before to beautiful after.',v:'assets/tour.mp4',g:'linear-gradient(160deg,#3b2a1a,#7a4a22 60%,#c98a43)'},
+ {s:'Glam',k:'02 · Makeup',t:'Cocktail & party glam',i:'More than a second glance.',v:'assets/cocktail.mp4',g:'linear-gradient(160deg,#2a0f1d,#7a1a46 60%,#c2185b)'},
+ {s:'Bride',k:'03 · Bridal',t:'Luxury bridal',i:'Your fairytale moment.',v:'assets/carnival.mp4',g:'linear-gradient(160deg,#2b1b0c,#8a5a1c 60%,#e0b060)'},
+ {s:'Unwind',k:'04 · Spa',t:'Spa, facial & pedicure',i:'Your self-care sanctuary.',v:'',g:'linear-gradient(160deg,#10201c,#1f4a3f 60%,#6aa38f)'},
+ {s:'Sip',k:'05 · Café',t:'The Aangan café',i:'Relax, sip, savour.',v:'',g:'linear-gradient(160deg,#1c120c,#4a2c1a 60%,#a8703c)'}];
+const flow=document.getElementById('flow'),ftabs=document.getElementById('ftabs');let fi=0;
+EXP.forEach((e,i)=>{const c=document.createElement('div');c.className='card';c.innerHTML=`<div class="art" style="background:${e.g}">${e.v?`<video muted loop playsinline preload="none" src="${e.v}"></video>`:''}</div><span class="script">${e.s}</span><div class="meta"><span class="mono">${e.k}</span><b>${e.t}</b><i>${e.i}</i></div>`;c.onclick=()=>setF(i);flow.appendChild(c);
+  const b=document.createElement('button');b.type='button';b.textContent=e.t;b.onclick=()=>setF(i);ftabs.appendChild(b)});
+document.querySelectorAll('.card video').forEach(v=>v.addEventListener('error',()=>v.remove()));
+function setF(i){fi=(i+EXP.length)%EXP.length;[...flow.children].forEach((c,j)=>{let d=j-fi;if(d>2)d-=EXP.length;if(d<-2)d+=EXP.length;const a=Math.abs(d);
+  c.style.transform=`translateX(${d*(innerWidth<700?150:230)}px) translateZ(${-a*160}px) rotateY(${-d*14}deg) scale(${1-a*.08})`;c.style.zIndex=10-a;c.style.opacity=a>2?0:1-a*.18;c.style.filter=a?'brightness(.55)':'none';
+  const v=c.querySelector('video');if(v){if(a===0){v.preload='auto';v.play().catch(()=>{})}else v.pause()}});
+  [...ftabs.children].forEach((b,j)=>b.classList.toggle('on',j===fi))}
+document.getElementById('prev').onclick=()=>setF(fi-1);document.getElementById('next').onclick=()=>setF(fi+1);setF(0);addEventListener('resize',()=>setF(fi));
+(function(){const W=['hair transformations','bridal glam','spa rituals','café moments','nail art'];const el=document.getElementById('typed');let w=0,n=W[0].length,del=true;
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;setInterval(()=>{if(del){n--;if(n<=0){del=false;w=(w+1)%W.length}}else{n++;if(n>=W[w].length+14)del=true}el.textContent=W[w].slice(0,Math.max(0,Math.min(n,W[w].length)))},85)})();
+const MENU={'Hair':[['Kerasmooth','Frizz-free, silky smooth','From ₹1,500'],['Keratin','Smooth, shiny, manageable','From ₹1,500'],['Hair Botox','Deep repair for tired hair','From ₹1,500'],['Nanoplastia','Long-lasting straight finish','From ₹1,500'],['Luxury hair spa','Deep nourishment ritual','From ₹1,500'],['Global colour','One rich all-over shade','On consultation'],['Highlights','Dimension & brightness','On consultation'],['Balayage · Ombré · Sombré','Hand-painted, blended colour','On consultation'],['Haircut & styling','A whole new vibe','On consultation'],['Little champ cut','Kids\' haircuts','On consultation']],
+ 'Makeup':[['Bridal makeup','Your fairytale moment','On consultation'],['Cocktail & party glam','More than a second glance','On consultation'],['Family & guest makeup','For the whole wedding party','On consultation']],
+ 'Skin & Spa':[['Facial','A glow for every skin','On consultation'],['Spa','Your self-care sanctuary','On consultation'],['Pedicure','Soft, pampered feet','On consultation'],['Botox (aesthetic)','Naturally refreshed · consultation first','On consultation']],
+ 'Nails':[['Nail extensions','Your shape, length & finish','On consultation'],['Nail art','Minimal to festive','On consultation']]};
 const CAFE=[['Cold coffee','Creamy & chilled','Sample'],['Masala chai','Desi comfort in a cup','Sample'],['Cappuccino','Classic & frothy','Sample'],['Mocktails','Fresh & fruity','Sample'],['Sandwiches','Grilled & loaded','Sample'],['Desserts','A sweet little treat','Sample']];
-const cart=new Set();
-function itemHTML(it,cafe){return `<div class="item"><div><b>${it[0]}</b><small>${it[1]}</small></div><div style="display:flex;gap:10px;align-items:center"><span class="price">${it[2]}</span><button class="add" type="button" data-n="${it[0]}" aria-label="Add ${it[0]}">+</button></div></div>`}
-const tabs=document.getElementById('tabs'),list=document.getElementById('list');
-Object.keys(MENU).forEach((k,i)=>{const b=document.createElement('button');b.className='tab';b.type='button';b.role='tab';b.textContent=k;b.setAttribute('aria-selected',i===0);b.onclick=()=>{tabs.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t===b));list.innerHTML=MENU[k].map(it=>itemHTML(it)).join('');syncAdds()};tabs.appendChild(b)});
-list.innerHTML=MENU.Hair.map(it=>itemHTML(it)).join('');
-document.getElementById('cafeList').innerHTML=CAFE.map(it=>itemHTML(it,1)).join('');
-function syncAdds(){document.querySelectorAll('.add').forEach(a=>{a.classList.toggle('on',cart.has(a.dataset.n));a.textContent=cart.has(a.dataset.n)?'✓':'+'})}
-document.addEventListener('click',e=>{const a=e.target.closest('.add');if(!a)return;const n=a.dataset.n;cart.has(n)?cart.delete(n):cart.add(n);syncAdds();renderCart()});
-/* ---- booking ---- */
-const days=document.getElementById('days'),times=document.getElementById('times');let day=null,time=null;
-const fmt=d=>d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
-for(let i=0;i<8;i++){const d=new Date();d.setDate(d.getDate()+i);const b=document.createElement('button');b.className='slot';b.type='button';b.textContent=i===0?'Today':i===1?'Tomorrow':fmt(d);b.onclick=()=>{day=b.textContent;days.querySelectorAll('.slot').forEach(s=>s.classList.toggle('on',s===b));renderCart()};days.appendChild(b)}
+const cart=new Set();const row=it=>`<div class="row"><div class="t"><b>${it[0]}</b><small>${it[1]}</small></div><span class="p">${it[2]}</span><button class="add" type="button" data-n="${it[0]}" aria-label="Add ${it[0]}">+</button></div>`;
+const mt=document.getElementById('mtabs'),rows=document.getElementById('rows');
+Object.keys(MENU).forEach((k,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=k;b.setAttribute('aria-selected',i===0);b.onclick=()=>{mt.querySelectorAll('button').forEach(x=>x.setAttribute('aria-selected',x===b));rows.innerHTML=MENU[k].map(row).join('');sync()};mt.appendChild(b)});
+rows.innerHTML=MENU.Hair.map(row).join('');document.getElementById('cafeRows').innerHTML=CAFE.map(row).join('');
+function sync(){document.querySelectorAll('.add').forEach(a=>{a.classList.toggle('on',cart.has(a.dataset.n));a.textContent=cart.has(a.dataset.n)?'✓':'+'})}
+document.addEventListener('click',e=>{const a=e.target.closest('.add');if(!a)return;cart.has(a.dataset.n)?cart.delete(a.dataset.n):cart.add(a.dataset.n);sync();renderCart()});
+let day=null,time=null;window.__look='';const days=document.getElementById('days'),times=document.getElementById('times');
+for(let i=0;i<8;i++){const d=new Date();d.setDate(d.getDate()+i);const b=document.createElement('button');b.className='slot';b.type='button';b.textContent=i===0?'Today':i===1?'Tomorrow':d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric'});b.onclick=()=>{day=b.textContent;days.querySelectorAll('.slot').forEach(s=>s.classList.toggle('on',s===b));renderCart()};days.appendChild(b)}
 ['11:00','12:30','14:00','15:30','17:00','18:30','19:30','20:30'].forEach(t=>{const b=document.createElement('button');b.className='slot';b.type='button';b.textContent=t;b.onclick=()=>{time=t;times.querySelectorAll('.slot').forEach(s=>s.classList.toggle('on',s===b));renderCart()};times.appendChild(b)});
-window.__look='';
-function renderCart(){const items=[...cart];if(window.__look)items.unshift(window.__look);document.getElementById('cart').textContent=items.length?items.join(' + '):'Nothing yet. Add services above, or just tell us what you need.';
-  document.getElementById('st3').classList.toggle('on',!!(day&&time));
-  const msg=`Hi The Aangan Lounge! I'd like to book: ${items.length?items.join(', '):'(please suggest)'}${day?` on ${day}`:''}${time?` at ${time}`:''}.${nm.value?` Name: ${nm.value}.`:''}`;
-  document.getElementById('bookWA').href=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`}
+const nm=document.getElementById('nm');
+function renderCart(){const items=[...cart];if(window.__look)items.unshift(window.__look);document.getElementById('cart').textContent=items.length?items.join(' + '):'Nothing yet. Add services above, or tell us what you need.';
+ const msg=`Hi The Aangan Lounge! I'd like to book: ${items.length?items.join(', '):'(please suggest)'}${day?` on ${day}`:''}${time?` at ${time}`:''}.${nm.value?` Name: ${nm.value}.`:''}`;document.getElementById('bookWA').href=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`}
 nm.addEventListener('input',renderCart);renderCart();
-document.getElementById('bridalWA').href=`https://wa.me/${WA}?text=${encodeURIComponent("Hi The Aangan Lounge! I'm getting married and would love to know about your bridal packages. My wedding date is: ")}`;
-/* ---- Hindi / English ---- */
-const HI={r1:'✨ लाउंज के अंदर आइए',r3:'आपका कॉकटेल लुक, सबकी नज़रों में।',nav1:'हेयर कलर',nav2:'सर्विसेज़',nav3:'ब्राइडल',nav4:'कैफ़े',book:'बुक करें',kick:'✨ सैलून · कैफ़े · ब्यूटी · मेकअप · नेल्स · जोधपुर',h1:'जहाँ ख़ूबसूरती मिले <em>कॉफ़ी से।</em>',lead:'हेयर ट्रांसफ़ॉर्मेशन, ब्राइडल ग्लैम और स्पा, और उसी आँगन में कैफ़े। आराम से बैठिए, चुस्की लीजिए, और चमकते हुए जाइए।',cta1:'WhatsApp पर बुक करें ↓',cta2:'सर्विसेज़ देखें ↓','c-eye':'हेयर कलर स्टूडियो','c-h':'बैठने से पहले <em>अपना नया शेड देखें।</em>','c-sub':'तकनीक और शेड चुनें, बाल तुरंत बदलेंगे। फिर उसी लुक के साथ कंसल्टेशन बुक करें।',tech:'तकनीक',shade:'शेड',finish:'साथ में',yourlook:'आपका लुक',addlook:'बुकिंग में जोड़ें ↓','m-eye':'मेन्यू','m-h':'आपके लिए सब कुछ, <em>एक ही आँगन में।</em>','m-sub':'+ दबाकर सर्विस जोड़ें। हेयर ट्रीटमेंट सिर्फ़ ₹1,500 से शुरू।','b-eye':'ब्राइडल और इवेंट्स · शादी का सीज़न','b-h':'वो चले, <em>तो दुनिया थम जाए।</em>','b-cta':'अपनी शादी की तारीख़ बताएँ ↗','f-eye':'आँगन कैफ़े','f-h':'चमकिए, <em>चुस्की लीजिए।</em>','k-eye':'30 सेकंड में बुकिंग','k-h':'आपकी विज़िट, <em>WhatsApp पर तय।</em>','k-cta':'WhatsApp पर बुकिंग भेजें ↗','v-eye':'आँगन में आइए','v-h':'मिलते हैं <em>जोधपुर में।</em>',dir:'रास्ता देखें ↗','w-eye':'क्लाइंट्स को आँगन क्यों पसंद है'};
-const EN={};document.querySelectorAll('[data-t]').forEach(e=>EN[e.dataset.t]=e.innerHTML);let isHi=false;
-document.getElementById('lang').onclick=e=>{isHi=!isHi;document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(HI[k]){el.innerHTML=isHi?HI[k]:EN[k];el.classList.toggle('hi',isHi)}});e.target.textContent=isHi?'English':'हिंदी';document.documentElement.lang=isHi?'hi':'en'};
-</script>
-<script>
-/* reels open on tap only */
-(function(){const d=document.getElementById('reelDlg'),f=document.getElementById('reelFrame');
- document.querySelectorAll('[data-reel]').forEach(b=>b.addEventListener('click',()=>{f.src='https://www.instagram.com/reel/'+b.dataset.reel+'/embed';d.showModal()}));
- const close=()=>{d.close();f.src='about:blank'};document.getElementById('reelX').onclick=close;d.addEventListener('click',e=>{if(e.target===d)close()});d.addEventListener('cancel',()=>{f.src='about:blank'})})();
-/* static hair colour preview: a fan of salon swatches */
-(function(){const svg=document.getElementById('hairsvg');const NS='http://www.w3.org/2000/svg';
- const SH={'Honey blonde':'#D8A25A','Caramel':'#B5773A','Copper':'#B4532A','Burgundy':'#7A1A36','Rose gold':'#D58A7E','Ash brown':'#8A7666','Plum':'#5A2350'};
- document.getElementById('shades').innerHTML=Object.entries(SH).map(([n,c],i)=>`<label class="opt"><input type="radio" name="sh" value="${n}" ${i===1?'checked':''}><span><i class="sw" style="background:${c}"></i>${n}</span></label>`).join('');
- svg.setAttribute('viewBox','0 0 520 520');
- const ROOT='#1E140E';
- // one swatch: a soft tapered lock of hair hanging from a gold clip
- const lock='M-34 0 C-36 120 -40 260 -30 360 C-24 400 -8 420 0 424 C8 420 24 400 30 360 C40 260 36 120 34 0 Z';
- const ang=[-30,-15,0,15,30];
+document.getElementById('bridalWA').href=`https://wa.me/${WA}?text=${encodeURIComponent("Hi The Aangan Lounge! I'd love to know about your bridal packages. My wedding date is: ")}`;
+(function(){const svg=document.getElementById('hairsvg');const SH={'Honey blonde':'#D8A25A','Caramel':'#B5773A','Copper':'#B4532A','Burgundy':'#7A1A36','Rose gold':'#D58A7E','Ash brown':'#8A7666','Plum':'#5A2350'};
+ document.getElementById('shades').innerHTML=Object.entries(SH).map(([n,c],i)=>`<label class="chip"><input type="radio" name="sh" value="${n}" ${i===1?'checked':''}><span><i class="sw" style="background:${c}"></i>${n}</span></label>`).join('');
+ const ROOT='#1E140E',lock='M-34 0 C-36 120 -40 260 -30 360 C-24 400 -8 420 0 424 C8 420 24 400 30 360 C40 260 36 120 34 0 Z',ang=[-30,-15,0,15,30];
  function draw(){const tq=document.querySelector('input[name=tq]:checked').value,shn=document.querySelector('input[name=sh]:checked').value,c=SH[shn];
-  const stops={'Balayage':[[0,ROOT],[.3,ROOT],[.62,c],[1,c]],'Ombré':[[0,ROOT],[.46,ROOT],[.56,c],[1,c]],'Sombré':[[0,ROOT],[.25,ROOT],[1,c]],'Highlights':[[0,ROOT],[1,'#2B1D15']],'Global colour':[[0,c],[1,c]]}[tq];
-  let defs='<defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">'+stops.map(([o,col])=>`<stop offset="${o}" stop-color="${col}"/>`).join('')+'</linearGradient>'+
-   '<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".25"/><stop offset=".45" stop-color="#fff" stop-opacity=".18"/><stop offset=".55" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>'+
-   '<linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A8762A"/><stop offset=".5" stop-color="#F7D58B"/><stop offset="1" stop-color="#A8762A"/></linearGradient>';
-  let body='';
-  ang.forEach((a,i)=>{const id='cl'+i;defs+=`<clipPath id="${id}"><path d="${lock}"/></clipPath>`;
-    let strands='';for(let k=0;k<26;k++){const x=-32+k*2.5;const w=Math.sin(k*1.7+i)*3;strands+=`<path d="M${x} 0 C${x+w} 140, ${x-w} 280, ${x*0.55} 424" stroke="${k%3?'rgba(0,0,0,.22)':'rgba(255,255,255,.13)'}" stroke-width="${k%3?1.1:.8}" fill="none"/>`}
-    let streaks='';if(tq==='Highlights'){[-22,-8,6,20].forEach((x,j)=>{if((i+j)%2===0)streaks+=`<path d="M${x} 20 C${x+3} 160, ${x-3} 300, ${x*0.55} 424" stroke="${c}" stroke-width="7" stroke-linecap="round" fill="none" opacity=".9"/>`})}
-    if(tq==='Balayage'){streaks+=`<path d="M${-14+(i%2)*12} 150 C${-6+(i%2)*10} 260, ${-10} 350, 0 424" stroke="${c}" stroke-width="14" stroke-linecap="round" fill="none" opacity=".45"/>`}
-    body+=`<g transform="translate(260,70) rotate(${a}) translate(0,20)"><path d="${lock}" fill="url(#gl)"/><g clip-path="url(#${id})">${streaks}${strands}<rect x="-40" y="0" width="80" height="430" fill="url(#sheen)"/></g>
-      <rect x="-40" y="-14" width="80" height="26" rx="8" fill="url(#gold)"/><circle cx="0" cy="-1" r="5" fill="#7A5418"/></g>`});
-  svg.innerHTML=defs+'</defs><circle cx="260" cy="70" r="16" fill="url(#gold)"/>'+body+`<text x="260" y="512" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="900" font-size="24" fill="#1B1446">${shn} · ${tq}</text>`;
-  const spa=document.getElementById('spa').checked,ker=document.getElementById('kera').checked;
-  svg.style.filter=`saturate(${1+(spa?.08:0)}) brightness(${1+(ker?.08:0)})`;
+  const st={'Balayage':[[0,ROOT],[.3,ROOT],[.62,c],[1,c]],'Ombré':[[0,ROOT],[.46,ROOT],[.56,c],[1,c]],'Sombré':[[0,ROOT],[.25,ROOT],[1,c]],'Highlights':[[0,ROOT],[1,'#2B1D15']],'Global colour':[[0,c],[1,c]]}[tq];
+  let defs='<defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">'+st.map(([o,col])=>`<stop offset="${o}" stop-color="${col}"/>`).join('')+'</linearGradient><linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".25"/><stop offset=".5" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient><linearGradient id="goldg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B8893B"/><stop offset=".5" stop-color="#F0D49A"/><stop offset="1" stop-color="#B8893B"/></linearGradient>';let body='';
+  ang.forEach((a,i)=>{defs+=`<clipPath id="cl${i}"><path d="${lock}"/></clipPath>`;let s='';for(let k=0;k<26;k++){const x=-32+k*2.5,w=Math.sin(k*1.7+i)*3;s+=`<path d="M${x} 0 C${x+w} 140, ${x-w} 280, ${x*.55} 424" stroke="${k%3?'rgba(0,0,0,.22)':'rgba(255,255,255,.13)'}" stroke-width="${k%3?1.1:.8}" fill="none"/>`}
+   let k2='';if(tq==='Highlights')[-22,-8,6,20].forEach((x,j)=>{if((i+j)%2===0)k2+=`<path d="M${x} 20 C${x+3} 160, ${x-3} 300, ${x*.55} 424" stroke="${c}" stroke-width="7" stroke-linecap="round" fill="none" opacity=".9"/>`});
+   if(tq==='Balayage')k2+=`<path d="M${-14+(i%2)*12} 150 C${-6+(i%2)*10} 260, -10 350, 0 424" stroke="${c}" stroke-width="14" stroke-linecap="round" fill="none" opacity=".45"/>`;
+   body+=`<g transform="translate(260,60) rotate(${a}) translate(0,20)"><path d="${lock}" fill="url(#gl)"/><g clip-path="url(#cl${i})">${k2}${s}<rect x="-40" y="0" width="80" height="430" fill="url(#sheen)"/></g><rect x="-40" y="-14" width="80" height="26" rx="8" fill="url(#goldg)"/></g>`});
+  svg.innerHTML=defs+'</defs><circle cx="260" cy="60" r="16" fill="url(#goldg)"/>'+body;
+  const spa=document.getElementById('spa').checked,ker=document.getElementById('kera').checked;svg.style.filter=`saturate(${1+(spa?.08:0)}) brightness(${1+(ker?.08:0)})`;
   const t=`${shn} ${tq.toLowerCase()}${spa?' + luxury hair spa':''}${ker?' + keratin':''}`;document.getElementById('look').textContent=t;window.__lookTxt=t}
  document.querySelectorAll('#colour input').forEach(i=>i.addEventListener('change',draw));document.getElementById('shades').addEventListener('change',draw);draw();
- document.getElementById('addLook').onclick=()=>{window.__look='Hair: '+window.__lookTxt;document.getElementById('nm').dispatchEvent(new Event('input'));document.getElementById('book').scrollIntoView({behavior:'smooth'})};
-})();
+ document.getElementById('addLook').onclick=()=>{window.__look='Hair: '+window.__lookTxt;renderCart();document.getElementById('book').scrollIntoView({behavior:'smooth'})}})();
+const HI={n1:'अनुभव',n2:'सर्विसेज़',n3:'ब्राइडल',n4:'कैफ़े',nb:'विज़िट बुक करें',k:'सैलून · कैफ़े · ब्यूटी · जोधपुर',h1:'जहाँ ख़ूबसूरती <br>मिले <em class="gold">कॉफ़ी से।</em>',sub:'हेयर ट्रांसफ़ॉर्मेशन, ब्राइडल ग्लैम और स्पा, उसी आँगन में कैफ़े के साथ। <b class="gold">चुस्की लीजिए। आराम कीजिए। चमकिए।</b>',c1:'सर्विसेज़ देखें',c2:'WhatsApp पर बुक करें',e1:'आँगन का अनुभव',e2:'अंदर आइए। <em>ठहर जाइए।</em>',m1:'मेन्यू',m2:'सब कुछ, <em>एक आँगन में।</em>',m3:'+ दबाकर बुकिंग में जोड़ें। हेयर ट्रीटमेंट ₹1,500 से।',b1:'ब्राइडल · इवेंट्स · शादी का सीज़न',b2:'वो चले, <br><em class="gold">तो दुनिया थम जाए।</em>',b3:'अपनी तारीख़ बताएँ',k1:'अपनी कुर्सी रिज़र्व करें',k2:'बुकिंग <em>तीस सेकंड में।</em>'};
+const EN={};document.querySelectorAll('[data-t]').forEach(e=>EN[e.dataset.t]=e.innerHTML);let hi=false;
+document.getElementById('lang').onclick=e=>{hi=!hi;document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(HI[k]){el.innerHTML=hi?HI[k]:EN[k];el.classList.toggle('hi',hi)}});e.target.textContent=hi?'English':'हिंदी';document.documentElement.lang=hi?'hi':'en'};
 </script>
 </body>
 </html>
