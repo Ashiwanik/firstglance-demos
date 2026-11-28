@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>the little leopard · coffee caravan, Tottington (concept)</title>
+<meta name="description" content="A free website concept for The Little Leopard Coffee by FirstGlance Studio.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FBF3E7;--paper:#FFF9F1;--ink:#1E1611;--tan:#C98B4B;--gold:#E3A857;--blush:#F2B8B5;--rose:#C9575A;--pine:#21452F;--line:#EAD9C2;--muted:#7C6A5B;
+--display:"Fraunces",Georgia,serif;--body:"Hanken Grotesk",system-ui,Arial,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.concept{background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center}.concept b{color:#FFC94A}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,243,231,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-style:italic;font-weight:900;font-size:21px;text-decoration:none;white-space:nowrap}
+.logo i{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:18px;background:var(--leo) center/120px;box-shadow:inset 0 0 0 2px var(--ink)}
+.nav ul{display:none;list-style:none;gap:24px;font-weight:600;font-size:15px}.nav ul a{text-decoration:none;opacity:.8}
+@media(min-width:900px){.nav ul{display:flex}}
+.pill{background:var(--ink);color:var(--cream);font-weight:800;text-decoration:none;padding:10px 16px;border-radius:999px;font-size:14px;white-space:nowrap}
+
+/* hero story */
+.story{position:relative;height:300vh}
+.stage{position:sticky;top:62px;height:calc(100vh - 62px);overflow:hidden;background:radial-gradient(120% 80% at 50% 30%,#FFF7EC,#F4E2CB 70%,#E9CFAF)}
+#hero3d{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.big{position:absolute;left:0;right:0;z-index:0;pointer-events:none;font-family:var(--display);font-style:italic;font-weight:900;line-height:.85;letter-spacing:-.02em;padding:0 22px}
+.big.t1{top:5%;font-size:clamp(64px,15vw,220px)}
+.big.t2{bottom:14%;text-align:right;font-size:clamp(64px,15vw,220px);color:transparent;-webkit-text-stroke:2px var(--tan)}
+.big .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;white-space:nowrap}
+.big .l{display:inline-block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rise{to{transform:none}}
+.cap{position:absolute;z-index:2;left:22px;bottom:5%;max-width:340px;font-size:15px;color:var(--muted);background:rgba(255,249,241,.86);padding:12px 14px;border-radius:16px}
+.cap b{color:var(--ink)}
+.cap.in{animation:capin .6s ease both}@keyframes capin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.chap{position:absolute;z-index:2;right:22px;top:44%;display:grid;gap:10px;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chap span{display:flex;align-items:center;gap:8px;opacity:.45;transition:.3s}.chap span:before{content:"";width:22px;height:2px;background:currentColor}.chap span.on{opacity:1;color:var(--ink)}
+@media(max-width:700px){.chap{display:none}.cap{right:22px;max-width:none;bottom:84px;font-size:14px}}
+.hint{position:absolute;z-index:2;left:50%;bottom:2%;transform:translateX(-50%);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.stage:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.06;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+section{padding:90px 0}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--tan)}
+h2{font-family:var(--display);font-weight:900;font-size:clamp(38px,5.6vw,66px);line-height:1;letter-spacing:-.015em;margin:12px 0 14px}
+h2 em{color:var(--rose)}
+.sub{font-size:18px;color:var(--muted);max-width:56ch}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:15px 24px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-d{background:var(--ink);color:var(--cream)}
+.btn-r{background:var(--rose);color:#fff}
+.btn-o{border:2px solid currentColor;background:transparent;color:inherit}
+.leo{background:var(--leo) center/260px}
+
+/* festive mug builder */
+.builder{display:grid;gap:30px;margin-top:34px}
+@media(min-width:940px){.builder{grid-template-columns:1fr 1fr;align-items:center}}
+#mug3d{width:100%;aspect-ratio:1;max-height:580px;display:block;border-radius:32px;background:radial-gradient(70% 60% at 50% 40%,#FFF8EE,#EFD9BE);cursor:grab;touch-action:pan-y}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:26px}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opt{position:relative}.opt input{position:absolute;opacity:0}
+.opt span{display:block;border:2px solid var(--line);border-radius:18px;padding:12px 14px;cursor:pointer;background:#fff;font-weight:800;line-height:1.2;height:100%}
+.opt span small{display:block;font-weight:600;color:var(--muted);font-size:13px;margin-top:3px}
+.opt input:checked+span{border-color:var(--ink);background:var(--ink);color:var(--cream)}.opt input:checked+span small{color:#D9C7B2}
+.opt input:focus-visible+span{outline:3px solid var(--tan);outline-offset:2px}
+.extras{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.chip{position:relative}.chip input{position:absolute;opacity:0}
+.chip span{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--line);border-radius:999px;padding:9px 14px;font-weight:700;cursor:pointer;background:#fff}
+.chip input:checked+span{border-color:var(--rose);background:#FCE7E5}
+.chip input:focus-visible+span{outline:3px solid var(--tan);outline-offset:2px}
+.lbl{font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px;display:block}
+.summary{border-top:1px dashed var(--line);padding-top:14px;margin:10px 0 16px;font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* santa */
+.santa{background:var(--pine);color:#F6EBDD;position:relative;overflow:hidden}
+.santa .sub{color:#CFE0D3}
+.santa h2 em{color:#F3B5A6}
+.sgrid{display:grid;gap:30px;margin-top:30px;align-items:start}
+@media(min-width:940px){.sgrid{grid-template-columns:1.1fr .9fr}}
+.letter{background:#FFFDF8;color:var(--ink);border-radius:20px;padding:28px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);background-image:repeating-linear-gradient(transparent 0 33px,#E9DCCB 33px 34px);position:relative}
+.letter:before{content:"";position:absolute;inset:10px;border:2px dashed #E3B5A8;border-radius:14px;pointer-events:none}
+.letter h3{font-family:var(--display);font-style:italic;font-size:30px;margin-bottom:6px}
+.letter label{display:block;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 4px}
+.letter input,.letter textarea{width:100%;border:0;border-bottom:2px solid #E3CDB4;background:transparent;font:600 18px/1.9 var(--body);padding:2px 0;color:var(--ink)}
+.letter textarea{resize:vertical;min-height:120px}
+.letter input:focus,.letter textarea:focus{outline:none;border-color:var(--rose)}
+.how{display:grid;gap:14px}
+.how div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:18px}
+.how b{font-family:var(--display);font-size:22px;display:block;color:#fff}
+.postbox{width:120px;height:170px;margin:26px auto 0;position:relative}
+.postbox .bx{position:absolute;inset:22px 0 0;background:linear-gradient(90deg,#B7261F,#DA3A2F 45%,#A81F19);border-radius:14px 14px 6px 6px;box-shadow:0 20px 30px -14px rgba(0,0,0,.6)}
+.postbox .cap2{position:absolute;left:-8px;right:-8px;top:6px;height:28px;background:#9E1C16;border-radius:30px 30px 8px 8px}
+.postbox .slot{position:absolute;left:24px;right:24px;top:54px;height:9px;background:#2A0B08;border-radius:6px}
+.postbox .gr{position:absolute;left:28px;right:28px;top:84px;font:900 12px/1.3 var(--body);color:#FFD9A8;text-align:center;letter-spacing:.12em}
+.env{position:absolute;left:50%;top:-60px;width:84px;height:54px;margin-left:-42px;background:#FFF6E6;border-radius:6px;box-shadow:0 6px 14px rgba(0,0,0,.25);opacity:0}
+.env:before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent 49%,#E8D6BC 50%) left/50% 100% no-repeat,linear-gradient(to bottom left,transparent 49%,#E8D6BC 50%) right/50% 100% no-repeat}
+.env.go{animation:post 1.5s cubic-bezier(.5,0,.4,1) forwards}
+@keyframes post{0%{opacity:1;transform:translateY(-80px) rotate(-14deg) scale(1.1)}55%{opacity:1;transform:translateY(40px) rotate(0) scale(1)}100%{opacity:0;transform:translateY(96px) scaleY(.15)}}
+.snow{position:absolute;inset:0;pointer-events:none}
+@media print{body *{visibility:hidden}#letterPrint,#letterPrint *{visibility:visible}#letterPrint{position:absolute;inset:0;box-shadow:none}}
+
+/* clubs */
+.clubs{display:grid;gap:16px;margin-top:30px}
+@media(min-width:760px){.clubs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.clubs{grid-template-columns:repeat(4,1fr)}}
+.club{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:22px;transition:transform .25s,box-shadow .25s}
+.club:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 30px 50px -30px rgba(30,22,17,.45)}
+.club .ic{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:30px;margin-bottom:14px;box-shadow:inset 0 0 0 2px var(--ink)}
+.club h3{font-family:var(--display);font-size:23px}
+.club p{color:var(--muted);margin:6px 0 14px}
+.club a{font-weight:800}
+
+.week{display:grid;gap:16px;margin-top:30px}
+@media(min-width:860px){.week{grid-template-columns:1.2fr .8fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px}
+.card h3{font-family:var(--display);font-size:24px;margin-bottom:6px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}
+.days div{border-radius:14px;padding:10px 4px;text-align:center;font-weight:800;font-size:13px;border:2px dashed var(--line);color:var(--muted)}
+.days div small{display:block;font-weight:600;font-size:11px;margin-top:4px}
+footer{background:var(--ink);color:#CBB9A6;padding:40px 0;font-size:14px}footer b{color:var(--cream)}
+.sticky{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 16px 30px -12px rgba(0,0,0,.45)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.big .l{animation:none;transform:none}}
+</style>
+</head>
+<body>
+<div class="concept"><b>Made for The Little Leopard Coffee</b> · a free website concept by FirstGlance Studio. Not the official website.</div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top"><i>🐆</i>the little leopard</a>
+  <ul><li><a href="#menu">Festive menu</a></li><li><a href="#santa">Letters to Santa</a></li><li><a href="#clubs">Clubs</a></li><li><a href="#visit">Visit</a></li></ul>
+  <a class="pill" href="https://ig.me/m/thelittleleopardcoffee" target="_blank" rel="noopener">Message us</a>
+</div></header>
+
+<div class="story" id="top">
+  <div class="stage">
+    <canvas id="hero3d" aria-label="3D leopard-print coffee caravan; scroll to open the hatch"></canvas>
+    <div class="big t1" id="t1">little leps</div>
+    <div class="big t2" id="t2">coffee caravan</div>
+    <p class="cap" id="cap"></p>
+    <div class="chap" aria-hidden="true"><span class="on">Brews</span><span>Bakes</span><span>Leopard print</span></div>
+    <div class="hint" id="hint">Scroll to open the hatch ↓</div>
+  </div>
+</div>
+
+<section id="menu"><div class="wrap">
+  <p class="eyebrow">Festive szn is here · build it in 3D</p>
+  <h2>Which one are you <em>ordering next?</em></h2>
+  <p class="sub">Pick a drink and pile on the extras. The mug updates live, and your order is ready to send to us before you even get to the van.</p>
+  <div class="builder">
+    <canvas id="mug3d" aria-label="3D leopard-print mug that changes with your order"></canvas>
+    <div class="panel">
+      <span class="lbl" style="margin-top:0">Drink</span>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="dr" value="Gingerbread Latte" checked><span>Gingerbread Latte<small>Festive special</small></span></label>
+        <label class="opt"><input type="radio" name="dr" value="Chocolate Orange Hot Chocolate"><span>Choc Orange Hot Choc<small>Festive special</small></span></label>
+        <label class="opt"><input type="radio" name="dr" value="S'mores Hot Chocolate"><span>S'mores Hot Choc<small>Festive special</small></span></label>
+        <label class="opt"><input type="radio" name="dr" value="Babyccino"><span>Babyccino<small>For the little ones</small></span></label>
+        <label class="opt"><input type="radio" name="dr" value="Puppuccino"><span>Puppuccino 🐶<small>For the dogs</small></span></label>
+        <label class="opt"><input type="radio" name="dr" value="Latte"><span>Classic Latte<small>All year round</small></span></label>
+      </div>
+      <span class="lbl">Extras</span>
+      <div class="extras">
+        <label class="chip"><input type="checkbox" name="ex" value="cream" checked><span>🍦 Whipped cream</span></label>
+        <label class="chip"><input type="checkbox" name="ex" value="mallows"><span>☁️ Marshmallows</span></label>
+        <label class="chip"><input type="checkbox" name="ex" value="drizzle"><span>🍫 Choc drizzle</span></label>
+        <label class="chip"><input type="checkbox" name="ex" value="cookie" checked><span>🍪 Gingerbread biscuit</span></label>
+        <label class="chip"><input type="checkbox" name="ex" value="orange"><span>🍊 Orange slice</span></label>
+      </div>
+      <div class="summary" id="summ"></div>
+      <button class="btn btn-d" id="send" type="button">Send my order on Instagram ↗</button>
+      <p class="note" id="sentNote">We copy your order, then open our DMs. Just paste and send. On the real site, this can go to WhatsApp or online pre-ordering instead.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="santa" id="santa">
+  <canvas class="snow" id="snow" aria-hidden="true"></canvas>
+  <div class="wrap" style="position:relative">
+  <p class="eyebrow" style="color:#F3B5A6">Letters to Santa is back 🎅</p>
+  <h2 style="color:#fff">Write it here. <em>Post it at the van.</em></h2>
+  <p class="sub">Santa's red postbox is making another special stop at little leps. Write your letter below, print it at home, and bring your little one down to post it.</p>
+  <div class="sgrid">
+    <div class="letter" id="letterPrint">
+      <h3>Dear Santa,</h3>
+      <label for="lName">My name is</label><input id="lName" maxlength="30" placeholder="Your name">
+      <label for="lAge">and I am this many years old</label><input id="lAge" maxlength="3" inputmode="numeric" placeholder="5">
+      <label for="lWish">This Christmas I would love…</label><textarea id="lWish" maxlength="400" placeholder="A sledge, a puppy, and a gingerbread latte for my mum…"></textarea>
+      <label for="lGood">This year I was good because…</label><input id="lGood" maxlength="80" placeholder="I shared my biscuits">
+      <p style="margin-top:16px;font-family:var(--display);font-style:italic;font-size:20px">Love from <span id="lSign">me</span> ✨</p>
+    </div>
+    <div>
+      <div class="how">
+        <div><b>1 · Write</b>Fill in the letter, or use any letter from home.</div>
+        <div><b>2 · Print</b>One tap to print it on a single page.</div>
+        <div><b>3 · Post it at little leps</b>Every child who posts a letter gets a <b style="display:inline;font-size:inherit">free babyccino with marshmallows</b> and a little treat from Santa, and goes into Santa's Lucky Draw.</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><button class="btn btn-r" id="printL" type="button">🖨️ Print my letter</button><button class="btn btn-o" id="postL" type="button" style="color:#fff">✉️ Practise posting</button></div>
+      <div class="postbox" aria-hidden="true"><div class="env" id="env"></div><div class="cap2"></div><div class="bx"></div><div class="slot"></div><div class="gr">LETTERS<br>FOR<br>SANTA</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="clubs"><div class="wrap">
+  <p class="eyebrow">More than a coffee stop</p>
+  <h2>Come for the coffee. <em>Stay for the people.</em></h2>
+  <div class="clubs">
+    <div class="club"><div class="ic leo">📚</div><h3>little leps book club</h3><p>A good book, a good brew and good company. Next read announced on Instagram.</p><a href="https://ig.me/m/thelittleleopardcoffee" target="_blank" rel="noopener">Save me a seat ↗</a></div>
+    <div class="club"><div class="ic" style="background:#F2B8B5">🏃‍♀️</div><h3>Run club</h3><p>All paces welcome, coffee at the finish line.</p><a href="https://ig.me/m/thelittleleopardcoffee" target="_blank" rel="noopener">I'm in ↗</a></div>
+    <div class="club"><div class="ic" style="background:#CFE0D3">🚶</div><h3>Walking club</h3><p>Prefer a stroll? Walk, talk and warm up with a hot drink.</p><a href="https://ig.me/m/thelittleleopardcoffee" target="_blank" rel="noopener">Count me in ↗</a></div>
+    <div class="club"><div class="ic" style="background:#F6D9A6">🐶</div><h3>The dog library</h3><p>Dogs welcome. A browse of the (dog-eared) dog library and a puppuccino for the walk home.</p><a href="#menu">Build a puppuccino ↓</a></div>
+  </div>
+</div></section>
+
+<section id="visit" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow">Find the caravan</p>
+  <h2>See you <em>at little leps.</em></h2>
+  <div class="week">
+    <div class="card"><h3>This week's opening times</h3><p style="color:var(--muted)">Times change week to week, so they live in our <b>'this week'</b> highlight. On the real site, you'd update this grid from your phone in seconds.</p>
+      <div class="days"><div>Mon<small>—</small></div><div>Tue<small>—</small></div><div>Wed<small>—</small></div><div>Thu<small>—</small></div><div>Fri<small>—</small></div><div>Sat<small>—</small></div><div>Sun<small>—</small></div></div>
+      <a class="btn btn-d" style="margin-top:18px" href="https://www.instagram.com/thelittleleopardcoffee/" target="_blank" rel="noopener">See 'this week' on Instagram ↗</a></div>
+    <div class="card"><h3>Where</h3><p style="color:var(--muted)">Tottington, Bury · BL8 3LY</p><a class="btn btn-o" style="margin-top:18px" href="https://www.google.com/maps/search/?api=1&query=BL8+3LY" target="_blank" rel="noopener">Open in Maps ↗</a>
+      <p style="margin-top:16px"><a href="https://www.instagram.com/thelittleleopardcoffee/" target="_blank" rel="noopener"><b>@thelittleleopardcoffee</b></a></p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><b>the little leopard</b> · brews, bakes &amp; leopard print 🐆<br>Website concept by <a href="https://firstglancestudio.in" style="color:var(--gold)">FirstGlance Studio</a>. No photos used: the caravan and mugs are drawn live in 3D.</div></footer>
+<a class="btn btn-r sticky" href="#menu">☕ Build my drink</a>
+
+<script>
+// leopard-print pattern generated in code (used in CSS and in 3D)
+window.leoCanvas=(function(){const c=document.createElement('canvas');c.width=c.height=512;const x=c.getContext('2d');
+  let s=7;const R=()=>{s=(s*16807)%2147483647;return s/2147483647};
+  const g=x.createLinearGradient(0,0,512,512);g.addColorStop(0,'#E5A954');g.addColorStop(1,'#CF8C3F');x.fillStyle=g;x.fillRect(0,0,512,512);
+  const draw=(ox,oy)=>{for(let i=0;i<78;i++){const cx=R()*512+ox,cy=R()*512+oy,r=13+R()*15;
+    x.fillStyle='rgba(140,78,30,.75)';x.beginPath();x.ellipse(cx,cy,r*.75,r*.6,R()*3,0,7);x.fill();
+    x.fillStyle='#24170F';const n=4+Math.floor(R()*3);for(let k=0;k<n;k++){if(R()<.18)continue;const a0=k/n*6.28+R()*.4,a1=a0+6.28/n*.62;x.beginPath();x.lineWidth=6+R()*5;x.strokeStyle='#24170F';x.lineCap='round';x.ellipse(cx,cy,r,r*.82,0,a0,a1);x.stroke()}}};
+  s=7;draw(0,0);s=7;draw(-512,0);s=7;draw(0,-512);
+  for(let i=0;i<60;i++){x.fillStyle='#24170F';x.beginPath();x.ellipse(R()*512,R()*512,2+R()*4,2+R()*3,R()*3,0,7);x.fill()}
+  document.documentElement.style.setProperty('--leo',`url(${c.toDataURL('image/jpeg',.85)})`);return c})();
+// letter to Santa
+const lName=document.getElementById('lName');lName.addEventListener('input',()=>document.getElementById('lSign').textContent=lName.value||'me');
+document.getElementById('printL').onclick=()=>print();
+document.getElementById('postL').onclick=()=>{const e=document.getElementById('env');e.classList.remove('go');void e.offsetWidth;e.classList.add('go')};
+// snow in the santa section
+(function(){const c=document.getElementById('snow');if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const x=c.getContext('2d');let W,H;const f=[...Array(90)].map(()=>({x:Math.random(),y:Math.random(),r:1+Math.random()*2.6,s:.2+Math.random()*.6,d:Math.random()*6}));
+  function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight}new ResizeObserver(rs).observe(c);rs();
+  (function l(){x.clearRect(0,0,W,H);x.fillStyle='rgba(255,255,255,.8)';f.forEach(p=>{p.y+=p.s/H*2.2;p.d+=.01;if(p.y>1)p.y=0;x.beginPath();x.arc(p.x*W+Math.sin(p.d)*14,p.y*H,p.r,0,7);x.fill()});requestAnimationFrame(l)})()})();
+</script>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sm=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+function base(canvas,{fov=34,cam=[0,2.2,8],look=[0,1.2,0],env=.8}={}){
+  const r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;
+  const s=new THREE.Scene();s.environment=new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(),.04).texture;s.environmentIntensity=env;
+  const c=new THREE.PerspectiveCamera(fov,1,.1,200);c.position.set(...cam);c.lookAt(...look);
+  s.add(new THREE.HemisphereLight(0xfff1e0,0x6a4a30,.6));
+  const k=new THREE.DirectionalLight(0xfff0dc,2.3);k.position.set(5,9,6);k.castShadow=true;k.shadow.mapSize.set(2048,2048);k.shadow.camera.left=-8;k.shadow.camera.right=8;k.shadow.camera.top=8;k.shadow.camera.bottom=-8;k.shadow.bias=-.0004;k.shadow.radius=4;s.add(k);
+  const rim=new THREE.DirectionalLight(0xF2B8B5,1.2);rim.position.set(-6,4,-5);s.add(rim);
+  function size(){const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;r.setSize(w,h,false);c.aspect=w/h;c.updateProjectionMatrix()}
+  new ResizeObserver(size).observe(canvas);size();return {r,s,c,key:k}}
+function tex(canvas,rep=1){const t=new THREE.CanvasTexture(canvas);t.colorSpace=THREE.SRGBColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(rep,rep);t.anisotropy=8;return t}
+function canvasTex(w,h,draw){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);return tex(c)}
+function drag(canvas,obj){let d=false,lx=0;canvas.addEventListener('pointerdown',e=>{d=true;lx=e.clientX});addEventListener('pointerup',()=>d=false);addEventListener('pointermove',e=>{if(!d)return;obj.rotation.y+=(e.clientX-lx)*.012;lx=e.clientX})}
+const LEO=window.leoCanvas;
+// steam
+const steamMat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{uT:{value:0},uO:{value:0}},
+  vertexShader:`varying vec2 vUv;uniform float uT;void main(){vUv=uv;vec3 p=position;p.x+=sin(uv.y*5.+uT*1.3)*.16*uv.y+sin(uv.y*11.-uT*2.)*.05*uv.y;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
+  fragmentShader:`varying vec2 vUv;uniform float uT;uniform float uO;float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+  void main(){vec2 q=vUv*vec2(2.5,3.)+vec2(0.,-uT*.35);float v=n(q*2.)*.6+n(q*4.3)*.4;float e=smoothstep(0.,.35,vUv.x)*smoothstep(1.,.65,vUv.x);float f=smoothstep(0.,.15,vUv.y)*smoothstep(1.,.45,vUv.y);gl_FragColor=vec4(1.,1.,1.,smoothstep(.42,.85,v)*e*f*uO*.6);}`});
+function steam(n=3,w=.7,h=2.4){const g=new THREE.Group();for(let i=0;i<n;i++){const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h,1,40),steamMat.clone());m.position.set((i-(n-1)/2)*.25,h/2,(i%2)*.1);m.userData.ph=i*1.7;g.add(m)}return g}
+function tickSteam(g,t,o,cam){g.children.forEach(m=>{m.material.uniforms.uT.value=t+m.userData.ph;m.material.uniforms.uO.value=o;m.quaternion.copy(cam.quaternion)})}
+
+/* ===================== HERO: the caravan ===================== */
+const heroCanvas=document.getElementById('hero3d');
+const H=base(heroCanvas,{fov:30,cam:[6,3,11],look:[0,1.6,0]});
+const world=new THREE.Group();H.s.add(world);
+// ground: grassy disc with soft edge
+const groundTex=canvasTex(512,512,(x,w,h)=>{const g=x.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);g.addColorStop(0,'#B9C79A');g.addColorStop(.7,'#A3B582');g.addColorStop(1,'rgba(163,181,130,0)');x.fillStyle=g;x.fillRect(0,0,w,h);for(let i=0;i<5000;i++){x.fillStyle=`rgba(${70+rnd(i)*50|0},${100+rnd(i+1)*50|0},50,${.25*(1-Math.hypot(rnd(i+2)-.5,rnd(i+3)-.5)*2)})`;x.fillRect(rnd(i+2)*w,rnd(i+3)*h,1.5,3)}});
+groundTex.wrapS=groundTex.wrapT=THREE.ClampToEdgeWrapping;groundTex.repeat.set(1,1);
+const ground=new THREE.Mesh(new THREE.CircleGeometry(9,64),new THREE.MeshStandardMaterial({map:groundTex,transparent:true,roughness:1}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;world.add(ground);
+// caravan body: classic rounded profile, extruded
+const caravan=new THREE.Group();world.add(caravan);caravan.position.y=.55;
+const L=4.6,Hh=2.5,D=2.1;
+const prof=new THREE.Shape();prof.moveTo(-L/2+.3,0);prof.lineTo(L/2-.5,0);prof.quadraticCurveTo(L/2,0,L/2,.5);prof.lineTo(L/2,Hh-.9);prof.quadraticCurveTo(L/2,Hh,L/2-1,Hh);prof.lineTo(-L/2+1.1,Hh);prof.quadraticCurveTo(-L/2-.15,Hh,-L/2,Hh-1.2);prof.lineTo(-L/2,.4);prof.quadraticCurveTo(-L/2,0,-L/2+.3,0);
+const bodyGeo=new THREE.ExtrudeGeometry(prof,{depth:D,bevelEnabled:true,bevelThickness:.12,bevelSize:.12,bevelSegments:8,curveSegments:32});bodyGeo.translate(0,0,-D/2);
+const paint=new THREE.MeshPhysicalMaterial({color:0xFFF3E2,roughness:.35,clearcoat:.8,clearcoatRoughness:.15});
+const body=new THREE.Mesh(bodyGeo,paint);body.castShadow=true;body.receiveShadow=true;caravan.add(body);
+// leopard belly band all round (same profile, scaled)
+const leoTex=tex(LEO,1);leoTex.repeat.set(1.4,1.4);
+const bandShape=new THREE.Shape();bandShape.moveTo(-L/2-.02,.25);bandShape.lineTo(L/2+.02,.25);bandShape.lineTo(L/2+.02,.75);bandShape.lineTo(-L/2-.02,.75);
+const band=new THREE.Mesh(new THREE.ExtrudeGeometry(bandShape,{depth:D+.3,bevelEnabled:false}),new THREE.MeshStandardMaterial({map:leoTex,roughness:.6}));band.geometry.translate(0,0,-(D+.3)/2);band.castShadow=true;caravan.add(band);
+// blush pinstripe
+const stripe=new THREE.Mesh(new THREE.BoxGeometry(L+.06,.06,D+.32),new THREE.MeshStandardMaterial({color:0xC9575A,roughness:.4}));stripe.position.y=.8;caravan.add(stripe);
+// serving hatch (on +z side): dark recess, warm interior light, counter, and a hinged flap
+const hatchW=2.1,hatchH=1.05,hy=1.25,hz=D/2+.125;
+const inner=new THREE.Mesh(new THREE.PlaneGeometry(hatchW,hatchH),new THREE.MeshStandardMaterial({color:0x3a2416,emissive:0xFFB868,emissiveIntensity:0,roughness:.9}));inner.position.set(-.2,hy,hz+.001);caravan.add(inner);
+// interior silhouettes: coffee machine + jars + menu board drawn on the inner plane
+const innerTex=canvasTex(512,256,(x,w,h)=>{const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'#FFE3B8');g.addColorStop(1,'#F4B979');x.fillStyle=g;x.fillRect(0,0,w,h);
+  x.fillStyle='#2C1D14';x.fillRect(40,40,170,120);x.fillStyle='#C9575A';x.fillRect(48,48,154,18);x.fillStyle='#FFF3E2';x.font='bold 20px Georgia';x.fillText('little leps',60,92);x.font='15px Georgia';['gingerbread latte','choc orange','s\'mores'].forEach((s,i)=>x.fillText('· '+s,60,116+i*18));
+  x.fillStyle='#B8B8B8';x.fillRect(270,110,150,110);x.fillStyle='#8a8a8a';x.fillRect(280,160,26,30);x.fillRect(384,160,26,30);x.fillStyle='#2C1D14';x.fillRect(300,60,100,50);
+  for(let i=0;i<4;i++){x.fillStyle='rgba(255,255,255,.55)';x.fillRect(440+i*16,130+(i%2)*6,12,70-(i%2)*6);x.fillStyle=['#8B5A33','#C98B4B','#5a3a22','#E3A857'][i];x.fillRect(441+i*16,160,10,38)}
+  x.strokeStyle='rgba(0,0,0,.25)';x.lineWidth=6;x.strokeRect(3,3,w-6,h-6)});
+inner.material.map=innerTex;inner.material.emissiveMap=innerTex;
+const frame=new THREE.Mesh(new THREE.TorusGeometry(1,1,1,4),paint);frame.visible=false;
+const trimMat=new THREE.MeshStandardMaterial({color:0x2C1D14,roughness:.5});
+[[0,hatchH/2+.04,hatchW+.16,.08],[0,-hatchH/2-.04,hatchW+.16,.08]].forEach(([dx,dy,w,h])=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,.08),trimMat);m.position.set(-.2+dx,hy+dy,hz+.03);caravan.add(m)});
+[-1,1].forEach(sx=>{const m=new THREE.Mesh(new THREE.BoxGeometry(.08,hatchH+.16,.08),trimMat);m.position.set(-.2+sx*(hatchW/2+.04),hy,hz+.03);caravan.add(m)});
+const counter=new THREE.Mesh(new THREE.BoxGeometry(hatchW+.3,.08,.45),new THREE.MeshStandardMaterial({color:0x8B5A33,roughness:.5}));counter.position.set(-.2,hy-hatchH/2-.08,hz+.2);counter.castShadow=true;caravan.add(counter);
+const flapPivot=new THREE.Group();flapPivot.position.set(-.2,hy+hatchH/2+.08,hz+.06);caravan.add(flapPivot);
+const flap=new THREE.Mesh(new THREE.BoxGeometry(hatchW+.12,hatchH+.1,.06),paint);flap.position.y=-(hatchH+.1)/2;flap.castShadow=true;flapPivot.add(flap);
+const flapLeo=new THREE.Mesh(new THREE.PlaneGeometry(hatchW,hatchH),new THREE.MeshStandardMaterial({map:leoTex,roughness:.6}));flapLeo.position.set(0,-(hatchH+.1)/2,-.035);flapLeo.rotation.y=Math.PI;flapPivot.add(flapLeo);
+const hatchLight=new THREE.PointLight(0xFFB868,0,5,1.6);hatchLight.position.set(-.2,hy,hz+.8);caravan.add(hatchLight);
+// windows: round front window + small rear window
+const glassMat=new THREE.MeshPhysicalMaterial({color:0x9fc4cf,roughness:.05,metalness:.1,clearcoat:1,envMapIntensity:1.4});
+const fw=new THREE.Mesh(new THREE.CircleGeometry(.42,40),glassMat);fw.position.set(1.4,1.6,hz+.002);caravan.add(fw);
+const fwr=new THREE.Mesh(new THREE.TorusGeometry(.44,.05,10,40),trimMat);fwr.position.copy(fw.position);fwr.position.z+=.02;caravan.add(fwr);
+const door=new THREE.Mesh(new THREE.PlaneGeometry(.7,1.55),new THREE.MeshStandardMaterial({color:0xF2B8B5,roughness:.5}));door.position.set(L/2+.125,1.0,.2);door.rotation.y=Math.PI/2;caravan.add(door);
+// roof vent + chimney
+const vent=new THREE.Mesh(new THREE.BoxGeometry(.6,.14,.6),new THREE.MeshStandardMaterial({color:0xE8DCCB,roughness:.4}));vent.position.set(-.2,Hh+.18,0);caravan.add(vent);
+// wheels + mudguards + A-frame hitch + jockey wheel
+const tyre=new THREE.MeshStandardMaterial({color:0x1b1b1b,roughness:.9}),hub=new THREE.MeshStandardMaterial({color:0xC9C9C9,metalness:1,roughness:.3});
+[-1,1].forEach(s=>{const w=new THREE.Group();const t=new THREE.Mesh(new THREE.TorusGeometry(.34,.13,16,40),tyre);w.add(t);const hb=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,.14,30),hub);hb.rotation.x=Math.PI/2;w.add(hb);w.position.set(-.3,-.1,s*(D/2+.05));t.castShadow=true;caravan.add(w);
+  const guard=new THREE.Mesh(new THREE.TorusGeometry(.52,.05,8,30,Math.PI),trimMat);guard.position.set(-.3,-.1,s*(D/2+.16));caravan.add(guard)});
+const hitch=new THREE.Mesh(new THREE.CylinderGeometry(.05,.05,1.4,10),trimMat);hitch.rotation.z=Math.PI/2;hitch.position.set(-L/2-.7,.05,0);caravan.add(hitch);
+const jw=new THREE.Mesh(new THREE.CylinderGeometry(.035,.035,.6,10),hub);jw.position.set(-L/2-1.1,-.25,0);caravan.add(jw);
+// striped awning that unrolls over the hatch
+const awTex=canvasTex(512,128,(x,w,h)=>{for(let i=0;i<8;i++){x.fillStyle=i%2?'#FFF3E2':'#C9575A';x.fillRect(i*w/8,0,w/8,h)}x.fillStyle='rgba(0,0,0,.08)';x.fillRect(0,h-10,w,10)});
+const awPivot=new THREE.Group();awPivot.position.set(-.2,Hh-.12,hz+.05);caravan.add(awPivot);
+const awning=new THREE.Mesh(new THREE.BoxGeometry(hatchW+.6,.03,1.3).translate(0,0,.65),new THREE.MeshStandardMaterial({map:awTex,roughness:.8,side:THREE.DoubleSide}));awning.castShadow=true;awPivot.add(awning);
+const valance=new THREE.Group();for(let i=0;i<9;i++){const sc=new THREE.Mesh(new THREE.CylinderGeometry(.15,.15,.03,20,1,false,0,Math.PI),new THREE.MeshStandardMaterial({color:i%2?0xFFF3E2:0xC9575A,roughness:.8}));sc.rotation.x=Math.PI/2;sc.rotation.z=Math.PI/2;sc.rotation.y=Math.PI/2;sc.position.set(-1.2+i*.3,0,1.3);valance.add(sc)}awPivot.add(valance);
+// fairy lights along the roofline
+const bulbs=[];const bulbMat=()=>new THREE.MeshStandardMaterial({color:0xFFE6B0,emissive:0xFFC46B,emissiveIntensity:0});
+for(let i=0;i<22;i++){const u=i/21;const x=-L/2+.4+u*(L-.9);const y=Hh+.02-Math.sin(u*Math.PI*3)*.06;const b=new THREE.Mesh(new THREE.SphereGeometry(.05,10,8),bulbMat());b.position.set(x,y-.06,hz+.1);caravan.add(b);bulbs.push(b)}
+const wire=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(bulbs.map(b=>b.position.clone().add(new THREE.Vector3(0,.05,0)))),80,.008,6),trimMat);caravan.add(wire);
+// A-frame chalkboard + potted plant + bunting
+const board=new THREE.Group();const chalk=canvasTex(256,384,(x,w,h)=>{x.fillStyle='#22302A';x.fillRect(0,0,w,h);x.strokeStyle='#E8D9C0';x.lineWidth=6;x.strokeRect(10,10,w-20,h-20);x.fillStyle='#F7EBDD';x.textAlign='center';x.font='italic bold 34px Georgia';x.fillText('little leps',w/2,70);x.font='bold 22px Georgia';x.fillStyle='#F2B8B5';x.fillText('festive szn',w/2,110);x.fillStyle='#F7EBDD';x.font='20px Georgia';['gingerbread latte','choc orange hot choc','s\'mores hot choc','puppuccinos 🐾'].forEach((s,i)=>x.fillText(s,w/2,160+i*40));x.font='bold 22px Georgia';x.fillStyle='#E3A857';x.fillText('come say hi ☕',w/2,345)});
+const bw=new THREE.Mesh(new THREE.BoxGeometry(.75,1.1,.05),new THREE.MeshStandardMaterial({map:chalk,roughness:.9}));bw.rotation.x=-.22;bw.position.set(0,.55,.12);bw.castShadow=true;board.add(bw);const bb=bw.clone();bb.material=new THREE.MeshStandardMaterial({color:0x8B5A33});bb.rotation.x=.22;bb.position.z=-.12;board.add(bb);
+board.position.set(2.2,0,2.6);board.rotation.y=-.5;world.add(board);
+const pot=new THREE.Mesh(new THREE.CylinderGeometry(.22,.16,.4,20),new THREE.MeshStandardMaterial({color:0xC98B4B,roughness:.7}));pot.position.set(-2.7,.2,1.9);pot.castShadow=true;world.add(pot);
+for(let i=0;i<14;i++){const lf=new THREE.Mesh(new THREE.SphereGeometry(.16,10,8),new THREE.MeshStandardMaterial({color:i%2?0x2F6B3E:0x3E8A45,roughness:.7}));lf.position.set(-2.7+(rnd(i)-.5)*.4,.5+rnd(i+1)*.5,1.9+(rnd(i+2)-.5)*.4);lf.scale.set(1,1.4,.6);lf.rotation.set(rnd(i)*3,rnd(i+3)*3,0);world.add(lf)}
+// little cup on the counter, with steam
+const cupG=new THREE.Group();const cpts=[];[[0,0],[.16,0],[.2,.28],[.21,.3],[.19,.3],[.15,.04],[0,.04]].forEach(q=>cpts.push(new THREE.Vector2(...q)));cupG.add(new THREE.Mesh(new THREE.LatheGeometry(cpts,32),new THREE.MeshStandardMaterial({map:leoTex,roughness:.4})));
+const lid=new THREE.Mesh(new THREE.CylinderGeometry(.215,.215,.04,32),new THREE.MeshStandardMaterial({color:0xFFF3E2}));lid.position.y=.31;cupG.add(lid);
+cupG.position.set(.35,hy-hatchH/2-.04,hz+.25);caravan.add(cupG);
+const cSteam=steam(2,.35,1.2);cSteam.position.set(.35,hy-hatchH/2+.3,hz+.25);caravan.add(cSteam);
+// snow
+const snowGeo=new THREE.BufferGeometry();const N=700;const sp=new Float32Array(N*3);for(let i=0;i<N;i++){sp[i*3]=(rnd(i)-.5)*22;sp[i*3+1]=rnd(i+1)*10;sp[i*3+2]=(rnd(i+2)-.5)*18}snowGeo.setAttribute('position',new THREE.BufferAttribute(sp,3));
+const flake=canvasTex(64,64,(x,w,h)=>{const g=x.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.fillRect(0,0,64,64)});
+const snow=new THREE.Points(snowGeo,new THREE.PointsMaterial({size:.09,map:flake,transparent:true,depthWrite:false,opacity:.9}));H.s.add(snow);
+
+const storyEl=document.querySelector('.story');let prog=0,target=0,mx=0,tmx=0;
+function onScroll(){const r=storyEl.getBoundingClientRect();target=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-innerHeight)))}
+addEventListener('scroll',onScroll,{passive:true});onScroll();addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth-.5},{passive:true});
+const t1=document.getElementById('t1'),t2=document.getElementById('t2'),cap=document.getElementById('cap'),hint=document.getElementById('hint'),chaps=[...document.querySelectorAll('.chap span')];
+[t1,t2].forEach((el,k)=>{el.innerHTML=el.textContent.split(' ').map(w=>'<span class="w">'+[...w].map((ch,i)=>`<span class="l" style="animation-delay:${k*.35+i*.05}s">${ch}</span>`).join('')+'</span>').join(' ')});
+const caps=['<b>Brews.</b> A little coffee caravan in Tottington, pouring festive lattes and hot chocolates. Scroll to open up.','<b>Bakes.</b> Hatch open, fairy lights on, kettle on. Treats for you, puppuccinos for the dogs.','<b>Leopard print.</b> Home to the little leps book club, run club and walking club. Come say hi.'];let capI=-1;
+
+/* ===================== MUG BUILDER ===================== */
+const M=base(document.getElementById('mug3d'),{fov:30,cam:[0,3,8.2],look:[0,1.25,0],env:.9});
+const mRoot=new THREE.Group();M.s.add(mRoot);
+const shadowTex=canvasTex(256,256,(x,w,h)=>{const g=x.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);g.addColorStop(0,'rgba(60,35,20,.5)');g.addColorStop(1,'rgba(60,35,20,0)');x.fillStyle=g;x.fillRect(0,0,w,h)});
+const msh=new THREE.Mesh(new THREE.PlaneGeometry(4.4,4.4),new THREE.MeshBasicMaterial({map:shadowTex,transparent:true,depthWrite:false}));msh.rotation.x=-Math.PI/2;msh.position.y=.005;M.s.add(msh);
+const mugPts=[];[[0,0],[.9,0],[.98,.06],[1.02,.3],[1.05,1.9],[1.08,1.98],[1.03,2.0],[.98,1.92],[.95,.2],[0,.2]].forEach(q=>mugPts.push(new THREE.Vector2(...q)));
+const mugMat=new THREE.MeshPhysicalMaterial({color:0xFFF8EE,roughness:.25,clearcoat:1,clearcoatRoughness:.08});
+const mug=new THREE.Mesh(new THREE.LatheGeometry(mugPts,96),mugMat);mRoot.add(mug);
+const mLeo=tex(LEO,1);mLeo.repeat.set(3,1);
+const mugBand=new THREE.Mesh(new THREE.CylinderGeometry(1.045,1.03,.75,96,1,true),new THREE.MeshPhysicalMaterial({map:mLeo,roughness:.35,clearcoat:.8}));mugBand.position.y=.85;mRoot.add(mugBand);
+const hc=new THREE.CatmullRomCurve3([new THREE.Vector3(.98,1.6,0),new THREE.Vector3(1.55,1.62,0),new THREE.Vector3(1.68,1.1,0),new THREE.Vector3(1.45,.62,0),new THREE.Vector3(1.0,.55,0)]);
+mRoot.add(new THREE.Mesh(new THREE.TubeGeometry(hc,40,.1,16),mugMat));
+const drinkTop=new THREE.Mesh(new THREE.CircleGeometry(.95,64),new THREE.MeshPhysicalMaterial({color:0x8A5532,roughness:.3,clearcoat:.6}));drinkTop.rotation.x=-Math.PI/2;drinkTop.position.y=1.82;mRoot.add(drinkTop);
+// whipped cream: stacked swirl of soft lobes
+const cream=new THREE.Group();const creamMat=new THREE.MeshPhysicalMaterial({color:0xFFFDF8,roughness:.6,sheen:1,sheenColor:new THREE.Color(0xffffff)});
+for(let i=0;i<46;i++){const u=i/46;const a=u*Math.PI*2*3.2;const r=.72*(1-u*.82);const lobe=new THREE.Mesh(new THREE.SphereGeometry(.24*(1-u*.45),16,12),creamMat);lobe.position.set(Math.cos(a)*r,u*.95,Math.sin(a)*r);lobe.scale.set(1,.8,1);cream.add(lobe)}
+const tip=new THREE.Mesh(new THREE.ConeGeometry(.12,.3,16),creamMat);tip.position.y=1.05;cream.add(tip);cream.position.y=1.86;mRoot.add(cream);
+// marshmallows (some toasted)
+const mallows=new THREE.Group();for(let i=0;i<14;i++){const toasted=i%3===0;const m=new THREE.Mesh(new THREE.CylinderGeometry(.13,.13,.2,16),new THREE.MeshStandardMaterial({color:toasted?0xD9A46A:(i%4===1?0xF7C6CF:0xFFFBF5),roughness:.85}));const a=rnd(i+50)*6.28,r=rnd(i+51)*.8;m.position.set(Math.cos(a)*r,.05+rnd(i+52)*.25,Math.sin(a)*r);m.rotation.set(rnd(i)*3,rnd(i+1)*3,rnd(i+2)*3);mallows.add(m)}
+mallows.position.y=1.86;mRoot.add(mallows);
+// chocolate drizzle: a looping tube over the top
+const dz=[];for(let i=0;i<=160;i++){const u=i/160;const a=u*Math.PI*2*4.2+.5;const r=.86*(1-u*.85)+.06*Math.sin(u*60);dz.push(new THREE.Vector3(Math.cos(a)*r,u*.98+.08,Math.sin(a)*r))}
+const drizzle=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(dz),300,.03,8),new THREE.MeshPhysicalMaterial({color:0x3A1C0E,roughness:.1,clearcoat:1}));drizzle.position.y=1.86;mRoot.add(drizzle);
+// gingerbread biscuit perched on the rim
+const gs=new THREE.Shape();gs.absarc(0,.62,.2,0,Math.PI*2);const gb=new THREE.Shape();gb.moveTo(-.18,.45);gb.lineTo(-.45,.36);gb.quadraticCurveTo(-.52,.26,-.4,.22);gb.lineTo(-.18,.26);gb.lineTo(-.28,-.18);gb.quadraticCurveTo(-.25,-.3,-.12,-.22);gb.lineTo(0,.02);gb.lineTo(.12,-.22);gb.quadraticCurveTo(.25,-.3,.28,-.18);gb.lineTo(.18,.26);gb.lineTo(.4,.22);gb.quadraticCurveTo(.52,.26,.45,.36);gb.lineTo(.18,.45);gb.lineTo(-.18,.45);
+const gMat=new THREE.MeshStandardMaterial({color:0xB8733A,roughness:.85});const ginger=new THREE.Group();
+[gs,gb].forEach(s=>{const m=new THREE.Mesh(new THREE.ExtrudeGeometry(s,{depth:.08,bevelEnabled:true,bevelSize:.03,bevelThickness:.03,bevelSegments:3,curveSegments:20}),gMat);ginger.add(m)});
+const icingM=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.5});[[-.07,.66],[.07,.66],[0,.25],[0,.1]].forEach(([x,y],i)=>{const d=new THREE.Mesh(new THREE.SphereGeometry(i<2?.03:.04,10,8),i<2?icingM:new THREE.MeshStandardMaterial({color:i===2?0xC9575A:0x2F6B3E}));d.position.set(x,y,.12);ginger.add(d)});
+const smile=new THREE.Mesh(new THREE.TorusGeometry(.07,.012,6,16,Math.PI),icingM);smile.position.set(0,.58,.11);smile.rotation.z=Math.PI;ginger.add(smile);
+ginger.scale.setScalar(.95);ginger.position.set(-.55,2.05,.55);ginger.rotation.set(-.15,.6,-.25);mRoot.add(ginger);
+// orange slice on the rim
+const orTex=canvasTex(256,256,(x,w,h)=>{x.fillStyle='#F28C28';x.beginPath();x.arc(128,128,126,0,7);x.fill();x.fillStyle='#FFF1D6';x.beginPath();x.arc(128,128,112,0,7);x.fill();for(let i=0;i<10;i++){x.fillStyle='#F9A23A';x.beginPath();x.moveTo(128,128);x.arc(128,128,104,i/10*6.28+.04,(i+1)/10*6.28-.04);x.fill()}x.fillStyle='#FFF1D6';x.beginPath();x.arc(128,128,10,0,7);x.fill()});
+const orange=new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,.06,40),[new THREE.MeshStandardMaterial({color:0xF28C28}),new THREE.MeshStandardMaterial({map:orTex,roughness:.4}),new THREE.MeshStandardMaterial({map:orTex,roughness:.4})]);
+orange.rotation.set(Math.PI/2,0,.2);orange.position.set(.92,1.95,.1);mRoot.add(orange);
+// sprinkle dust (cinnamon / cocoa)
+const dust=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.BufferAttribute(new Float32Array([...Array(300)].flatMap((_,i)=>{const a=rnd(i+600)*6.28,r=Math.sqrt(rnd(i+601))*.9;return [Math.cos(a)*r,1.84,Math.sin(a)*r]})),3)),new THREE.PointsMaterial({color:0x7A3F1C,size:.03}));mRoot.add(dust);
+// dog bone treat for the puppuccino
+const bone=new THREE.Group();const boneM=new THREE.MeshStandardMaterial({color:0xC98B4B,roughness:.8});const shaft=new THREE.Mesh(new THREE.CylinderGeometry(.07,.07,.6,12),boneM);shaft.rotation.z=Math.PI/2;bone.add(shaft);[[-.3,.06],[-.3,-.06],[.3,.06],[.3,-.06]].forEach(([x,y])=>{const k=new THREE.Mesh(new THREE.SphereGeometry(.09,12,10),boneM);k.position.set(x,y,0);bone.add(k)});bone.position.set(.6,2.05,.5);bone.rotation.set(.3,.4,-.5);mRoot.add(bone);
+const mSteam=steam(3,.8,2.4);M.s.add(mSteam);
+drag(document.getElementById('mug3d'),mRoot);
+const DR={'Gingerbread Latte':{c:0xB07A4E,ex:['cream','cookie'],dust:0x7A3F1C,s:1},'Chocolate Orange Hot Chocolate':{c:0x4A2414,ex:['cream','orange','drizzle'],dust:0x3A1C0E,s:1},"S'mores Hot Chocolate":{c:0x4A2414,ex:['mallows','drizzle','cookie'],dust:0x3A1C0E,s:1},'Babyccino':{c:0xF4E7D3,ex:['mallows'],dust:0x7A3F1C,s:.62},'Puppuccino':{c:0xFFFBF5,ex:['cream'],dust:null,s:.55},'Latte':{c:0xC79A6E,ex:[],dust:null,s:1}};
+const scaleT={cream:0,mallows:0,drizzle:0,cookie:0,orange:0,bone:0},scaleV={...scaleT};let mugScaleT=1,mugScaleV=1;
+const drinkSel=()=>document.querySelector('input[name=dr]:checked');
+document.querySelectorAll('input[name=dr]').forEach(i=>i.addEventListener('change',()=>{const d=DR[i.value];document.querySelectorAll('input[name=ex]').forEach(c=>c.checked=d.ex.includes(c.value));upd()}));
+document.querySelectorAll('input[name=ex]').forEach(i=>i.addEventListener('change',upd));
+function upd(){const d=drinkSel().value,cfg=DR[d];const ex=[...document.querySelectorAll('input[name=ex]:checked')].map(c=>c.value);
+  Object.keys(scaleT).forEach(k=>scaleT[k]=ex.includes(k)?1:0);scaleT.bone=d==='Puppuccino'?1:0;if(d==='Puppuccino')scaleT.cookie=0;
+  drinkTop.material.color.setHex(cfg.c);dust.visible=!!cfg.dust&&!ex.includes('cream');if(cfg.dust)dust.material.color.setHex(cfg.dust);mugScaleT=cfg.s;
+  const names={cream:'whipped cream',mallows:'marshmallows',drizzle:'choc drizzle',cookie:'a gingerbread biscuit',orange:'an orange slice'};
+  const exT=ex.filter(e=>!(d==='Puppuccino'&&e==='cookie')).map(e=>names[e]);
+  window.__order=`Hi little leps! Could I order a ${d}${exT.length?' with '+exT.join(', '):''}? 🐆`;
+  document.getElementById('summ').textContent='Your order: '+d+(exT.length?' + '+exT.join(', '):'')+(d==='Puppuccino'?' (plus a little bone for the pup 🦴)':'')}
+upd();
+document.getElementById('send').onclick=async()=>{try{await navigator.clipboard.writeText(window.__order);document.getElementById('sentNote').textContent='Order copied ✓ Paste it in our DMs and hit send.'}catch(e){}window.open('https://ig.me/m/thelittleleopardcoffee','_blank','noopener')};
+
+/* ===================== loop ===================== */
+const vis=new Map();const io=new IntersectionObserver(es=>es.forEach(e=>vis.set(e.target,e.isIntersecting)),{rootMargin:'120px'});[heroCanvas,M.r.domElement].forEach(el=>{vis.set(el,true);io.observe(el)});
+function loop(){const t=performance.now()/1000;
+  if(vis.get(heroCanvas)){prog+=(target-prog)*(reduce?1:.1);const P=prog;mx+=(tmx-mx)*.05;
+    const open=sm(.15,.45,P);flapPivot.rotation.x=-open*1.55;{const u=sm(.3,.6,P);awPivot.rotation.x=.14;awning.scale.z=Math.max(.02,u);valance.position.z=-1.3+1.3*u;valance.scale.setScalar(Math.max(.01,u));awning.visible=valance.visible=u>.01}
+    const lit=sm(.25,.5,P);inner.material.emissiveIntensity=lit*.9;hatchLight.intensity=lit*6;
+    bulbs.forEach((b,i)=>{b.material.emissiveIntensity=sm(.4,.6,P)*(2+Math.sin(t*3+i*1.7)*.9)});
+    tickSteam(cSteam,t,sm(.35,.6,P),H.c);
+    // camera: orbit from 3/4 view to face the hatch, then pull back
+    const a=.75-sm(0,.55,P)*.75+sm(.6,1,P)*.35+mx*.15;const dist=(11-sm(.2,.6,P)*2.2+sm(.7,1,P)*1.2)*(H.c.aspect<.8?1.5:1);
+    H.c.position.set(Math.sin(a)*dist,2.6+sm(.6,1,P)*.8,Math.cos(a)*dist);H.c.lookAt(-.1,1.5,0);
+    H.key.intensity=2.3-sm(.4,.8,P)*.9;
+    const pos=snow.geometry.attributes.position;for(let i=0;i<N;i++){let y=pos.getY(i)-.012*(.5+rnd(i));if(y<0)y=10;pos.setY(i,y);pos.setX(i,pos.getX(i)+Math.sin(t+i)*.002)}pos.needsUpdate=true;
+    t1.style.transform=`translateY(${-P*36}vh)`;t2.style.transform=`translateY(${P*22}vh)`;t1.style.opacity=1-sm(.6,.8,P)*.7;hint.style.opacity=1-sm(0,.08,P);
+    const ci=P<.25?0:P<.6?1:2;if(ci!==capI){capI=ci;cap.innerHTML=caps[ci];cap.classList.remove('in');void cap.offsetWidth;cap.classList.add('in');chaps.forEach((c,j)=>c.classList.toggle('on',j===ci))}
+    H.r.render(H.s,H.c)}
+  if(vis.get(M.r.domElement)){mugScaleV+=(mugScaleT-mugScaleV)*.1;mRoot.scale.setScalar(mugScaleV);
+    const top={cream,mallows,drizzle,cookie:ginger,orange,bone};Object.entries(top).forEach(([k,o])=>{scaleV[k]+=(scaleT[k]-scaleV[k])*.12;o.visible=scaleV[k]>.02;const s=scaleV[k];o.scale.setScalar(Math.max(.001,(k==='cookie'?.95:1)*(s<1?s*(1+Math.sin(s*Math.PI)*.25):1)))});
+    mallows.position.y=1.86+(scaleT.cream?0.9:0);drizzle.scale.y=Math.max(.001,drizzle.scale.y*(scaleT.cream?1:.04));
+    tickSteam(mSteam,t,scaleT.cream||scaleT.mallows?.35:.8,M.c);mSteam.position.y=1.9*mugScaleV;
+    if(!reduce)mRoot.rotation.y+=.004;M.r.render(M.s,M.c)}
+  requestAnimationFrame(loop)}
+loop();
+</script>
+</body>
+</html>
