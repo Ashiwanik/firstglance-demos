@@ -36,9 +36,12 @@ a{color:inherit;text-decoration:none}
 .hero{position:relative;height:100vh;min-height:640px;overflow:hidden;background:#070708}
 .hero .bg{position:absolute;inset:0;background:radial-gradient(70% 60% at 70% 35%,rgba(184,137,59,.28),transparent 60%),radial-gradient(60% 60% at 20% 80%,rgba(194,24,91,.22),transparent 60%),#0b0a0c}
 .hero .bg:after{content:"";position:absolute;inset:0;background:var(--mandala) 78% 45%/900px no-repeat;opacity:.08}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}
-.hero video.on{opacity:1}
-.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,8,.86) 0%,rgba(7,7,8,.55) 45%,rgba(7,7,8,.15) 100%),linear-gradient(0deg,rgba(7,7,8,.85),rgba(7,7,8,0) 40%)}
+.hero .ambient{position:absolute;inset:-40px;background:url(assets/cocktail.jpg) 80% 30%/cover;filter:blur(40px) saturate(1.2);opacity:.35}
+.heroVid{position:absolute;top:0;bottom:0;right:0;width:min(58vh,48vw);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+.heroVid video{width:100%;height:100%;object-fit:cover;display:block}
+.vcap{position:absolute;right:96px;bottom:34px;z-index:3;color:#CFC8BE;font-size:11px;background:rgba(10,10,11,.55);border:1px solid var(--line);border-radius:999px;padding:9px 14px;backdrop-filter:blur(8px)}
+@media(max-width:800px){.heroVid{width:100%;-webkit-mask-image:none;mask-image:none}.hero .shade{background:linear-gradient(0deg,rgba(7,7,8,.95) 0%,rgba(7,7,8,.6) 50%,rgba(7,7,8,.25) 100%)}.vcap{right:auto;left:20px;bottom:20px}}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,8,.92) 0%,rgba(7,7,8,.6) 40%,rgba(7,7,8,0) 70%),linear-gradient(0deg,rgba(7,7,8,.7),rgba(7,7,8,0) 35%)}
 .hero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:60px}
 .hero h1{font:500 clamp(46px,7.2vw,104px)/.98 var(--serif);letter-spacing:-.01em;max-width:13ch}
 .hero h1 em{font-style:italic}
@@ -102,7 +105,7 @@ h2 em{font:italic 600 1.05em var(--serif);letter-spacing:0;color:transparent;bac
 .look b{display:block;font:italic 600 32px/1.15 var(--serif);color:var(--gold1)}
 .bridal{min-height:92vh;display:flex;align-items:center;overflow:hidden}
 .bridal .bgv{position:absolute;inset:0;background:radial-gradient(60% 70% at 75% 40%,rgba(194,24,91,.35),transparent 60%),radial-gradient(50% 60% at 20% 70%,rgba(184,137,59,.25),transparent 60%),#0c0a0b}
-.bridal video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}.bridal video.on{opacity:.75}
+.bridal video{position:absolute;top:0;bottom:0;right:0;width:min(60vh,50vw);height:100%;object-fit:cover;opacity:0;transition:opacity 1s;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}.bridal video.on{opacity:.55}@media(max-width:800px){.bridal video{width:100%}}
 .bridal .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,8,.9),rgba(7,7,8,.45) 55%,rgba(7,7,8,.2))}
 .bridal .wrap{position:relative;z-index:2;width:100%}
 .bridal h2{font:500 clamp(46px,6.6vw,96px)/1 var(--serif);color:var(--ink);letter-spacing:-.01em;max-width:12ch}
@@ -145,8 +148,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-s
 
 <div class="hero" id="top">
   <div class="bg"></div>
-  <video id="v0" muted loop playsinline preload="auto" src="assets/tour.mp4"></video>
-  <video id="v1" muted loop playsinline preload="none" src="assets/cocktail.mp4"></video>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="heroVid"><video id="v0" muted loop playsinline autoplay preload="auto" poster="assets/cocktail.jpg" src="assets/cocktail.mp4"></video></div>
   <div class="shade"></div>
   <div class="wrap">
     <p class="mono eyebrow" data-t="k">Salon · Café · Beauty · Jodhpur</p>
@@ -155,7 +158,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-s
     <div class="ctas"><a class="pill o" href="#menu" data-t="c1">View services</a><a class="pill g" href="#book" data-t="c2">Book on WhatsApp</a></div>
   </div>
   <span class="scroll mono">Scroll ↓</span>
-  <div class="dots" aria-label="Hero videos"><button class="on" data-i="0" aria-label="Salon tour"></button><button data-i="1" aria-label="Cocktail look"></button><button class="nx" id="nx" aria-label="Next">›</button></div>
+  <div class="vcap mono"><span class="gold">●</span> Cocktail night look · created at the lounge</div>
 </div>
 
 <section id="experiences"><div class="wrap">
@@ -197,7 +200,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-s
 </div></section>
 
 <section class="bridal" id="bridal">
-  <div class="bgv"></div><video id="vb" muted loop playsinline preload="none" src="assets/carnival.mp4"></video><div class="shade"></div>
+  <div class="bgv"></div><video id="vb" muted loop playsinline preload="none" src="assets/cocktail.mp4#t=11"></video><div class="shade"></div>
   <div class="wrap reveal">
     <p class="mono eyebrow" data-t="b1">Bridal · Events · Wedding season</p>
     <h2 style="margin-top:16px" data-t="b2">She walks, <br><em class="gold">the world stops.</em></h2>
@@ -244,15 +247,11 @@ const WA='917727985757';
 const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
 // hero videos: the lounge's own reels, muted; if a file is missing the dark-gold backdrop shows instead
-const vids=[document.getElementById('v0'),document.getElementById('v1')];let cur=0;
-function showV(i){cur=i;vids.forEach((v,j)=>{if(!v.isConnected)return;if(j===i){v.preload='auto';v.play().then(()=>v.classList.add('on')).catch(()=>{})}else{v.classList.remove('on');setTimeout(()=>v.pause(),1200)}});document.querySelectorAll('.dots [data-i]').forEach(b=>b.classList.toggle('on',+b.dataset.i===i))}
-vids.forEach(v=>v.addEventListener('error',()=>v.remove()));
-document.querySelectorAll('.dots [data-i]').forEach(b=>b.onclick=()=>showV(+b.dataset.i));document.getElementById('nx').onclick=()=>showV((cur+1)%2);
-showV(0);setInterval(()=>{if(!document.hidden)showV((cur+1)%2)},12000);
+const v0=document.getElementById('v0');v0.play().catch(()=>{});
 const vb=document.getElementById('vb');vb.addEventListener('error',()=>vb.remove());new IntersectionObserver(es=>{if(!vb.isConnected)return;if(es[0].isIntersecting){vb.preload='auto';vb.play().then(()=>vb.classList.add('on')).catch(()=>{})}else vb.pause()}).observe(document.getElementById('bridal'));
-const EXP=[{s:'Colour',k:'01 · Hair',t:'Colour transformations',i:'Before to beautiful after.',v:'assets/tour.mp4',g:'linear-gradient(160deg,#3b2a1a,#7a4a22 60%,#c98a43)'},
+const EXP=[{s:'Colour',k:'01 · Hair',t:'Colour transformations',i:'Before to beautiful after.',v:'',g:'linear-gradient(160deg,#3b2a1a,#7a4a22 60%,#c98a43)'},
  {s:'Glam',k:'02 · Makeup',t:'Cocktail & party glam',i:'More than a second glance.',v:'assets/cocktail.mp4',g:'linear-gradient(160deg,#2a0f1d,#7a1a46 60%,#c2185b)'},
- {s:'Bride',k:'03 · Bridal',t:'Luxury bridal',i:'Your fairytale moment.',v:'assets/carnival.mp4',g:'linear-gradient(160deg,#2b1b0c,#8a5a1c 60%,#e0b060)'},
+ {s:'Bride',k:'03 · Bridal',t:'Luxury bridal',i:'Your fairytale moment.',v:'',g:'linear-gradient(160deg,#2b1b0c,#8a5a1c 60%,#e0b060)'},
  {s:'Unwind',k:'04 · Spa',t:'Spa, facial & pedicure',i:'Your self-care sanctuary.',v:'',g:'linear-gradient(160deg,#10201c,#1f4a3f 60%,#6aa38f)'},
  {s:'Sip',k:'05 · Café',t:'The Aangan café',i:'Relax, sip, savour.',v:'',g:'linear-gradient(160deg,#1c120c,#4a2c1a 60%,#a8703c)'}];
 const flow=document.getElementById('flow'),ftabs=document.getElementById('ftabs');let fi=0;
