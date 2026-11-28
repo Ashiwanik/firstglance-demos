@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finca Don Tulio · From our farm in Colombia to your cup in Dubai (concept)</title>
+<meta name="description" content="A free website concept for Finca Don Tulio by FirstGlance Studio.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F4EADB;--paper:#FBF6EE;--esp:#22150E;--bean:#4A2C1C;--car:#D59B6A;--green:#0F4A3B;--green2:#16634F;--line:#E6D6BF;--muted:#7A6656;
+--display:"Fraunces",Georgia,serif;--body:"Hanken Grotesk",system-ui,Arial,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--esp);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.concept{position:relative;z-index:60;background:#1A33C9;color:#fff;font-size:13px;padding:9px 16px;text-align:center}.concept b{color:#FFC94A}
+.nav{position:sticky;top:0;z-index:50;background:rgba(244,234,219,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:900;font-size:20px;text-decoration:none;white-space:nowrap}
+.logo i{width:36px;height:36px;border-radius:50%;background:var(--green);color:var(--car);display:grid;place-items:center;font-style:normal;font-size:16px}
+.nav ul{display:none;list-style:none;gap:26px;font-weight:600;font-size:15px}.nav ul a{text-decoration:none;opacity:.8}
+@media(min-width:900px){.nav ul{display:flex}}
+.pill{background:var(--esp);color:var(--cream);font-weight:800;text-decoration:none;padding:10px 16px;border-radius:999px;font-size:14px;white-space:nowrap}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.status:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c,#2BB673);box-shadow:0 0 0 4px color-mix(in srgb,var(--c,#2BB673) 25%,transparent)}
+
+/* HERO: pinned scroll story */
+.story{position:relative;height:340vh}
+.stage{position:sticky;top:64px;height:calc(100vh - 64px);overflow:hidden}
+#hero3d{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.big{position:absolute;left:0;right:0;pointer-events:none;z-index:0;font-family:var(--display);font-weight:900;line-height:.86;letter-spacing:-.02em;text-transform:uppercase;padding:0 22px}
+.big.t1{top:6%;font-size:clamp(62px,15vw,210px);color:var(--esp)}
+.big.t2{bottom:13%;font-size:clamp(62px,15vw,210px);text-align:right;color:var(--car)}
+.cap{position:absolute;z-index:2;left:22px;bottom:4.5%;max-width:330px;font-size:15px;color:var(--muted);transition:opacity .4s}
+.cap b{color:var(--esp)}
+.chap{position:absolute;z-index:2;right:22px;top:46%;display:grid;gap:10px;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chap span{display:flex;align-items:center;gap:8px;opacity:.45;transition:opacity .3s}
+.chap span:before{content:"";width:22px;height:2px;background:currentColor}
+.chap span.on{opacity:1;color:var(--esp)}
+@media(max-width:700px){.chap{display:none}.cap{max-width:none;right:22px;bottom:84px;background:rgba(251,246,238,.92);padding:12px 14px;border-radius:16px;font-size:14px}}
+.scrollhint{position:absolute;z-index:2;left:50%;bottom:2%;transform:translateX(-50%);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+section{padding:92px 0}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--car)}
+h2{font-family:var(--display);font-weight:900;font-size:clamp(38px,5.6vw,68px);line-height:1;letter-spacing:-.015em;margin:12px 0 14px}
+h2 em{color:var(--car)}
+.sub{font-size:18px;color:var(--muted);max-width:56ch}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:15px 24px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-d{background:var(--esp);color:var(--cream)}
+.btn-wa{background:#1F9D55;color:#fff}
+.btn-o{border:2px solid currentColor;background:transparent}
+
+/* Roast lab */
+.dark{background:var(--green);color:var(--cream)}
+.dark .sub{color:#CFE0D8}
+.lab{display:grid;gap:28px;margin-top:34px;align-items:center}
+@media(min-width:940px){.lab{grid-template-columns:1.1fr .9fr}}
+#roast3d{width:100%;aspect-ratio:1.15;display:block;border-radius:32px;background:radial-gradient(80% 70% at 50% 40%,#1D6A55,#0B3A2E);cursor:grab;touch-action:pan-y}
+.slider{margin:22px 0 10px}
+.slider input{width:100%;accent-color:var(--car);height:30px}
+.stops{display:flex;justify-content:space-between;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#A9C6BB}
+.rcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:26px;padding:26px}
+.rcard h3{font-family:var(--display);font-size:34px;line-height:1.05;margin:6px 0 8px}
+.rcard .tag{display:inline-block;background:var(--car);color:var(--esp);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.facts div{background:rgba(0,0,0,.18);border-radius:16px;padding:12px}
+.facts b{display:block;font-family:var(--display);font-size:20px;color:#fff}
+.facts small{color:#A9C6BB;font-size:12px}
+
+/* Cup builder */
+.builder{display:grid;gap:30px;margin-top:34px}
+@media(min-width:940px){.builder{grid-template-columns:1fr 1fr;align-items:center}}
+#cup3d{width:100%;aspect-ratio:1;max-height:560px;display:block;border-radius:32px;background:radial-gradient(70% 60% at 50% 42%,#FFF8EE,#EBDCC6);cursor:grab;touch-action:pan-y}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:26px}
+.drinks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:520px){.drinks{grid-template-columns:repeat(3,1fr)}}
+.drink{position:relative}
+.drink input{position:absolute;opacity:0}
+.drink span{display:block;border:2px solid var(--line);border-radius:18px;padding:12px 14px;cursor:pointer;background:#fff;font-weight:800;line-height:1.2}
+.drink span small{display:block;font-weight:600;color:var(--muted);font-size:13px;margin-top:3px}
+.drink input:checked+span{border-color:var(--esp);background:var(--esp);color:var(--cream)}
+.drink input:checked+span small{color:#D9C7B2}
+.drink input:focus-visible+span{outline:3px solid var(--car);outline-offset:2px}
+.layers{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 6px;font-size:13px;font-weight:700;color:var(--muted)}
+.layers i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.qty{display:flex;align-items:center;gap:12px;margin:16px 0}
+.qty button{width:40px;height:40px;border-radius:50%;border:2px solid var(--esp);background:transparent;font-size:20px;font-weight:800;cursor:pointer}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line);padding-top:14px;margin:6px 0 16px}
+.total b{font-family:var(--display);font-size:34px}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* beans */
+.beans{display:grid;gap:16px;margin-top:30px}
+@media(min-width:760px){.beans{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.beans{grid-template-columns:repeat(4,1fr)}}
+.bag{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:22px;transition:transform .25s,box-shadow .25s;transform-style:preserve-3d}
+.bag:hover{box-shadow:0 30px 50px -30px rgba(34,21,14,.45)}
+.bag .sw{height:150px;border-radius:18px;margin-bottom:16px;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:22px;color:var(--cream);text-align:center;padding:12px;background:linear-gradient(150deg,var(--a),var(--b))}
+.bag h3{font-family:var(--display);font-size:22px}
+.bag p{color:var(--muted);font-size:15px;margin:6px 0 14px}
+.bag a{font-weight:800;font-size:15px}
+
+/* journey strip */
+.strip{display:grid;gap:14px;margin-top:30px}
+@media(min-width:860px){.strip{grid-template-columns:repeat(4,1fr)}}
+.strip div{border-top:3px solid var(--esp);padding-top:14px}
+.strip b{font-family:var(--display);font-size:22px;display:block}
+.strip span{color:var(--muted);font-size:15px}
+
+.visit{display:grid;gap:16px;margin-top:30px}
+@media(min-width:860px){.visit{grid-template-columns:repeat(3,1fr)}}
+.vcard{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px}
+.vcard h3{font-family:var(--display);font-size:22px;margin-bottom:6px}
+.vcard p{color:var(--muted)}
+footer{background:var(--esp);color:#CDBBA8;padding:40px 0;font-size:14px}
+footer b{color:var(--cream)}
+.sticky{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 16px 30px -12px rgba(0,0,0,.45)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="concept"><b>Made for Finca Don Tulio</b> · a free website concept by FirstGlance Studio. Not the official website.</div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top"><i>☕</i>Finca Don Tulio</a>
+  <ul><li><a href="#roast">Roast lab</a></li><li><a href="#cup">Build your cup</a></li><li><a href="#beans">Beans</a></li><li><a href="#visit">Visit</a></li></ul>
+  <span class="status" id="st">Checking…</span>
+</div></header>
+
+<div class="story" id="top">
+  <div class="stage">
+    <canvas id="hero3d" aria-label="3D coffee pouring into a cup as you scroll"></canvas>
+    <div class="big t1" id="t1">From the farm</div>
+    <div class="big t2" id="t2">to your cup</div>
+    <p class="cap" id="cap"><b>Colombian roots, crafted in the UAE.</b> Our own farm in Colombia, our own roastery in Al Quoz, Dubai. Scroll to follow the bean.</p>
+    <div class="chap" aria-hidden="true"><span data-i="0" class="on">Grown</span><span data-i="1">Roasted</span><span data-i="2">Poured</span></div>
+    <div class="scrollhint" id="hint">Scroll ↓</div>
+  </div>
+</div>
+
+<section style="padding-top:60px"><div class="wrap">
+  <p class="eyebrow">Seed to cup, no middlemen</p>
+  <h2>One family. <em>One farm.</em> One roastery.</h2>
+  <div class="strip">
+    <div><b>Sourced in Colombia</b><span>Grown at 1,680–1,750 metres on the family's own farm.</span></div>
+    <div><b>Roasted in Dubai</b><span>Small batches, roasted fresh at our Al Quoz roastery.</span></div>
+    <div><b>Award-winning</b><span>Specialty coffee recognised for what's in the cup.</span></div>
+    <div><b>At your door in 45 min</b><span>Order through Deliveroo or Keeta, or right here.</span></div>
+  </div>
+</div></section>
+
+<section class="dark" id="roast"><div class="wrap">
+  <p class="eyebrow" style="color:var(--car)">Roast lab · interactive</p>
+  <h2 style="color:#fff">Drag the slider. <em>Watch the beans roast.</em></h2>
+  <p class="sub">Every bean starts green on the farm. Slide to see how roast level changes colour and flavour, and find the coffee that matches.</p>
+  <div class="lab">
+    <canvas id="roast3d" aria-label="3D coffee beans changing colour with roast level"></canvas>
+    <div>
+      <div class="rcard">
+        <span class="tag" id="rTag">Green</span>
+        <h3 id="rName">Fresh off the farm</h3>
+        <p id="rDesc" style="color:#CFE0D8">Raw, grassy and dense. This is how every Don Tulio bean leaves Colombia.</p>
+        <div class="facts"><div><b id="rTemp">—</b><small>Roast temp</small></div><div><b id="rBody">—</b><small>Body</small></div><div><b id="rAcid">—</b><small>Acidity</small></div></div>
+      </div>
+      <div class="slider"><label for="roastIn" class="eyebrow" style="color:#CFE0D8">Roast level</label><input id="roastIn" type="range" min="0" max="100" value="0"></div>
+      <div class="stops"><span>Green</span><span>Filter</span><span>Espresso</span><span>Dark</span></div>
+      <a class="btn btn-o" id="rShop" href="https://fincadontulio.com/collections/all" target="_blank" rel="noopener" style="margin-top:22px;color:#fff">See matching beans ↗</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="cup"><div class="wrap">
+  <p class="eyebrow">Build your cup · live in 3D</p>
+  <h2>Pick a drink. <em>See exactly what's in it.</em></h2>
+  <p class="sub">Espresso, milk and foam fill the glass as you choose, and your order goes to the café on WhatsApp in one tap.</p>
+  <div class="builder">
+    <canvas id="cup3d" aria-label="3D glass filling with the layers of your drink"></canvas>
+    <div class="panel">
+      <div class="drinks" role="radiogroup" aria-label="Drink">
+        <label class="drink"><input type="radio" name="dr" value="Espresso" data-p="10" checked><span>Espresso<small>AED 10</small></span></label>
+        <label class="drink"><input type="radio" name="dr" value="Americano" data-p="10"><span>Americano<small>AED 10</small></span></label>
+        <label class="drink"><input type="radio" name="dr" value="Cortado" data-p="12"><span>Cortado<small>AED 12</small></span></label>
+        <label class="drink"><input type="radio" name="dr" value="Flat White" data-p="12"><span>Flat White<small>AED 12</small></span></label>
+        <label class="drink"><input type="radio" name="dr" value="Cappuccino" data-p="12"><span>Cappuccino<small>AED 12</small></span></label>
+        <label class="drink"><input type="radio" name="dr" value="Chai Latte" data-p="12"><span>Chai Latte<small>AED 12</small></span></label>
+      </div>
+      <div class="layers" id="legend"></div>
+      <div class="qty"><button type="button" id="minus" aria-label="One less">−</button><b id="q">1</b><button type="button" id="plus" aria-label="One more">+</button><span style="color:var(--muted)">cups</span></div>
+      <div class="total"><span>Your order</span><b id="tot">AED 10</b></div>
+      <a class="btn btn-wa" id="wa" target="_blank" rel="noopener">Order on WhatsApp ↗</a>
+      <p class="note">Prices as listed on fincadontulio.com today. On the real site, they'd update automatically from your Shopify store.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="beans" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+  <p class="eyebrow">Take it home</p>
+  <h2>Our beans, <em>1 kg at a time.</em></h2>
+  <p class="sub">The four Espresso Roast coffees from your shop, with the buy button going straight to your existing Shopify checkout. Nothing to migrate.</p>
+  <div class="beans">
+    <div class="bag" data-tilt><div class="sw" style="--a:#4A2C1C;--b:#D59B6A">Don Tulio<br>Blend</div><h3>Don Tulio Blend</h3><p>Bright and fruit-driven. Grown at 1,680–1,750 MASL.</p><a href="https://fincadontulio.com/products/don-tulio-blend-1kg" target="_blank" rel="noopener">Shop 1 kg ↗</a></div>
+    <div class="bag" data-tilt><div class="sw" style="--a:#0F4A3B;--b:#3E7D63">Finca<br>Clásico</div><h3>Finca Clásico</h3><p>Your tasting notes go here, straight from the bag label.</p><a href="https://fincadontulio.com/products/finca-classico-1kg" target="_blank" rel="noopener">Shop 1 kg ↗</a></div>
+    <div class="bag" data-tilt><div class="sw" style="--a:#5B1E3A;--b:#C0567F">Flor de<br>Pasión</div><h3>Flor de Pasión</h3><p>Your tasting notes go here, straight from the bag label.</p><a href="https://fincadontulio.com/products/flor-de-pasion-1kg" target="_blank" rel="noopener">Shop 1 kg ↗</a></div>
+    <div class="bag" data-tilt><div class="sw" style="--a:#7A1F24;--b:#E58B7A">Ruby Rose<br>Bourbon</div><h3>Ruby Rose Bourbon</h3><p>Your tasting notes go here, straight from the bag label.</p><a href="https://fincadontulio.com/products/ruby-rose-bourbon-1kg" target="_blank" rel="noopener">Shop 1 kg ↗</a></div>
+  </div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+  <p class="eyebrow">Visit the roastery</p>
+  <h2>Come smell <em>the roast.</em></h2>
+  <div class="visit">
+    <div class="vcard"><h3>Where</h3><p>Warehouse 8, SOBH Al Quoz,<br>Al Quoz Industrial 1, Dubai</p><p style="margin-top:12px"><a href="https://www.google.com/maps/search/?api=1&query=Finca+Don+Tulio+Al+Quoz+Dubai" target="_blank" rel="noopener"><b>Open in Maps ↗</b></a></p></div>
+    <div class="vcard"><h3>When</h3><p>Every day, 07:00 – 21:00</p><p style="margin-top:12px"><span class="status" id="st2">Checking…</span></p></div>
+    <div class="vcard"><h3>Talk to us</h3><p><a href="tel:+971566821611">+971 56 682 1611</a><br><a href="mailto:info@fincadontulio.com">info@fincadontulio.com</a></p><p style="margin-top:12px"><a href="https://www.instagram.com/fincadontulio/" target="_blank" rel="noopener"><b>@fincadontulio ↗</b></a></p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><b>Finca Don Tulio</b> · Colombian roots, crafted in the UAE.<br>Website concept by <a href="https://firstglancestudio.in" style="color:var(--car)">FirstGlance Studio</a>. Photos-free build: everything you see is drawn live in 3D.</div></footer>
+<a class="btn btn-d sticky" href="#cup">☕ Order a coffee</a>
+
+<script>
+// Open now, Dubai time
+(function(){try{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dubai',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const h=+p.find(x=>x.type==='hour').value,m=+p.find(x=>x.type==='minute').value;const mins=h*60+m;const open=mins>=420&&mins<1260;
+ const txt=open?(mins>=1200?'Open · closes 9 PM':'Open now · till 9 PM'):'Closed · opens 7 AM';
+ ['st','st2'].forEach(id=>{const e=document.getElementById(id);e.textContent=txt;e.style.setProperty('--c',open?'#2BB673':'#D9534F')})}catch(e){}})();
+// tilt cards
+document.querySelectorAll('[data-tilt]').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
+</script>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const WA='https://wa.me/971566821611?text=';
+
+function base(canvas,{fov=34,cam=[0,2.2,8],look=[0,1.2,0]}={}){
+  const r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.05;
+  const s=new THREE.Scene();const c=new THREE.PerspectiveCamera(fov,1,.1,100);c.position.set(...cam);c.lookAt(...look);
+  s.add(new THREE.HemisphereLight(0xfff4e6,0x3a2418,1.15));
+  const k=new THREE.DirectionalLight(0xffffff,2.4);k.position.set(4,7,5);s.add(k);
+  const rim=new THREE.DirectionalLight(0xD59B6A,1.4);rim.position.set(-5,3,-4);s.add(rim);
+  function size(){const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;r.setSize(w,h,false);c.aspect=w/h;c.updateProjectionMatrix()}
+  new ResizeObserver(size).observe(canvas);size();
+  return {r,s,c,look:new THREE.Vector3(...look)};
+}
+function drag(canvas,obj){let d=false,lx=0;canvas.addEventListener('pointerdown',e=>{d=true;lx=e.clientX});addEventListener('pointerup',()=>d=false);addEventListener('pointermove',e=>{if(!d)return;obj.userData.spin=(e.clientX-lx)*.012;obj.rotation.y+=obj.userData.spin;lx=e.clientX})}
+
+// --- coffee bean geometry: flattened ellipsoid with a centre crease ---
+function beanGeo(){const g=new THREE.SphereGeometry(1,28,20);const p=g.attributes.position;const v=new THREE.Vector3();
+  for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i);v.x*=.72;v.y*=1;v.z*=.5;
+    if(v.z>0){v.z*=.55;const crease=Math.exp(-Math.pow(v.x/.09,2));v.z-=crease*.16*(1-Math.abs(v.y)*.6)}
+    p.setXYZ(i,v.x,v.y,v.z)}g.computeVertexNormals();return g}
+const BEAN=beanGeo();
+const roastColor=t=>{const stops=[[0,[0.47,0.58,0.38]],[.3,[0.66,0.47,0.27]],[.6,[0.36,0.21,0.12]],[1,[0.13,0.07,0.045]]];for(let i=1;i<stops.length;i++){if(t<=stops[i][0]){const a=stops[i-1],b=stops[i],k=(t-a[0])/(b[0]-a[0]);return new THREE.Color(...a[1].map((x,j)=>x+(b[1][j]-x)*k))}}return new THREE.Color(...stops[3][1])};
+
+// --- cup (ceramic) ---
+function cup(){const g=new THREE.Group();const pts=[];const prof=[[0,0],[.55,0],[.62,.05],[.66,.2],[.8,.7],[.93,1.25],[.96,1.32],[.9,1.32],[.86,1.25],[.73,.7],[.6,.22],[.5,.12],[0,.12]];prof.forEach(q=>pts.push(new THREE.Vector2(q[0],q[1])));
+  const m=new THREE.MeshPhysicalMaterial({color:0xFBF7F1,roughness:.18,clearcoat:1,clearcoatRoughness:.08});
+  const body=new THREE.Mesh(new THREE.LatheGeometry(pts,72),m);g.add(body);
+  const h=new THREE.Mesh(new THREE.TorusGeometry(.32,.065,14,40,Math.PI*1.25),m);h.position.set(.98,.72,0);h.rotation.z=-Math.PI*.62;g.add(h);
+  const sp=[];[[0,0],[1.55,0],[1.62,.05],[1.58,.1],[.7,.08],[0,.1]].forEach(q=>sp.push(new THREE.Vector2(q[0],q[1])));
+  const saucer=new THREE.Mesh(new THREE.LatheGeometry(sp,72),m);saucer.position.y=-.08;g.add(saucer);
+  const coffee=new THREE.Mesh(new THREE.CircleGeometry(.86,64),new THREE.MeshPhysicalMaterial({color:0x3A1F12,roughness:.12,clearcoat:1}));coffee.rotation.x=-Math.PI/2;coffee.position.y=.2;coffee.scale.setScalar(.7);g.add(coffee);
+  const crema=new THREE.Mesh(new THREE.RingGeometry(.0,.86,64),new THREE.MeshStandardMaterial({color:0xB97A45,roughness:.5,transparent:true,opacity:0}));crema.rotation.x=-Math.PI/2;crema.position.y=.205;g.add(crema);
+  g.userData={coffee,crema};return g}
+
+// ================= HERO: scroll-driven pour =================
+const H=base(document.getElementById('hero3d'),{fov:32,cam:[0,2.4,9.5],look:[0,1.6,0]});
+const heroRoot=new THREE.Group();H.s.add(heroRoot);
+const C=cup();C.position.set(0,0,0);C.scale.setScalar(1.25);heroRoot.add(C);
+// carafe (glass) that tilts in
+const carafe=new THREE.Group();{const pts=[];[[0,0],[.55,0],[.62,.1],[.7,.6],[.55,1.05],[.32,1.25],[.3,1.7],[.36,1.78],[.34,1.8],[.27,1.72],[.27,1.26],[.5,1.04],[.64,.6],[.56,.12],[0,.06]].forEach(q=>pts.push(new THREE.Vector2(q[0],q[1])));
+  const glass=new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.05,transmission:.92,thickness:.3,ior:1.45,transparent:true,opacity:.55});carafe.add(new THREE.Mesh(new THREE.LatheGeometry(pts,60),glass));
+  const inside=new THREE.Mesh(new THREE.CylinderGeometry(.5,.54,.55,40),new THREE.MeshPhysicalMaterial({color:0x2A160C,roughness:.1,clearcoat:1,transparent:true,opacity:.92}));inside.position.y=.36;carafe.add(inside);carafe.userData.inside=inside;
+  const collar=new THREE.Mesh(new THREE.TorusGeometry(.33,.06,12,40),new THREE.MeshStandardMaterial({color:0x8A5A2B,metalness:.7,roughness:.3}));collar.rotation.x=Math.PI/2;collar.position.y=1.2;carafe.add(collar);}
+heroRoot.add(carafe);
+// the swirling stream: a tube grown along a spiral by scroll
+const spiral=[];for(let i=0;i<=60;i++){const u=i/60;const a=u*Math.PI*3.2;const rr=.55*Math.sin(u*Math.PI)*(1-u*.35);spiral.push(new THREE.Vector3(Math.cos(a)*rr-.1*u,3.3-u*2.85,Math.sin(a)*rr*.8))}
+const curve=new THREE.CatmullRomCurve3(spiral);
+const streamGeo=new THREE.TubeGeometry(curve,240,.085,14,false);
+const streamMat=new THREE.MeshPhysicalMaterial({color:0x4A230F,roughness:.08,clearcoat:1,clearcoatRoughness:.05,transmission:.15,thickness:.5});
+const stream=new THREE.Mesh(streamGeo,streamMat);heroRoot.add(stream);
+const totalIdx=streamGeo.index.count;streamGeo.setDrawRange(0,0);
+// droplets and flying beans
+const drops=[];const dropMat=streamMat;for(let i=0;i<26;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(.05+Math.random()*.05,12,10),dropMat);d.userData={u:Math.random(),off:new THREE.Vector3((Math.random()-.5)*.8,(Math.random()-.5)*.3,(Math.random()-.5)*.8)};heroRoot.add(d);drops.push(d)}
+const beans=[];for(let i=0;i<22;i++){const m=new THREE.Mesh(BEAN,new THREE.MeshPhysicalMaterial({color:roastColor(0),roughness:.35,clearcoat:.6}));const a=i/22*Math.PI*2;const r=2.1+Math.random()*1.6;m.userData={a,r,y:.2+Math.random()*4.2,sp:.15+Math.random()*.25,rot:new THREE.Vector3(Math.random(),Math.random(),Math.random())};m.scale.setScalar(.17+Math.random()*.06);heroRoot.add(m);beans.push(m)}
+
+const storyEl=document.querySelector('.story');let prog=0,target=0;
+function onScroll(){const r=storyEl.getBoundingClientRect();const total=r.height-innerHeight;target=Math.min(1,Math.max(0,-r.top/Math.max(1,total)))}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const t1=document.getElementById('t1'),t2=document.getElementById('t2'),cap=document.getElementById('cap'),hint=document.getElementById('hint');const chaps=[...document.querySelectorAll('.chap span')];
+const caps=['<b>Colombian roots, crafted in the UAE.</b> Our own farm in Colombia, our own roastery in Al Quoz, Dubai. Scroll to follow the bean.','<b>Roasted in Dubai.</b> Green beans from the farm turn the colour of caramel, then chocolate, in small batches.','<b>Poured for you.</b> Bright, fruit-driven Colombian coffee, from 07:00 to 21:00, or at your door in 45 minutes.'];
+let capI=0;
+const sm=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
+
+// ================= ROAST LAB =================
+const R=base(document.getElementById('roast3d'),{fov:30,cam:[0,3.2,7.5],look:[0,.6,0]});
+const pile=new THREE.Group();R.s.add(pile);const pileMat=new THREE.MeshPhysicalMaterial({color:roastColor(0),roughness:.45,clearcoat:.2});
+for(let i=0;i<130;i++){const m=new THREE.Mesh(BEAN,pileMat);const a=Math.random()*Math.PI*2,rr=Math.sqrt(Math.random())*1.9;const h=Math.max(0,1.25-rr*.6)*Math.random();m.position.set(Math.cos(a)*rr,.18+h,Math.sin(a)*rr);m.rotation.set(Math.random()*6,Math.random()*6,Math.random()*6);m.scale.setScalar(.24);pile.add(m)}
+const hero=new THREE.Mesh(BEAN,pileMat);hero.scale.setScalar(.75);hero.position.set(0,2.1,0);R.s.add(hero);
+const dish=new THREE.Mesh(new THREE.CylinderGeometry(2.4,2.2,.14,64),new THREE.MeshStandardMaterial({color:0x0B3A2E,roughness:.6}));dish.position.y=.04;pile.add(dish);
+const smokeMat=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0,depthWrite:false});const smoke=[];for(let i=0;i<14;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.25,12,10),smokeMat.clone());s.userData={o:Math.random()};R.s.add(s);smoke.push(s)}
+drag(document.getElementById('roast3d'),pile);
+const RL=[
+ {max:15,tag:'Green',name:'Fresh off the farm',desc:'Raw, grassy and dense. This is how every Don Tulio bean leaves Colombia.',temp:'—',body:'—',acid:'—',url:'https://fincadontulio.com/collections/all'},
+ {max:45,tag:'Filter roast',name:'Light & bright',desc:'Fruit and florals come through. Made for V60, Chemex and drip bags.',temp:'~200°C',body:'Light',acid:'High',url:'https://fincadontulio.com/collections/all'},
+ {max:78,tag:'Espresso roast',name:'Sweet & balanced',desc:'Caramel sweetness with the fruit still there. The Don Tulio Blend lives here.',temp:'~215°C',body:'Medium',acid:'Medium',url:'https://fincadontulio.com/products/don-tulio-blend-1kg'},
+ {max:101,tag:'Dark',name:'Bold & smoky',desc:'Chocolate, toast and a heavy body. Great with milk.',temp:'~230°C',body:'Full',acid:'Low',url:'https://fincadontulio.com/collections/all'}];
+const rIn=document.getElementById('roastIn');let roast=0;
+function setRoast(){const v=+rIn.value;const L=RL.find(x=>v<x.max);document.getElementById('rTag').textContent=L.tag;document.getElementById('rName').textContent=L.name;document.getElementById('rDesc').textContent=L.desc;document.getElementById('rTemp').textContent=L.temp;document.getElementById('rBody').textContent=L.body;document.getElementById('rAcid').textContent=L.acid;document.getElementById('rShop').href=L.url}
+rIn.addEventListener('input',setRoast);setRoast();
+
+// ================= CUP BUILDER =================
+const B=base(document.getElementById('cup3d'),{fov:30,cam:[0,2.6,7.8],look:[0,1.25,0]});
+const bRoot=new THREE.Group();B.s.add(bRoot);
+const glassPts=[];[[0,0],[.95,0],[1.02,.06],[1.1,2.4],[1.04,2.4],[.97,.12],[0,.12]].forEach(q=>glassPts.push(new THREE.Vector2(q[0],q[1])));
+bRoot.add(new THREE.Mesh(new THREE.LatheGeometry(glassPts,72),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:.04,transmission:.95,thickness:.2,ior:1.5,transparent:true,opacity:.35})));
+const coaster=new THREE.Mesh(new THREE.CylinderGeometry(1.7,1.7,.08,64),new THREE.MeshStandardMaterial({color:0x0F4A3B,roughness:.8}));coaster.position.y=-.04;bRoot.add(coaster);
+const LAY={esp:{c:0x3A1C0E,n:'Espresso'},water:{c:0x6B3A1E,n:'Hot water',o:.85},milk:{c:0xE9D6BC,n:'Steamed milk'},foam:{c:0xFFFBF4,n:'Microfoam'},chai:{c:0xC88A55,n:'Spiced chai'}};
+const RECIPE={'Espresso':[['esp',.45]],'Americano':[['esp',.45],['water',1.35]],'Cortado':[['esp',.55],['milk',.55]],'Flat White':[['esp',.5],['milk',1.0],['foam',.18]],'Cappuccino':[['esp',.5],['milk',.6],['foam',.7]],'Chai Latte':[['chai',.9],['milk',.6],['foam',.35]]};
+const layerMeshes={};Object.entries(LAY).forEach(([k,v])=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(.99,.95,1,64),new THREE.MeshPhysicalMaterial({color:v.c,roughness:k==='foam'?.7:.2,clearcoat:k==='foam'?0:.8,transparent:!!v.o,opacity:v.o||1}));m.visible=false;m.userData={h:0,th:0,y:0,ty:0};bRoot.add(m);layerMeshes[k]=m});
+// latte art heart on foam
+const heart=new THREE.Shape();heart.moveTo(0,-.25);heart.bezierCurveTo(-.5,.05,-.25,.38,0,.16);heart.bezierCurveTo(.25,.38,.5,.05,0,-.25);
+const art=new THREE.Mesh(new THREE.ShapeGeometry(heart,24),new THREE.MeshBasicMaterial({color:0xC69468}));art.rotation.x=-Math.PI/2;art.visible=false;bRoot.add(art);
+drag(document.getElementById('cup3d'),bRoot);
+let qty=1;
+function drink(){return document.querySelector('input[name=dr]:checked')}
+function buildCup(){const d=drink();const rec=RECIPE[d.value];let y=.12;Object.values(layerMeshes).forEach(m=>{m.userData.th=0});
+  rec.forEach(([k,h])=>{const m=layerMeshes[k];m.userData.th=h;m.userData.ty=y+h/2;y+=h});
+  art.userData.ty=y+.012;art.userData.on=(d.value==='Flat White'||d.value==='Cortado'||d.value==='Chai Latte');
+  document.getElementById('legend').innerHTML=rec.map(([k])=>`<span><i style="background:#${LAY[k].c.toString(16).padStart(6,'0')}"></i>${LAY[k].n}</span>`).join('');
+  const p=+d.dataset.p*qty;document.getElementById('tot').textContent='AED '+p;
+  const msg=`Hi Finca Don Tulio! I'd like to order ${qty} × ${d.value} (AED ${p}). Is it available for pickup/delivery now?`;
+  document.getElementById('wa').href=WA+encodeURIComponent(msg);document.getElementById('q').textContent=qty}
+document.querySelectorAll('input[name=dr]').forEach(i=>i.addEventListener('change',buildCup));
+document.getElementById('plus').onclick=()=>{qty=Math.min(20,qty+1);buildCup()};document.getElementById('minus').onclick=()=>{qty=Math.max(1,qty-1);buildCup()};
+buildCup();
+
+// visible-only rendering
+const vis=new Map();const io=new IntersectionObserver(es=>es.forEach(e=>vis.set(e.target,e.isIntersecting)),{rootMargin:'100px'});
+['hero3d','roast3d','cup3d'].forEach(id=>{const el=document.getElementById(id);vis.set(el,true);io.observe(el)});
+
+const clock=new THREE.Clock();
+function loop(){const t=performance.now()/1000;const dt=Math.min(.05,clock.getDelta());
+  // HERO
+  if(vis.get(H.r.domElement)){
+    prog+=(target-prog)*(reduce?1:.12);const P=prog;
+    const pour=sm(.28,.62,P);
+    // carafe tilts in from the top-left
+    {const k=sm(.08,.3,P);carafe.position.set(-3.2+k*1.5,6-k*2.09,0);carafe.rotation.z=-sm(.12,.32,P)*1.75;}
+    carafe.userData.inside.scale.y=1-pour*.85;carafe.userData.inside.position.y=.36-pour*.23;
+    streamGeo.setDrawRange(0,Math.floor(totalIdx*sm(.3,.55,P)*(1-sm(.82,.97,P)))/3*3|0);
+    stream.visible=P>.3&&P<.97;
+    // fill cup
+    const fill=sm(.4,.8,P);C.userData.coffee.position.y=.2+fill*1.02;C.userData.coffee.scale.setScalar(.66+fill*.36);C.userData.crema.position.y=C.userData.coffee.position.y+.004;C.userData.crema.scale.setScalar(.66+fill*.36);C.userData.crema.material.opacity=sm(.75,.95,P)*.9;
+    // droplets along stream
+    drops.forEach((d,i)=>{const u=(d.userData.u+t*.25)%1;const p=curve.getPoint(Math.min(.99,u));d.position.copy(p).add(d.userData.off.clone().multiplyScalar(.5+Math.sin(t*2+i)*.2));d.visible=stream.visible&&u<sm(.3,.55,P)});
+    // beans: green -> roasted with scroll, orbit, then settle
+    const roastT=sm(.12,.45,P);const col=roastColor(roastT*.78);
+    beans.forEach((b,i)=>{const u=b.userData;const a=u.a+t*u.sp*(reduce?0:1);const r=u.r*(1-sm(.75,1,P)*.25);b.position.set(Math.cos(a)*r,u.y+Math.sin(t+i)*.12,Math.sin(a)*r*.7-.4);b.rotation.x+=u.rot.x*.01;b.rotation.y+=u.rot.y*.012;b.material.color.copy(col)});
+    heroRoot.rotation.y=Math.sin(t*.25)*.12+P*.5;
+    {const far=H.c.aspect<.8?1.55:1;H.c.position.set(0,2.6+P*.6,(10.5-P*1.4)*far);H.c.lookAt(0,1.9-P*.15,0);}
+    // text choreography
+    t1.style.transform=`translateY(${-P*40}vh)`;t2.style.transform=`translateY(${P*24}vh)`;t1.style.opacity=1-sm(.55,.75,P);t2.style.opacity=1-sm(.65,.85,P)*.6;
+    hint.style.opacity=1-sm(0,.08,P);
+    const ci=P<.3?0:P<.62?1:2;if(ci!==capI){capI=ci;cap.innerHTML=caps[ci];chaps.forEach((c,j)=>c.classList.toggle('on',j===ci))}
+    H.r.render(H.s,H.c)}
+  // ROAST
+  if(vis.get(R.r.domElement)){roast+=((+rIn.value)/100-roast)*.12;pileMat.color.copy(roastColor(roast));
+    if(!reduce)pile.rotation.y+=.003;hero.rotation.set(.4+Math.sin(t*.7)*.2,t*.8,.2);hero.position.y=2.1+Math.sin(t*1.3)*.08;
+    smoke.forEach((s,i)=>{const o=(s.userData.o+t*.12)%1;s.position.set(Math.sin(i*2.3+t*.4)*.6,1+o*2.6,Math.cos(i*1.7)*.5);s.scale.setScalar(.5+o*1.6);s.material.opacity=Math.max(0,roast-.55)*.22*(1-o)});
+    R.r.render(R.s,R.c)}
+  // CUP
+  if(vis.get(B.r.domElement)){Object.values(layerMeshes).forEach(m=>{const u=m.userData;u.h+=(u.th-u.h)*.09;u.y+=(u.ty-u.y)*.09;m.visible=u.h>.01;m.scale.y=Math.max(.001,u.h);m.position.y=u.y});
+    art.userData.y=(art.userData.y||.2)+((art.userData.ty||.2)-(art.userData.y||.2))*.09;art.position.y=art.userData.y;art.visible=art.userData.on&&Math.abs(art.userData.y-art.userData.ty)<.08;
+    if(!reduce)bRoot.rotation.y+=.004;B.r.render(B.s,B.c)}
+  requestAnimationFrame(loop)}
+loop();
+</script>
+</body>
+</html>
