@@ -68,6 +68,31 @@ body{background:var(--bg)}
 .wa{position:fixed;right:16px;bottom:16px;z-index:60;width:60px;height:60px;border-radius:50%;background:#1FAF55;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);text-decoration:none;font-size:28px}
 .feat{display:grid;gap:12px;margin-top:26px}
 @media(min-width:900px){.feat{grid-template-columns:repeat(4,1fr)}}
+
+/* reels inside jharokha windows */
+.jh{position:relative;width:min(340px,100%);margin:0 auto}
+.jh .frame{position:relative;border-radius:170px 170px 26px 26px;padding:12px;background:linear-gradient(160deg,#F7D58B,#C8963E 40%,#F2C66D 60%,#A8762A);box-shadow:0 30px 60px -20px rgba(0,0,0,.55),inset 0 0 0 2px rgba(255,255,255,.35)}
+.jh .win{position:relative;border-radius:160px 160px 18px 18px;overflow:hidden;background:#0F1A55;height:560px}
+.jh iframe{position:absolute;left:50%;top:-56px;width:326px;height:720px;transform:translateX(-50%);border:0}
+.jh .cap{position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);white-space:nowrap;background:var(--acc);color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px;box-shadow:0 10px 20px -8px rgba(0,0,0,.4)}
+.jh .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#C9D3FF;font-weight:700;padding:30px}
+.toran{position:absolute;left:0;right:0;top:0;height:46px;z-index:2;pointer-events:none;background:radial-gradient(circle at 18px 14px,#F59E0B 0 11px,transparent 12px) 0 0/36px 30px repeat-x,radial-gradient(circle at 18px 14px,#F97316 0 11px,transparent 12px) 18px 6px/36px 30px repeat-x}
+.toran:after{content:"";position:absolute;left:0;right:0;top:26px;height:20px;background:radial-gradient(ellipse 7px 12px at 18px 8px,#2E7D32 0 6px,transparent 7px) 0 0/72px 20px repeat-x}
+.heroS{position:relative;background:radial-gradient(90% 80% at 70% 40%,#2D52C9 0%,#1B2F86 55%,#0F1A55 100%);color:#FFF3E2;overflow:hidden}
+.heroS:before{content:"";position:absolute;inset:0;background:var(--mandala) 78% 40%/760px no-repeat;opacity:.16}
+.heroS .wrap{position:relative;z-index:1;display:grid;gap:40px;align-items:center;padding:90px 22px 70px;min-height:calc(100vh - 100px)}
+@media(min-width:960px){.heroS .wrap{grid-template-columns:1.05fr .95fr}}
+.heroS h1{color:#FFF3E2}.heroS h1 em{color:var(--gold)}.heroS .lead{color:#D8DFFF}
+.heroS .kicker{color:var(--gold);border-color:rgba(255,255,255,.25);background:rgba(10,15,60,.35)}
+.heroS .btn-o{color:#fff;border-color:rgba(255,255,255,.35)}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.facts span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;color:#FFE9C6}
+.glam{display:grid;gap:46px;margin-top:40px}
+@media(min-width:860px){.glam{grid-template-columns:1fr 1fr}}
+/* hair colour preview (static SVG, no animation) */
+.hairbox{border-radius:30px;background:var(--stage);display:grid;place-items:center;aspect-ratio:1;max-height:600px;width:100%}
+.hairbox svg{width:88%;height:auto}
+.marq div{animation:none!important}
 </style>
 </head>
 <body>
@@ -78,23 +103,26 @@ body{background:var(--bg)}
   <div style="display:flex;gap:8px;align-items:center"><button class="lang" id="lang" type="button" aria-label="Switch language">हिंदी</button><a class="pill" href="#book" data-t="book">Book now</a></div>
 </div></header>
 
-<div class="heroX" id="top">
-  <canvas id="hero3d" aria-label="3D Rajasthani courtyard with a glowing jharokha arch, marigold torans, flickering diyas and a steaming coffee cup"></canvas>
-  <div class="wrap"><div class="copy">
-    <span class="kicker" data-t="kick">✨ Salon · Café · Beauty · Makeup · Nails · Jodhpur</span>
-    <h1 id="h1"><span data-t="h1">Where beauty meets <em>coffee.</em></span></h1>
-    <p class="lead" data-t="lead">Hair transformations, bridal glam and spa rituals, with a café in the same courtyard. Sip, relax and walk out shining.</p>
-    <div class="ctas"><a class="btn btn-a" href="#book" data-t="cta1">Book on WhatsApp ↓</a><a class="btn btn-o" href="#colour" data-t="cta2">Try a hair colour in 3D ↓</a></div>
-  </div></div>
+<div class="heroS" id="top"><div class="toran" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <span class="kicker" data-t="kick">✨ Salon · Café · Beauty · Makeup · Nails · Jodhpur</span>
+      <h1><span data-t="h1">Where beauty meets <em>coffee.</em></span></h1>
+      <p class="lead" data-t="lead">Hair transformations, bridal glam and spa rituals, with a café in the same courtyard. Sip, relax and walk out shining.</p>
+      <div class="ctas"><a class="btn btn-a" href="#book" data-t="cta1">Book on WhatsApp ↓</a><a class="btn btn-o" href="#glam" data-t="cta2">Watch our glam looks ↓</a></div>
+      <div class="facts"><span>💇‍♀️ Hair from ₹1,500</span><span>👰 Bridal &amp; party makeup</span><span>☕ Café inside</span></div>
+    </div>
+    <div class="jh"><div class="frame"><div class="win"><div class="ph">Loading the Aangan tour…</div><iframe src="https://www.instagram.com/reel/DdHLv3LtA3W/embed" title="The Aangan Lounge: self-care sanctuary tour (Instagram reel)" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><span class="cap" data-t="r1">▶ Step inside the lounge</span></div>
+  </div>
 </div>
 <div class="marq" aria-hidden="true"><div>Kerasmooth ✦ Keratin ✦ Hair Botox ✦ Nanoplastia ✦ Balayage ✦ Ombré ✦ Global colour ✦ Bridal makeup ✦ Spa ✦ Facial ✦ Pedicure ✦ Nails ✦ Café ✦ Kerasmooth ✦ Keratin ✦ Hair Botox ✦ Nanoplastia ✦ Balayage ✦ Ombré ✦ Global colour ✦ Bridal makeup ✦ Spa ✦ Facial ✦ Pedicure ✦ Nails ✦ Café ✦&nbsp;</div></div>
 
 <section id="colour"><div class="wrap">
-  <p class="eyebrow" data-t="c-eye">Hair colour studio · live in 3D</p>
+  <p class="eyebrow" data-t="c-eye">Hair colour studio</p>
   <h2 data-t="c-h">See your new shade <em>before you sit down.</em></h2>
-  <p class="sub" data-t="c-sub">Pick a technique and a shade and watch the hair change. Then book your colour consultation with the look already chosen.</p>
+  <p class="sub" data-t="c-sub">Pick a technique and a shade to preview the look. Then book your colour consultation with the look already chosen.</p>
   <div class="builder">
-    <canvas id="hair3d" aria-label="3D flowing hair showing your chosen colour technique"></canvas>
+    <div class="hairbox"><svg id="hairsvg" viewBox="0 0 400 520" role="img" aria-label="Hair colour preview"></svg></div>
     <div class="panel">
       <span class="lbl" data-t="tech">Technique</span>
       <div class="opts"><label class="opt"><input type="radio" name="tq" value="Balayage" checked><span>Balayage</span></label><label class="opt"><input type="radio" name="tq" value="Ombré"><span>Ombré</span></label><label class="opt"><input type="radio" name="tq" value="Sombré"><span>Sombré</span></label><label class="opt"><input type="radio" name="tq" value="Highlights"><span>Highlights</span></label><label class="opt"><input type="radio" name="tq" value="Global colour"><span>Global colour</span></label></div>
@@ -117,7 +145,7 @@ body{background:var(--bg)}
   <div class="list" id="list"></div>
 </div></section>
 
-<section class="bridal" id="bridal"><div class="wrap">
+<section class="bridal" id="bridal"><div class="wrap" id="glam">
   <p class="eyebrow" style="color:var(--gold)" data-t="b-eye">Bridal &amp; events · wedding season</p>
   <h2 style="color:#fff" data-t="b-h">She walks, <em>the world stops.</em></h2>
   <p class="sub" data-t="b-sub">Every bride deserves her fairytale moment. Luxury bridal makeup, family and guest glam, and event looks, all planned with you.</p>
@@ -126,7 +154,11 @@ body{background:var(--bg)}
     <div class="pkc"><h3>💃 The Family</h3><ul><li>Makeup &amp; hair for mothers, sisters, friends</li><li>Sangeet, mehendi &amp; reception looks</li></ul></div>
     <div class="pkc"><h3>🎉 Events</h3><ul><li>Party &amp; carnival glam</li><li>Group bookings at the lounge</li></ul></div>
   </div>
-  <div class="ctas"><a class="btn" style="background:var(--gold);color:#3a1a00" id="bridalWA" target="_blank" rel="noopener" data-t="b-cta">Enquire about my wedding date ↗</a></div>
+  <div class="glam">
+    <div class="jh"><div class="frame"><div class="win"><div class="ph">Loading…</div><iframe src="https://www.instagram.com/reel/DfufBcJtzZa/embed" title="Carnival glam makeup at The Aangan Lounge (Instagram reel)" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><span class="cap" data-t="r2">▶ Carnival glam</span></div>
+    <div class="jh"><div class="frame"><div class="win"><div class="ph">Loading…</div><iframe src="https://www.instagram.com/reel/Deoug74Nbk5/embed" title="Cocktail makeup look at The Aangan Lounge (Instagram reel)" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><span class="cap" data-t="r3">▶ Cocktail night look</span></div>
+  </div>
+  <div class="ctas" style="margin-top:46px"><a class="btn" style="background:var(--gold);color:#3a1a00" id="bridalWA" target="_blank" rel="noopener" data-t="b-cta">Enquire about my wedding date ↗</a></div>
 </div></section>
 
 <section class="cafe" id="cafe"><div class="wrap">
@@ -176,7 +208,7 @@ body{background:var(--bg)}
     <div class="card"><h3>📸 Instagram</h3><p data-t="v3">Transformations every week.</p><p style="margin-top:12px"><a href="https://www.instagram.com/theaanganlounge/" target="_blank" rel="noopener"><b>@theaanganlounge ↗</b></a></p></div>
   </div>
 </div></section>
-<footer><div class="wrap">The Aangan Lounge · Salon &amp; Café, Jodhpur. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. Everything here is drawn live, with no photos used. Your own photos and reels slot right in.</div></footer>
+<footer><div class="wrap">The Aangan Lounge · Salon &amp; Café, Jodhpur. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. Reels play directly from @theaanganlounge on Instagram.</div></footer>
 <a class="wa" href="https://wa.me/917727985757" target="_blank" rel="noopener" aria-label="WhatsApp The Aangan Lounge">💬</a>
 
 <script>
@@ -219,167 +251,39 @@ function renderCart(){const items=[...cart];if(window.__look)items.unshift(windo
 nm.addEventListener('input',renderCart);renderCart();
 document.getElementById('bridalWA').href=`https://wa.me/${WA}?text=${encodeURIComponent("Hi The Aangan Lounge! I'm getting married and would love to know about your bridal packages. My wedding date is: ")}`;
 /* ---- Hindi / English ---- */
-const HI={nav1:'हेयर कलर',nav2:'सर्विसेज़',nav3:'ब्राइडल',nav4:'कैफ़े',book:'बुक करें',kick:'✨ सैलून · कैफ़े · ब्यूटी · मेकअप · नेल्स · जोधपुर',h1:'जहाँ ख़ूबसूरती मिले <em>कॉफ़ी से।</em>',lead:'हेयर ट्रांसफ़ॉर्मेशन, ब्राइडल ग्लैम और स्पा, और उसी आँगन में कैफ़े। आराम से बैठिए, चुस्की लीजिए, और चमकते हुए जाइए।',cta1:'WhatsApp पर बुक करें ↓',cta2:'3D में हेयर कलर देखें ↓','c-eye':'हेयर कलर स्टूडियो · 3D में','c-h':'बैठने से पहले <em>अपना नया शेड देखें।</em>','c-sub':'तकनीक और शेड चुनें, बाल तुरंत बदलेंगे। फिर उसी लुक के साथ कंसल्टेशन बुक करें।',tech:'तकनीक',shade:'शेड',finish:'साथ में',yourlook:'आपका लुक',addlook:'बुकिंग में जोड़ें ↓','m-eye':'मेन्यू','m-h':'आपके लिए सब कुछ, <em>एक ही आँगन में।</em>','m-sub':'+ दबाकर सर्विस जोड़ें। हेयर ट्रीटमेंट सिर्फ़ ₹1,500 से शुरू।','b-eye':'ब्राइडल और इवेंट्स · शादी का सीज़न','b-h':'वो चले, <em>तो दुनिया थम जाए।</em>','b-cta':'अपनी शादी की तारीख़ बताएँ ↗','f-eye':'आँगन कैफ़े','f-h':'चमकिए, <em>चुस्की लीजिए।</em>','k-eye':'30 सेकंड में बुकिंग','k-h':'आपकी विज़िट, <em>WhatsApp पर तय।</em>','k-cta':'WhatsApp पर बुकिंग भेजें ↗','v-eye':'आँगन में आइए','v-h':'मिलते हैं <em>जोधपुर में।</em>',dir:'रास्ता देखें ↗','w-eye':'क्लाइंट्स को आँगन क्यों पसंद है'};
+const HI={r1:'▶ लाउंज के अंदर आइए',r2:'▶ कार्निवल ग्लैम',r3:'▶ कॉकटेल नाइट लुक',nav1:'हेयर कलर',nav2:'सर्विसेज़',nav3:'ब्राइडल',nav4:'कैफ़े',book:'बुक करें',kick:'✨ सैलून · कैफ़े · ब्यूटी · मेकअप · नेल्स · जोधपुर',h1:'जहाँ ख़ूबसूरती मिले <em>कॉफ़ी से।</em>',lead:'हेयर ट्रांसफ़ॉर्मेशन, ब्राइडल ग्लैम और स्पा, और उसी आँगन में कैफ़े। आराम से बैठिए, चुस्की लीजिए, और चमकते हुए जाइए।',cta1:'WhatsApp पर बुक करें ↓',cta2:'हमारे ग्लैम लुक्स देखें ↓','c-eye':'हेयर कलर स्टूडियो','c-h':'बैठने से पहले <em>अपना नया शेड देखें।</em>','c-sub':'तकनीक और शेड चुनें, बाल तुरंत बदलेंगे। फिर उसी लुक के साथ कंसल्टेशन बुक करें।',tech:'तकनीक',shade:'शेड',finish:'साथ में',yourlook:'आपका लुक',addlook:'बुकिंग में जोड़ें ↓','m-eye':'मेन्यू','m-h':'आपके लिए सब कुछ, <em>एक ही आँगन में।</em>','m-sub':'+ दबाकर सर्विस जोड़ें। हेयर ट्रीटमेंट सिर्फ़ ₹1,500 से शुरू।','b-eye':'ब्राइडल और इवेंट्स · शादी का सीज़न','b-h':'वो चले, <em>तो दुनिया थम जाए।</em>','b-cta':'अपनी शादी की तारीख़ बताएँ ↗','f-eye':'आँगन कैफ़े','f-h':'चमकिए, <em>चुस्की लीजिए।</em>','k-eye':'30 सेकंड में बुकिंग','k-h':'आपकी विज़िट, <em>WhatsApp पर तय।</em>','k-cta':'WhatsApp पर बुकिंग भेजें ↗','v-eye':'आँगन में आइए','v-h':'मिलते हैं <em>जोधपुर में।</em>',dir:'रास्ता देखें ↗','w-eye':'क्लाइंट्स को आँगन क्यों पसंद है'};
 const EN={};document.querySelectorAll('[data-t]').forEach(e=>EN[e.dataset.t]=e.innerHTML);let isHi=false;
 document.getElementById('lang').onclick=e=>{isHi=!isHi;document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(HI[k]){el.innerHTML=isHi?HI[k]:EN[k];el.classList.toggle('hi',isHi)}});e.target.textContent=isHi?'English':'हिंदी';document.documentElement.lang=isHi?'hi':'en'};
 </script>
-<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
-<script type="module">
-import {THREE,base,canvasTex,shadowDisc,drag,onVisible,rnd,reduce} from '../_lib/fg3d.js';
-import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
-/* =============== HERO: the aangan =============== */
-const hc=document.getElementById('hero3d');
-const A=base(hc,{fov:34,cam:[0,2.2,10.5],look:[0,2.4,0],env:.6,exposure:1.1});
-A.key.color.set(0xFFD9A0);A.key.intensity=1.6;A.rim.color.set(0xFF6FB0);A.rim.intensity=1.6;
-const root=new THREE.Group();A.s.add(root);
-// mandala disc glowing behind the arch
-const mt=new THREE.CanvasTexture(window.mandala);mt.colorSpace=THREE.SRGBColorSpace;
-const mand=new THREE.Mesh(new THREE.CircleGeometry(4.2,96),new THREE.MeshBasicMaterial({map:mt,transparent:true,opacity:.55,depthWrite:false}));mand.position.set(0,3.1,-2.2);root.add(mand);
-// jharokha arch: pointed (Mughal) arch cut out of a sandstone wall, with layered frames
-function archShape(w,h,ar){const s=new THREE.Shape();s.moveTo(-w/2,0);s.lineTo(-w/2,h);s.quadraticCurveTo(-w/2,h+ar*.9,0,h+ar);s.quadraticCurveTo(w/2,h+ar*.9,w/2,h);s.lineTo(w/2,0);s.lineTo(-w/2,0);return s}
-const sand=new THREE.MeshStandardMaterial({color:0xF2C98A,roughness:.75});
-const sandDark=new THREE.MeshStandardMaterial({color:0xD99A55,roughness:.7});
-const wall=new THREE.Shape();wall.moveTo(-7,-1);wall.lineTo(7,-1);wall.lineTo(7,8);wall.lineTo(-7,8);wall.lineTo(-7,-1);wall.holes.push(archShape(3.4,3.4,1.9));
-const wallM=new THREE.Mesh(new THREE.ExtrudeGeometry(wall,{depth:.6,bevelEnabled:false,curveSegments:40}),new THREE.MeshStandardMaterial({color:0x2A49B8,roughness:.85}));wallM.position.z=-.6;root.add(wallM);
-[0,1,2].forEach(k=>{const o=archShape(3.4+.5+k*.45,3.4+.12,1.9+.32+k*.22);const i=archShape(3.4+k*.45,3.4,1.9+k*.22);o.holes.push(i);
-  const m=new THREE.Mesh(new THREE.ExtrudeGeometry(o,{depth:.18,bevelEnabled:true,bevelSize:.03,bevelThickness:.03,bevelSegments:2,curveSegments:40}),k===1?sandDark:sand);m.position.z=.02+k*.12-.36;root.add(m)});
-// small chhatri bumps on top of the arch
-for(let i=-2;i<=2;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(.22,24,12,0,Math.PI*2,0,Math.PI/2),sand);d.position.set(i*.9,5.95-Math.abs(i)*.35,.05);root.add(d)}
-// floor: courtyard tiles
-const tile=canvasTex(512,512,(x,w,h)=>{for(let i=0;i<8;i++)for(let j=0;j<8;j++){x.fillStyle=(i+j)%2?'#F6E7CF':'#E9D2AE';x.fillRect(i*64,j*64,64,64);x.strokeStyle='rgba(35,65,168,.35)';x.lineWidth=2;x.beginPath();x.arc(i*64+32,j*64+32,18,0,7);x.stroke()}},[3,3]);
-const floor=new THREE.Mesh(new THREE.PlaneGeometry(14,8),new THREE.MeshStandardMaterial({map:tile,roughness:.8}));floor.rotation.x=-Math.PI/2;floor.position.set(0,-.01,1.8);root.add(floor);
-const brass=new THREE.MeshPhysicalMaterial({color:0xC8963E,metalness:1,roughness:.28});
-// ---- marigold torans: ruffled flower heads with leaves ----
-const mg=new THREE.IcosahedronGeometry(.15,4);{const p=mg.attributes.position,v=new THREE.Vector3();const col=[];
-  for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i);const n=v.clone().normalize();const ruff=Math.sin(n.x*38)*Math.sin(n.y*41)*Math.sin(n.z*37);const r=1+ruff*.13;v.copy(n).multiplyScalar(.15*r);v.y*=.82;p.setXYZ(i,v.x,v.y,v.z);
-    const k=.55+.45*Math.max(0,ruff);const c=new THREE.Color().setHSL(.075+.025*ruff,1,.42+.12*k,THREE.SRGBColorSpace);col.push(c.r,c.g,c.b)}
-  mg.setAttribute('color',new THREE.Float32BufferAttribute(col,3));mg.computeVertexNormals()}
-const mgMat=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.85});
-const mgMat2=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.85,color:0xFFC23A});
-const leafG=(()=>{const sh=new THREE.Shape();sh.moveTo(0,0);sh.quadraticCurveTo(.09,.12,0,.3);sh.quadraticCurveTo(-.09,.12,0,0);return new THREE.ShapeGeometry(sh,8)})();
-const leafM=new THREE.MeshStandardMaterial({color:0x2E7D32,side:THREE.DoubleSide,roughness:.6});
-function addFlower(pos,i,parent){const m=new THREE.Mesh(mg,i%4===0?mgMat2:mgMat);m.position.copy(pos);m.rotation.set(rnd(i)*3,rnd(i+1)*3,rnd(i+2)*3);m.scale.setScalar(.9+rnd(i+3)*.25);parent.add(m);return m}
-const swag=new THREE.Group();root.add(swag);
-for(let i=0;i<=44;i++){const u=i/44;const p=new THREE.Vector3(-3.3+u*6.6,6.15-Math.sin(u*Math.PI)*.85,.45);addFlower(p,i,swag);if(i%3===1){const l=new THREE.Mesh(leafG,leafM);l.position.copy(p).add(new THREE.Vector3(0,-.12,.06));l.rotation.set(0,0,Math.PI+(rnd(i)-.5)*.8);swag.add(l)}}
-const strands=[];for(let k=-3;k<=3;k++){const g=new THREE.Group();const n=5+(3-Math.abs(k));for(let i=0;i<n;i++)addFlower(new THREE.Vector3(0,-i*.25,0),k*10+i+50,g);
-  for(let j=0;j<3;j++){const l=new THREE.Mesh(leafG,leafM);l.position.set(0,-n*.25+.04,0);l.rotation.set(0,j*2.1,Math.PI+(j-1)*.35);l.scale.setScalar(1.3);g.add(l)}
-  const u=(k+3)/6;g.position.set(-3.3+u*6.6,6.15-Math.sin(u*Math.PI)*.85-.14,.47);root.add(g);strands.push(g)}
-// ---- clay diyas with living flames ----
-const flameMat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uT:{value:0}},
-  vertexShader:`varying vec2 vUv;uniform float uT;attribute float aP;void main(){vUv=uv;vec3 p=position;p.x+=sin(uT*9.+aP*6.)*.012*uv.y+sin(uT*17.+aP)*.006*uv.y;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
-  fragmentShader:`varying vec2 vUv;void main(){vec2 c=vUv-vec2(.5,.32);float r=length(vec2(c.x*2.2,c.y*(c.y>0.?1.1:2.4)));float core=smoothstep(.42,.0,r);vec3 col=mix(vec3(1.,.38,.05),vec3(1.,.93,.6),smoothstep(.15,.0,r+.05));gl_FragColor=vec4(col*core*1.6,core);}`});
-const glowTex=canvasTex(128,128,(x,w,h)=>{const g=x.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'rgba(255,190,90,.9)');g.addColorStop(.35,'rgba(255,140,40,.35)');g.addColorStop(1,'rgba(255,120,20,0)');x.fillStyle=g;x.fillRect(0,0,w,h)});
-const clay=new THREE.MeshStandardMaterial({color:0xB5532A,roughness:.8});
-const diyas=[];[[-2.3,1.9],[-1.45,2.35],[1.5,2.35],[2.35,1.9],[-3.3,1.3],[3.3,1.3]].forEach(([x,z],i)=>{const g=new THREE.Group();const pts=[];[[0,0],[.2,0],[.3,.06],[.34,.14],[.3,.15],[.2,.08],[0,.08]].forEach(q=>pts.push(new THREE.Vector2(...q)));
-  g.add(new THREE.Mesh(new THREE.LatheGeometry(pts,32),clay));const oil=new THREE.Mesh(new THREE.CircleGeometry(.24,24),new THREE.MeshStandardMaterial({color:0x6B4A10,roughness:.2,metalness:.2}));oil.rotation.x=-Math.PI/2;oil.position.y=.11;g.add(oil);
-  const lp=new THREE.Mesh(new THREE.ConeGeometry(.06,.14,12),clay);lp.rotation.z=Math.PI/2;lp.position.set(.32,.12,0);g.add(lp);
-  const fgeo=new THREE.PlaneGeometry(.16,.34,1,8);fgeo.setAttribute('aP',new THREE.Float32BufferAttribute(new Array(fgeo.attributes.position.count).fill(i),1));
-  const flame=new THREE.Mesh(fgeo,flameMat);flame.position.set(.3,.33,0);g.add(flame);
-  const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));glow.scale.setScalar(1.1);glow.position.set(.3,.3,0);g.add(glow);
-  if(i<3){const l=new THREE.PointLight(0xFF9A3C,3.2,4.5,1.8);l.position.set(.3,.4,0);g.add(l);g.userData.light=l}
-  g.position.set(x,0,z);g.userData.flame=flame;g.userData.glow=glow;root.add(g);diyas.push(g)});
-// rangoli under the cup
-const rangoli=canvasTex(512,512,(x,w,h)=>{x.translate(256,256);const cols=['#E0287A','#F59E0B','#2341A8','#FFFFFF','#16A34A'];for(let r=5;r>0;r--){x.fillStyle=cols[r%5];for(let i=0;i<r*6;i++){x.save();x.rotate(i/(r*6)*Math.PI*2);x.beginPath();x.ellipse(0,-r*44,14+r*2,30,0,0,7);x.fill();x.restore()}}x.fillStyle='#F59E0B';x.beginPath();x.arc(0,0,40,0,7);x.fill()});
-const rg=new THREE.Mesh(new THREE.CircleGeometry(1.9,64),new THREE.MeshStandardMaterial({map:rangoli,roughness:.95}));rg.rotation.x=-Math.PI/2;rg.position.set(0,.012,1.2);root.add(rg);
-// soft light rays through the arch
-const rayTex=canvasTex(64,256,(x,w,h)=>{const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'rgba(255,230,170,0)');g.addColorStop(.2,'rgba(255,225,160,.55)');g.addColorStop(1,'rgba(255,225,160,0)');x.fillStyle=g;x.fillRect(0,0,w,h);const g2=x.createLinearGradient(0,0,w,0);g2.addColorStop(0,'rgba(0,0,0,1)');g2.addColorStop(.5,'rgba(0,0,0,0)');g2.addColorStop(1,'rgba(0,0,0,1)');x.globalCompositeOperation='destination-out';x.fillStyle=g2;x.fillRect(0,0,w,h)});
-const rays=[];for(let i=0;i<4;i++){const m=new THREE.Mesh(new THREE.PlaneGeometry(.9+i*.25,7),new THREE.MeshBasicMaterial({map:rayTex,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:.2}));m.position.set(-.9+i*.6,3.2,-.2+i*.1);m.rotation.z=.32;root.add(m);rays.push(m)}
-// centrepiece: a glossy cup with steam + gold scissors circling a glowing hand mirror
-const cup=new THREE.Group();{const pts=[];[[0,0],[.5,0],[.56,.06],[.66,.55],[.7,.82],[.66,.82],[.6,.1],[0,.1]].forEach(q=>pts.push(new THREE.Vector2(...q)));const cm=new THREE.MeshPhysicalMaterial({color:0xFFF6EA,roughness:.15,clearcoat:1});
-  cup.add(new THREE.Mesh(new THREE.LatheGeometry(pts,64),cm));const band=new THREE.Mesh(new THREE.CylinderGeometry(.665,.62,.16,64,1,true),new THREE.MeshPhysicalMaterial({color:0x2341A8,roughness:.3,clearcoat:1}));band.position.y=.45;cup.add(band);
-  const gold=new THREE.Mesh(new THREE.TorusGeometry(.69,.018,8,64),brass);gold.rotation.x=Math.PI/2;gold.position.y=.82;cup.add(gold);
-  const h=new THREE.Mesh(new THREE.TorusGeometry(.2,.05,12,32,Math.PI*1.3),cm);h.position.set(.72,.45,0);h.rotation.z=-Math.PI*.65;cup.add(h);
-  const art=canvasTex(256,256,(x,w,h2)=>{const g=x.createRadialGradient(w/2,h2/2,0,w/2,h2/2,w/2);g.addColorStop(0,'#D9A066');g.addColorStop(.85,'#A8642E');g.addColorStop(1,'#6B3A16');x.fillStyle=g;x.fillRect(0,0,w,h2);x.fillStyle='#FFF1DE';x.font='bold 150px Georgia';x.textAlign='center';x.textBaseline='middle';x.fillText('A',w/2,h2/2+8)});
-  const top=new THREE.Mesh(new THREE.CircleGeometry(.64,48),new THREE.MeshPhysicalMaterial({map:art,roughness:.4,clearcoat:.5}));top.rotation.x=-Math.PI/2;top.position.y=.76;cup.add(top);
-  const sau=new THREE.Mesh(new THREE.CylinderGeometry(1.05,.9,.07,64),cm);sau.position.y=-.03;cup.add(sau)}
-const tray=new THREE.Mesh(new THREE.CylinderGeometry(1.3,1.2,.06,64),brass);tray.position.set(0,.03,1.2);root.add(tray);cup.position.set(0,.09,1.2);cup.scale.setScalar(1.05);root.add(cup);
-const steamMat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{uT:{value:0}},vertexShader:`varying vec2 vUv;uniform float uT;void main(){vUv=uv;vec3 p=position;p.x+=sin(uv.y*5.+uT*1.3)*.16*uv.y;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
-  fragmentShader:`varying vec2 vUv;uniform float uT;float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}void main(){vec2 q=vUv*vec2(2.5,3.)+vec2(0.,-uT*.35);float v=n(q*2.)*.6+n(q*4.3)*.4;float e=smoothstep(0.,.35,vUv.x)*smoothstep(1.,.65,vUv.x);float f=smoothstep(0.,.15,vUv.y)*smoothstep(1.,.45,vUv.y);gl_FragColor=vec4(1.,.97,.92,smoothstep(.42,.85,v)*e*f*.55);}`});
-const steam=[0,1].map(i=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(.7,2.2,1,40),steamMat);m.position.set((i-.5)*.3,2.1,1.2);root.add(m);return m});
-const pg=new THREE.SphereGeometry(1,10,8,0,Math.PI*.6,0,Math.PI*.35);const pMats=[0xE0287A,0xF59E0B,0xFF6FA8,0xF97316].map(c=>new THREE.MeshStandardMaterial({color:c,side:THREE.DoubleSide,roughness:.55}));
-const petals=[];for(let i=0;i<34;i++){const p=new THREE.Mesh(pg,pMats[i%4]);p.scale.setScalar(.09+rnd(i)*.05);p.userData={x:(rnd(i+1)-.5)*10,z:(rnd(i+2)-.5)*4+1.2,o:rnd(i+3),s:.025+rnd(i+4)*.025,w:rnd(i+5)*6};root.add(p);petals.push(p)}
-const motes=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute([...Array(160)].flatMap((_,i)=>[(rnd(i)-.5)*5,rnd(i+9)*6,(rnd(i+5)-.5)*2]),3)),new THREE.PointsMaterial({color:0xFFE2A8,size:.035,transparent:true,opacity:.7,depthWrite:false}));root.add(motes);
-let mx=0,my=0,tmx=0,tmy=0;addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5},{passive:true});
-let scrollP=0;addEventListener('scroll',()=>{scrollP=Math.min(1,scrollY/innerHeight)},{passive:true});
-function fitHero(){const narrow=A.c.aspect<.8;A.c.fov=narrow?50:34;A.c.updateProjectionMatrix();root.position.set(narrow?0:2.6,narrow?2.6:0,0);root.scale.setScalar(narrow?.8:1)}
-new ResizeObserver(fitHero).observe(hc);fitHero();
-const vA=onVisible(hc);
-/* =============== HAIR COLOUR STUDIO =============== */
-const H=base(document.getElementById('hair3d'),{fov:30,cam:[0,2.0,8.2],look:[0,1.2,0],env:.9});
-const hroot=new THREE.Group();H.s.add(hroot);
-const skin=new THREE.MeshStandardMaterial({color:0xC88E68,roughness:.6});
-const headM=new THREE.Mesh(new THREE.SphereGeometry(.82,64,48),skin);headM.scale.set(.9,1.05,.95);headM.position.y=2.35;hroot.add(headM);
-const neck=new THREE.Mesh(new THREE.CylinderGeometry(.32,.38,.8,32),skin);neck.position.y=1.35;neck.scale.y=1.3;hroot.add(neck);
-const bp=[];[[0,0],[1.15,0],[1.28,.3],[1.2,.62],[.85,.86],[.42,.98],[.32,1.05],[0,1.05]].forEach(q=>bp.push(new THREE.Vector2(...q)));const shoulders=new THREE.Mesh(new THREE.LatheGeometry(bp,64),new THREE.MeshPhysicalMaterial({color:0xE0287A,roughness:.55,sheen:.6,sheenColor:new THREE.Color(0xffc0dc)}));shoulders.scale.set(1,1,.55);shoulders.position.y=.0;hroot.add(shoulders);
-// strands: each starts at the parting, hugs the skull, then falls in soft waves down the back
-const strandGeos=[];const NS=900;const HC=new THREE.Vector3(0,2.35,0);
-for(let i=0;i<NS;i++){const u=rnd(i*3+1),v=rnd(i*3+2);
-  const az=Math.PI+(u*2-1)*Math.PI*.78;            // azimuth around the head (back + sides)
-  const side=Math.sin(az)>=0?1:-1;
-  const pts=[];
-  // part 1: over the skull from the parting (top) to ear level
-  for(let k=0;k<=6;k++){const t=k/6;const phi=.08+t*(1.25+v*.25);const r=.9+t*.03;
-    pts.push(new THREE.Vector3(Math.sin(az)*Math.sin(phi)*r*.92+side*.02*(1-t),HC.y+Math.cos(phi)*r*1.05,Math.cos(az)*Math.sin(phi)*r*.97))}
-  // part 2: the fall, flaring slightly then settling over the shoulders, with waves
-  const last=pts[pts.length-1].clone();const out=new THREE.Vector3(last.x,0,last.z).normalize();const len=1.9+rnd(i+7)*.7;const ph=rnd(i+9)*6.28;
-  for(let k=1;k<=12;k++){const t=k/12;const p=last.clone();p.y-=t*len;p.addScaledVector(out,Math.sin(t*Math.PI*.7)*.28+t*.1);
-    const w=Math.sin(t*9+ph)*.07*t;p.x+=Math.cos(az)*w;p.z-=Math.sin(az)*w;pts.push(p)}
-  const curve=new THREE.CatmullRomCurve3(pts);const g=new THREE.TubeGeometry(curve,40,.014+rnd(i+11)*.012,3,false);
-  const n=g.attributes.position.count;const aS=new Float32Array(n).fill(rnd(i+13));const aU=new Float32Array(n);const uv=g.attributes.uv;for(let k=0;k<n;k++)aU[k]=uv.getX(k);
-  g.setAttribute('aS',new THREE.BufferAttribute(aS,1));g.setAttribute('aU',new THREE.BufferAttribute(aU,1));g.deleteAttribute('uv');strandGeos.push(g)}
-const hairGeo=mergeGeometries(strandGeos);
-// scalp cap so the parting looks full
-const cap=new THREE.Mesh(new THREE.SphereGeometry(.86,48,32,0,Math.PI*2,0,Math.PI*.62),null);cap.scale.set(.92,1.07,.97);cap.position.y=2.37;
-const HU={uT:{value:0},uRoot:{value:new THREE.Color(0x1B120C)},uCol:{value:new THREE.Color(0xB5773A)},uMode:{value:0},uAmt:{value:0},uShine:{value:.5}};
-const hairMat=new THREE.ShaderMaterial({uniforms:HU,side:THREE.DoubleSide,
-  vertexShader:`attribute float aS;attribute float aU;uniform float uT;varying float vS;varying float vU;varying vec3 vN;varying vec3 vW;
-  void main(){vS=aS;vU=aU;vec3 p=position;float fall=smoothstep(.32,1.,aU);float sway=(sin(uT*1.2+aS*6.28)*.05+sin(uT*.7+p.y)*.03)*fall*fall;p.x+=sway;p.z+=sway*.5;vN=normalize(normalMatrix*normal);vec4 w=modelMatrix*vec4(p,1.);vW=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`,
-  fragmentShader:`uniform vec3 uRoot;uniform vec3 uCol;uniform float uMode;uniform float uAmt;uniform float uShine;varying float vS;varying float vU;varying vec3 vN;varying vec3 vW;
-  void main(){float m=0.;float L2=clamp((vU-.3)/.7,0.,1.);
-   if(uMode<.5){ // balayage: painted sweeps, more colour at the ends, varied per strand
-     m=smoothstep(.1+vS*.4,.85,L2)*(.5+.5*step(.3,vS));}
-   else if(uMode<1.5){m=smoothstep(.38,.55,L2);}          // ombre: clear transition mid-length
-   else if(uMode<2.5){m=smoothstep(.15,1.,L2)*.6;}        // sombre: soft & subtle
-   else if(uMode<3.5){m=step(.7,vS)*smoothstep(.02,.18,vU);} // highlights: whole strands
-   else {m=smoothstep(.0,.06,vU);}                         // global: everything
-   m*=uAmt;vec3 c=mix(uRoot,uCol,m);
-   vec3 L=normalize(vec3(.4,.8,.6));float d=.45+.55*max(dot(normalize(vN),L),0.);
-   vec3 V=normalize(cameraPosition-vW);vec3 Hh=normalize(L+V);float sp=pow(max(dot(normalize(vN),Hh),0.),28.)*uShine;
-   float band=.86+.2*sin(vU*60.+vS*30.);c*=1.12;
-   gl_FragColor=vec4(c*d*band+sp*vec3(1.,.95,.85)*.6,1.);
-   #include <colorspace_fragment>
-  }`});
-const hair=new THREE.Mesh(hairGeo,hairMat);hroot.add(hair);cap.material=new THREE.ShaderMaterial({uniforms:HU,vertexShader:`varying vec3 vN;void main(){vN=normalize(normalMatrix*normal);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,fragmentShader:`uniform vec3 uRoot;uniform vec3 uCol;uniform float uMode;uniform float uAmt;varying vec3 vN;void main(){float m=uMode>3.5?uAmt:0.;vec3 c=mix(uRoot,uCol,m);float d=.45+.55*max(dot(vN,normalize(vec3(.4,.8,.6))),0.);gl_FragColor=vec4(c*d,1.);
-  #include <colorspace_fragment>
-  }`});hroot.add(cap);
-// earrings (jhumka) for a touch of Rajasthan
-[-1,1].forEach(s=>{const j=new THREE.Group();const top=new THREE.Mesh(new THREE.SphereGeometry(.05,12,10),brass);j.add(top);const bell=new THREE.Mesh(new THREE.SphereGeometry(.12,20,12,0,Math.PI*2,0,Math.PI/2),brass);bell.rotation.x=Math.PI;bell.position.y=-.16;j.add(bell);for(let k=0;k<8;k++){const b=new THREE.Mesh(new THREE.SphereGeometry(.018,8,6),new THREE.MeshStandardMaterial({color:0xE0287A}));b.position.set(Math.cos(k/8*6.28)*.12,-.18,Math.sin(k/8*6.28)*.12);j.add(b)}j.position.set(s*.8,2.12,.05);hroot.add(j)});
-const hsh=shadowDisc(3.6,.3);hsh.position.y=.5;H.s.add(hsh);
-hroot.rotation.y=Math.PI*.72;
-const spinH=drag(H.r.domElement,hroot,{auto:.0035});
-const SHADES={'Honey blonde':0xD8A25A,'Caramel':0xB5773A,'Copper':0xB4532A,'Burgundy':0x6E1630,'Rose gold':0xD58A7E,'Ash brown':0x7D6A5C,'Plum':0x5A2350};
-document.getElementById('shades').innerHTML=Object.entries(SHADES).map(([n,c],i)=>`<label class="opt"><input type="radio" name="sh" value="${n}" ${i===1?'checked':''}><span><i class="sw" style="background:#${c.toString(16).padStart(6,'0')}"></i>${n}</span></label>`).join('');
-const MODES={'Balayage':0,'Ombré':1,'Sombré':2,'Highlights':3,'Global colour':4};let target=new THREE.Color(0xB5773A);
-function updHair(){const tq=document.querySelector('input[name=tq]:checked').value,sh=document.querySelector('input[name=sh]:checked').value;HU.uMode.value=MODES[tq];target=new THREE.Color(SHADES[sh]);HU.uAmt.value=0;
-  const spa=document.getElementById('spa').checked,ker=document.getElementById('kera').checked;HU.uShine.value=.35+(spa?.35:0)+(ker?.5:0);
-  const t=`${sh} ${tq.toLowerCase()}${spa?' + luxury hair spa':''}${ker?' + keratin':''}`;document.getElementById('look').textContent=t;window.__lookTxt=t}
-document.querySelectorAll('#colour input').forEach(i=>i.addEventListener('change',updHair));updHair();
-document.getElementById('addLook').onclick=()=>{window.__look='Hair: '+window.__lookTxt;document.getElementById('nm').dispatchEvent(new Event('input'));document.getElementById('book').scrollIntoView({behavior:'smooth'})};
-const vH=onVisible(H.r.domElement);
-function loop(){const t=performance.now()/1000;
-  if(vA.v){mx+=(tmx-mx)*.03;my+=(tmy-my)*.03;const drift=reduce?0:Math.sin(t*.12)*.35;
-    A.c.position.set(mx*1.1+drift,2.3-my*.5+scrollP*.5,10.8-scrollP*1.4-(reduce?0:Math.sin(t*.09)*.3));A.c.lookAt(root.position.x*.35,2.5+root.position.y*.6,0);
-    mand.rotation.z=t*.03;mand.material.opacity=.38+Math.sin(t*.6)*.06;
-    strands.forEach((s2,i)=>{s2.rotation.z=Math.sin(t*.9+i*.8)*.035;s2.rotation.x=Math.sin(t*.7+i)*.03});swag.position.y=Math.sin(t*.8)*.015;
-    flameMat.uniforms.uT.value=t;diyas.forEach((d,i)=>{const f=1+Math.sin(t*11+i*2)*.06+Math.sin(t*23+i)*.04;d.userData.flame.scale.set(1,f,1);d.userData.flame.quaternion.copy(A.c.quaternion);d.userData.glow.material.opacity=.75+Math.sin(t*7+i)*.12;if(d.userData.light)d.userData.light.intensity=3+Math.sin(t*9+i*3)*.4+Math.sin(t*21+i)*.25});
-    rays.forEach((r,i)=>{r.material.opacity=.13+Math.sin(t*.4+i*1.3)*.06});
-    cup.rotation.y=t*.12;steam.forEach((m,i)=>{m.material.uniforms.uT.value=t+i*1.7;m.quaternion.copy(A.c.quaternion)});
-    petals.forEach((p,i)=>{const u=p.userData;const k=(u.o+t*u.s)%1;p.position.set(u.x+Math.sin(t*.6+u.w)*.6,7.5-k*8,u.z+Math.cos(t*.5+u.w)*.3);p.rotation.set(Math.sin(t*1.3+u.w)*.9,t*.4+u.w,Math.cos(t*1.1+u.w)*.7)});
-    motes.rotation.y=t*.02;motes.position.y=Math.sin(t*.3)*.1;
-    A.r.render(A.s,A.c)}
-  if(vH.v){spinH();HU.uT.value=t;HU.uAmt.value+=(1-HU.uAmt.value)*.05;HU.uCol.value.lerp(target,.08);H.r.render(H.s,H.c)}
-  requestAnimationFrame(loop)}
-loop();
+<script>
+/* static hair colour preview: a fan of salon swatches */
+(function(){const svg=document.getElementById('hairsvg');const NS='http://www.w3.org/2000/svg';
+ const SH={'Honey blonde':'#D8A25A','Caramel':'#B5773A','Copper':'#B4532A','Burgundy':'#7A1A36','Rose gold':'#D58A7E','Ash brown':'#8A7666','Plum':'#5A2350'};
+ document.getElementById('shades').innerHTML=Object.entries(SH).map(([n,c],i)=>`<label class="opt"><input type="radio" name="sh" value="${n}" ${i===1?'checked':''}><span><i class="sw" style="background:${c}"></i>${n}</span></label>`).join('');
+ svg.setAttribute('viewBox','0 0 520 520');
+ const ROOT='#1E140E';
+ // one swatch: a soft tapered lock of hair hanging from a gold clip
+ const lock='M-34 0 C-36 120 -40 260 -30 360 C-24 400 -8 420 0 424 C8 420 24 400 30 360 C40 260 36 120 34 0 Z';
+ const ang=[-30,-15,0,15,30];
+ function draw(){const tq=document.querySelector('input[name=tq]:checked').value,shn=document.querySelector('input[name=sh]:checked').value,c=SH[shn];
+  const stops={'Balayage':[[0,ROOT],[.3,ROOT],[.62,c],[1,c]],'Ombré':[[0,ROOT],[.46,ROOT],[.56,c],[1,c]],'Sombré':[[0,ROOT],[.25,ROOT],[1,c]],'Highlights':[[0,ROOT],[1,'#2B1D15']],'Global colour':[[0,c],[1,c]]}[tq];
+  let defs='<defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">'+stops.map(([o,col])=>`<stop offset="${o}" stop-color="${col}"/>`).join('')+'</linearGradient>'+
+   '<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".25"/><stop offset=".45" stop-color="#fff" stop-opacity=".18"/><stop offset=".55" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>'+
+   '<linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A8762A"/><stop offset=".5" stop-color="#F7D58B"/><stop offset="1" stop-color="#A8762A"/></linearGradient>';
+  let body='';
+  ang.forEach((a,i)=>{const id='cl'+i;defs+=`<clipPath id="${id}"><path d="${lock}"/></clipPath>`;
+    let strands='';for(let k=0;k<26;k++){const x=-32+k*2.5;const w=Math.sin(k*1.7+i)*3;strands+=`<path d="M${x} 0 C${x+w} 140, ${x-w} 280, ${x*0.55} 424" stroke="${k%3?'rgba(0,0,0,.22)':'rgba(255,255,255,.13)'}" stroke-width="${k%3?1.1:.8}" fill="none"/>`}
+    let streaks='';if(tq==='Highlights'){[-22,-8,6,20].forEach((x,j)=>{if((i+j)%2===0)streaks+=`<path d="M${x} 20 C${x+3} 160, ${x-3} 300, ${x*0.55} 424" stroke="${c}" stroke-width="7" stroke-linecap="round" fill="none" opacity=".9"/>`})}
+    if(tq==='Balayage'){streaks+=`<path d="M${-14+(i%2)*12} 150 C${-6+(i%2)*10} 260, ${-10} 350, 0 424" stroke="${c}" stroke-width="14" stroke-linecap="round" fill="none" opacity=".45"/>`}
+    body+=`<g transform="translate(260,70) rotate(${a}) translate(0,20)"><path d="${lock}" fill="url(#gl)"/><g clip-path="url(#${id})">${streaks}${strands}<rect x="-40" y="0" width="80" height="430" fill="url(#sheen)"/></g>
+      <rect x="-40" y="-14" width="80" height="26" rx="8" fill="url(#gold)"/><circle cx="0" cy="-1" r="5" fill="#7A5418"/></g>`});
+  svg.innerHTML=defs+'</defs><circle cx="260" cy="70" r="16" fill="url(#gold)"/>'+body+`<text x="260" y="512" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="900" font-size="24" fill="#1B1446">${shn} · ${tq}</text>`;
+  const spa=document.getElementById('spa').checked,ker=document.getElementById('kera').checked;
+  svg.style.filter=`saturate(${1+(spa?.08:0)}) brightness(${1+(ker?.08:0)})`;
+  const t=`${shn} ${tq.toLowerCase()}${spa?' + luxury hair spa':''}${ker?' + keratin':''}`;document.getElementById('look').textContent=t;window.__lookTxt=t}
+ document.querySelectorAll('#colour input').forEach(i=>i.addEventListener('change',draw));document.getElementById('shades').addEventListener('change',draw);draw();
+ document.getElementById('addLook').onclick=()=>{window.__look='Hair: '+window.__lookTxt;document.getElementById('nm').dispatchEvent(new Event('input'));document.getElementById('book').scrollIntoView({behavior:'smooth'})};
+})();
 </script>
 </body>
 </html>
