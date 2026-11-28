@@ -93,6 +93,26 @@ body{background:var(--bg)}
 .hairbox{border-radius:30px;background:var(--stage);display:grid;place-items:center;aspect-ratio:1;max-height:600px;width:100%}
 .hairbox svg{width:88%;height:auto}
 .marq div{animation:none!important}
+
+.archArt{position:relative;width:min(360px,100%);margin:0 auto;aspect-ratio:.68}
+.archArt .frame{position:absolute;inset:0;border-radius:999px 999px 26px 26px;padding:12px;background:linear-gradient(160deg,#F7D58B,#C8963E 40%,#F2C66D 60%,#A8762A);box-shadow:0 30px 60px -20px rgba(0,0,0,.55)}
+.archArt .in{position:relative;height:100%;border-radius:999px 999px 18px 18px;overflow:hidden;background:radial-gradient(70% 55% at 50% 38%,#3B62E0,#1A2C85 70%,#101B5A);display:grid;place-items:center}
+.archArt .in:before{content:"";position:absolute;inset:-20%;background:var(--mandala) center/120% no-repeat;opacity:.28}
+.archArt .in:after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(0deg,rgba(224,40,122,.35),rgba(224,40,122,0))}
+.archArt .steps{position:absolute;left:12%;right:12%;bottom:8%;height:7%;background:#D99A55;border-radius:6px;z-index:1;box-shadow:0 -10px 0 -2px #E8B776}
+.seal{position:relative;z-index:2;width:156px;height:156px;border:0;background:none;cursor:pointer;padding:0;color:inherit}
+.seal svg{width:100%;height:100%;display:block;filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
+.seal:hover svg{transform:scale(1.04)}.seal svg{transition:transform .25s}
+.seal:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:50%}
+.archArt .tag{position:absolute;z-index:3;left:50%;bottom:-16px;transform:translateX(-50%);white-space:nowrap;background:var(--acc);color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px}
+.watchRow{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:34px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:28px;padding:18px 22px}
+.watchRow .seal{width:120px;height:120px}
+.watchRow p{max-width:46ch;color:#FFE3EE}.watchRow b{font-family:var(--display);font-size:26px;color:#fff;display:block}
+dialog.reel{border:0;padding:0;background:transparent;max-width:none}
+dialog.reel::backdrop{background:rgba(10,12,40,.78);backdrop-filter:blur(4px)}
+dialog.reel .box{position:relative;width:min(380px,92vw);height:min(720px,86vh);border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+dialog.reel iframe{width:100%;height:100%;border:0}
+dialog.reel .x{position:absolute;top:-14px;right:-14px;z-index:2;width:42px;height:42px;border-radius:50%;border:0;background:var(--gold);color:#3a1a00;font-size:22px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.35)}
 </style>
 </head>
 <body>
@@ -109,10 +129,13 @@ body{background:var(--bg)}
       <span class="kicker" data-t="kick">✨ Salon · Café · Beauty · Makeup · Nails · Jodhpur</span>
       <h1><span data-t="h1">Where beauty meets <em>coffee.</em></span></h1>
       <p class="lead" data-t="lead">Hair transformations, bridal glam and spa rituals, with a café in the same courtyard. Sip, relax and walk out shining.</p>
-      <div class="ctas"><a class="btn btn-a" href="#book" data-t="cta1">Book on WhatsApp ↓</a><a class="btn btn-o" href="#glam" data-t="cta2">Watch our glam looks ↓</a></div>
+      <div class="ctas"><a class="btn btn-a" href="#book" data-t="cta1">Book on WhatsApp ↓</a><a class="btn btn-o" href="#menu" data-t="cta2">Explore services ↓</a></div>
       <div class="facts"><span>💇‍♀️ Hair from ₹1,500</span><span>👰 Bridal &amp; party makeup</span><span>☕ Café inside</span></div>
     </div>
-    <div class="jh"><div class="frame"><div class="win"><div class="ph">Loading the Aangan tour…</div><iframe src="https://www.instagram.com/reel/DdHLv3LtA3W/embed" title="The Aangan Lounge: self-care sanctuary tour (Instagram reel)" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><span class="cap" data-t="r1">▶ Step inside the lounge</span></div>
+    <div class="archArt"><div class="frame"><div class="in"><button class="seal" type="button" data-reel="DdHLv3LtA3W" aria-label="Watch The Aangan Lounge tour reel"><svg viewBox="0 0 200 200"><defs><path id="cDdHLv3LtA3W" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/><linearGradient id="ggDdHLv3LtA3W" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D58B"/><stop offset=".5" stop-color="#C8963E"/><stop offset="1" stop-color="#F2C66D"/></linearGradient></defs>
+<circle cx="100" cy="100" r="96" fill="url(#ggDdHLv3LtA3W)"/><circle cx="100" cy="100" r="88" fill="#E0287A"/><circle cx="100" cy="100" r="52" fill="#FFF7EC"/>
+<text font-family="Hanken Grotesk,Arial,sans-serif" font-weight="800" font-size="14" fill="#FFF3E2"><textPath textLength="460" lengthAdjust="spacing" href="#cDdHLv3LtA3W">WATCH THE AANGAN TOUR ✦ STEP INSIDE ✦ </textPath></text>
+<path d="M90 78 L124 100 L90 122 Z" fill="#E0287A"/></svg></button></div></div><span class="tag" data-t="r1">✨ Step inside the lounge</span></div></div>
   </div>
 </div>
 <div class="marq" aria-hidden="true"><div>Kerasmooth ✦ Keratin ✦ Hair Botox ✦ Nanoplastia ✦ Balayage ✦ Ombré ✦ Global colour ✦ Bridal makeup ✦ Spa ✦ Facial ✦ Pedicure ✦ Nails ✦ Café ✦ Kerasmooth ✦ Keratin ✦ Hair Botox ✦ Nanoplastia ✦ Balayage ✦ Ombré ✦ Global colour ✦ Bridal makeup ✦ Spa ✦ Facial ✦ Pedicure ✦ Nails ✦ Café ✦&nbsp;</div></div>
@@ -154,11 +177,11 @@ body{background:var(--bg)}
     <div class="pkc"><h3>💃 The Family</h3><ul><li>Makeup &amp; hair for mothers, sisters, friends</li><li>Sangeet, mehendi &amp; reception looks</li></ul></div>
     <div class="pkc"><h3>🎉 Events</h3><ul><li>Party &amp; carnival glam</li><li>Group bookings at the lounge</li></ul></div>
   </div>
-  <div class="glam">
-    <div class="jh"><div class="frame"><div class="win"><div class="ph">Loading…</div><iframe src="https://www.instagram.com/reel/DfufBcJtzZa/embed" title="Carnival glam makeup at The Aangan Lounge (Instagram reel)" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><span class="cap" data-t="r2">▶ Carnival glam</span></div>
-    <div class="jh"><div class="frame"><div class="win"><div class="ph">Loading…</div><iframe src="https://www.instagram.com/reel/Deoug74Nbk5/embed" title="Cocktail makeup look at The Aangan Lounge (Instagram reel)" loading="lazy" allowfullscreen scrolling="no"></iframe></div></div><span class="cap" data-t="r3">▶ Cocktail night look</span></div>
-  </div>
-  <div class="ctas" style="margin-top:46px"><a class="btn" style="background:var(--gold);color:#3a1a00" id="bridalWA" target="_blank" rel="noopener" data-t="b-cta">Enquire about my wedding date ↗</a></div>
+  <div class="watchRow"><button class="seal" type="button" data-reel="Deoug74Nbk5" aria-label="Watch the cocktail makeup look reel"><svg viewBox="0 0 200 200"><defs><path id="cDeoug74Nbk5" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/><linearGradient id="ggDeoug74Nbk5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D58B"/><stop offset=".5" stop-color="#C8963E"/><stop offset="1" stop-color="#F2C66D"/></linearGradient></defs>
+<circle cx="100" cy="100" r="96" fill="url(#ggDeoug74Nbk5)"/><circle cx="100" cy="100" r="88" fill="#E0287A"/><circle cx="100" cy="100" r="52" fill="#FFF7EC"/>
+<text font-family="Hanken Grotesk,Arial,sans-serif" font-weight="800" font-size="14" fill="#FFF3E2"><textPath textLength="460" lengthAdjust="spacing" href="#cDeoug74Nbk5">COCKTAIL NIGHT LOOK ✦ TAP TO WATCH ✦ </textPath></text>
+<path d="M90 78 L124 100 L90 122 Z" fill="#E0287A"/></svg></button><p><b data-t="r3">Your cocktail look deserves more than a second glance.</b>Flawless glam and perfectly blended details. Tap to watch a look created at the lounge.</p></div>
+  <div class="ctas" style="margin-top:30px"><a class="btn" style="background:var(--gold);color:#3a1a00" id="bridalWA" target="_blank" rel="noopener" data-t="b-cta">Enquire about my wedding date ↗</a></div>
 </div></section>
 
 <section class="cafe" id="cafe"><div class="wrap">
@@ -208,7 +231,8 @@ body{background:var(--bg)}
     <div class="card"><h3>📸 Instagram</h3><p data-t="v3">Transformations every week.</p><p style="margin-top:12px"><a href="https://www.instagram.com/theaanganlounge/" target="_blank" rel="noopener"><b>@theaanganlounge ↗</b></a></p></div>
   </div>
 </div></section>
-<footer><div class="wrap">The Aangan Lounge · Salon &amp; Café, Jodhpur. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. Reels play directly from @theaanganlounge on Instagram.</div></footer>
+<footer><div class="wrap">The Aangan Lounge · Salon &amp; Café, Jodhpur. Website concept by <a href="https://firstglancestudio.in" style="color:var(--acc)">FirstGlance Studio</a>. Reels open directly from @theaanganlounge on Instagram.</div></footer>
+<dialog class="reel" id="reelDlg" aria-label="Instagram reel"><div class="box"><button class="x" type="button" id="reelX" aria-label="Close">×</button><iframe id="reelFrame" title="Instagram reel from @theaanganlounge" allowfullscreen></iframe></div></dialog>
 <a class="wa" href="https://wa.me/917727985757" target="_blank" rel="noopener" aria-label="WhatsApp The Aangan Lounge">💬</a>
 
 <script>
@@ -251,11 +275,15 @@ function renderCart(){const items=[...cart];if(window.__look)items.unshift(windo
 nm.addEventListener('input',renderCart);renderCart();
 document.getElementById('bridalWA').href=`https://wa.me/${WA}?text=${encodeURIComponent("Hi The Aangan Lounge! I'm getting married and would love to know about your bridal packages. My wedding date is: ")}`;
 /* ---- Hindi / English ---- */
-const HI={r1:'▶ लाउंज के अंदर आइए',r2:'▶ कार्निवल ग्लैम',r3:'▶ कॉकटेल नाइट लुक',nav1:'हेयर कलर',nav2:'सर्विसेज़',nav3:'ब्राइडल',nav4:'कैफ़े',book:'बुक करें',kick:'✨ सैलून · कैफ़े · ब्यूटी · मेकअप · नेल्स · जोधपुर',h1:'जहाँ ख़ूबसूरती मिले <em>कॉफ़ी से।</em>',lead:'हेयर ट्रांसफ़ॉर्मेशन, ब्राइडल ग्लैम और स्पा, और उसी आँगन में कैफ़े। आराम से बैठिए, चुस्की लीजिए, और चमकते हुए जाइए।',cta1:'WhatsApp पर बुक करें ↓',cta2:'हमारे ग्लैम लुक्स देखें ↓','c-eye':'हेयर कलर स्टूडियो','c-h':'बैठने से पहले <em>अपना नया शेड देखें।</em>','c-sub':'तकनीक और शेड चुनें, बाल तुरंत बदलेंगे। फिर उसी लुक के साथ कंसल्टेशन बुक करें।',tech:'तकनीक',shade:'शेड',finish:'साथ में',yourlook:'आपका लुक',addlook:'बुकिंग में जोड़ें ↓','m-eye':'मेन्यू','m-h':'आपके लिए सब कुछ, <em>एक ही आँगन में।</em>','m-sub':'+ दबाकर सर्विस जोड़ें। हेयर ट्रीटमेंट सिर्फ़ ₹1,500 से शुरू।','b-eye':'ब्राइडल और इवेंट्स · शादी का सीज़न','b-h':'वो चले, <em>तो दुनिया थम जाए।</em>','b-cta':'अपनी शादी की तारीख़ बताएँ ↗','f-eye':'आँगन कैफ़े','f-h':'चमकिए, <em>चुस्की लीजिए।</em>','k-eye':'30 सेकंड में बुकिंग','k-h':'आपकी विज़िट, <em>WhatsApp पर तय।</em>','k-cta':'WhatsApp पर बुकिंग भेजें ↗','v-eye':'आँगन में आइए','v-h':'मिलते हैं <em>जोधपुर में।</em>',dir:'रास्ता देखें ↗','w-eye':'क्लाइंट्स को आँगन क्यों पसंद है'};
+const HI={r1:'✨ लाउंज के अंदर आइए',r3:'आपका कॉकटेल लुक, सबकी नज़रों में।',nav1:'हेयर कलर',nav2:'सर्विसेज़',nav3:'ब्राइडल',nav4:'कैफ़े',book:'बुक करें',kick:'✨ सैलून · कैफ़े · ब्यूटी · मेकअप · नेल्स · जोधपुर',h1:'जहाँ ख़ूबसूरती मिले <em>कॉफ़ी से।</em>',lead:'हेयर ट्रांसफ़ॉर्मेशन, ब्राइडल ग्लैम और स्पा, और उसी आँगन में कैफ़े। आराम से बैठिए, चुस्की लीजिए, और चमकते हुए जाइए।',cta1:'WhatsApp पर बुक करें ↓',cta2:'सर्विसेज़ देखें ↓','c-eye':'हेयर कलर स्टूडियो','c-h':'बैठने से पहले <em>अपना नया शेड देखें।</em>','c-sub':'तकनीक और शेड चुनें, बाल तुरंत बदलेंगे। फिर उसी लुक के साथ कंसल्टेशन बुक करें।',tech:'तकनीक',shade:'शेड',finish:'साथ में',yourlook:'आपका लुक',addlook:'बुकिंग में जोड़ें ↓','m-eye':'मेन्यू','m-h':'आपके लिए सब कुछ, <em>एक ही आँगन में।</em>','m-sub':'+ दबाकर सर्विस जोड़ें। हेयर ट्रीटमेंट सिर्फ़ ₹1,500 से शुरू।','b-eye':'ब्राइडल और इवेंट्स · शादी का सीज़न','b-h':'वो चले, <em>तो दुनिया थम जाए।</em>','b-cta':'अपनी शादी की तारीख़ बताएँ ↗','f-eye':'आँगन कैफ़े','f-h':'चमकिए, <em>चुस्की लीजिए।</em>','k-eye':'30 सेकंड में बुकिंग','k-h':'आपकी विज़िट, <em>WhatsApp पर तय।</em>','k-cta':'WhatsApp पर बुकिंग भेजें ↗','v-eye':'आँगन में आइए','v-h':'मिलते हैं <em>जोधपुर में।</em>',dir:'रास्ता देखें ↗','w-eye':'क्लाइंट्स को आँगन क्यों पसंद है'};
 const EN={};document.querySelectorAll('[data-t]').forEach(e=>EN[e.dataset.t]=e.innerHTML);let isHi=false;
 document.getElementById('lang').onclick=e=>{isHi=!isHi;document.querySelectorAll('[data-t]').forEach(el=>{const k=el.dataset.t;if(HI[k]){el.innerHTML=isHi?HI[k]:EN[k];el.classList.toggle('hi',isHi)}});e.target.textContent=isHi?'English':'हिंदी';document.documentElement.lang=isHi?'hi':'en'};
 </script>
 <script>
+/* reels open on tap only */
+(function(){const d=document.getElementById('reelDlg'),f=document.getElementById('reelFrame');
+ document.querySelectorAll('[data-reel]').forEach(b=>b.addEventListener('click',()=>{f.src='https://www.instagram.com/reel/'+b.dataset.reel+'/embed';d.showModal()}));
+ const close=()=>{d.close();f.src='about:blank'};document.getElementById('reelX').onclick=close;d.addEventListener('click',e=>{if(e.target===d)close()});d.addEventListener('cancel',()=>{f.src='about:blank'})})();
 /* static hair colour preview: a fan of salon swatches */
 (function(){const svg=document.getElementById('hairsvg');const NS='http://www.w3.org/2000/svg';
  const SH={'Honey blonde':'#D8A25A','Caramel':'#B5773A','Copper':'#B4532A','Burgundy':'#7A1A36','Rose gold':'#D58A7E','Ash brown':'#8A7666','Plum':'#5A2350'};
