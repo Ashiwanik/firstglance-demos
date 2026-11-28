@@ -79,7 +79,7 @@ body{background:var(--bg)}
 </div></header>
 
 <div class="heroX" id="top">
-  <canvas id="hero3d" aria-label="3D Rajasthani courtyard with a glowing jharokha arch, marigold garlands, lanterns and a coffee cup"></canvas>
+  <canvas id="hero3d" aria-label="3D Rajasthani courtyard with a glowing jharokha arch, marigold torans, flickering diyas and a steaming coffee cup"></canvas>
   <div class="wrap"><div class="copy">
     <span class="kicker" data-t="kick">✨ Salon · Café · Beauty · Makeup · Nails · Jodhpur</span>
     <h1 id="h1"><span data-t="h1">Where beauty meets <em>coffee.</em></span></h1>
@@ -248,19 +248,42 @@ for(let i=-2;i<=2;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(.22,24,12
 // floor: courtyard tiles
 const tile=canvasTex(512,512,(x,w,h)=>{for(let i=0;i<8;i++)for(let j=0;j<8;j++){x.fillStyle=(i+j)%2?'#F6E7CF':'#E9D2AE';x.fillRect(i*64,j*64,64,64);x.strokeStyle='rgba(35,65,168,.35)';x.lineWidth=2;x.beginPath();x.arc(i*64+32,j*64+32,18,0,7);x.stroke()}},[3,3]);
 const floor=new THREE.Mesh(new THREE.PlaneGeometry(14,8),new THREE.MeshStandardMaterial({map:tile,roughness:.8}));floor.rotation.x=-Math.PI/2;floor.position.set(0,-.01,1.8);root.add(floor);
-// marigold garlands (toran) across the arch + hanging strings
-const marigoldM=[0xF59E0B,0xF97316,0xFBBF24].map(c=>new THREE.MeshStandardMaterial({color:c,roughness:.8}));
-const bloomG=new THREE.IcosahedronGeometry(.11,1);const garlands=[];
-function garland(a,b,sag,n){const g=new THREE.Group();for(let i=0;i<=n;i++){const u=i/n;const p=a.clone().lerp(b,u);p.y-=Math.sin(u*Math.PI)*sag;const m=new THREE.Mesh(bloomG,marigoldM[i%3]);m.position.copy(p);m.rotation.set(i,i*2,0);g.add(m)}root.add(g);return g}
-garlands.push(garland(new THREE.Vector3(-3.2,6.1,.4),new THREE.Vector3(3.2,6.1,.4),.9,46));
-const strings=[];for(let k=-3;k<=3;k++){const g=new THREE.Group();for(let i=0;i<9;i++){const m=new THREE.Mesh(bloomG,marigoldM[(i+k+3)%3]);m.position.set(0,-i*.21,0);g.add(m)}const leaf=new THREE.Mesh(new THREE.ConeGeometry(.09,.25,8),new THREE.MeshStandardMaterial({color:0x2F7D32}));leaf.position.y=-1.95;leaf.rotation.x=Math.PI;g.add(leaf);g.position.set(k*.92,6.1-Math.cos(k/3*Math.PI/2)*.85+.02,.42);root.add(g);strings.push(g)}
-// hanging brass lanterns with warm lights
-const brass=new THREE.MeshPhysicalMaterial({color:0xC8963E,metalness:1,roughness:.28});const lanterns=[];
-[[-4.6,4.6],[4.6,4.6],[-5.6,3.2],[5.6,3.2]].forEach(([x,y],i)=>{const g=new THREE.Group();const chain=new THREE.Mesh(new THREE.CylinderGeometry(.012,.012,2.4,6),brass);chain.position.y=1.2;g.add(chain);
-  const pts=[];[[0,.8],[.12,.78],[.34,.55],[.38,.2],[.3,-.1],[.1,-.25],[0,-.28]].forEach(q=>pts.push(new THREE.Vector2(q[0],q[1])));
-  const body=new THREE.Mesh(new THREE.LatheGeometry(pts,24),new THREE.MeshPhysicalMaterial({color:0xC8963E,metalness:.9,roughness:.3,emissive:0xFF9A2E,emissiveIntensity:.25}));g.add(body);
-  const glow=new THREE.Mesh(new THREE.SphereGeometry(.22,16,12),new THREE.MeshBasicMaterial({color:0xFFC46B}));glow.position.y=.25;g.add(glow);
-  const l=new THREE.PointLight(0xFFB050,5,7,1.6);l.position.y=.25;g.add(l);g.position.set(x,y,.9);root.add(g);lanterns.push(g)});
+const brass=new THREE.MeshPhysicalMaterial({color:0xC8963E,metalness:1,roughness:.28});
+// ---- marigold torans: ruffled flower heads with leaves ----
+const mg=new THREE.IcosahedronGeometry(.15,4);{const p=mg.attributes.position,v=new THREE.Vector3();const col=[];
+  for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i);const n=v.clone().normalize();const ruff=Math.sin(n.x*38)*Math.sin(n.y*41)*Math.sin(n.z*37);const r=1+ruff*.13;v.copy(n).multiplyScalar(.15*r);v.y*=.82;p.setXYZ(i,v.x,v.y,v.z);
+    const k=.55+.45*Math.max(0,ruff);const c=new THREE.Color().setHSL(.075+.025*ruff,1,.42+.12*k,THREE.SRGBColorSpace);col.push(c.r,c.g,c.b)}
+  mg.setAttribute('color',new THREE.Float32BufferAttribute(col,3));mg.computeVertexNormals()}
+const mgMat=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.85});
+const mgMat2=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.85,color:0xFFC23A});
+const leafG=(()=>{const sh=new THREE.Shape();sh.moveTo(0,0);sh.quadraticCurveTo(.09,.12,0,.3);sh.quadraticCurveTo(-.09,.12,0,0);return new THREE.ShapeGeometry(sh,8)})();
+const leafM=new THREE.MeshStandardMaterial({color:0x2E7D32,side:THREE.DoubleSide,roughness:.6});
+function addFlower(pos,i,parent){const m=new THREE.Mesh(mg,i%4===0?mgMat2:mgMat);m.position.copy(pos);m.rotation.set(rnd(i)*3,rnd(i+1)*3,rnd(i+2)*3);m.scale.setScalar(.9+rnd(i+3)*.25);parent.add(m);return m}
+const swag=new THREE.Group();root.add(swag);
+for(let i=0;i<=44;i++){const u=i/44;const p=new THREE.Vector3(-3.3+u*6.6,6.15-Math.sin(u*Math.PI)*.85,.45);addFlower(p,i,swag);if(i%3===1){const l=new THREE.Mesh(leafG,leafM);l.position.copy(p).add(new THREE.Vector3(0,-.12,.06));l.rotation.set(0,0,Math.PI+(rnd(i)-.5)*.8);swag.add(l)}}
+const strands=[];for(let k=-3;k<=3;k++){const g=new THREE.Group();const n=5+(3-Math.abs(k));for(let i=0;i<n;i++)addFlower(new THREE.Vector3(0,-i*.25,0),k*10+i+50,g);
+  for(let j=0;j<3;j++){const l=new THREE.Mesh(leafG,leafM);l.position.set(0,-n*.25+.04,0);l.rotation.set(0,j*2.1,Math.PI+(j-1)*.35);l.scale.setScalar(1.3);g.add(l)}
+  const u=(k+3)/6;g.position.set(-3.3+u*6.6,6.15-Math.sin(u*Math.PI)*.85-.14,.47);root.add(g);strands.push(g)}
+// ---- clay diyas with living flames ----
+const flameMat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uT:{value:0}},
+  vertexShader:`varying vec2 vUv;uniform float uT;attribute float aP;void main(){vUv=uv;vec3 p=position;p.x+=sin(uT*9.+aP*6.)*.012*uv.y+sin(uT*17.+aP)*.006*uv.y;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
+  fragmentShader:`varying vec2 vUv;void main(){vec2 c=vUv-vec2(.5,.32);float r=length(vec2(c.x*2.2,c.y*(c.y>0.?1.1:2.4)));float core=smoothstep(.42,.0,r);vec3 col=mix(vec3(1.,.38,.05),vec3(1.,.93,.6),smoothstep(.15,.0,r+.05));gl_FragColor=vec4(col*core*1.6,core);}`});
+const glowTex=canvasTex(128,128,(x,w,h)=>{const g=x.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'rgba(255,190,90,.9)');g.addColorStop(.35,'rgba(255,140,40,.35)');g.addColorStop(1,'rgba(255,120,20,0)');x.fillStyle=g;x.fillRect(0,0,w,h)});
+const clay=new THREE.MeshStandardMaterial({color:0xB5532A,roughness:.8});
+const diyas=[];[[-2.3,1.9],[-1.45,2.35],[1.5,2.35],[2.35,1.9],[-3.3,1.3],[3.3,1.3]].forEach(([x,z],i)=>{const g=new THREE.Group();const pts=[];[[0,0],[.2,0],[.3,.06],[.34,.14],[.3,.15],[.2,.08],[0,.08]].forEach(q=>pts.push(new THREE.Vector2(...q)));
+  g.add(new THREE.Mesh(new THREE.LatheGeometry(pts,32),clay));const oil=new THREE.Mesh(new THREE.CircleGeometry(.24,24),new THREE.MeshStandardMaterial({color:0x6B4A10,roughness:.2,metalness:.2}));oil.rotation.x=-Math.PI/2;oil.position.y=.11;g.add(oil);
+  const lp=new THREE.Mesh(new THREE.ConeGeometry(.06,.14,12),clay);lp.rotation.z=Math.PI/2;lp.position.set(.32,.12,0);g.add(lp);
+  const fgeo=new THREE.PlaneGeometry(.16,.34,1,8);fgeo.setAttribute('aP',new THREE.Float32BufferAttribute(new Array(fgeo.attributes.position.count).fill(i),1));
+  const flame=new THREE.Mesh(fgeo,flameMat);flame.position.set(.3,.33,0);g.add(flame);
+  const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));glow.scale.setScalar(1.1);glow.position.set(.3,.3,0);g.add(glow);
+  if(i<3){const l=new THREE.PointLight(0xFF9A3C,3.2,4.5,1.8);l.position.set(.3,.4,0);g.add(l);g.userData.light=l}
+  g.position.set(x,0,z);g.userData.flame=flame;g.userData.glow=glow;root.add(g);diyas.push(g)});
+// rangoli under the cup
+const rangoli=canvasTex(512,512,(x,w,h)=>{x.translate(256,256);const cols=['#E0287A','#F59E0B','#2341A8','#FFFFFF','#16A34A'];for(let r=5;r>0;r--){x.fillStyle=cols[r%5];for(let i=0;i<r*6;i++){x.save();x.rotate(i/(r*6)*Math.PI*2);x.beginPath();x.ellipse(0,-r*44,14+r*2,30,0,0,7);x.fill();x.restore()}}x.fillStyle='#F59E0B';x.beginPath();x.arc(0,0,40,0,7);x.fill()});
+const rg=new THREE.Mesh(new THREE.CircleGeometry(1.9,64),new THREE.MeshStandardMaterial({map:rangoli,roughness:.95}));rg.rotation.x=-Math.PI/2;rg.position.set(0,.012,1.2);root.add(rg);
+// soft light rays through the arch
+const rayTex=canvasTex(64,256,(x,w,h)=>{const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'rgba(255,230,170,0)');g.addColorStop(.2,'rgba(255,225,160,.55)');g.addColorStop(1,'rgba(255,225,160,0)');x.fillStyle=g;x.fillRect(0,0,w,h);const g2=x.createLinearGradient(0,0,w,0);g2.addColorStop(0,'rgba(0,0,0,1)');g2.addColorStop(.5,'rgba(0,0,0,0)');g2.addColorStop(1,'rgba(0,0,0,1)');x.globalCompositeOperation='destination-out';x.fillStyle=g2;x.fillRect(0,0,w,h)});
+const rays=[];for(let i=0;i<4;i++){const m=new THREE.Mesh(new THREE.PlaneGeometry(.9+i*.25,7),new THREE.MeshBasicMaterial({map:rayTex,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:.2}));m.position.set(-.9+i*.6,3.2,-.2+i*.1);m.rotation.z=.32;root.add(m);rays.push(m)}
 // centrepiece: a glossy cup with steam + gold scissors circling a glowing hand mirror
 const cup=new THREE.Group();{const pts=[];[[0,0],[.5,0],[.56,.06],[.66,.55],[.7,.82],[.66,.82],[.6,.1],[0,.1]].forEach(q=>pts.push(new THREE.Vector2(...q)));const cm=new THREE.MeshPhysicalMaterial({color:0xFFF6EA,roughness:.15,clearcoat:1});
   cup.add(new THREE.Mesh(new THREE.LatheGeometry(pts,64),cm));const band=new THREE.Mesh(new THREE.CylinderGeometry(.665,.62,.16,64,1,true),new THREE.MeshPhysicalMaterial({color:0x2341A8,roughness:.3,clearcoat:1}));band.position.y=.45;cup.add(band);
@@ -269,21 +292,13 @@ const cup=new THREE.Group();{const pts=[];[[0,0],[.5,0],[.56,.06],[.66,.55],[.7,
   const art=canvasTex(256,256,(x,w,h2)=>{const g=x.createRadialGradient(w/2,h2/2,0,w/2,h2/2,w/2);g.addColorStop(0,'#D9A066');g.addColorStop(.85,'#A8642E');g.addColorStop(1,'#6B3A16');x.fillStyle=g;x.fillRect(0,0,w,h2);x.fillStyle='#FFF1DE';x.font='bold 150px Georgia';x.textAlign='center';x.textBaseline='middle';x.fillText('A',w/2,h2/2+8)});
   const top=new THREE.Mesh(new THREE.CircleGeometry(.64,48),new THREE.MeshPhysicalMaterial({map:art,roughness:.4,clearcoat:.5}));top.rotation.x=-Math.PI/2;top.position.y=.76;cup.add(top);
   const sau=new THREE.Mesh(new THREE.CylinderGeometry(1.05,.9,.07,64),cm);sau.position.y=-.03;cup.add(sau)}
-cup.position.set(0,.05,1.2);cup.scale.setScalar(1.15);root.add(cup);
+const tray=new THREE.Mesh(new THREE.CylinderGeometry(1.3,1.2,.06,64),brass);tray.position.set(0,.03,1.2);root.add(tray);cup.position.set(0,.09,1.2);cup.scale.setScalar(1.05);root.add(cup);
 const steamMat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,uniforms:{uT:{value:0}},vertexShader:`varying vec2 vUv;uniform float uT;void main(){vUv=uv;vec3 p=position;p.x+=sin(uv.y*5.+uT*1.3)*.16*uv.y;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
   fragmentShader:`varying vec2 vUv;uniform float uT;float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}void main(){vec2 q=vUv*vec2(2.5,3.)+vec2(0.,-uT*.35);float v=n(q*2.)*.6+n(q*4.3)*.4;float e=smoothstep(0.,.35,vUv.x)*smoothstep(1.,.65,vUv.x);float f=smoothstep(0.,.15,vUv.y)*smoothstep(1.,.45,vUv.y);gl_FragColor=vec4(1.,.97,.92,smoothstep(.42,.85,v)*e*f*.55);}`});
 const steam=[0,1].map(i=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(.7,2.2,1,40),steamMat);m.position.set((i-.5)*.3,2.1,1.2);root.add(m);return m});
-// gold scissors orbiting
-function scissors(){const g=new THREE.Group();const bl=s=>{const sh=new THREE.Shape();sh.moveTo(0,0);sh.lineTo(1.1,.05*s);sh.quadraticCurveTo(1.2,0,1.1,-.02*s);sh.lineTo(0,-.09*s);const b=new THREE.Mesh(new THREE.ExtrudeGeometry(sh,{depth:.025,bevelEnabled:true,bevelSize:.008,bevelThickness:.008,bevelSegments:2}),brass);const r=new THREE.Mesh(new THREE.TorusGeometry(.13,.03,10,28),brass);r.position.set(-.38,-.08*s,0);const gg=new THREE.Group();gg.add(b,r);return gg};
-  const a=bl(1),b=bl(-1);b.position.z=.04;g.add(a,b);g.userData={a,b};return g}
-const sc=scissors();root.add(sc);
-// comb + lipstick orbiting too
-const lip=new THREE.Group();{const c=new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,.42,24),brass);lip.add(c);const s=new THREE.Mesh(new THREE.CylinderGeometry(.075,.075,.24,24),new THREE.MeshPhysicalMaterial({color:0xE0287A,roughness:.25,clearcoat:1}));s.position.y=.32;s.rotation.z=.0;lip.add(s);const tip=new THREE.Mesh(new THREE.SphereGeometry(.075,16,10,0,Math.PI*2,0,Math.PI/2),s.material);tip.position.y=.44;tip.rotation.x=-.5;lip.add(tip)}root.add(lip);
-// falling rose + marigold petals
-const pg=new THREE.SphereGeometry(1,8,6,0,Math.PI*.7,0,Math.PI*.4);const pMats=[0xE0287A,0xF59E0B,0xFF5FA2,0xF97316].map(c=>new THREE.MeshStandardMaterial({color:c,side:THREE.DoubleSide,roughness:.6}));
-const petals=[];for(let i=0;i<60;i++){const p=new THREE.Mesh(pg,pMats[i%4]);p.scale.setScalar(.08+rnd(i)*.06);p.userData={x:(rnd(i+1)-.5)*12,z:(rnd(i+2)-.5)*5+1,o:rnd(i+3),s:.03+rnd(i+4)*.05};root.add(p);petals.push(p)}
-// fireflies / dust motes in the lantern light
-const motes=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute([...Array(240)].flatMap((_,i)=>[(rnd(i)-.5)*12,rnd(i+9)*7,(rnd(i+5)-.5)*4+1]),3)),new THREE.PointsMaterial({color:0xFFD27A,size:.05,transparent:true,opacity:.8}));root.add(motes);
+const pg=new THREE.SphereGeometry(1,10,8,0,Math.PI*.6,0,Math.PI*.35);const pMats=[0xE0287A,0xF59E0B,0xFF6FA8,0xF97316].map(c=>new THREE.MeshStandardMaterial({color:c,side:THREE.DoubleSide,roughness:.55}));
+const petals=[];for(let i=0;i<34;i++){const p=new THREE.Mesh(pg,pMats[i%4]);p.scale.setScalar(.09+rnd(i)*.05);p.userData={x:(rnd(i+1)-.5)*10,z:(rnd(i+2)-.5)*4+1.2,o:rnd(i+3),s:.025+rnd(i+4)*.025,w:rnd(i+5)*6};root.add(p);petals.push(p)}
+const motes=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute([...Array(160)].flatMap((_,i)=>[(rnd(i)-.5)*5,rnd(i+9)*6,(rnd(i+5)-.5)*2]),3)),new THREE.PointsMaterial({color:0xFFE2A8,size:.035,transparent:true,opacity:.7,depthWrite:false}));root.add(motes);
 let mx=0,my=0,tmx=0,tmy=0;addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5},{passive:true});
 let scrollP=0;addEventListener('scroll',()=>{scrollP=Math.min(1,scrollY/innerHeight)},{passive:true});
 function fitHero(){const narrow=A.c.aspect<.8;A.c.fov=narrow?50:34;A.c.updateProjectionMatrix();root.position.set(narrow?0:2.6,narrow?2.6:0,0);root.scale.setScalar(narrow?.8:1)}
@@ -352,16 +367,15 @@ document.querySelectorAll('#colour input').forEach(i=>i.addEventListener('change
 document.getElementById('addLook').onclick=()=>{window.__look='Hair: '+window.__lookTxt;document.getElementById('nm').dispatchEvent(new Event('input'));document.getElementById('book').scrollIntoView({behavior:'smooth'})};
 const vH=onVisible(H.r.domElement);
 function loop(){const t=performance.now()/1000;
-  if(vA.v){mx+=(tmx-mx)*.04;my+=(tmy-my)*.04;
-    A.c.position.set(mx*1.6,2.2-my*.8+scrollP*.6,10.5-scrollP*1.2);A.c.lookAt(root.position.x*.35,2.4+root.position.y*.6,0);
-    mand.rotation.z=t*.05;mand.material.opacity=.45+Math.sin(t*.8)*.1;
-    strings.forEach((s,i)=>{s.rotation.z=Math.sin(t*1.1+i)*.06;s.rotation.x=Math.sin(t*.9+i*.7)*.05});
-    lanterns.forEach((l,i)=>{l.rotation.z=Math.sin(t*.8+i)*.05;l.children[3].intensity=4.5+Math.sin(t*7+i*3)*.6+Math.sin(t*13+i)*.3});
-    cup.rotation.y=t*.25;steam.forEach((m,i)=>{m.material.uniforms.uT.value=t+i*1.7;m.quaternion.copy(A.c.quaternion)});
-    const a=t*.55;sc.position.set(Math.cos(a)*2.0,1.8+Math.sin(t*1.3)*.25,Math.sin(a)*1.1+1.2);sc.rotation.set(.3,-a+Math.PI/2,-.5);const o=(Math.sin(t*3)*.5+.5)*.35;sc.userData.a.rotation.z=o;sc.userData.b.rotation.z=-o;
-    const b2=a+Math.PI;lip.position.set(Math.cos(b2)*2.0,1.6+Math.sin(t*1.1)*.2,Math.sin(b2)*1.1+1.2);lip.rotation.set(.4,t,.5);
-    petals.forEach((p,i)=>{const u=p.userData;const k=(u.o+t*u.s)%1;p.position.set(u.x+Math.sin(t*.8+i)*.4,8-k*8.5,u.z);p.rotation.set(t*.9+i,t*.6+i*2,i)});
-    motes.rotation.y=Math.sin(t*.1)*.2;
+  if(vA.v){mx+=(tmx-mx)*.03;my+=(tmy-my)*.03;const drift=reduce?0:Math.sin(t*.12)*.35;
+    A.c.position.set(mx*1.1+drift,2.3-my*.5+scrollP*.5,10.8-scrollP*1.4-(reduce?0:Math.sin(t*.09)*.3));A.c.lookAt(root.position.x*.35,2.5+root.position.y*.6,0);
+    mand.rotation.z=t*.03;mand.material.opacity=.38+Math.sin(t*.6)*.06;
+    strands.forEach((s2,i)=>{s2.rotation.z=Math.sin(t*.9+i*.8)*.035;s2.rotation.x=Math.sin(t*.7+i)*.03});swag.position.y=Math.sin(t*.8)*.015;
+    flameMat.uniforms.uT.value=t;diyas.forEach((d,i)=>{const f=1+Math.sin(t*11+i*2)*.06+Math.sin(t*23+i)*.04;d.userData.flame.scale.set(1,f,1);d.userData.flame.quaternion.copy(A.c.quaternion);d.userData.glow.material.opacity=.75+Math.sin(t*7+i)*.12;if(d.userData.light)d.userData.light.intensity=3+Math.sin(t*9+i*3)*.4+Math.sin(t*21+i)*.25});
+    rays.forEach((r,i)=>{r.material.opacity=.13+Math.sin(t*.4+i*1.3)*.06});
+    cup.rotation.y=t*.12;steam.forEach((m,i)=>{m.material.uniforms.uT.value=t+i*1.7;m.quaternion.copy(A.c.quaternion)});
+    petals.forEach((p,i)=>{const u=p.userData;const k=(u.o+t*u.s)%1;p.position.set(u.x+Math.sin(t*.6+u.w)*.6,7.5-k*8,u.z+Math.cos(t*.5+u.w)*.3);p.rotation.set(Math.sin(t*1.3+u.w)*.9,t*.4+u.w,Math.cos(t*1.1+u.w)*.7)});
+    motes.rotation.y=t*.02;motes.position.y=Math.sin(t*.3)*.1;
     A.r.render(A.s,A.c)}
   if(vH.v){spinH();HU.uT.value=t;HU.uAmt.value+=(1-HU.uAmt.value)*.05;HU.uCol.value.lerp(target,.08);H.r.render(H.s,H.c)}
   requestAnimationFrame(loop)}
